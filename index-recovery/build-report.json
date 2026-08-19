@@ -1,0 +1,56 @@
+{
+  "total_entries_D_Z": 650,
+  "pages": [
+    {
+      "page": "atoz-part2.html",
+      "range": "D–G",
+      "entries": 147,
+      "by_letter": {
+        "D": 48,
+        "E": 25,
+        "F": 49,
+        "G": 25
+      }
+    },
+    {
+      "page": "atoz-part3.html",
+      "range": "H–L",
+      "entries": 147,
+      "by_letter": {
+        "H": 60,
+        "I": 14,
+        "J": 1,
+        "K": 25,
+        "L": 47
+      }
+    },
+    {
+      "page": "atoz-part4.html",
+      "range": "M–R",
+      "entries": 183,
+      "by_letter": {
+        "M": 43,
+        "N": 30,
+        "O": 25,
+        "P": 41,
+        "Q": 1,
+        "R": 43
+      }
+    },
+    {
+      "page": "atoz-part5.html",
+      "range": "S–Z",
+      "entries": 173,
+      "by_letter": {
+        "S": 74,
+        "T": 40,
+        "U": 7,
+        "V": 2,
+        "W": 45,
+        "X": 0,
+        "Y": 4,
+        "Z": 1
+      }
+    }
+  ]
+}
