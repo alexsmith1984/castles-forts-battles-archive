@@ -1,0 +1,191 @@
+{
+  "name": "Old Oswestry Hillfort",
+  "status": "built",
+  "text_blocks": 36,
+  "image_refs": 71,
+  "images_recovered": 1,
+  "images": [
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/castlesfortsbattles.jpg?crc=468208580",
+      "status": "recovered",
+      "file": "images/castlesfortsbattles.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry_hillfort.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry_hillfort.jpg?crc=393051371",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry20.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry20.jpg?crc=35465921",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry3.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry3.jpg?crc=245737741",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry19.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry19.jpg?crc=3927768463",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry7.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry7.jpg?crc=330840489",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry15_air.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry15_air.jpg?crc=102144202",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry16_entrance.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry16_entrance.jpg?crc=13438815",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry17_defences.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry17_defences.jpg?crc=39446877",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry20445x333.jpg?crc=177721374",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1.jpg?crc=525457977",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry4.jpg?crc=513557962",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry5.jpg?crc=3838776452",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry6.jpg?crc=4221109287",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry9.jpg?crc=397630412",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry10.jpg?crc=401645482",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry11.jpg?crc=4075517955",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry12.jpg?crc=476013278",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry14.jpg?crc=401129575",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry18.jpg?crc=4199947512",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry760x40.jpg?crc=4109715939",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1260x40.jpg?crc=374476450",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry15_air60x21.jpg?crc=3859246609",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1460x40.jpg?crc=246154310",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry16_entrance60x45.jpg?crc=4128556854",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1860x45.jpg?crc=401989499",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry17_defences60x45.jpg?crc=354872845",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1960x45.jpg?crc=4271853757",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry2060x45.jpg?crc=375990132",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry160x40.jpg?crc=3932706486",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry460x40.jpg?crc=307986789",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry560x40.jpg?crc=4048963412",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry660x40.jpg?crc=3958020268",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry960x40.jpg?crc=4269210101",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1060x40.jpg?crc=3858942194",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1160x40.jpg?crc=3811347876",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/castlesfortsbattles-crop-u301.jpg?crc=3914299394",
+      "status": "unrecovered"
+    }
+  ],
+  "public_path": "recovered/old-oswestry-hillfort/index.html"
+}

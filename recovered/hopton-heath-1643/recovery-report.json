@@ -1,0 +1,158 @@
+{
+  "name": "Hopton Heath (Battle of - 1643)",
+  "status": "built",
+  "text_blocks": 73,
+  "image_refs": 37,
+  "images_recovered": 0,
+  "images": [
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643.jpg?crc=321009538",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_statistics.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_statistics.jpg?crc=3787970121",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action1.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action1a.jpg?crc=59817572",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action2.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action2a.jpg?crc=501839057",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action3.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action3a.jpg?crc=4219245659",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action4.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action4a.jpg?crc=299125111",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action5.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action5a.jpg?crc=127957582",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_1.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_1.jpg?crc=474527323",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_2.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_2.jpg?crc=282052398",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_4a_monument.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_4a_monument.jpg?crc=348745995",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_7b.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_7b.jpg?crc=378975180",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_17_heathyards_farm.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_17_heathyards_farm.jpg?crc=3973076826",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_18_heathyards_farm_track.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_18_heathyards_farm_track.jpg?crc=362383798",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_16_heathyards_farm.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_16_heathyards_farm.jpg?crc=4202663447",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_12_sandon_lane.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_12_sandon_lane.jpg?crc=337086420",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_9_mod_stafford_site6.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_9_mod_stafford_site6.jpg?crc=4043944296",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643824x352.jpg?crc=32407723",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_1287x192.jpg?crc=132000455",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_2287x192.jpg?crc=4189150177",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_12_sandon_lane350x233.jpg?crc=76366839",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_9_mod_stafford_site6349x233.jpg?crc=4120376528",
+      "status": "unrecovered"
+    }
+  ],
+  "public_path": "recovered/hopton-heath-1643/index.html"
+}

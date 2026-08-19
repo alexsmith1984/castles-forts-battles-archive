@@ -1,0 +1,90 @@
+{
+  "name": "Stokesay Castle",
+  "status": "built",
+  "text_blocks": 17,
+  "image_refs": 19,
+  "images_recovered": 4,
+  "images": [
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+      "status": "recovered",
+      "file": "images/wp9361f621_06.png"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Stokesay_Castle2.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpb0ff30e2_05_06.jpg",
+      "status": "recovered",
+      "file": "images/wpb0ff30e2_05_06.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp7126f784_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp08a834da_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Stokesay_Castle4.JPG",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpf1c33d65_05_06.jpg",
+      "status": "recovered",
+      "file": "images/wpf1c33d65_05_06.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Stokesay_Castle9.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp5dd29649_05_06.jpg",
+      "status": "recovered",
+      "file": "images/wp5dd29649_05_06.jpg"
+    }
+  ],
+  "public_path": "recovered/stokesay-castle/index.html"
+}

@@ -1,0 +1,209 @@
+{
+  "name": "Montgomery Castle",
+  "status": "built",
+  "text_blocks": 68,
+  "image_refs": 209,
+  "images_recovered": 19,
+  "images": [
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/castlesfortsbattles.jpg?crc=468208580",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle.jpg?crc=4293256653",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle8.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle8.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle8.jpg?crc=24325008",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/hen_domen_castle.jpg",
+      "status": "recovered",
+      "file": "images/hen_domen_castle.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/hen_domen_castle.jpg?crc=4124995064",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle23.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle23.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle23.jpg?crc=4179211319",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_town_walls2.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_town_walls2.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls2.jpg?crc=449966970",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle21.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle21.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle21.jpg?crc=3786467187",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle22.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle22.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle22.jpg?crc=4093328843",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle1b.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle1b.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle1b.jpg?crc=348039421",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle2.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle2.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle2.jpg?crc=3909048777",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle5.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle5.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle5.jpg?crc=450272295",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle4a.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle4a.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle4a.jpg?crc=132913179",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle7.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle7.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle7.jpg?crc=4271762688",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle9.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle9.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle9322x217.jpg?crc=260598994",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle11_inner_ward.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle11_inner_ward.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle11_inner_ward324x216.jpg?crc=182787883",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle12a.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_castle12a.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle12a324x216.jpg?crc=451861288",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_town_walls_plan.png",
+      "status": "recovered",
+      "file": "images/montgomery_town_walls_plan.png"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls_plan.jpg?crc=3824259970",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_town_walls1.jpg",
+      "status": "recovered",
+      "file": "images/montgomery_town_walls1.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls1374x250.jpg?crc=328800076",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls2374x250.jpg?crc=4234396573",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_fortifications.png",
+      "status": "recovered",
+      "file": "images/montgomery_fortifications.png"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_fortifications2.jpg?crc=170502034",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/ffridd_faldwyn_hillfort5.jpg",
+      "status": "recovered",
+      "file": "images/ffridd_faldwyn_hillfort5.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/ffridd_faldwyn_hillfort5358x268.jpg?crc=147945962",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/hen_domen_castle358x239.jpg?crc=4073587531",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle9.jpg?crc=4014086989",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle11_inner_ward.jpg?crc=3920811162",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle12a.jpg?crc=3775073072",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls1.jpg?crc=4018045181",
+      "status": "unrecovered"
+    }
+  ],
+  "public_path": "recovered/montgomery-castle/index.html"
+}

@@ -1,0 +1,206 @@
+{
+  "name": "Hopton Castle",
+  "status": "built",
+  "text_blocks": 36,
+  "image_refs": 82,
+  "images_recovered": 16,
+  "images": [
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/castlesfortsbattles.jpg?crc=468208580",
+      "status": "recovered",
+      "file": "images/castlesfortsbattles.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle.jpg?crc=362019969",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle3.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3.jpg?crc=127266941",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle_plan.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle_plan.jpg?crc=378951817",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle1.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1.jpg?crc=3958631876",
+      "status": "recovered",
+      "file": "images/hopton_castle1.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3325x217.jpg?crc=4038810833",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle4.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle4325x217.jpg?crc=3874668160",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle5.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle5325x217.jpg?crc=332307003",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle10.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle10.jpg?crc=4200351811",
+      "status": "recovered",
+      "file": "images/hopton_castle10.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle11.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle11.jpg?crc=4241528016",
+      "status": "recovered",
+      "file": "images/hopton_castle11.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle13_earthworks.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle13_earthworks.jpg?crc=3783881679",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3500x333.jpg?crc=4065132989",
+      "status": "recovered",
+      "file": "images/hopton_castle3500x333.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle4.jpg?crc=354439579",
+      "status": "recovered",
+      "file": "images/hopton_castle4.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle5.jpg?crc=77106271",
+      "status": "recovered",
+      "file": "images/hopton_castle5.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle2.jpg?crc=335116168",
+      "status": "recovered",
+      "file": "images/hopton_castle2.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle6_interior.jpg?crc=142055535",
+      "status": "recovered",
+      "file": "images/hopton_castle6_interior.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle7.jpg?crc=4117318152",
+      "status": "recovered",
+      "file": "images/hopton_castle7.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle8.jpg?crc=3904519148",
+      "status": "recovered",
+      "file": "images/hopton_castle8.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle9.jpg?crc=490337967",
+      "status": "recovered",
+      "file": "images/hopton_castle9.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle12.jpg?crc=4009780266",
+      "status": "recovered",
+      "file": "images/hopton_castle12.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle14.jpg?crc=4114956817",
+      "status": "recovered",
+      "file": "images/hopton_castle14.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle15.jpg?crc=315639569",
+      "status": "recovered",
+      "file": "images/hopton_castle15.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle16_earthworks.jpg?crc=4042228251",
+      "status": "recovered",
+      "file": "images/hopton_castle16_earthworks.jpg"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle160x40.jpg?crc=528087221",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1560x40.jpg?crc=120723168",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle360x40.jpg?crc=4292320823",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle16_earthworks60x40.jpg?crc=3869403734",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle460x40.jpg?crc=251721801",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle560x40.jpg?crc=4113814785",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1060x40.jpg?crc=334461604",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1160x40.jpg?crc=496090744",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle260x40.jpg?crc=4222488236",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle860x40.jpg?crc=3793183259",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1260x40.jpg?crc=30172140",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1460x40.jpg?crc=3995177087",
+      "status": "unrecovered"
+    },
+    {
+      "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3277x184.jpg?crc=4256546309",
+      "status": "unrecovered"
+    }
+  ],
+  "public_path": "recovered/hopton-castle/index.html"
+}

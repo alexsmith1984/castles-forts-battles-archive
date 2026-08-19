@@ -1,0 +1,215 @@
+{
+  "name": "Peveril Castle",
+  "status": "built",
+  "text_blocks": 42,
+  "image_refs": 115,
+  "images_recovered": 25,
+  "images": [
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/castlesfortsbattles.jpg?crc=468208580",
+      "status": "recovered",
+      "file": "images/castlesfortsbattles.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle.jpg?crc=444331860",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle20.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle20.jpg?crc=9778261",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_castleton_plan.png",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle_castleton_plan.jpg?crc=429587443",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_layout2.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle_layout2.jpg?crc=76732129",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_layout3.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle_layout3.jpg?crc=135002886",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle2.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle2.jpg?crc=4273639298",
+      "status": "recovered",
+      "file": "images/peveril_castle2.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle4.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle4.jpg?crc=356822857",
+      "status": "recovered",
+      "file": "images/peveril_castle4.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle6.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle6.jpg?crc=421786956",
+      "status": "recovered",
+      "file": "images/peveril_castle6.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle23.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle23.jpg?crc=192185211",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle21a.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle21a.jpg?crc=3906463300",
+      "status": "recovered",
+      "file": "images/peveril_castle21a.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle29_bailey.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle29_bailey.jpg?crc=350484065",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle16_gatehouse.jpg?crc=3824093698",
+      "status": "recovered",
+      "file": "images/peveril_castle16_gatehouse.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/castleton_rampart.jpg",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/castleton_rampart.jpg?crc=461103384",
+      "status": "unrecovered"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle20444x333.jpg?crc=3775523791",
+      "status": "recovered",
+      "file": "images/peveril_castle20444x333.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle1a.jpg?crc=302075396",
+      "status": "recovered",
+      "file": "images/peveril_castle1a.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle1b.jpg?crc=3933868474",
+      "status": "recovered",
+      "file": "images/peveril_castle1b.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle3.jpg?crc=4293759583",
+      "status": "recovered",
+      "file": "images/peveril_castle3.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle4a.jpg?crc=161569670",
+      "status": "recovered",
+      "file": "images/peveril_castle4a.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle5.jpg?crc=3962233122",
+      "status": "recovered",
+      "file": "images/peveril_castle5.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle7.jpg?crc=4123898549",
+      "status": "recovered",
+      "file": "images/peveril_castle7.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle8.jpg?crc=124471260",
+      "status": "recovered",
+      "file": "images/peveril_castle8.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle9_northern_wall.jpg?crc=296148786",
+      "status": "recovered",
+      "file": "images/peveril_castle9_northern_wall.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle10.jpg?crc=139094540",
+      "status": "recovered",
+      "file": "images/peveril_castle10.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle12.jpg?crc=3001194",
+      "status": "recovered",
+      "file": "images/peveril_castle12.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle13_keep.jpg?crc=4077808951",
+      "status": "recovered",
+      "file": "images/peveril_castle13_keep.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle13_northern_wall.jpg?crc=522626775",
+      "status": "recovered",
+      "file": "images/peveril_castle13_northern_wall.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle14_gatehouse.jpg?crc=44836867",
+      "status": "recovered",
+      "file": "images/peveril_castle14_gatehouse.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle15_gatehouse_arch.jpg?crc=3890929441",
+      "status": "recovered",
+      "file": "images/peveril_castle15_gatehouse_arch.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle17_northern_wall.jpg?crc=3817577751",
+      "status": "recovered",
+      "file": "images/peveril_castle17_northern_wall.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle18.jpg?crc=3785560614",
+      "status": "recovered",
+      "file": "images/peveril_castle18.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle19_keep.jpg?crc=78153625",
+      "status": "recovered",
+      "file": "images/peveril_castle19_keep.jpg"
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle19a_keep.jpg?crc=4051082911",
+      "status": "recovered",
+      "file": "images/peveril_castle19a_keep.jpg"
+    }
+  ],
+  "public_path": "recovered/peveril-castle/index.html"
+}
