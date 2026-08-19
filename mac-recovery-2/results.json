@@ -1,0 +1,4007 @@
+{
+  "arquivo": {
+    "queries": [
+      {
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      },
+      {
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": true,
+        "status": 200,
+        "target_rows": 0,
+        "error": null
+      }
+    ],
+    "hits": []
+  },
+  "commoncrawl": {
+    "collinfo_ok": true,
+    "crawl_ids": [
+      "CC-MAIN-2022-49",
+      "CC-MAIN-2022-40",
+      "CC-MAIN-2022-33",
+      "CC-MAIN-2022-27",
+      "CC-MAIN-2022-21",
+      "CC-MAIN-2022-05",
+      "CC-MAIN-2021-49",
+      "CC-MAIN-2021-43",
+      "CC-MAIN-2021-39",
+      "CC-MAIN-2021-31",
+      "CC-MAIN-2021-25",
+      "CC-MAIN-2021-21",
+      "CC-MAIN-2021-17",
+      "CC-MAIN-2021-10",
+      "CC-MAIN-2021-04",
+      "CC-MAIN-2020-50",
+      "CC-MAIN-2020-45",
+      "CC-MAIN-2020-40",
+      "CC-MAIN-2020-34",
+      "CC-MAIN-2020-29",
+      "CC-MAIN-2020-24",
+      "CC-MAIN-2020-16",
+      "CC-MAIN-2020-10",
+      "CC-MAIN-2020-05",
+      "CC-MAIN-2019-51",
+      "CC-MAIN-2019-47",
+      "CC-MAIN-2019-43",
+      "CC-MAIN-2019-39",
+      "CC-MAIN-2019-35",
+      "CC-MAIN-2019-30",
+      "CC-MAIN-2019-26",
+      "CC-MAIN-2019-22",
+      "CC-MAIN-2019-18",
+      "CC-MAIN-2019-13",
+      "CC-MAIN-2019-09",
+      "CC-MAIN-2019-04",
+      "CC-MAIN-2018-51",
+      "CC-MAIN-2018-47",
+      "CC-MAIN-2018-43",
+      "CC-MAIN-2018-39",
+      "CC-MAIN-2018-34",
+      "CC-MAIN-2018-30",
+      "CC-MAIN-2018-26",
+      "CC-MAIN-2018-22",
+      "CC-MAIN-2018-17",
+      "CC-MAIN-2018-13",
+      "CC-MAIN-2018-09",
+      "CC-MAIN-2018-05",
+      "CC-MAIN-2017-51",
+      "CC-MAIN-2017-47",
+      "CC-MAIN-2017-43",
+      "CC-MAIN-2017-39",
+      "CC-MAIN-2017-34",
+      "CC-MAIN-2017-30",
+      "CC-MAIN-2017-26",
+      "CC-MAIN-2017-22",
+      "CC-MAIN-2017-17",
+      "CC-MAIN-2017-13",
+      "CC-MAIN-2017-09",
+      "CC-MAIN-2017-04"
+    ],
+    "queries_ok": 0,
+    "queries_failed": 480,
+    "hits": [],
+    "query_log": [
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 400: Bad Request"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-49",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-40",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-33",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-27",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-21",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2022-05",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-49",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-31",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-25",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-21",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2021-17",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-10",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2021-04",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-50",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "HTTP Error 503: Service Temporarily Unavailable"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-45",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error _ssl.c:1064: The handshake operation timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-40",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "The read operation timed out"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-34",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-29",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-24",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-16",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-10",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2020-05",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-51",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-47",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-35",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-30",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-26",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-22",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-18",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-13",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-09",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2019-04",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-51",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-47",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-34",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-30",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-26",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-22",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-17",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-13",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-09",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2018-05",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-51",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-47",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-43",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-39",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-34",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-30",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-26",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-22",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-17",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-13",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-09",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "http://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/assets/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "crawl": "CC-MAIN-2017-04",
+        "prefix": "https://castlesfortsbattles.co.uk/midlands/images/baddesley",
+        "ok": false,
+        "status": null,
+        "target_rows": 0,
+        "error": "<urlopen error [Errno 61] Connection refused>"
+      }
+    ]
+  },
+  "summary": {
+    "baddesley_clinton_plan": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle5": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle9": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle24": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle23": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle10": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle12": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle14_priest_hole": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    }
+  }
+}
