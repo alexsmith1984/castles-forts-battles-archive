@@ -1,0 +1,13 @@
+{
+  "selected_destinations": 84,
+  "states": {
+    "some_referenced_media_not_indexed": 56,
+    "all_referenced_media_indexed": 2,
+    "source_unavailable_or_unresolved": 25,
+    "no_media_refs_detected": 1
+  },
+  "prefixes_queried": 6,
+  "successful_prefixes": 6,
+  "indexed_media_paths": 13816,
+  "scope": "Focused Midlands/Bosworth audit comparing media paths in recoverable archived HTML source with Wayback CDX records."
+}
