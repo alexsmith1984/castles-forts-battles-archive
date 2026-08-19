@@ -1,1 +1,1 @@
-Trigger Baddesley Clinton exact URL availability recovery run.
+Trigger Baddesley Clinton exact CRC CDX recovery run.
