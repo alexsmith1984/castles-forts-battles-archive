@@ -1,0 +1,89 @@
+name: Rewrite catalogue links to best known snapshots
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rewrite-index-links.yml'
+      - 'catalogue-audit/availability-slow-retry.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install beautifulsoup4
+      - name: Rewrite destination links only
+        run: |
+          cat > /tmp/rewrite.py <<'PY'
+          import json, os, re, html
+          from urllib.parse import urlsplit
+          from bs4 import BeautifulSoup
+
+          parts=['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']
+          wb=re.compile(r'^https://web\.archive\.org/web/\d+(?:[a-z_]+)?/(https?://.+)$',re.I)
+          def key(u):
+            if u.startswith('LOCAL:'):return u
+            s=urlsplit(u);h=s.netloc.lower();h=h[4:] if h.startswith('www.') else h
+            return h+(s.path or '/').lower()
+          def original_from_href(h):
+            h=html.unescape(h or '').strip()
+            if h=='baddesley-clinton-final.html':return 'LOCAL:baddesley-clinton-final.html'
+            m=wb.match(h);return m.group(1) if m else h
+          mapping={};sources={}
+          def add(o,u,source,priority):
+            if not o or not u:return
+            k=key(o)
+            if k not in mapping or priority>mapping[k][0]:mapping[k]=(priority,u,o);sources[k]=source
+          # low priority: domain CDX exact known captures
+          if os.path.exists('catalogue-audit/cdx-fast.json'):
+            for r in json.load(open('catalogue-audit/cdx-fast.json',encoding='utf-8'))['results']:
+              if r.get('state')=='indexed_html_capture':add(r['original'],r.get('best_replay'), 'cdx',10)
+              elif r.get('state')=='reconstructed_local':add(r['original'],'baddesley-clinton-final.html','local',100)
+          # availability checks nearer 2022
+          if os.path.exists('catalogue-audit/availability-unresolved.json'):
+            for r in json.load(open('catalogue-audit/availability-unresolved.json',encoding='utf-8'))['results']:
+              if r.get('resolution')=='available_via_api':add(r['original'],r.get('best_replay'),'availability',30)
+          if os.path.exists('catalogue-audit/best-snapshots.json'):
+            for r in json.load(open('catalogue-audit/best-snapshots.json',encoding='utf-8'))['results']:
+              if r.get('best_state')=='available':add(r['original'],r.get('best_replay'),'best-snapshot',40)
+          if os.path.exists('catalogue-audit/availability-slow-retry.json'):
+            for r in json.load(open('catalogue-audit/availability-slow-retry.json',encoding='utf-8'))['results']:
+              if r.get('slow_resolution')=='available':add(r['original'],r.get('best_replay'),'slow-retry',50)
+          add('LOCAL:baddesley-clinton-final.html','baddesley-clinton-final.html','local',100)
+
+          report={'mapped_destinations':len(mapping),'pages':{}}
+          for p in parts:
+            soup=BeautifulSoup(open(p,encoding='utf-8').read(),'html.parser')
+            changed=0;total=0;unmapped=0
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2 or len(h2.get_text(' ',strip=True))!=1:continue
+              for a in sec.find_all('a',href=True):
+                total+=1;o=original_from_href(a['href']);k=key(o)
+                if k in mapping:
+                  new=mapping[k][1]
+                  if a['href']!=new:a['href']=new;changed+=1
+                else:unmapped+=1
+            open(p,'w',encoding='utf-8').write(str(soup))
+            report['pages'][p]={'entry_links':total,'rewritten_this_run':changed,'unmapped':unmapped}
+          report['mapping_sources']={s:sum(1 for k in mapping if sources.get(k)==s) for s in sorted(set(sources.values()))}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump(report,open('catalogue-audit/link-map-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(report,indent=2))
+          PY
+          python /tmp/rewrite.py
+      - name: Commit improved links
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html catalogue-audit/link-map-summary.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Point catalogue entries to best known Wayback snapshots' && git pull --rebase && git push; fi
