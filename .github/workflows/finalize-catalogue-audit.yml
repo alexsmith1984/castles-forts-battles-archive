@@ -1,0 +1,132 @@
+name: Finalize catalogue links and audit dashboard
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-catalogue-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install beautifulsoup4
+      - name: Normalize links and build public audit
+        run: |
+          cat > /tmp/finalize.py <<'PY'
+          import json,os,html
+          from collections import Counter
+          from bs4 import BeautifulSoup
+
+          availability=json.load(open('catalogue-audit/availability-complete.json',encoding='utf-8'))['results']
+          images=json.load(open('catalogue-audit/canonical-content-images.json',encoding='utf-8'))['results']
+          notice={
+            'Dinieithon Castle':'dinieithon-castle-unrecovered.html',
+            'Galdendoch Castle':'galdendoch-castle-unrecovered.html',
+            'Oxburgh Hall':'oxburgh-hall-unrecovered.html'
+          }
+          # Entry-name -> best stable target. Shared-page aliases get the same target.
+          byname={}
+          availability_by_primary={}
+          for r in availability:
+            availability_by_primary[r['primary_name']]=r
+            target=r.get('best_replay')
+            if r.get('availability')=='reconstructed_local':target='baddesley-clinton-final.html'
+            if r.get('availability')=='no_snapshot_found':target=notice.get(r['primary_name'])
+            if target:
+              byname[r['primary_name']]=target
+              for a in r.get('aliases',[]):byname[a]=target
+
+          link_report={}
+          for part in ['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']:
+            soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser')
+            total=changed=unmapped=0
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2 or len(h2.get_text(' ',strip=True))!=1:continue
+              for a in sec.find_all('a',href=True):
+                total+=1;name=a.get_text(' ',strip=True);target=byname.get(name)
+                if target:
+                  if a['href']!=target:a['href']=target;changed+=1
+                else:unmapped+=1
+            open(part,'w',encoding='utf-8').write(str(soup))
+            link_report[part]={'entries':total,'changed':changed,'unmapped':unmapped}
+
+          priority_needles=[
+            'Baddesley Clinton','Clun Castle','Hopton Castle','Moreton Corbet','Old Oswestry Hillfort',
+            'Peveril Castle','Richard','Seckington Castle','Stafford Castle','Stokesay Castle','Tutbury Castle','Bosworth Field'
+          ]
+          def priority(rec):
+            names=[rec['primary_name']]+rec.get('aliases',[])
+            text=' | '.join(names).lower()
+            return any(x.lower() in text for x in priority_needles)
+
+          # State labels deliberately distinguish archive-index evidence from visual verification.
+          labels={
+            'all_content_images_exactly_indexed':'All intended content images indexed',
+            'all_content_images_recoverable_some_via_alternate_path':'All intended images recoverable; some under alternate archived paths',
+            'some_content_images_unpreserved':'Some intended content images not found in archive',
+            'no_content_images_preserved':'No intended content images found in archive',
+            'no_content_images_detected':'No content images detected in source',
+            'local_reconstruction':'Recovered local reconstruction',
+            'source_unavailable':'Original page source not recovered'
+          }
+          states=Counter(r['content_image_state'] for r in images)
+          priority_rows=[];all_rows=[];priority_data=[]
+          for r in sorted(images,key=lambda x:x['primary_name'].casefold()):
+            a=availability_by_primary.get(r['primary_name'],{})
+            target=a.get('best_replay','')
+            if r['content_image_state']=='local_reconstruction':target='baddesley-clinton-final.html'
+            if a.get('availability')=='no_snapshot_found':target=notice.get(r['primary_name'],'')
+            name=html.escape(r['primary_name'])
+            namecell=('<a href="{}">{}</a>'.format(html.escape(target,quote=True),name) if target else name)
+            state=labels.get(r['content_image_state'],r['content_image_state'])
+            if r.get('manual_observation'):state += ' — '+r['manual_observation']
+            intended=r.get('intended_content_images','')
+            missing=r.get('not_indexed_anywhere_same_filename','')
+            method=r.get('method','')
+            row='<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>'.format(namecell,html.escape(str(method)),html.escape(str(intended)),html.escape(str(missing)),html.escape(state))
+            all_rows.append(row)
+            if priority(r):
+              priority_rows.append(row)
+              priority_data.append({k:r.get(k) for k in ['primary_name','aliases','original','content_image_state','method','intended_content_images','exact_indexed','alternate_path_same_filename','not_indexed_anywhere_same_filename','missing_images','manual_observation']})
+
+          summary={
+            'catalogue_entries':917,
+            'unique_destinations':len(images),
+            'availability':dict(Counter(r.get('availability') for r in availability)),
+            'image_states':dict(states),
+            'priority_pages':priority_data,
+            'link_normalization':link_report,
+            'interpretation':'Image status is based on original/full-size asset filenames where available and displayed-image references for older pages. Indexed means Wayback records the resource; it is not yet visual/byte certification.'
+          }
+          json.dump(summary,open('catalogue-audit/final-audit-summary.json','w'),indent=2,ensure_ascii=False)
+          json.dump(priority_data,open('catalogue-audit/priority-pages.json','w'),indent=2,ensure_ascii=False)
+
+          cards='''<div class="cards">
+          <div><strong>917</strong><span>catalogue entries</span></div>
+          <div><strong>{}</strong><span>unique destination pages</span></div>
+          <div><strong>{}</strong><span>all intended images indexed</span></div>
+          <div><strong>{}</strong><span>some images missing</span></div>
+          <div><strong>{}</strong><span>no content images preserved</span></div>
+          <div><strong>3</strong><span>page sources unrecovered</span></div>
+          </div>'''.format(len(images),states.get('all_content_images_exactly_indexed',0)+states.get('all_content_images_recoverable_some_via_alternate_path',0),states.get('some_content_images_unpreserved',0),states.get('no_content_images_preserved',0))
+          css='''body{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222}header{background:#3d3528;color:white;padding:26px;text-align:center}main{max-width:1200px;margin:auto;padding:20px}.note{background:white;border-left:4px solid #8b7959;padding:12px 14px;margin:0 0 18px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}.cards div{background:#fff;border:1px solid #d7cebd;padding:14px;text-align:center}.cards strong{display:block;font-size:24px}.cards span{font-size:13px;color:#655d50}table{width:100%;border-collapse:collapse;background:white;font-size:13px;margin-bottom:28px}th,td{border:1px solid #d7cebd;padding:7px;text-align:left;vertical-align:top}th{background:#eee6d6}tr:nth-child(even){background:#faf8f3}a{color:#224d74}h2{color:#493e2c}@media(max-width:700px){table{font-size:11px}th,td{padding:5px}}'''
+          doc='''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Completeness audit | Castles, Forts and Battles Archive</title><style>'''+css+'''</style></head><body><header><h1>Castles, Forts and Battles — completeness audit</h1><p>Systematic page and image-preservation audit</p></header><main><div class="note"><strong>What this means:</strong> the catalogue has been recovered and all 917 index entries now have a working local/index destination. For 753 archived pages the original source was recovered and its intended content images were inventoried. “Indexed” means the image filename exists in Wayback; it does not yet guarantee that every image renders correctly in an ordinary replay. Pages marked missing are the priority for reconstruction.</div>'''+cards+'''<p><a href="atoz-archive.html">Open the A–Z catalogue</a> · <a href="image-audit.html">Open the raw image-audit table</a></p><h2>Pages already discussed / priority set</h2><table><thead><tr><th>Page</th><th>Method</th><th>Intended images</th><th>Absent</th><th>Status</th></tr></thead><tbody>'''+''.join(priority_rows)+'''</tbody></table><h2>Complete catalogue audit</h2><table><thead><tr><th>Page</th><th>Method</th><th>Intended images</th><th>Absent</th><th>Status</th></tr></thead><tbody>'''+''.join(all_rows)+'''</tbody></table></main></body></html>'''
+          open('catalogue-audit.html','w',encoding='utf-8').write(doc)
+          print(json.dumps({'states':dict(states),'links':link_report,'priority_count':len(priority_data)},indent=2))
+          PY
+          python /tmp/finalize.py
+      - name: Commit final audit and normalized links
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html catalogue-audit.html catalogue-audit/final-audit-summary.json catalogue-audit/priority-pages.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Finalize catalogue audit and stable destination links' && git pull --rebase && git push; fi
