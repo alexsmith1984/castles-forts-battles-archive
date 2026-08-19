@@ -1,0 +1,264 @@
+{
+  "name": "Aberedw Castle",
+  "source": "https://web.archive.org/web/20210625101549id_/https://www.castlesfortsbattles.co.uk/central_wales/aberedw_castle.html",
+  "source_bytes": 181175,
+  "text_blocks": 32,
+  "intended_asset_files": 7,
+  "recovered_assets": 0,
+  "unrecovered_assets": 7,
+  "images": [
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle_motte.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "status": 404
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "status": 404
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "status": 503
+            }
+          ]
+        }
+      }
+    },
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle12_manor.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "status": 404
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "status": 503
+            }
+          ]
+        }
+      }
+    },
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle5_motte.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "status": 503
+            }
+          ]
+        }
+      }
+    },
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle8_motte.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "error": "ConnectionError"
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "error": "ConnectTimeout"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle1.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "error": "ConnectTimeout"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle11_manor.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "error": "ConnectTimeout"
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "error": "ConnectTimeout"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "original": "https://www.castlesfortsbattles.co.uk/central_wales/assets/aberedw_castle16_manor.jpg",
+      "status": "unrecovered",
+      "independent": {
+        "arquivo": "no-copy-found",
+        "commoncrawl": {
+          "state": "inconclusive",
+          "attempts": [
+            {
+              "crawl": "CC-MAIN-2022-49",
+              "status": 404
+            },
+            {
+              "crawl": "CC-MAIN-2021-49",
+              "status": 404
+            },
+            {
+              "crawl": "CC-MAIN-2020-50",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2019-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2018-51",
+              "status": 503
+            },
+            {
+              "crawl": "CC-MAIN-2017-51",
+              "status": 503
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "public_path": "recovered/aberedw-castle/index.html"
+}
