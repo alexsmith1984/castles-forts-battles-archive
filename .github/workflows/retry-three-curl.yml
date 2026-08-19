@@ -1,0 +1,102 @@
+name: Retry three archived sources with curl
+
+on:
+  push:
+    paths:
+      - '.github/workflows/retry-three-curl.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install beautifulsoup4
+      - name: Prepare retry list
+        run: |
+          python - <<'PY'
+          import json
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))
+          with open('/tmp/targets.tsv','w') as f:
+            for i,r in enumerate(inv['results']):
+              if r.get('fetch_state')=='inconclusive_service_error':
+                s=r.get('spec') or {};ts=s.get('timestamp','');orig=s.get('original','')
+                print(i, r['primary_name'], ts, orig, sep='\t', file=f)
+          PY
+          cat /tmp/targets.tsv
+      - name: Fetch with curl HTTP/1.1 retries
+        run: |
+          mkdir -p /tmp/src
+          while IFS=$'\t' read -r idx name ts orig; do
+            [ -z "$idx" ] && continue
+            url="https://web.archive.org/web/${ts}id_/${orig}"
+            echo "Fetching $name"
+            curl --http1.1 -L --fail --retry 5 --retry-delay 4 --retry-all-errors --connect-timeout 20 --max-time 150 -A 'Mozilla/5.0 archived-source curl retry' "$url" -o "/tmp/src/${idx}.html" || true
+            if [ -f "/tmp/src/${idx}.html" ]; then wc -c "/tmp/src/${idx}.html"; fi
+            sleep 2
+          done < /tmp/targets.tsv
+      - name: Parse successful sources and update inventory
+        run: |
+          cat > /tmp/apply.py <<'PY'
+          import json,os,re
+          from urllib.parse import urljoin,urlsplit
+          from collections import Counter
+          from bs4 import BeautifulSoup
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))
+          img=re.compile(r'\.(?:jpe?g|png|gif|webp|bmp|tiff?)(?:[?#].*)?$',re.I)
+          def media(v,base):
+            if not v:v=''
+            v=v.strip()
+            if not v or v.startswith(('data:','javascript:','#')) or not img.search(v):return None
+            u=urljoin(base,v);lo=u.lower()
+            return None if '/images/blank.gif' in lo or lo.endswith('/blank.gif') else u
+          def extract(txt,base):
+            soup=BeautifulSoup(txt,'html.parser');vis=' '.join(soup.stripped_strings)
+            assets=[];lazy=[];srcs=[];allr=[]
+            for a in soup.find_all('a',href=True):
+              u=media(a.get('href'),base)
+              if u:
+                allr.append(u)
+                if '/assets/' in urlsplit(u).path.lower():assets.append(u)
+            for t in soup.find_all(['img','source']):
+              for at in ('data-orig-src','data-muse-src','data-src','data-hidpi-src'):
+                u=media(t.get(at),base)
+                if u:lazy.append(u);allr.append(u)
+              u=media(t.get('src'),base)
+              if u:srcs.append(u);allr.append(u)
+              for bit in (t.get('srcset') or '').split(','):
+                vv=bit.strip().split()[0] if bit.strip() else ''
+                u=media(vv,base)
+                if u:allr.append(u)
+            uq=lambda x:list(dict.fromkeys(x));assets,lazy,srcs,allr=map(uq,(assets,lazy,srcs,allr))
+            return {'text_chars':len(vis),'asset_links':assets,'lazy_images':lazy,'img_src_images':srcs,'all_media':allr,'asset_link_count':len(assets),'lazy_image_count':len(lazy),'img_src_count':len(srcs),'all_media_count':len(allr),'uses_blank_lazy':('blank.gif' in txt.lower() and any(x in txt for x in ('data-orig-src','data-muse-src','data-src')))}
+          resolved=[]
+          for idx,r in enumerate(inv['results']):
+            p=f'/tmp/src/{idx}.html'
+            if not os.path.exists(p):continue
+            b=open(p,'rb').read()
+            try:txt=b.decode('utf-8')
+            except:txt=b.decode('latin1','replace')
+            if len(b)>500 and ('<html' in txt.lower() or '<!doctype' in txt.lower()):
+              base=(r.get('spec') or {}).get('original') or r['original'];r['fetch_state']='source_ok';r['bytes']=len(b);r.update(extract(txt,base));resolved.append(r['primary_name'])
+          ok=[r for r in inv['results'] if r.get('fetch_state')=='source_ok']
+          summary={'unique_destinations':len(inv['results']),'fetch_states':dict(Counter(r.get('fetch_state') for r in inv['results'])),'sources_inventoried':len(ok),'curl_retry_resolved':resolved,'still_inconclusive':[r['primary_name'] for r in inv['results'] if r.get('fetch_state')=='inconclusive_service_error'],'pages_with_asset_links':sum(1 for r in ok if r.get('asset_link_count',0)>0),'pages_with_any_media_refs':sum(1 for r in ok if r.get('all_media_count',0)>0),'total_asset_links':sum(r.get('asset_link_count',0) for r in ok),'total_media_refs':sum(r.get('all_media_count',0) for r in ok),'scope':'Source inventory after curl HTTP/1.1 retry of remaining chunked-transfer failures.'}
+          inv['summary']=summary
+          json.dump(inv,open('catalogue-audit/source-inventory.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/source-inventory-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+          python /tmp/apply.py
+      - name: Commit retry results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/source-inventory*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Resolve remaining archived source fetches' && git pull --rebase && git push; fi
