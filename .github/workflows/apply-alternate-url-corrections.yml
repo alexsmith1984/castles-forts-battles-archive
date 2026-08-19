@@ -1,0 +1,121 @@
+name: Apply validated alternate archive URLs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-alternate-url-corrections.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4
+      - name: Apply validated mappings and fetch corrected sources
+        run: |
+          cat > /tmp/apply.py <<'PY'
+          import json,os,re,html
+          from urllib.parse import urljoin,urlsplit
+          from collections import Counter
+          import requests
+          from bs4 import BeautifulSoup
+
+          val=json.load(open('catalogue-audit/alternate-url-validation.json',encoding='utf-8'))['results']
+          valid=[r for r in val if r.get('valid')]
+          mapping={r['name']:r for r in valid}
+          parts=['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']
+          changes={}
+          for p in parts:
+            soup=BeautifulSoup(open(p,encoding='utf-8').read(),'html.parser');n=0
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2 or len(h2.get_text(' ',strip=True))!=1:continue
+              for a in sec.find_all('a',href=True):
+                name=a.get_text(' ',strip=True)
+                if name in mapping:
+                  r=mapping[name]
+                  new=f'https://web.archive.org/web/{r["timestamp"]}/{r["url"]}'
+                  if a['href']!=new:a['href']=new;n+=1
+            if n:open(p,'w',encoding='utf-8').write(str(soup))
+            changes[p]=n
+
+          # Update complete availability results conservatively: only the six validated pages.
+          ac=json.load(open('catalogue-audit/availability-complete.json',encoding='utf-8'))
+          byname={r['name']:r for r in valid}
+          for r in ac['results']:
+            if r['primary_name'] in byname:
+              v=byname[r['primary_name']]
+              r.update({'availability':'snapshot_found','best_replay':f'https://web.archive.org/web/{v["timestamp"]}/{v["url"]}','timestamp':v['timestamp'],'source':'validated_alternate_url','corrected_original':v['url']})
+          states=Counter(r['availability'] for r in ac['results'])
+          no=[r for r in ac['results'] if r['availability']=='no_snapshot_found']
+          inc=[r for r in ac['results'] if r['availability']=='inconclusive']
+          summary={'unique_destinations':len(ac['results']),'availability':dict(states),'no_snapshot_pages':[{'name':x['primary_name'],'aliases':x.get('aliases',[]),'original':x['original']} for x in no],'inconclusive_pages':[{'name':x['primary_name'],'original':x['original']} for x in inc],'validated_alternate_urls':len(valid)}
+          ac['summary']=summary
+          json.dump(ac,open('catalogue-audit/availability-complete.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/availability-complete-summary.json','w'),indent=2,ensure_ascii=False)
+
+          # Fetch source for corrected destinations and enrich the source inventory.
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))
+          image_re=re.compile(r'\.(?:jpe?g|png|gif|webp|bmp|tiff?)(?:[?#].*)?$',re.I)
+          def nm(v,base):
+            if not v:v=''
+            v=v.strip()
+            if not v or v.startswith(('data:','javascript:','#')) or not image_re.search(v):return None
+            u=urljoin(base,v);low=u.lower()
+            return None if '/images/blank.gif' in low or low.endswith('/blank.gif') else u
+          def extract(txt,base):
+            soup=BeautifulSoup(txt,'html.parser');vis=' '.join(soup.stripped_strings)
+            assets=[];lazy=[];srcs=[];allr=[]
+            for a in soup.find_all('a',href=True):
+              u=nm(a.get('href'),base)
+              if u:
+                allr.append(u)
+                if '/assets/' in urlsplit(u).path.lower():assets.append(u)
+            for t in soup.find_all(['img','source']):
+              for at in ('data-orig-src','data-muse-src','data-src','data-hidpi-src'):
+                u=nm(t.get(at),base)
+                if u:lazy.append(u);allr.append(u)
+              u=nm(t.get('src'),base)
+              if u:srcs.append(u);allr.append(u)
+              for bit in (t.get('srcset') or '').split(','):
+                vv=bit.strip().split()[0] if bit.strip() else ''
+                u=nm(vv,base)
+                if u:allr.append(u)
+            uq=lambda xs:list(dict.fromkeys(xs))
+            assets,lazy,srcs,allr=map(uq,(assets,lazy,srcs,allr))
+            return {'text_chars':len(vis),'asset_links':assets,'lazy_images':lazy,'img_src_images':srcs,'all_media':allr,'asset_link_count':len(assets),'lazy_image_count':len(lazy),'img_src_count':len(srcs),'all_media_count':len(allr),'uses_blank_lazy':('blank.gif' in txt.lower() and any(x in txt for x in ('data-orig-src','data-muse-src','data-src')))}
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 validated alternate archival source'
+          source_updates={}
+          for r in valid:
+            raw=f'https://web.archive.org/web/{r["timestamp"]}id_/{r["url"]}'
+            try:
+              x=s.get(raw,timeout=35,allow_redirects=True);txt=x.text
+              if x.status_code==200 and ('<html' in txt.lower() or '<!doctype' in txt.lower()):
+                source_updates[r['name']]={'fetch_state':'source_ok','raw_replay':x.url,'bytes':len(x.content),'spec':{'kind':'wayback','timestamp':r['timestamp'],'original':r['url'],'replay':f'https://web.archive.org/web/{r["timestamp"]}/{r["url"]}','source':'validated_alternate_url'},**extract(txt,r['url'])}
+            except Exception:pass
+          for rec in inv['results']:
+            if rec['primary_name'] in source_updates:
+              rec.update(source_updates[rec['primary_name']])
+          ok=[r for r in inv['results'] if r.get('fetch_state')=='source_ok']
+          inv_summary={'unique_destinations':len(inv['results']),'fetch_states':dict(Counter(r.get('fetch_state') for r in inv['results'])),'sources_inventoried':len(ok),'validated_alternate_sources_added':len(source_updates),'pages_with_asset_links':sum(1 for r in ok if r.get('asset_link_count',0)>0),'pages_with_any_media_refs':sum(1 for r in ok if r.get('all_media_count',0)>0),'total_asset_links':sum(r.get('asset_link_count',0) for r in ok),'total_media_refs':sum(r.get('all_media_count',0) for r in ok),'scope':'Source inventory including six validated alternate archive URLs.'}
+          inv['summary']=inv_summary
+          json.dump(inv,open('catalogue-audit/source-inventory.json','w'),indent=2,ensure_ascii=False)
+          json.dump(inv_summary,open('catalogue-audit/source-inventory-summary.json','w'),indent=2,ensure_ascii=False)
+          json.dump({'validated':len(valid),'index_changes':changes,'source_updates':sorted(source_updates)},open('catalogue-audit/alternate-url-application-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps({'availability':summary,'index_changes':changes,'source_updates':sorted(source_updates)},indent=2,ensure_ascii=False))
+          PY
+          python /tmp/apply.py
+      - name: Commit corrections
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html catalogue-audit/availability-complete*.json catalogue-audit/source-inventory*.json catalogue-audit/alternate-url-application-summary.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Apply validated alternate archive URLs' && git pull --rebase && git push; fi
