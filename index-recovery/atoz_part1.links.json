@@ -1,0 +1,1877 @@
+{
+  "name": "atoz_part1",
+  "capture": [
+    "20220921221911",
+    "http://www.castlesfortsbattles.co.uk/atoz.html",
+    "id_"
+  ],
+  "replay": "https://web.archive.org/web/20220921221911id_/http://www.castlesfortsbattles.co.uk/atoz.html",
+  "links": [
+    {
+      "text": "England",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/castles_england.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/castles_england.html"
+    },
+    {
+      "text": "Scotland",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/castles_scotland.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/castles_scotland.html"
+    },
+    {
+      "text": "Wales",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/castles_wales.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/castles_wales.html"
+    },
+    {
+      "text": "Home",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/index.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/index.html"
+    },
+    {
+      "text": "UK Map",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/main.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/main.html"
+    },
+    {
+      "text": "A-Z",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/atoz.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz.html"
+    },
+    {
+      "text": "Links",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/links2.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/links2.html"
+    },
+    {
+      "text": "",
+      "title": "",
+      "href": "https://twitter.com/share",
+      "absolute": "https://twitter.com/share"
+    },
+    {
+      "text": "A",
+      "title": "",
+      "href": "atoz.html#a",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz.html#a"
+    },
+    {
+      "text": "B",
+      "title": "",
+      "href": "atoz.html#b",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz.html#b"
+    },
+    {
+      "text": "C",
+      "title": "",
+      "href": "atoz.html#c",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz.html#c"
+    },
+    {
+      "text": "D",
+      "title": "",
+      "href": "atoz_part2.html#d",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part2.html#d"
+    },
+    {
+      "text": "E",
+      "title": "",
+      "href": "atoz_part2.html#e",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part2.html#e"
+    },
+    {
+      "text": "F",
+      "title": "",
+      "href": "atoz_part2.html#f",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part2.html#f"
+    },
+    {
+      "text": "G",
+      "title": "",
+      "href": "atoz_part2.html#g",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part2.html#g"
+    },
+    {
+      "text": "H",
+      "title": "",
+      "href": "atoz_part3.html#h",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part3.html#h"
+    },
+    {
+      "text": "I",
+      "title": "",
+      "href": "atoz_part3.html#i",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part3.html#i"
+    },
+    {
+      "text": "J",
+      "title": "",
+      "href": "atoz_part3.html#j",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part3.html#j"
+    },
+    {
+      "text": "K",
+      "title": "",
+      "href": "atoz_part3.html#k",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part3.html#k"
+    },
+    {
+      "text": "L",
+      "title": "",
+      "href": "atoz_part3.html#l",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part3.html#l"
+    },
+    {
+      "text": "M",
+      "title": "",
+      "href": "atoz_part4.html#m",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#m"
+    },
+    {
+      "text": "N",
+      "title": "",
+      "href": "atoz_part4.html#n",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#n"
+    },
+    {
+      "text": "O",
+      "title": "",
+      "href": "atoz_part4.html#o",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#o"
+    },
+    {
+      "text": "P",
+      "title": "",
+      "href": "atoz_part4.html#p",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#p"
+    },
+    {
+      "text": "Q",
+      "title": "",
+      "href": "atoz_part4.html#q",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#q"
+    },
+    {
+      "text": "R",
+      "title": "",
+      "href": "atoz_part4.html#r",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#r"
+    },
+    {
+      "text": "S",
+      "title": "",
+      "href": "atoz_part5.html#s",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#s"
+    },
+    {
+      "text": "T",
+      "title": "",
+      "href": "atoz_part5.html#t",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#t"
+    },
+    {
+      "text": "U",
+      "title": "",
+      "href": "atoz_part5.html#u",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#u"
+    },
+    {
+      "text": "V",
+      "title": "",
+      "href": "atoz_part5.html#v",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#v"
+    },
+    {
+      "text": "W",
+      "title": "",
+      "href": "atoz_part5.html#w",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#w"
+    },
+    {
+      "text": "XYZ",
+      "title": "",
+      "href": "atoz_part5.html#xyz",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#xyz"
+    },
+    {
+      "text": "BattlefieldsofBritain.co.uk",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/"
+    },
+    {
+      "text": "Aberdour Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/aberdour_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/aberdour_castle.html"
+    },
+    {
+      "text": "Aberedw Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/aberedw_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/aberedw_castle.html"
+    },
+    {
+      "text": "Abergavenny Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/abergavenny_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/abergavenny_castle.html"
+    },
+    {
+      "text": "Aberystwyth Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west_wales/aberystwyth_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west_wales/aberystwyth_castle.html"
+    },
+    {
+      "text": "Abington Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/nether_abington_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/nether_abington_castle.html"
+    },
+    {
+      "text": "Acton Burnell Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/acton_burnell_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/acton_burnell_castle.html"
+    },
+    {
+      "text": "Agaton Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_west.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_west.html"
+    },
+    {
+      "text": "Alberbury Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/alberbury_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/alberbury_castle.html"
+    },
+    {
+      "text": "Aldingham Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/aldingham_castle_furness.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/aldingham_castle_furness.html"
+    },
+    {
+      "text": "Aldborough Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/aldborough_town_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/aldborough_town_castle.html"
+    },
+    {
+      "text": "Aldborough Roman Town",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/aldborough_town_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/aldborough_town_castle.html"
+    },
+    {
+      "text": "Alexanderstone Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/alexanderstone_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/alexanderstone_castle.html"
+    },
+    {
+      "text": "Alford (Battle of - 1645)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_alford_1645.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_alford_1645.html"
+    },
+    {
+      "text": "Alisbyâs Castle (Crickhowell Castle)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/crickhowell_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/crickhowell_castle.html"
+    },
+    {
+      "text": "Almond Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/almond_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/almond_castle.html"
+    },
+    {
+      "text": "Almondbury Hillfort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/castle_hill_almondbury.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/castle_hill_almondbury.html"
+    },
+    {
+      "text": "Alnwick (First Battle of - 1093)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_alnwick_1093.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_alnwick_1093.html"
+    },
+    {
+      "text": "Alnwick (Second Battle of - 1174)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_alnwick_1174.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_alnwick_1174.html"
+    },
+    {
+      "text": "Alnwick Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/alnwick_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/alnwick_castle.html"
+    },
+    {
+      "text": "Ambleside Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html"
+    },
+    {
+      "text": "Ambrey Hillfort (Croft Ambrey)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/croft_castle_ambrey.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/croft_castle_ambrey.html"
+    },
+    {
+      "text": "Annesley Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/annesley_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/annesley_castle.html"
+    },
+    {
+      "text": "Antonine Wall",
+      "title": "",
+      "href": "http://www.antoninewall.co.uk/",
+      "absolute": "http://www.antoninewall.co.uk/"
+    },
+    {
+      "text": "Appleby Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/appleby_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/appleby_castle.html"
+    },
+    {
+      "text": "Arbeia (South Shields Roman Fort)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/arbeia.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/arbeia.html"
+    },
+    {
+      "text": "Ardblair Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/ardblair_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/ardblair_castle.html"
+    },
+    {
+      "text": "Ardoch Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/ardoch_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/ardoch_roman_fort.html"
+    },
+    {
+      "text": "Ardross Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/ardross_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/ardross_castle.html"
+    },
+    {
+      "text": "Ardtornish Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/ardtornish_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/ardtornish_castle.html"
+    },
+    {
+      "text": "Ardvreck Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/ardvreck_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/ardvreck_castle.html"
+    },
+    {
+      "text": "Arkholme Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/arkholme_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/arkholme_castle.html"
+    },
+    {
+      "text": "Aros Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/aros_castle_mull.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/aros_castle_mull.html"
+    },
+    {
+      "text": "Arundel Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/arundel_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/arundel_castle.html"
+    },
+    {
+      "text": "Ashby de la Zouch Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/ashby_zouch_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/ashby_zouch_castle.html"
+    },
+    {
+      "text": "Ashley Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/ashley_castle_hampshire.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/ashley_castle_hampshire.html"
+    },
+    {
+      "text": "Ascott dâOyley Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/ascott_under_wychwood_castles.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/ascott_under_wychwood_castles.html"
+    },
+    {
+      "text": "Ascott Earl Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/ascott_under_wychwood_castles.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/ascott_under_wychwood_castles.html"
+    },
+    {
+      "text": "Ashton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/ashton_castle_herefordshire.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/ashton_castle_herefordshire.html"
+    },
+    {
+      "text": "Aslockton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/aslockton_castle_cranmers_mound.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/aslockton_castle_cranmers_mound.html"
+    },
+    {
+      "text": "Auchanâs Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/dundonald_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/dundonald_castle.html"
+    },
+    {
+      "text": "Auchindoun Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/auchindoun_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/auchindoun_castle.html"
+    },
+    {
+      "text": "Auckland Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/auckland_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/auckland_castle.html"
+    },
+    {
+      "text": "Audley Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/audley_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/audley_castle.html"
+    },
+    {
+      "text": "Auldearn (Battle of - 1645)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_auldearn_1645.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_auldearn_1645.html"
+    },
+    {
+      "text": "Auldearn Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/auldearn_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/auldearn_castle.html"
+    },
+    {
+      "text": "Austin Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_east.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_east.html"
+    },
+    {
+      "text": "Aydon Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/aydon_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/aydon_castle.html"
+    },
+    {
+      "text": "Aylesmore Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/dymock_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/dymock_castle.html"
+    },
+    {
+      "text": "Baconsthorpe Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/baconsthorpe_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/baconsthorpe_castle.html"
+    },
+    {
+      "text": "Badbury Rings",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/badbury_rings.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/badbury_rings.html"
+    },
+    {
+      "text": "Baddesley Clinton",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/baddesley_clinton.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/baddesley_clinton.html"
+    },
+    {
+      "text": "Bailes Hill Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/york_castle_cliffords_tower_baile_hill.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/york_castle_cliffords_tower_baile_hill.html"
+    },
+    {
+      "text": "Balbegno Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/balbegno_castle_green_cairn_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/balbegno_castle_green_cairn_fort.html"
+    },
+    {
+      "text": "Balhousie Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/balhousie_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/balhousie_castle.html"
+    },
+    {
+      "text": "Balvaird Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/balvaird_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/balvaird_castle.html"
+    },
+    {
+      "text": "Bamburgh Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/bamburgh_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/bamburgh_castle.html"
+    },
+    {
+      "text": "Bampton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/bampton_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/bampton_castle.html"
+    },
+    {
+      "text": "Bannockburn (Battle of - 1314)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_bannockburn_1314.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_bannockburn_1314.html"
+    },
+    {
+      "text": "Barden Tower",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/barden_tower.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/barden_tower.html"
+    },
+    {
+      "text": "Bar Hill Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/bar_hill_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/bar_hill_roman_fort.html"
+    },
+    {
+      "text": "Barnard Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/barnard_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/barnard_castle.html"
+    },
+    {
+      "text": "Barnstable Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/barnstable_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/barnstable_castle.html"
+    },
+    {
+      "text": "Barrow Haven Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/thornton_abbey.html#barrow_haven_castle",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/thornton_abbey.html#barrow_haven_castle"
+    },
+    {
+      "text": "Barry Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/barry_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/barry_castle.html"
+    },
+    {
+      "text": "Barsalloch Fort (Promontory Fort)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/barsalloch_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/barsalloch_fort.html"
+    },
+    {
+      "text": "Basing House (Basing Castle)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/basing_house.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/basing_house.html"
+    },
+    {
+      "text": "Bass of Inverurie",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/bass_inverurie.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/bass_inverurie.html"
+    },
+    {
+      "text": "Bass Rock Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/bass_rock_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/bass_rock_castle.html"
+    },
+    {
+      "text": "Bayardâs Cove Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/bayards_cove_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/bayards_cove_fort.html"
+    },
+    {
+      "text": "Baynardâs Castle (Site of)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/london/baynards_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/london/baynards_castle.html"
+    },
+    {
+      "text": "Beacon Hill",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/gringley_hill_beacon_hill.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/gringley_hill_beacon_hill.html"
+    },
+    {
+      "text": "Bearsden Roman Fort (Bath House)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/bearsden_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/bearsden_roman_fort.html"
+    },
+    {
+      "text": "Beaumaris Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/beaumaris_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/beaumaris_castle.html"
+    },
+    {
+      "text": "Beaumont Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/beaumont_chase_castle_hill.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/beaumont_chase_castle_hill.html"
+    },
+    {
+      "text": "Bedford Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/bedford_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/bedford_castle.html"
+    },
+    {
+      "text": "Beeston Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/beeston_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/beeston_castle.html"
+    },
+    {
+      "text": "Belfast (HMS Belfast - warship)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/london/hms_belfast.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/london/hms_belfast.html"
+    },
+    {
+      "text": "Belsar's Hill Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/belsars_hill_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/belsars_hill_fort.html"
+    },
+    {
+      "text": "Belsay Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/belsay_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/belsay_castle.html"
+    },
+    {
+      "text": "Bembridge Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/bembridge_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/bembridge_fort.html"
+    },
+    {
+      "text": "Benholm's Lodge",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/benholm_lodge_aberdeen.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/benholm_lodge_aberdeen.html"
+    },
+    {
+      "text": "Benwell Hill Roman Fort (Hadrian's Wall)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/hadrians_wall_benwell_hill.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/hadrians_wall_benwell_hill.html"
+    },
+    {
+      "text": "Berkeley Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/berkeley_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/berkeley_castle.html"
+    },
+    {
+      "text": "Berkhamsted Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/berkhamsted_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/berkhamsted_castle.html"
+    },
+    {
+      "text": "Bernera Barracks",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/bernera_barracks.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/bernera_barracks.html"
+    },
+    {
+      "text": "Berry Pomeroy Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/berry_pomeroy_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/berry_pomeroy_castle.html"
+    },
+    {
+      "text": "Berwick Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/berwick_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/berwick_castle.html"
+    },
+    {
+      "text": "Berwick-upon-Tweed Town Defences",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/berwick_upon_tweed_defences.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/berwick_upon_tweed_defences.html"
+    },
+    {
+      "text": "Beverley North Bar",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/beverley_north_bar.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/beverley_north_bar.html"
+    },
+    {
+      "text": "Bewcastle Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/bewcastle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/bewcastle.html"
+    },
+    {
+      "text": "Bicton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/bicton_castle_shropshire.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/bicton_castle_shropshire.html"
+    },
+    {
+      "text": "Binchester Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/binchester_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/binchester_roman_fort.html"
+    },
+    {
+      "text": "Birdoswald Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/birdoswald.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/birdoswald.html"
+    },
+    {
+      "text": "Birrens Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/birrens_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/birrens_roman_fort.html"
+    },
+    {
+      "text": "Bishop Auckland Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/auckland_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/auckland_castle.html"
+    },
+    {
+      "text": "Bishopâs Stortford Castle (Waytemore Castle)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/waytemore_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/waytemore_castle.html"
+    },
+    {
+      "text": "Bitterne Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/bitterne_manor_roman_fort_clausentum.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/bitterne_manor_roman_fort_clausentum.html"
+    },
+    {
+      "text": "Black Castle of Moulin",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/black_castle_moulin.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/black_castle_moulin.html"
+    },
+    {
+      "text": "Blackdown Rings",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/blackdown_rings_loddiswell_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/blackdown_rings_loddiswell_castle.html"
+    },
+    {
+      "text": "Black Middens Bastle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/tarset_bastles_black_middens.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/tarset_bastles_black_middens.html"
+    },
+    {
+      "text": "Blackness Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/blackness_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/blackness_castle.html"
+    },
+    {
+      "text": "Blair Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/blair_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/blair_castle.html"
+    },
+    {
+      "text": "Bochastle Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/dunmore_hillfort_bochastle_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/dunmore_hillfort_bochastle_roman_fort.html"
+    },
+    {
+      "text": "Boddam Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/boddam_castle_aberdeenshire.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/boddam_castle_aberdeenshire.html"
+    },
+    {
+      "text": "Bodiam Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/bodiam_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/bodiam_castle.html"
+    },
+    {
+      "text": "Bolbec Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/bolbec_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/bolbec_castle.html"
+    },
+    {
+      "text": "Bolingbroke Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/bolingbroke_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/bolingbroke_castle.html"
+    },
+    {
+      "text": "Bolsover Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/bolsover_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/bolsover_castle.html"
+    },
+    {
+      "text": "Bolton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/bolton_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/bolton_castle.html"
+    },
+    {
+      "text": "Bossiney Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/bossiney_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/bossiney_castle.html"
+    },
+    {
+      "text": "Boston Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/boston_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/boston_castle.html"
+    },
+    {
+      "text": "Bosworth Field (Battle of - 1485)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_bosworth_field_1485.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_bosworth_field_1485.html"
+    },
+    {
+      "text": "Bothamsall Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/bothamsall_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/bothamsall_castle.html"
+    },
+    {
+      "text": "Bovisand Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/fort_bovisand.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/fort_bovisand.html"
+    },
+    {
+      "text": "Bow and Arrow Castle (Rufus Castle)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/rufus_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/rufus_castle.html"
+    },
+    {
+      "text": "Bowden Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_east.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_east.html"
+    },
+    {
+      "text": "Bowes Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/bowes_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/bowes_castle.html"
+    },
+    {
+      "text": "Braemar Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/braemar_castle_invercauld_bridge.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/braemar_castle_invercauld_bridge.html"
+    },
+    {
+      "text": "Brailes Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/brailes_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/brailes_castle.html"
+    },
+    {
+      "text": "Bramber Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/bramber_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/bramber_castle.html"
+    },
+    {
+      "text": "Brampton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/brampton_castle_cumbria.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/brampton_castle_cumbria.html"
+    },
+    {
+      "text": "Breakwater Fort (Plymouth)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_breakwater_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/plymouth_breakwater_fort.html"
+    },
+    {
+      "text": "Brecon Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/brecon_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/brecon_castle.html"
+    },
+    {
+      "text": "Bridgend Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/newcastle_castle_bridgend.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/newcastle_castle_bridgend.html"
+    },
+    {
+      "text": "Brims Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/brims_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/brims_castle.html"
+    },
+    {
+      "text": "Brochel Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/brochel_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/brochel_castle.html"
+    },
+    {
+      "text": "Brodick Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/brodick_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/brodick_castle.html"
+    },
+    {
+      "text": "Brockhurst Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/fort_brockhurst.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/fort_brockhurst.html"
+    },
+    {
+      "text": "Bronllys Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/bronllys_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/bronllys_castle.html"
+    },
+    {
+      "text": "Brough Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/brough_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/brough_castle.html"
+    },
+    {
+      "text": "Brougham Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/brougham_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/brougham_castle.html"
+    },
+    {
+      "text": "Bryn Glas (Battle of - 1402)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_bryn_glas_1402.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_bryn_glas_1402.html"
+    },
+    {
+      "text": "Bryn y Castell",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/knighton_castle_bryn_y_castell.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/knighton_castle_bryn_y_castell.html"
+    },
+    {
+      "text": "Builth Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/builth_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/builth_castle.html"
+    },
+    {
+      "text": "Bull Sand Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/humber_forts.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/humber_forts.html"
+    },
+    {
+      "text": "Burgh Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/burgh_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/burgh_roman_fort.html"
+    },
+    {
+      "text": "Burghead Pictish Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/burghead_pictish_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/burghead_pictish_fort.html"
+    },
+    {
+      "text": "Burley Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/burley_castle_alstoe.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/burley_castle_alstoe.html"
+    },
+    {
+      "text": "Burton-on-Lonsdale Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/burton_in_lonsdale_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/burton_in_lonsdale_castle.html"
+    },
+    {
+      "text": "Burwell Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/burwell_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/burwell_castle.html"
+    },
+    {
+      "text": "Bytham Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/bytham_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/bytham_castle.html"
+    },
+    {
+      "text": "Cabinet War Rooms",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/london/cabinet_war_rooms.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/london/cabinet_war_rooms.html"
+    },
+    {
+      "text": "Cadgers Fort (Codger Fort)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/codger_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/codger_fort.html"
+    },
+    {
+      "text": "Cadzow Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/cadzow_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/cadzow_castle.html"
+    },
+    {
+      "text": "Caer Beris Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/llanganten_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/llanganten_castle.html"
+    },
+    {
+      "text": "Caergwrle Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/caergwrle_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/caergwrle_castle.html"
+    },
+    {
+      "text": "Caernarfon Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/caernarfon_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/caernarfon_castle.html"
+    },
+    {
+      "text": "Caerlaverock Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/caerlaverock_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/caerlaverock_castle.html"
+    },
+    {
+      "text": "Caerleon Roman Legionary Fortress and Norman Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/caerleon_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/caerleon_roman_fort.html"
+    },
+    {
+      "text": "Caerphilly Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/caerphilly_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/caerphilly_castle.html"
+    },
+    {
+      "text": "Caerwent Roman Town",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/caerwent_roman_town.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/caerwent_roman_town.html"
+    },
+    {
+      "text": "Caisteal Dubh Mhaothlinne (Black Castle of Moulin)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/black_castle_moulin.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/black_castle_moulin.html"
+    },
+    {
+      "text": "Caistel Uisdean (Hugh's Castle)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/caisteal_uisdean_hughs_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/caisteal_uisdean_hughs_castle.html"
+    },
+    {
+      "text": "Caister Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/caister_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/caister_roman_fort.html"
+    },
+    {
+      "text": "Caithness WWII Defences (Keiss)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/keiss_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/keiss_castle.html"
+    },
+    {
+      "text": "Caldicot Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/caldicot_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/caldicot_castle.html"
+    },
+    {
+      "text": "Caldwall Tower",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/caldwall_tower_worcestershire.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/caldwall_tower_worcestershire.html"
+    },
+    {
+      "text": "Calshot Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/calshot_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/calshot_castle.html"
+    },
+    {
+      "text": "Camber Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/camber_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/camber_castle.html"
+    },
+    {
+      "text": "Cambridge Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/cambridge_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/cambridge_castle.html"
+    },
+    {
+      "text": "Candleston Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/candleston_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/candleston_castle.html"
+    },
+    {
+      "text": "Canterbury Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/canterbury_castle_town_walls.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/canterbury_castle_town_walls.html"
+    },
+    {
+      "text": "Cardiff Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/cardiff_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/cardiff_castle.html"
+    },
+    {
+      "text": "Cardigan Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west_wales/cardigan_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west_wales/cardigan_castle.html"
+    },
+    {
+      "text": "Carlisle Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/carlisle_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/carlisle_castle.html"
+    },
+    {
+      "text": "Carew Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west_wales/carew_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west_wales/carew_castle.html"
+    },
+    {
+      "text": "Carham Castle (Wark-on-Tweed)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/wark_on_tweed_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/wark_on_tweed_castle.html"
+    },
+    {
+      "text": "Carisbrooke Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/carisbrooke_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/carisbrooke_castle.html"
+    },
+    {
+      "text": "Carmarthen Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west_wales/carmarthen_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west_wales/carmarthen_castle.html"
+    },
+    {
+      "text": "Carnasserie Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/carnasserie_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/carnasserie_castle.html"
+    },
+    {
+      "text": "Carreg Cennen Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west_wales/carreg_cennen_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west_wales/carreg_cennen_castle.html"
+    },
+    {
+      "text": "Carrick Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/carrick_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/carrick_castle.html"
+    },
+    {
+      "text": "Carrawburgh Roman Fort (Hadrian's Wall)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/carrawburgh_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/carrawburgh_roman_fort.html"
+    },
+    {
+      "text": "Carsluith Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/carsluith_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/carsluith_castle.html"
+    },
+    {
+      "text": "Carvoran Roman Fort (Roman Army Museum)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/roman_army_museum_carvoran.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/roman_army_museum_carvoran.html"
+    },
+    {
+      "text": "Castell Aberlleiniog",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/castell_aberlleiniog.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/castell_aberlleiniog.html"
+    },
+    {
+      "text": "Castell Coch",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/castell_coch.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/castell_coch.html"
+    },
+    {
+      "text": "Castell Cwm Aran",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/castell_gemaron.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/castell_gemaron.html"
+    },
+    {
+      "text": "Castell Dinas",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/castell_dinas_waynards_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/castell_dinas_waynards_castle.html"
+    },
+    {
+      "text": "Castell Dinas BrÃ¢n",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/castell_dinas_bran.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/castell_dinas_bran.html"
+    },
+    {
+      "text": "Castell Foel Allt",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/castell_foel_allt.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/castell_foel_allt.html"
+    },
+    {
+      "text": "Castell Gemaron",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/castell_gemaron.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/castell_gemaron.html"
+    },
+    {
+      "text": "Castell y Bere",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/castell_y_bere.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/castell_y_bere.html"
+    },
+    {
+      "text": "Castle Acre",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/castle_acre.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/castle_acre.html"
+    },
+    {
+      "text": "Castle Ban",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_ban_motte.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_ban_motte.html"
+    },
+    {
+      "text": "Castle Bolton",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/bolton_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/bolton_castle.html"
+    },
+    {
+      "text": "Castle Bytham",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/bytham_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/bytham_castle.html"
+    },
+    {
+      "text": "Castle Campbell",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castle_campbell.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castle_campbell.html"
+    },
+    {
+      "text": "Castle Camus",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/knock_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/knock_castle.html"
+    },
+    {
+      "text": "Castle Cary Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/castle_cary_castle_somerset.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/castle_cary_castle_somerset.html"
+    },
+    {
+      "text": "Castle Cluggy",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/castle_cluggy.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/castle_cluggy.html"
+    },
+    {
+      "text": "Castle Dore",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_lostwithiel_1644.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_lostwithiel_1644.html"
+    },
+    {
+      "text": "Castle Fraser",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/castle_fraser.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/castle_fraser.html"
+    },
+    {
+      "text": "Castle Frome Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/castle_frome_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/castle_frome_castle.html"
+    },
+    {
+      "text": "Castle Hill (Almondbury)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/castle_hill_almondbury.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/castle_hill_almondbury.html"
+    },
+    {
+      "text": "Castle Hill (Halton)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html"
+    },
+    {
+      "text": "Castle Howe",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/kendal_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/kendal_castle.html"
+    },
+    {
+      "text": "Castle Howe",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/castle_howe_tebay.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/castle_howe_tebay.html"
+    },
+    {
+      "text": "Castle Kennedy",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_kennedy.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_kennedy.html"
+    },
+    {
+      "text": "Castle Menzies",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/castle_menzies.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/castle_menzies.html"
+    },
+    {
+      "text": "Castle Moil",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/castle_moil.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/castle_moil.html"
+    },
+    {
+      "text": "Castle Neroche",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/castle_neroche.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/castle_neroche.html"
+    },
+    {
+      "text": "Castle of Old Wick Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/castle_old_wick.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/castle_old_wick.html"
+    },
+    {
+      "text": "Castle of Park",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_of_park.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_of_park.html"
+    },
+    {
+      "text": "Castle Rising Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/castle_rising_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/castle_rising_castle.html"
+    },
+    {
+      "text": "Castle of St John",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_st_john.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/castle_st_john.html"
+    },
+    {
+      "text": "Castle Stalker",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castle_stalker.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castle_stalker.html"
+    },
+    {
+      "text": "Castle Stede",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/castle_stede.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/castle_stede.html"
+    },
+    {
+      "text": "Castle Sween",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castle_sween.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castle_sween.html"
+    },
+    {
+      "text": "Castle Tioram",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/castle_tioram.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/castle_tioram.html"
+    },
+    {
+      "text": "Castlecary Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castlecary.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castlecary.html"
+    },
+    {
+      "text": "Castlecary Tower",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castlecary.html#Castlecary_Tower",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/castlecary.html#Castlecary_Tower"
+    },
+    {
+      "text": "Castlemorton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/castlemorton_castle_tump.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/castlemorton_castle_tump.html"
+    },
+    {
+      "text": "Castlethorpe Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/castlethorpe_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/castlethorpe_castle.html"
+    },
+    {
+      "text": "Cathcart Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/cathcart_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/cathcart_castle.html"
+    },
+    {
+      "text": "Cawsand Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/cawsand_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/cawsand_fort.html"
+    },
+    {
+      "text": "Cefn Llech Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/dulas_castle_cefn_llech.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/dulas_castle_cefn_llech.html"
+    },
+    {
+      "text": "Chepstow Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/chepstow_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/chepstow_castle.html"
+    },
+    {
+      "text": "Cessford Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/cessford_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/cessford_castle.html"
+    },
+    {
+      "text": "Chapel Bay Battery",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west_wales/chapel_bay_battery.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west_wales/chapel_bay_battery.html"
+    },
+    {
+      "text": "Cheriton (Battle of - 1644)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_cheriton_1644.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_cheriton_1644.html"
+    },
+    {
+      "text": "Chester Castle and Town Defences",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/chester_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/chester_castle.html"
+    },
+    {
+      "text": "Chesters Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/chesters.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/chesters.html"
+    },
+    {
+      "text": "Chichester Castle and Town Walls",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/chichester_castle_walls.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/chichester_castle_walls.html"
+    },
+    {
+      "text": "Chillingham Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/chillingham_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/chillingham_castle.html"
+    },
+    {
+      "text": "Chipping Norton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_east/chipping_norton_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_east/chipping_norton_castle.html"
+    },
+    {
+      "text": "Chirk Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/chirk_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/chirk_castle.html"
+    },
+    {
+      "text": "Christchurch Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/christchurch_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/christchurch_castle.html"
+    },
+    {
+      "text": "Chudleigh Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/chudleigh_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/chudleigh_fort.html"
+    },
+    {
+      "text": "Claypotts Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/claypotts_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/claypotts_castle.html"
+    },
+    {
+      "text": "Clifford's Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/cliffords_fort_tynemouth.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/cliffords_fort_tynemouth.html"
+    },
+    {
+      "text": "Cliffordâs Tower",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/york_castle_cliffords_tower_baile_hill.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/york_castle_cliffords_tower_baile_hill.html"
+    },
+    {
+      "text": "Clitheroe Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_west/clitheroe_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_west/clitheroe_castle.html"
+    },
+    {
+      "text": "Cluggy Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/castle_cluggy.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/castle_cluggy.html"
+    },
+    {
+      "text": "Clun Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/clun_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/clun_castle.html"
+    },
+    {
+      "text": "Clunie Castle (Loch of Clunie)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/clunie_castle_hill_clunie_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/clunie_castle_hill_clunie_castle.html"
+    },
+    {
+      "text": "Cockburn Law",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/edins_hall_broch_cockburn_law.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/edins_hall_broch_cockburn_law.html"
+    },
+    {
+      "text": "Cock Lodge",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/topcliffe_castle_maiden_bower.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/topcliffe_castle_maiden_bower.html"
+    },
+    {
+      "text": "Codger Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/codger_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/codger_fort.html"
+    },
+    {
+      "text": "Coity Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_wales/coity_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_wales/coity_castle.html"
+    },
+    {
+      "text": "Colchester Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/east/colchester_castle_roman_walls.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/east/colchester_castle_roman_walls.html"
+    },
+    {
+      "text": "Coleshill (Battle of - 1157)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/ewloe_castle_battle_coleshill.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/ewloe_castle_battle_coleshill.html"
+    },
+    {
+      "text": "Colwyn Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/hundred_house_castles_colwyn_mount.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/hundred_house_castles_colwyn_mount.html"
+    },
+    {
+      "text": "Colzium Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/colzium_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/colzium_castle.html"
+    },
+    {
+      "text": "Comrie Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/perth_fife/comrie_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/perth_fife/comrie_castle.html"
+    },
+    {
+      "text": "Conisbrough Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle.html"
+    },
+    {
+      "text": "Conwy Castle and Town Walls",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/conwy_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/conwy_castle.html"
+    },
+    {
+      "text": "Corbridge Roman Town (and Fort)",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_east/corbridge_roman_town.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_east/corbridge_roman_town.html"
+    },
+    {
+      "text": "Corgarff Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/grampian/corgarff_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/grampian/corgarff_castle.html"
+    },
+    {
+      "text": "Corfe Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/corfe_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/corfe_castle.html"
+    },
+    {
+      "text": "Coulter Motte",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/coulter_motte.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/coulter_motte.html"
+    },
+    {
+      "text": "Covington Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/covington_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/covington_castle.html"
+    },
+    {
+      "text": "Craigmillar Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/craigmillar_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/craigmillar_castle.html"
+    },
+    {
+      "text": "Craignethan Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/craignethan_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/craignethan_castle.html"
+    },
+    {
+      "text": "Cramond Roman Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/cramond_roman_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/cramond_roman_fort.html"
+    },
+    {
+      "text": "Cramond Tower",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/cramond_roman_fort.html#cramond_tower",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/cramond_roman_fort.html#cramond_tower"
+    },
+    {
+      "text": "Cranmer's Mound",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/aslockton_castle_cranmers_mound.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/aslockton_castle_cranmers_mound.html"
+    },
+    {
+      "text": "Crawford Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/crawford_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/crawford_castle.html"
+    },
+    {
+      "text": "Criccieth Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/north_wales/criccieth_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/north_wales/criccieth_castle.html"
+    },
+    {
+      "text": "Crichton Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/lothian_borders/crichton_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/lothian_borders/crichton_castle.html"
+    },
+    {
+      "text": "Crickhowell Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_wales/crickhowell_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_wales/crickhowell_castle.html"
+    },
+    {
+      "text": "Croft Ambrey Hillfort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/croft_castle_ambrey.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/croft_castle_ambrey.html"
+    },
+    {
+      "text": "Croft Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/midlands/croft_castle_ambrey.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/midlands/croft_castle_ambrey.html"
+    },
+    {
+      "text": "Cromwell's Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/highland/inverness_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/highland/inverness_castle.html"
+    },
+    {
+      "text": "Crookston Castle",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/central_west_scotland/crookston_castle.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/central_west_scotland/crookston_castle.html"
+    },
+    {
+      "text": "Cropredy Bridge (Battle of - 1644)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_cropredy_bridge_1644.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_cropredy_bridge_1644.html"
+    },
+    {
+      "text": "Crownhill Fort",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/south_west/crownhill_fort.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/south_west/crownhill_fort.html"
+    },
+    {
+      "text": "Crug Mawr (Battle of -1136)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_crug_mawr_1136.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_crug_mawr_1136.html"
+    },
+    {
+      "text": "Culloden (Battle of - 1746)",
+      "title": "",
+      "href": "http://www.battlefieldsofbritain.co.uk/battle_culloden_1746.html",
+      "absolute": "http://www.battlefieldsofbritain.co.uk/battle_culloden_1746.html"
+    },
+    {
+      "text": "About Us",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/about.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/about.html"
+    },
+    {
+      "text": "Contact Us",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/contactus.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/contactus.html"
+    },
+    {
+      "text": "Terms and Conditions",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/page27.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/page27.html"
+    },
+    {
+      "text": "CastlesFortsBattles.co.uk",
+      "title": "",
+      "href": "http://www.castlesfortsbattles.co.uk/index.html",
+      "absolute": "http://www.castlesfortsbattles.co.uk/index.html"
+    },
+    {
+      "text": "A-C",
+      "title": "",
+      "href": "atoz.html#a",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz.html#a"
+    },
+    {
+      "text": "D-G",
+      "title": "",
+      "href": "atoz_part2.html#d",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part2.html#d"
+    },
+    {
+      "text": "H-L",
+      "title": "",
+      "href": "atoz_part3.html#h",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part3.html#h"
+    },
+    {
+      "text": "M-R",
+      "title": "",
+      "href": "atoz_part4.html#m",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part4.html#m"
+    },
+    {
+      "text": "S-Z",
+      "title": "",
+      "href": "atoz_part5.html#s",
+      "absolute": "http://www.castlesfortsbattles.co.uk/atoz_part5.html#s"
+    }
+  ]
+}
