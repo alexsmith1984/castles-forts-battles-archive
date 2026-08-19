@@ -1,0 +1,177 @@
+name: Audit catalogue pages stage 1
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-catalogue-stage1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Audit unique catalogue destinations
+        run: |
+          cat > /tmp/audit.py <<'PY'
+          import json, os, re, time, html
+          from collections import defaultdict, Counter
+          from urllib.parse import urlsplit, urljoin
+          import requests
+          from bs4 import BeautifulSoup
+
+          PARTS=['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']
+          OUT='catalogue-audit'
+          os.makedirs(OUT,exist_ok=True)
+          WB_RE=re.compile(r'^https://web\.archive\.org/web/\d+(?:[a-z_]+)?/(https?://.+)$',re.I)
+
+          def original_from_href(href):
+            href=html.unescape(href or '').strip()
+            if href=='baddesley-clinton-final.html':
+              return 'LOCAL:baddesley-clinton-final.html'
+            m=WB_RE.match(href)
+            return m.group(1) if m else href
+
+          entries=[]
+          for part in PARTS:
+            soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser')
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2: continue
+              letter=h2.get_text(' ',strip=True)
+              if len(letter)!=1 or not letter.isalpha(): continue
+              for a in sec.find_all('a',href=True):
+                name=a.get_text(' ',strip=True)
+                href=a['href']
+                orig=original_from_href(href)
+                if not name or not orig: continue
+                entries.append({'name':name,'letter':letter.upper(),'part':part,'href':href,'original':orig})
+
+          by_url=defaultdict(list)
+          for e in entries: by_url[e['original']].append(e)
+
+          session=requests.Session()
+          session.headers.update({'User-Agent':'Mozilla/5.0 (compatible; CastlesFortsBattles archival audit/1.0)'})
+
+          image_ext=re.compile(r'\.(?:jpe?g|png|gif|webp|bmp|tiff?)(?:[?#].*)?$',re.I)
+          asset_attrs=('src','data-src','data-orig-src','data-muse-src','data-hidpi-src')
+
+          def content_media(soup,base):
+            refs=[]
+            for tag in soup.find_all(['img','source']):
+              for attr in asset_attrs:
+                v=(tag.get(attr) or '').strip()
+                if v and image_ext.search(v): refs.append(urljoin(base,v))
+              srcset=(tag.get('srcset') or '').strip()
+              if srcset:
+                for bit in srcset.split(','):
+                  v=bit.strip().split()[0] if bit.strip() else ''
+                  if v and image_ext.search(v): refs.append(urljoin(base,v))
+            for a in soup.find_all('a',href=True):
+              v=a['href'].strip()
+              if image_ext.search(v): refs.append(urljoin(base,v))
+            out=[];seen=set()
+            for u in refs:
+              low=u.lower()
+              if low.endswith('/images/blank.gif') or 'images/blank.gif?' in low: continue
+              if u not in seen:
+                seen.add(u);out.append(u)
+            return out
+
+          def fetch_archived(orig):
+            # A late-2022 target is deliberate: Wayback selects the nearest captured copy.
+            url='https://web.archive.org/web/20220922000000id_/'+orig
+            try:
+              r=session.get(url,timeout=18,allow_redirects=True)
+              final=r.url
+              text=r.text if 'text' in (r.headers.get('content-type') or '').lower() or r.content[:20].lower().find(b'<html')>=0 else ''
+              if r.status_code==200 and text and ('<html' in text.lower() or '<!doctype' in text.lower()) and 'web.archive.org/save/' not in final:
+                return {'state':'html_ok','http':r.status_code,'replay':final,'html':text,'bytes':len(r.content)}
+              if r.status_code in (429,500,502,503,504):
+                return {'state':'archive_service_error','http':r.status_code,'replay':final,'bytes':len(r.content)}
+              return {'state':'not_replayed','http':r.status_code,'replay':final,'bytes':len(r.content)}
+            except requests.Timeout:
+              return {'state':'archive_service_error','error':'timeout'}
+            except Exception as ex:
+              return {'state':'archive_service_error','error':type(ex).__name__+': '+str(ex)[:160]}
+
+          results=[]
+          unique=list(by_url.items())
+          for i,(orig, aliases) in enumerate(unique,1):
+            first=aliases[0]
+            rec={'original':orig,'primary_name':first['name'],'aliases':[x['name'] for x in aliases],
+                 'letters':sorted(set(x['letter'] for x in aliases)),'catalogue_entries':len(aliases)}
+            if orig.startswith('LOCAL:'):
+              rec.update({'state':'reconstructed_local','replay':'baddesley-clinton-final.html','text_chars':None,'media_refs':None})
+            else:
+              got=fetch_archived(orig)
+              rec.update({k:v for k,v in got.items() if k!='html'})
+              if got['state']=='html_ok':
+                source=got['html']
+                soup=BeautifulSoup(source,'html.parser')
+                visible=' '.join(soup.stripped_strings)
+                media=content_media(soup,orig)
+                rec['text_chars']=len(visible)
+                rec['media_refs']=len(media)
+                rec['uses_lazy_images']=any(('blank.gif' in (tag.get('src') or '').lower()) and any(tag.get(a) for a in ('data-src','data-orig-src','data-muse-src')) for tag in soup.find_all('img'))
+                rec['media_sample']=media[:12]
+            results.append(rec)
+            if i%25==0:
+              print(f'{i}/{len(unique)}',Counter(x['state'] for x in results),flush=True)
+            time.sleep(0.22)
+
+          # Apply only observations explicitly established during the recovery project.
+          manual={
+            'http://www.castlesfortsbattles.co.uk/midlands/old_oswestry_hillfort.html': 'user_confirmed_does_not_open',
+            'https://www.castlesfortsbattles.co.uk/midlands/old_oswestry_hillfort.html': 'user_confirmed_does_not_open',
+            'https://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html': 'user_confirmed_text_photos_missing',
+            'http://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html': 'user_confirmed_text_photos_missing',
+            'http://www.castlesfortsbattles.co.uk/midlands/stafford_castle.html': 'user_confirmed_opens_one_photo_missing',
+            'https://www.castlesfortsbattles.co.uk/midlands/stafford_castle.html': 'user_confirmed_opens_one_photo_missing',
+          }
+          for r in results:
+            if r['original'] in manual:r['manual_observation']=manual[r['original']]
+            if r['primary_name']=='Baddesley Clinton':r['manual_observation']='reconstructed_complete_text_four_original_photos'
+
+          counts=Counter(r['state'] for r in results)
+          summary={'catalogue_entries':len(entries),'unique_destinations':len(unique),'states':dict(counts),
+                   'note':'Stage 1 checks whether an archived HTML page can be retrieved and inventories image references. It does not yet prove that every referenced image is archived.'}
+          json.dump({'summary':summary,'results':results},open(f'{OUT}/stage1.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open(f'{OUT}/stage1-summary.json','w'),indent=2,ensure_ascii=False)
+
+          # Public audit dashboard; clearly labels this as an availability pass, not image-completeness proof.
+          def esc(x):return html.escape(str(x),quote=True)
+          rows=[]
+          for r in sorted(results,key=lambda x:(x['primary_name'].casefold(),x['original'])):
+            state=r['state']
+            manual=r.get('manual_observation','')
+            if state=='reconstructed_local': status='Reconstructed'
+            elif state=='html_ok': status='Archived HTML retrieved'
+            elif state=='archive_service_error': status='Archive check inconclusive'
+            else: status='No replay retrieved in this pass'
+            if manual: status += ' — '+manual.replace('_',' ')
+            if r.get('replay','').startswith('http'): link=f'<a href="{esc(r["replay"])}">archive</a>'
+            elif state=='reconstructed_local': link='<a href="baddesley-clinton-final.html">recovered page</a>'
+            else: link=''
+            rows.append(f'<tr><td>{esc(r["primary_name"])}</td><td>{esc(", ".join(r["aliases"]))}</td><td>{esc(status)}</td><td>{esc(r.get("media_refs", ""))}</td><td>{link}</td></tr>')
+          page=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catalogue audit | Castles, Forts and Battles Archive</title><style>body{{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222}}header{{background:#3d3528;color:#fff;padding:24px;text-align:center}}main{{max-width:1200px;margin:auto;padding:20px}}.note{{background:#fff;border-left:4px solid #8b7959;padding:12px;margin-bottom:18px}}table{{width:100%;border-collapse:collapse;background:#fff;font-size:14px}}th,td{{border:1px solid #d7cebd;padding:7px;vertical-align:top}}th{{background:#eee6d6;text-align:left;position:sticky;top:0}}tr:nth-child(even){{background:#faf8f3}}a{{color:#224d74}}@media(max-width:700px){{table{{font-size:12px}}th,td{{padding:5px}}}}</style></head><body><header><h1>Castles, Forts and Battles — catalogue audit</h1><p>Stage 1: archived-page availability and intended-media inventory</p></header><main><div class="note"><strong>{summary['catalogue_entries']}</strong> catalogue entries resolve to <strong>{summary['unique_destinations']}</strong> unique destinations. This pass does <strong>not</strong> certify photograph completeness; it identifies pages and their intended media so the asset-by-asset audit can follow.</div><p><a href="atoz-archive.html">Back to A–Z index</a></p><table><thead><tr><th>Entry</th><th>Aliases sharing page</th><th>Stage-1 status</th><th>Media refs in source</th><th>Link</th></tr></thead><tbody>{''.join(rows)}</tbody></table></main></body></html>'''
+          open('catalogue-audit.html','w',encoding='utf-8').write(page)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/audit.py
+      - name: Commit audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/ catalogue-audit.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Add stage-1 catalogue availability audit' && git pull --rebase && git push; fi
