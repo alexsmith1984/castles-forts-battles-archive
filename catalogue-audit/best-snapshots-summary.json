@@ -1,0 +1,11 @@
+{
+  "unique_destinations": 757,
+  "states": {
+    "available": 190,
+    "no_snapshot_found": 1,
+    "reconstructed_local": 1,
+    "inconclusive_service_error": 565
+  },
+  "target_date": "2022-09-22",
+  "method": "Wayback availability API; original URL first, then http/https and www/non-www variants. Service errors are inconclusive."
+}
