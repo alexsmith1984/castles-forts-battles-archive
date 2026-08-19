@@ -43,12 +43,10 @@ jobs:
             if not o or not u:return
             k=key(o)
             if k not in mapping or priority>mapping[k][0]:mapping[k]=(priority,u,o);sources[k]=source
-          # low priority: domain CDX exact known captures
           if os.path.exists('catalogue-audit/cdx-fast.json'):
             for r in json.load(open('catalogue-audit/cdx-fast.json',encoding='utf-8'))['results']:
-              if r.get('state')=='indexed_html_capture':add(r['original'],r.get('best_replay'), 'cdx',10)
+              if r.get('state')=='indexed_html_capture':add(r['original'],r.get('best_replay'),'cdx',10)
               elif r.get('state')=='reconstructed_local':add(r['original'],'baddesley-clinton-final.html','local',100)
-          # availability checks nearer 2022
           if os.path.exists('catalogue-audit/availability-unresolved.json'):
             for r in json.load(open('catalogue-audit/availability-unresolved.json',encoding='utf-8'))['results']:
               if r.get('resolution')=='available_via_api':add(r['original'],r.get('best_replay'),'availability',30)
@@ -87,3 +85,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html catalogue-audit/link-map-summary.json
           if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Point catalogue entries to best known Wayback snapshots' && git pull --rebase && git push; fi
+
+# rerun after slow availability pass 2026-08-18T23:13-07:00
