@@ -1,0 +1,98 @@
+name: Resolve catalogue gaps with Wayback availability API
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-unresolved-availability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Query unresolved pages and URL variants
+        run: |
+          cat > /tmp/resolve.py <<'PY'
+          import json, os, time, threading
+          from urllib.parse import urlsplit, urlunsplit
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+          from collections import Counter
+          import requests
+
+          src=json.load(open('catalogue-audit/cdx-fast.json',encoding='utf-8'))
+          unresolved=[r for r in src['results'] if r['state']=='no_html_capture_in_fast_cdx']
+          local=threading.local()
+          def sess():
+            if not hasattr(local,'s'):
+              local.s=requests.Session();local.s.headers['User-Agent']='Mozilla/5.0 (archival catalogue audit)'
+            return local.s
+          def variants(u):
+            sp=urlsplit(u);host=sp.netloc
+            host0=host[4:] if host.startswith('www.') else host
+            hosts=[host0,'www.'+host0]
+            out=[]
+            for scheme in ('http','https'):
+              for h in hosts:
+                v=urlunsplit((scheme,h,sp.path,sp.query,''))
+                if v not in out:out.append(v)
+            if u in out:
+              out.remove(u);out.insert(0,u)
+            return out
+          def ask(u):
+            try:
+              r=sess().get('https://archive.org/wayback/available',params={'url':u,'timestamp':'20220922'},timeout=15)
+              if r.status_code in (429,500,502,503,504):return {'query':u,'state':'service_error','http':r.status_code}
+              if r.status_code!=200:return {'query':u,'state':'http_error','http':r.status_code}
+              data=r.json();c=((data.get('archived_snapshots') or {}).get('closest') or {})
+              if c.get('available') and c.get('url'):
+                return {'query':u,'state':'available','snapshot_url':c.get('url'),'timestamp':c.get('timestamp'),'status':c.get('status')}
+              return {'query':u,'state':'none'}
+            except requests.Timeout:return {'query':u,'state':'service_error','error':'timeout'}
+            except Exception as ex:return {'query':u,'state':'service_error','error':type(ex).__name__+': '+str(ex)[:160]}
+          def resolve_one(rec):
+            attempts=[]
+            for v in variants(rec['original']):
+              a=ask(v);attempts.append(a)
+              if a['state']=='available':
+                return {**rec,'resolution':'available_via_api','resolved_variant':v,'best_replay':a['snapshot_url'],'capture_timestamp':a.get('timestamp'),'attempts':attempts}
+              if a['state']=='service_error':
+                # do not multiply load when the service itself is failing
+                break
+            if any(a['state']=='service_error' for a in attempts):state='inconclusive_service_error'
+            else:state='no_snapshot_via_availability_api'
+            return {**rec,'resolution':state,'attempts':attempts}
+
+          results=[]
+          with ThreadPoolExecutor(max_workers=6) as ex:
+            futs={ex.submit(resolve_one,r):r for r in unresolved}
+            for i,f in enumerate(as_completed(futs),1):
+              try:results.append(f.result())
+              except Exception as exc:
+                r=futs[f];results.append({**r,'resolution':'inconclusive_exception','error':repr(exc)})
+              if i%50==0:print(i,'/',len(unresolved),Counter(r['resolution'] for r in results),flush=True)
+          results.sort(key=lambda r:r['primary_name'].casefold())
+          summary={'input_unresolved':len(unresolved),'resolutions':dict(Counter(r['resolution'] for r in results)),
+                   'method':'Wayback availability API, trying http/https and www/non-www variants; service failures are treated as inconclusive.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'results':results},open('catalogue-audit/availability-unresolved.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/availability-unresolved-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/resolve.py
+      - name: Commit unresolved audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/availability-unresolved*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Resolve catalogue gaps via Wayback availability API' && git pull --rebase && git push; fi
