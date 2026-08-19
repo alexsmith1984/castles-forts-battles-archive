@@ -1,0 +1,150 @@
+name: Recover Aberedw Castle
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-aberedw.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover source and genuine images
+        run: |
+          cat > /tmp/recover.py <<'PY'
+          import os,re,json,time,hashlib
+          from urllib.parse import urljoin,urlsplit,urlunsplit
+          import requests
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          from io import BytesIO
+
+          PAGE='https://www.castlesfortsbattles.co.uk/central_wales/aberedw_castle.html'
+          TS='20210625101549'
+          OUT='recovered/aberedw-castle'
+          IMGDIR=OUT+'/images'
+          os.makedirs(IMGDIR,exist_ok=True)
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles archival recovery)'
+
+          def req(url,timeout=35):
+            for n in range(4):
+              try:
+                r=s.get(url,timeout=timeout,allow_redirects=True)
+                if r.status_code in (429,500,502,503,504):
+                  time.sleep(2+n*3); continue
+                return r
+              except Exception:
+                time.sleep(2+n*3)
+            return None
+
+          srcurl=f'https://web.archive.org/web/{TS}id_/{PAGE}'
+          r=req(srcurl,50)
+          if not r or r.status_code!=200 or '<html' not in r.text.lower():
+            raise SystemExit('source recovery failed')
+          html=r.text
+          open(OUT+'/source.html','w',encoding='utf-8').write(html)
+          soup=BeautifulSoup(html,'html.parser')
+
+          # Canonical page-specific originals: prefer linked full-size /assets/ resources.
+          assets=[]
+          for a in soup.find_all('a',href=True):
+            u=urljoin(PAGE,a['href'].strip())
+            if '/central_wales/assets/' in u and re.search(r'\.(jpe?g|png)(?:\?|$)',u,re.I):
+              u=urlunsplit((*urlsplit(u)[:3],'',''))
+              if u not in assets: assets.append(u)
+          # Display copies can preserve an original even when /assets/ was missed.
+          displays=[]
+          for img in soup.find_all('img'):
+            for attr in ('data-orig-src','data-muse-src','data-src','src'):
+              v=(img.get(attr) or '').strip()
+              if not v or 'blank.gif' in v.lower() or v.startswith('data:'): continue
+              u=urljoin(PAGE,v)
+              if 'aberedw' in urlsplit(u).path.lower() and re.search(r'\.(jpe?g|png)(?:\?|$)',u,re.I):
+                if u not in displays: displays.append(u)
+
+          def cdx_candidates(u):
+            sp=urlsplit(u); base=os.path.basename(sp.path)
+            roots=[]
+            hosts=[sp.netloc]
+            h=sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc
+            hosts.append(h)
+            # exact URL/path plus same filename in assets/images for protocol/host variants
+            urls=[]
+            for scheme in ('http','https'):
+              for host in hosts:
+                urls += [urlunsplit((scheme,host,sp.path,'',''))]
+                d=os.path.dirname(sp.path)
+                if '/assets' in d: urls.append(urlunsplit((scheme,host,d.replace('/assets','/images')+'/'+base,'','')))
+                if '/images' in d: urls.append(urlunsplit((scheme,host,d.replace('/images','/assets')+'/'+base,'','')))
+            rows=[]
+            for q in dict.fromkeys(urls):
+              try:
+                x=s.get('https://web.archive.org/cdx/search/cdx',params={'url':q,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,digest,length','collapse':'digest'},timeout=35)
+                if x.status_code==200:
+                  d=x.json(); rows += d[1:] if isinstance(d,list) and len(d)>1 else []
+              except Exception: pass
+            # newest first, then larger first where available
+            rows.sort(key=lambda z:(z[0],int(z[4]) if len(z)>4 and str(z[4]).isdigit() else 0),reverse=True)
+            return rows
+
+          def valid_image(resp):
+            if not resp or resp.status_code!=200:return None
+            ct=(resp.headers.get('content-type') or '').lower()
+            if not ct.startswith('image/'): return None
+            b=resp.content
+            if len(b)<1000:return None
+            try:
+              im=Image.open(BytesIO(b)); im.verify()
+              im=Image.open(BytesIO(b)); w,h=im.size
+              if w<100 or h<100:return None
+              return b,(w,h),im.format
+            except Exception:return None
+
+          report=[]; saved_by_stem={}
+          # Try canonical assets first, then display-only candidates.
+          candidates=[]
+          for u in assets+displays:
+            stem=re.sub(r'\.(jpe?g|png)$','',os.path.basename(urlsplit(u).path),flags=re.I)
+            # responsive suffixes aren't canonical if the base stem was already seen
+            key=re.sub(r'\d+x\d+$','',stem)
+            candidates.append((u,key))
+          for requested,key in candidates:
+            if key in saved_by_stem: continue
+            found=None; attempts=[]
+            rows=cdx_candidates(requested)
+            for row in rows[:12]:
+              ts,orig=row[0],row[1]
+              rr=req(f'https://web.archive.org/web/{ts}id_/{orig}',35)
+              vi=valid_image(rr)
+              attempts.append({'timestamp':ts,'original':orig,'status':rr.status_code if rr else None,'bytes':len(rr.content) if rr else 0})
+              if vi:
+                b,dims,fmt=vi; ext='.png' if fmt=='PNG' else '.jpg'
+                fname=key+ext
+                open(IMGDIR+'/'+fname,'wb').write(b)
+                found={'requested':requested,'archive_timestamp':ts,'archive_original':orig,'file':'images/'+fname,'bytes':len(b),'dimensions':dims,'sha256':hashlib.sha256(b).hexdigest()}
+                saved_by_stem[key]=found
+                break
+            report.append({'requested':requested,'canonical_key':key,'found':found,'cdx_rows':len(rows),'attempts':attempts})
+            time.sleep(.5)
+
+          summary={'page':PAGE,'capture':TS,'source_bytes':len(html.encode()),'asset_links':assets,'display_candidates':len(displays),'recovered_unique_images':len(saved_by_stem),'recovered':list(saved_by_stem.values()),'search_results':report}
+          open(OUT+'/recovery-report.json','w',encoding='utf-8').write(json.dumps(summary,indent=2,ensure_ascii=False))
+          print(json.dumps({'asset_links':len(assets),'display_candidates':len(displays),'recovered_unique_images':len(saved_by_stem)},indent=2))
+          PY
+          python /tmp/recover.py
+      - name: Commit recovered evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/aberedw-castle
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Recover Aberedw Castle source and images' && git pull --rebase && git push; fi
