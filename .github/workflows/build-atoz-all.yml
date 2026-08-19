@@ -1,0 +1,112 @@
+name: Build integrated A-Z archive navigation
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-atoz-all.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build all five A-Z pages
+        run: |
+          cat > /tmp/buildall.py <<'PY'
+          import json,re
+          from urllib.parse import urlsplit
+          from html import escape
+
+          PARTS=[
+            ('atoz_part1','A–C','ABC','atoz-part1.html'),
+            ('atoz_part2','D–G','DEFG','atoz-part2.html'),
+            ('atoz_part3','H–L','HIJKL','atoz-part3.html'),
+            ('atoz_part4','M–R','MNOPQR','atoz-part4.html'),
+            ('atoz_part5','S–Z','STUVWXYZ','atoz-part5.html'),
+          ]
+          NAV_PATHS={'/castles_england.html','/castles_scotland.html','/castles_wales.html','/index.html','/main.html','/links2.html','/atoz.html','/atoz_part2.html','/atoz_part3.html','/atoz_part4.html','/atoz_part5.html'}
+          WAYBACK_TS='20220922000000'
+          BADDESLEY_PATH='/midlands/baddesley_clinton.html'
+
+          def fix_text(s):
+            s=(s or '').strip()
+            if any(ch in s for ch in ('â','Ã','Â','\x80','\x99')):
+              try:s=s.encode('latin1').decode('utf-8')
+              except Exception:pass
+            return s
+          def first_letter(s):
+            m=re.search(r'[A-Za-z]',fix_text(s)); return m.group(0).upper() if m else ''
+          def entry_url(original):
+            sp=urlsplit(original)
+            if sp.netloc.lower().endswith('castlesfortsbattles.co.uk') and sp.path.lower()==BADDESLEY_PATH:
+              return 'baddesley-clinton-final.html'
+            return f'https://web.archive.org/web/{WAYBACK_TS}/{original}'
+          def is_entry(item,letters):
+            text=fix_text(item.get('text')); url=(item.get('absolute') or '').strip()
+            if not text or not url or first_letter(text) not in letters:return False
+            sp=urlsplit(url); path=(sp.path or '').lower(); host=(sp.netloc or '').lower()
+            if path in NAV_PATHS:return False
+            if host in ('twitter.com','www.twitter.com'):return False
+            if host.endswith('battlefieldsofbritain.co.uk') and path in ('','/'):return False
+            if host.endswith(('castlesfortsbattles.co.uk','battlefieldsofbritain.co.uk')):
+              return path.endswith(('.html','.htm'))
+            return path.endswith(('.html','.htm'))
+
+          CSS='''*{box-sizing:border-box}body{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.45}header{background:#3d3528;color:#fff;padding:24px 18px;text-align:center}header h1{margin:0 0 6px;font-size:30px}header p{margin:0;color:#e7dfd0}.wrap{max-width:980px;margin:0 auto;padding:24px 20px 50px}.alpha{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 0 26px}.alpha a{display:inline-block;min-width:34px;text-align:center;padding:7px 8px;border:1px solid #b7aa91;border-radius:4px;background:#fff;color:#493e2c;text-decoration:none;font-weight:bold}.alpha a:hover{background:#eee6d6}.note{background:#fff;border-left:4px solid #8b7959;padding:12px 14px;margin:0 0 26px}section{background:#fff;border:1px solid #d7cebd;border-radius:6px;margin:0 0 18px;padding:18px 22px}section h2{font-size:26px;margin:0 0 10px;color:#493e2c;border-bottom:1px solid #ddd3c1;padding-bottom:6px}ul{list-style:none;padding:0;margin:0;columns:2;column-gap:32px}li{break-inside:avoid;padding:4px 0}li a{color:#224d74;text-decoration:none}li a:hover{text-decoration:underline}.foot{text-align:center;color:#6b6255;font-size:14px;margin-top:25px}.partlinks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0}.partlinks a{background:#fff;border:1px solid #c7baa3;padding:10px 14px;border-radius:5px;text-decoration:none;color:#493e2c;font-weight:bold}@media(max-width:700px){ul{columns:1}header h1{font-size:25px}.wrap{padding:18px 12px 40px}}'''
+
+          def local_for(ch):
+            if ch in 'ABC':return f'atoz-part1.html#{ch.lower()}'
+            if ch in 'DEFG':return f'atoz-part2.html#{ch.lower()}'
+            if ch in 'HIJKL':return f'atoz-part3.html#{ch.lower()}'
+            if ch in 'MNOPQR':return f'atoz-part4.html#{ch.lower()}'
+            if ch in 'STUVW':return f'atoz-part5.html#{ch.lower()}'
+            return 'atoz-part5.html#xyz'
+          def nav_html():
+            return '<nav class="alpha" aria-label="Alphabetical index">'+''.join(f'<a href="{local_for(c)}">{c}</a>' for c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')+'</nav>'
+
+          report=[]
+          for stem,label,letters,outname in PARTS:
+            data=json.load(open(f'index-recovery/{stem}.links.json',encoding='utf-8'))
+            seen=set();groups={c:[] for c in letters}
+            for item in data['links']:
+              if not is_entry(item,letters):continue
+              text=fix_text(item.get('text')); url=(item.get('absolute') or '').strip(); key=(text,url)
+              if key in seen:continue
+              seen.add(key);c=first_letter(text)
+              if c in groups:groups[c].append({'text':text,'absolute':url})
+            for c in groups:groups[c].sort(key=lambda x:(x['text'].casefold(),x['absolute']))
+            blocks=[]
+            for c in letters:
+              if not groups[c]:continue
+              if stem=='atoz_part5' and c=='Y':secid='xyz'
+              elif stem=='atoz_part5' and c=='Z':secid='z'
+              else:secid=c.lower()
+              rows=''.join(f'<li><a href="{escape(entry_url(x["absolute"]),quote=True)}">{escape(x["text"])}</a></li>' for x in groups[c])
+              blocks.append(f'<section id="{secid}"><h2>{c}</h2><ul>{rows}</ul></section>')
+            total=sum(len(v) for v in groups.values())
+            page=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A–Z {label} | Castles, Forts and Battles Archive</title><style>{CSS}</style></head><body><header><h1>Castles, Forts and Battles — A–Z {label}</h1><p>Recovered alphabetical index</p></header><main class="wrap">{nav_html()}<div class="note">This clean static index is reconstructed from the archived original. Entry names and destinations are preserved. Baddesley Clinton points to the recovered local copy; other entries open through the Internet Archive and will be audited individually later.</div>{''.join(blocks)}<div class="partlinks"><a href="atoz-archive.html">A–Z home</a></div><p class="foot">Recovered index navigation. No substitute entries have been invented.</p></main></body></html>'''
+            open(outname,'w',encoding='utf-8').write(page)
+            report.append({'page':outname,'range':label,'entries':total,'by_letter':{c:len(groups[c]) for c in groups}})
+          total_all=sum(x['entries'] for x in report)
+          cards='<div class="partlinks">'+''.join(f'<a href="{p[3]}">{p[1]}</a>' for p in PARTS)+'</div>'
+          master=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A–Z | Castles, Forts and Battles Archive</title><style>{CSS}</style></head><body><header><h1>Castles, Forts and Battles — A–Z</h1><p>Integrated recovered navigation for CastlesFortsBattles.co.uk</p></header><main class="wrap">{nav_html()}<div class="note">All five alphabetical index sections are now available here as ordinary static pages reconstructed from the archived source. This restores the catalogue navigation; individual destination pages will be checked separately for missing photographs and other assets.</div>{cards}<section><h2>Index coverage</h2><p>{total_all} distinct catalogue entries were recovered across A–Z.</p><p><a href="baddesley-clinton-final.html">Baddesley Clinton — recovered page</a></p></section><p class="foot">Index reconstruction first; individual-page completeness audit follows separately.</p></main></body></html>'''
+          open('atoz-archive.html','w',encoding='utf-8').write(master)
+          json.dump({'total_entries_A_Z':total_all,'pages':report},open('index-recovery/build-all-report.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps({'total_entries_A_Z':total_all,'pages':report},indent=2))
+          PY
+          python /tmp/buildall.py
+      - name: Commit integrated indexes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-archive.html atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html index-recovery/build-all-report.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Publish integrated recovered A-Z navigation' && git push; fi
