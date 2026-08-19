@@ -1,19 +1,17 @@
 {
   "unique_destinations": 757,
   "fetch_states": {
-    "source_ok": 404,
-    "no_known_snapshot": 352,
-    "local_reconstruction": 1
+    "source_ok": 741,
+    "no_known_snapshot": 9,
+    "local_reconstruction": 1,
+    "inconclusive_service_error": 6
   },
-  "sources_inventoried": 404,
-  "late_snapshot_targets": 190,
-  "refresh_outcomes": {
-    "same": 93,
-    "updated": 97
-  },
-  "pages_with_asset_links": 272,
-  "pages_with_any_media_refs": 403,
-  "total_asset_links": 2227,
-  "total_media_refs": 21734,
-  "scope": "Source inventory refreshed where the availability API supplied a snapshot closest to 2022-09-22."
+  "sources_inventoried": 741,
+  "newly_attempted": 343,
+  "newly_source_ok": 337,
+  "pages_with_asset_links": 509,
+  "pages_with_any_media_refs": 740,
+  "total_asset_links": 4869,
+  "total_media_refs": 43220,
+  "scope": "Extended source inventory including snapshots recovered by the slow availability retry."
 }
