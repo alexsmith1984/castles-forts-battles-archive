@@ -1,0 +1,278 @@
+{
+  "catalogue_entries": 917,
+  "unique_destinations": 757,
+  "availability": {
+    "snapshot_found": 753,
+    "reconstructed_local": 1,
+    "no_snapshot_found": 3
+  },
+  "image_states": {
+    "all_content_images_exactly_indexed": 224,
+    "some_content_images_unpreserved": 335,
+    "no_content_images_preserved": 186,
+    "local_reconstruction": 1,
+    "all_content_images_recoverable_some_via_alternate_path": 7,
+    "source_unavailable": 3,
+    "no_content_images_detected": 1
+  },
+  "priority_pages": [
+    {
+      "primary_name": "Baddesley Clinton",
+      "aliases": [
+        "Baddesley Clinton"
+      ],
+      "original": "LOCAL:baddesley-clinton-final.html",
+      "content_image_state": "local_reconstruction",
+      "method": null,
+      "intended_content_images": null,
+      "exact_indexed": null,
+      "alternate_path_same_filename": null,
+      "not_indexed_anywhere_same_filename": null,
+      "missing_images": null,
+      "manual_observation": "reconstructed locally; complete recoverable text; four genuine original photographs"
+    },
+    {
+      "primary_name": "Bosworth Field (Battle of - 1485)",
+      "aliases": [
+        "Bosworth Field (Battle of - 1485)"
+      ],
+      "original": "http://www.battlefieldsofbritain.co.uk/battle_bosworth_field_1485.html",
+      "content_image_state": "some_content_images_unpreserved",
+      "method": "fullsize_assets",
+      "intended_content_images": 16,
+      "exact_indexed": 0,
+      "alternate_path_same_filename": 2,
+      "not_indexed_anywhere_same_filename": 14,
+      "missing_images": [
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_field_1485_statistics.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action1.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action2.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action3.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action4.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action5.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action6.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action7.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action8.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_action9.png",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_1_tudor_position.jpg",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_5_royalist_position.jpg",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth_1485_5a_royal_position.jpg",
+        "http://www.battlefieldsofbritain.co.uk/assets/bosworth1.jpg"
+      ],
+      "manual_observation": "user confirmed page opens but some photographs may be missing"
+    },
+    {
+      "primary_name": "Clun Castle",
+      "aliases": [
+        "Clun Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/clun_castle.html",
+      "content_image_state": "all_content_images_exactly_indexed",
+      "method": "display_images",
+      "intended_content_images": 15,
+      "exact_indexed": 15,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 0,
+      "missing_images": [],
+      "manual_observation": null
+    },
+    {
+      "primary_name": "Hopton Castle",
+      "aliases": [
+        "Hopton Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/hopton_castle.html",
+      "content_image_state": "some_content_images_unpreserved",
+      "method": "fullsize_assets",
+      "intended_content_images": 9,
+      "exact_indexed": 0,
+      "alternate_path_same_filename": 5,
+      "not_indexed_anywhere_same_filename": 4,
+      "missing_images": [
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle3.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle_plan.png",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle13_earthworks.jpg"
+      ],
+      "manual_observation": null
+    },
+    {
+      "primary_name": "Moreton Corbet Castle",
+      "aliases": [
+        "Moreton Corbet Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/moreton_corbet.html",
+      "content_image_state": "all_content_images_exactly_indexed",
+      "method": "display_images",
+      "intended_content_images": 16,
+      "exact_indexed": 16,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 0,
+      "missing_images": [],
+      "manual_observation": null
+    },
+    {
+      "primary_name": "Old Oswestry Hillfort",
+      "aliases": [
+        "Old Oswestry Hillfort",
+        "Oswestry Hillfort"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/old_oswestry_hillfort.html",
+      "content_image_state": "no_content_images_preserved",
+      "method": "fullsize_assets",
+      "intended_content_images": 8,
+      "exact_indexed": 0,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 8,
+      "missing_images": [
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry_hillfort.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry20.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry3.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry19.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry7.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry15_air.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry16_entrance.jpg",
+        "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry17_defences.jpg"
+      ],
+      "manual_observation": "user confirmed original replay does not open"
+    },
+    {
+      "primary_name": "Peveril Castle",
+      "aliases": [
+        "Peveril Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/peveril_castle.html",
+      "content_image_state": "some_content_images_unpreserved",
+      "method": "fullsize_assets",
+      "intended_content_images": 12,
+      "exact_indexed": 0,
+      "alternate_path_same_filename": 4,
+      "not_indexed_anywhere_same_filename": 8,
+      "missing_images": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle20.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_castleton_plan.png",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_layout2.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_layout3.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle23.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle29_bailey.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/castleton_rampart.jpg"
+      ],
+      "manual_observation": null
+    },
+    {
+      "primary_name": "Richard's Castle",
+      "aliases": [
+        "Richard's Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/richards_castle.html",
+      "content_image_state": "some_content_images_unpreserved",
+      "method": "fullsize_assets",
+      "intended_content_images": 8,
+      "exact_indexed": 0,
+      "alternate_path_same_filename": 4,
+      "not_indexed_anywhere_same_filename": 4,
+      "missing_images": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle14.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle15.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle_plan.png"
+      ],
+      "manual_observation": null
+    },
+    {
+      "primary_name": "Seckington Castle",
+      "aliases": [
+        "Seckington Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html",
+      "content_image_state": "some_content_images_unpreserved",
+      "method": "display_images",
+      "intended_content_images": 17,
+      "exact_indexed": 12,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 5,
+      "missing_images": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/wpc3b5ceae_06.png",
+        "http://www.castlesfortsbattles.co.uk/wpimages/wp88362264_05_06.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/wp7442ef30_05_06.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/wp002bd462_05_06.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/wp66001bee_05_06.jpg"
+      ],
+      "manual_observation": "user confirmed text opens but photographs are missing"
+    },
+    {
+      "primary_name": "Stafford Castle",
+      "aliases": [
+        "Stafford Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/stafford_castle.html",
+      "content_image_state": "all_content_images_exactly_indexed",
+      "method": "display_images",
+      "intended_content_images": 15,
+      "exact_indexed": 15,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 0,
+      "missing_images": [],
+      "manual_observation": "user confirmed page opens but one photograph is missing"
+    },
+    {
+      "primary_name": "Stokesay Castle",
+      "aliases": [
+        "Stokesay Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/stokesay_castle.html",
+      "content_image_state": "all_content_images_exactly_indexed",
+      "method": "display_images",
+      "intended_content_images": 16,
+      "exact_indexed": 16,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 0,
+      "missing_images": [],
+      "manual_observation": null
+    },
+    {
+      "primary_name": "Tutbury Castle",
+      "aliases": [
+        "Tutbury Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+      "content_image_state": "all_content_images_exactly_indexed",
+      "method": "display_images",
+      "intended_content_images": 19,
+      "exact_indexed": 19,
+      "alternate_path_same_filename": 0,
+      "not_indexed_anywhere_same_filename": 0,
+      "missing_images": [],
+      "manual_observation": null
+    }
+  ],
+  "link_normalization": {
+    "atoz-part1.html": {
+      "entries": 268,
+      "changed": 98,
+      "unmapped": 0
+    },
+    "atoz-part2.html": {
+      "entries": 147,
+      "changed": 7,
+      "unmapped": 0
+    },
+    "atoz-part3.html": {
+      "entries": 147,
+      "changed": 10,
+      "unmapped": 0
+    },
+    "atoz-part4.html": {
+      "entries": 183,
+      "changed": 5,
+      "unmapped": 0
+    },
+    "atoz-part5.html": {
+      "entries": 172,
+      "changed": 6,
+      "unmapped": 0
+    }
+  },
+  "interpretation": "Image status is based on original/full-size asset filenames where available and displayed-image references for older pages. Indexed means Wayback records the resource; it is not yet visual/byte certification."
+}
