@@ -1,3 +1,4 @@
+# Triggered for the nine pages selected on 19 August 2026
 name: Recover nine selected full pages
 
 on:
@@ -60,8 +61,7 @@ jobs:
 
           def image_ok(r):
             if r is None or r.status_code!=200 or len(r.content)<700:return False
-            ct=(r.headers.get('content-type') or '').lower()
-            b=r.content[:12]
+            ct=(r.headers.get('content-type') or '').lower(); b=r.content[:12]
             if not (ct.startswith('image/') or b.startswith(b'\xff\xd8\xff') or b.startswith(b'\x89PNG\r\n\x1a\n') or b[:6] in (b'GIF87a',b'GIF89a')): return False
             try:
               im=Image.open(BytesIO(r.content)); w,h=im.size
@@ -69,12 +69,9 @@ jobs:
             except Exception:return False
 
           def variants(u):
-            sp=urlsplit(u); hosts=[sp.netloc]
-            hosts.append(sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc)
-            out=[]
+            sp=urlsplit(u); hosts=[sp.netloc,sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc]; out=[]
             for scheme in ('http','https'):
-              for host in dict.fromkeys(hosts):
-                out.append(urlunsplit((scheme,host,sp.path,'','')))
+              for host in dict.fromkeys(hosts): out.append(urlunsplit((scheme,host,sp.path,'','')))
             return list(dict.fromkeys(out))
 
           def recover_one(ts,u,imgdir):
@@ -89,22 +86,17 @@ jobs:
             seen=set()
             for cts,cu,how in candidates:
               if (cts,cu) in seen:continue
-              seen.add((cts,cu))
-              r=req(f'https://web.archive.org/web/{cts}id_/{cu}',16)
+              seen.add((cts,cu)); r=req(f'https://web.archive.org/web/{cts}id_/{cu}',16)
               if image_ok(r):
-                try:
-                  im=Image.open(BytesIO(r.content)); dims=list(im.size)
+                try:dims=list(Image.open(BytesIO(r.content)).size)
                 except Exception:dims=None
-                digest=hashlib.sha256(r.content).hexdigest()
-                ext=os.path.splitext(urlsplit(u).path)[1].lower()
+                digest=hashlib.sha256(r.content).hexdigest(); ext=os.path.splitext(urlsplit(u).path)[1].lower()
                 if ext not in ('.jpg','.jpeg','.png','.gif','.webp'): ext='.jpg'
-                fn=re.sub(r'[^A-Za-z0-9._-]+','_',os.path.basename(urlsplit(u).path) or ('image'+ext))
-                p=imgdir/fn
+                fn=re.sub(r'[^A-Za-z0-9._-]+','_',os.path.basename(urlsplit(u).path) or ('image'+ext)); p=imgdir/fn
                 if p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()!=digest:
                   stem,suf=os.path.splitext(fn); fn=f'{stem}-{digest[:8]}{suf}'; p=imgdir/fn
                 p.write_bytes(r.content)
                 return {'status':'recovered','file':'images/'+fn,'method':how,'timestamp':cts,'archived_original':cu,'bytes':len(r.content),'dimensions':dims,'sha256':digest}
-            # Arquivo exact variants; a successful empty query is a genuine negative for this route.
             ar_ok=False
             for v in variants(u):
               try:
@@ -130,17 +122,11 @@ jobs:
           reports=[]
 
           for name,slug,wb in TARGETS:
-            ts,original=parse_wayback(wb)
-            rawurl=f'https://web.archive.org/web/{ts}id_/{original}'
-            r=req(rawurl,35)
+            ts,original=parse_wayback(wb); rawurl=f'https://web.archive.org/web/{ts}id_/{original}'; r=req(rawurl,35)
             if r is None or r.status_code!=200 or '<html' not in r.text.lower():
               reports.append({'name':name,'slug':slug,'status':'source-failed','status_code':None if r is None else r.status_code}); continue
-            raw=r.text
-            out=Path('recovered')/slug; imgdir=out/'images'; imgdir.mkdir(parents=True,exist_ok=True)
-            (out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
-            soup=BeautifulSoup(raw,'html.parser')
-
-            refs=[]
+            raw=r.text; out=Path('recovered')/slug; imgdir=out/'images'; imgdir.mkdir(parents=True,exist_ok=True); (out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
+            soup=BeautifulSoup(raw,'html.parser'); refs=[]
             for el in soup.find_all(['img','a']):
               vals=[]
               if el.name=='img':
@@ -152,16 +138,12 @@ jobs:
                 if re.search(r'\.(?:jpe?g|png|gif|webp)(?:\?|$)',v,re.I): vals.append(v)
               for v in vals:
                 u=urljoin(original,v); b=os.path.basename(urlsplit(u).path)
-                if not b or decor.search(b):continue
-                if u not in refs:refs.append(u)
-
+                if b and not decor.search(b) and u not in refs:refs.append(u)
             image_results=[]; shown=[]; hashes=set()
             for u in refs[:80]:
               x=recover_one(ts,u,imgdir); x['requested']=u; image_results.append(x)
-              if x['status']=='recovered' and x['sha256'] not in hashes:
-                hashes.add(x['sha256']); shown.append((u,x['file']))
+              if x['status']=='recovered' and x['sha256'] not in hashes: hashes.add(x['sha256']); shown.append((u,x['file']))
               time.sleep(.08)
-
             for x in soup(['script','style','noscript']):x.decompose()
             blocks=[]; seen=set()
             for el in soup.find_all(['h1','h2','h3','h4','p','li']):
@@ -170,27 +152,21 @@ jobs:
               key=re.sub(r'\s+',' ',txt).casefold()
               if key in seen:continue
               seen.add(key)
-              if len(txt)<2:continue
-              blocks.append((el.name,txt))
+              if len(txt)>=2:blocks.append((el.name,txt))
             body=[]
             for tag,txt in blocks:
-              if tag.startswith('h') or (len(txt)<85 and re.match(r'^(History|Getting There|Bibliography|What.s There|Location|Access|Design|Visiting|Gallery|Battle|Aftermath|Background|Forces|Action|Statistics|Parking)\b',txt,re.I)):
-                body.append(f'<h2>{H.escape(txt)}</h2>')
-              elif tag=='li': body.append(f'<p>• {H.escape(txt)}</p>')
-              else: body.append(f'<p>{H.escape(txt)}</p>')
+              if tag.startswith('h') or (len(txt)<85 and re.match(r'^(History|Getting There|Bibliography|What.s There|Location|Access|Design|Visiting|Gallery|Battle|Aftermath|Background|Forces|Action|Statistics|Parking)\b',txt,re.I)): body.append(f'<h2>{H.escape(txt)}</h2>')
+              elif tag=='li':body.append(f'<p>• {H.escape(txt)}</p>')
+              else:body.append(f'<p>{H.escape(txt)}</p>')
             figs=[]
             for u,rel in shown:
-              cap=os.path.splitext(os.path.basename(urlsplit(u).path))[0].replace('_',' ')
-              figs.append(f'<figure><img src="{H.escape(rel,quote=True)}" alt="{H.escape(name)}"><figcaption>{H.escape(cap)}</figcaption></figure>')
+              cap=os.path.splitext(os.path.basename(urlsplit(u).path))[0].replace('_',' '); figs.append(f'<figure><img src="{H.escape(rel,quote=True)}" alt="{H.escape(name)}"><figcaption>{H.escape(cap)}</figcaption></figure>')
             rc=len(shown); miss=sum(1 for x in image_results if x['status']!='recovered')
             doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H.escape(name)} | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:white;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:920px;margin:auto;padding:24px 18px 50px}}.note,article{{background:white;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c;margin-top:1.35em}}p{{margin:.75em 0}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto;border:1px solid #d7cebd}}figcaption{{font-size:13px;color:#6b6255;margin-top:5px}}a{{color:#224d74}}</style></head><body><header><h1>{H.escape(name)}</h1></header><main><div class="note">Static archival reconstruction from the supplied Wayback capture. The archived written content is preserved; only genuine original images recovered from web archives are displayed. {rc} distinct archived content image(s) recovered.</div><article>{''.join(body)}<h2>Recovered original photographs, plans and images</h2>{''.join(figs) if figs else '<p>No original image files could be recovered from the available archive copies.</p>'}</article><p><a href="../../atoz-archive.html">Back to recovered A–Z index</a></p></main></body></html>'''
             (out/'index.html').write_text(doc,encoding='utf-8')
             report={'name':name,'slug':slug,'status':'built','source_wayback':wb,'raw_source':rawurl,'source_bytes':len(r.content),'text_blocks':len(blocks),'image_references_detected':len(refs),'distinct_images_recovered':rc,'unrecovered_image_references':miss,'images':image_results,'public_path':f'recovered/{slug}/index.html'}
-            (out/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8'); reports.append(report)
-            print(name,'text',len(blocks),'refs',len(refs),'recovered',rc,'miss',miss)
-
-          Path('page-audit').mkdir(exist_ok=True)
-          Path('page-audit/user-selected-nine.json').write_text(json.dumps(reports,indent=2,ensure_ascii=False),encoding='utf-8')
+            (out/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8'); reports.append(report); print(name,'text',len(blocks),'refs',len(refs),'recovered',rc,'miss',miss)
+          Path('page-audit').mkdir(exist_ok=True); Path('page-audit/user-selected-nine.json').write_text(json.dumps(reports,indent=2,ensure_ascii=False),encoding='utf-8')
           PY
           python /tmp/recover_selected.py
       - name: Commit recovered pages
