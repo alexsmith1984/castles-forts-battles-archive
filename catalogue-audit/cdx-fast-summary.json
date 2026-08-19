@@ -1,0 +1,36 @@
+{
+  "catalogue_entries": 917,
+  "unique_destinations": 757,
+  "states": {
+    "indexed_html_capture": 305,
+    "no_html_capture_in_fast_cdx": 451,
+    "reconstructed_local": 1
+  },
+  "cdx_queries": [
+    {
+      "domain": "www.castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 174389,
+      "rows": 1220
+    },
+    {
+      "domain": "castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 174389,
+      "rows": 1220
+    },
+    {
+      "domain": "www.battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 12215,
+      "rows": 86
+    },
+    {
+      "domain": "battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 12215,
+      "rows": 86
+    }
+  ],
+  "scope": "Fast archive-index pass only. A positive result proves an indexed HTML capture exists; it does not prove that every photograph/asset is preserved. A zero result is reliable only for domain queries that returned HTTP 200."
+}
