@@ -1,0 +1,137 @@
+name: Fast CDX catalogue audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-catalogue-cdx-fast.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Build manifest and query Wayback CDX by domain
+        run: |
+          cat > /tmp/cdxfast.py <<'PY'
+          import json, os, re, html, time
+          from urllib.parse import urlsplit, urlunsplit
+          from collections import defaultdict, Counter
+          import requests
+          from bs4 import BeautifulSoup
+
+          OUT='catalogue-audit'; os.makedirs(OUT,exist_ok=True)
+          PARTS=['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']
+          WB_RE=re.compile(r'^https://web\.archive\.org/web/\d+(?:[a-z_]+)?/(https?://.+)$',re.I)
+          def orig(h):
+            h=html.unescape(h or '').strip()
+            if h=='baddesley-clinton-final.html':return 'LOCAL:baddesley-clinton-final.html'
+            m=WB_RE.match(h); return m.group(1) if m else h
+          entries=[]
+          for part in PARTS:
+            soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser')
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2'); letter=h2.get_text(' ',strip=True).upper() if h2 else ''
+              if len(letter)!=1 or not letter.isalpha():continue
+              for a in sec.find_all('a',href=True):
+                name=a.get_text(' ',strip=True); o=orig(a['href'])
+                if name and o:entries.append({'name':name,'letter':letter,'part':part,'original':o})
+          by=defaultdict(list)
+          for e in entries:by[e['original']].append(e)
+
+          def key(url):
+            if url.startswith('LOCAL:'):return url
+            s=urlsplit(url); host=s.netloc.lower()
+            if host.startswith('www.'):host=host[4:]
+            path=(s.path or '/').lower()
+            if path!='/' and path.endswith('/'):path=path[:-1]
+            return host+path
+
+          session=requests.Session();session.headers['User-Agent']='Mozilla/5.0 (archival catalogue audit)'
+          captures=defaultdict(list); queries=[]
+          domains=['www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk','www.battlefieldsofbritain.co.uk','battlefieldsofbritain.co.uk']
+          for dom in domains:
+            params={
+              'url':dom+'/*','output':'json','filter':['statuscode:200','mimetype:text/html'],
+              'fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'
+            }
+            try:
+              r=session.get('https://web.archive.org/cdx/search/cdx',params=params,timeout=120)
+              q={'domain':dom,'status':r.status_code,'bytes':len(r.content)}
+              if r.status_code==200:
+                data=r.json(); rows=data[1:] if isinstance(data,list) and data else []
+                q['rows']=len(rows)
+                for row in rows:
+                  if len(row)>=2:
+                    ts,u=row[0],row[1];captures[key(u)].append({'timestamp':ts,'original':u})
+              else:q['error']=r.text[:200]
+            except Exception as ex:q={'domain':dom,'error':type(ex).__name__+': '+str(ex)[:200]}
+            queries.append(q);time.sleep(2)
+
+          results=[]
+          for o,als in by.items():
+            names=[]
+            for x in als:
+              if x['name'] not in names:names.append(x['name'])
+            rec={'original':o,'key':key(o),'primary_name':names[0],'aliases':names,'catalogue_entries':len(als)}
+            if o.startswith('LOCAL:'):
+              rec.update({'state':'reconstructed_local','best_replay':'baddesley-clinton-final.html'})
+            else:
+              caps=captures.get(key(o),[])
+              if caps:
+                # collapsed query gives one representative capture per URL-key; use it explicitly.
+                c=sorted(caps,key=lambda x:x['timestamp'])[-1]
+                rec.update({'state':'indexed_html_capture','capture_timestamp':c['timestamp'],'captured_original':c['original'],
+                            'best_replay':f'https://web.archive.org/web/{c["timestamp"]}/{c["original"]}'})
+              else:
+                rec.update({'state':'no_html_capture_in_fast_cdx'})
+            results.append(rec)
+
+          # Manual observations already established by the user.
+          manual_names={
+            'Old Oswestry Hillfort':'does not open',
+            'Seckington Castle':'text opens; photographs missing',
+            'Stafford Castle':'opens; one photograph missing',
+            'Baddesley Clinton':'reconstructed; complete recoverable text; four original photographs',
+          }
+          for r in results:
+            if r['primary_name'] in manual_names:r['manual_observation']=manual_names[r['primary_name']]
+
+          states=Counter(r['state'] for r in results)
+          summary={'catalogue_entries':len(entries),'unique_destinations':len(by),'states':dict(states),'cdx_queries':queries,
+                   'scope':'Fast archive-index pass only. A positive result proves an indexed HTML capture exists; it does not prove that every photograph/asset is preserved. A zero result is reliable only for domain queries that returned HTTP 200.'}
+          json.dump({'summary':summary,'results':results},open(f'{OUT}/cdx-fast.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open(f'{OUT}/cdx-fast-summary.json','w'),indent=2,ensure_ascii=False)
+
+          # Compact public dashboard.
+          def e(x):return html.escape(str(x),quote=True)
+          rows=[]
+          for r in sorted(results,key=lambda x:x['primary_name'].casefold()):
+            if r['state']=='reconstructed_local':status='Recovered locally'
+            elif r['state']=='indexed_html_capture':status='Indexed archived HTML exists'
+            else:status='No indexed HTML found in fast pass'
+            if r.get('manual_observation'):status+=' — '+r['manual_observation']
+            link=r.get('best_replay','')
+            anchor=f'<a href="{e(link)}">open</a>' if link else ''
+            rows.append(f'<tr><td>{e(r["primary_name"])}</td><td>{e(", ".join(r["aliases"]))}</td><td>{e(status)}</td><td>{anchor}</td></tr>')
+          page=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catalogue audit | Castles, Forts and Battles Archive</title><style>body{{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222}}header{{background:#3d3528;color:#fff;padding:24px;text-align:center}}main{{max-width:1150px;margin:auto;padding:20px}}.note{{background:#fff;border-left:4px solid #8b7959;padding:12px;margin-bottom:18px}}table{{width:100%;border-collapse:collapse;background:#fff;font-size:14px}}th,td{{border:1px solid #d7cebd;padding:7px;vertical-align:top}}th{{background:#eee6d6;text-align:left}}tr:nth-child(even){{background:#faf8f3}}a{{color:#224d74}}</style></head><body><header><h1>Castles, Forts and Battles — catalogue audit</h1><p>Fast Wayback index pass</p></header><main><div class="note"><strong>{len(entries)}</strong> catalogue entries resolve to <strong>{len(by)}</strong> unique destinations. This page establishes whether Wayback indexes an HTML capture. Photograph completeness is a separate, stricter audit and is not inferred from this result.</div><p><a href="atoz-archive.html">Back to A–Z index</a></p><table><thead><tr><th>Entry</th><th>Aliases</th><th>Status</th><th>Best indexed replay</th></tr></thead><tbody>{''.join(rows)}</tbody></table></main></body></html>'''
+          open('catalogue-audit.html','w',encoding='utf-8').write(page)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/cdxfast.py
+      - name: Commit fast audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/ catalogue-audit.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Record fast CDX catalogue audit' && git pull --rebase && git push; fi
