@@ -1,0 +1,96 @@
+name: Audit full-size original photo assets
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-fullsize-assets.yml'
+      - 'catalogue-audit/source-inventory.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Compare /assets/ links with Wayback CDX
+        run: |
+          cat > /tmp/assets.py <<'PY'
+          import json, os, time
+          from urllib.parse import urlsplit
+          from collections import defaultdict, Counter
+          import requests
+
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          def norm(u):
+            s=urlsplit(u);h=s.netloc.lower();h=h[4:] if h.startswith('www.') else h
+            return h+(s.path or '/').lower()
+          def pref(u):
+            s=urlsplit(u);p=s.path or '/';low=p.lower();i=low.find('/assets/')
+            return (s.netloc,p[:i+8]) if i>=0 else None
+          prefixes=set();refs=set()
+          for p in inv:
+            if p.get('fetch_state')!='source_ok':continue
+            for u in p.get('asset_links',[]):
+              refs.add(u);q=pref(u)
+              if q:prefixes.add(q)
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles full-size asset audit)'
+          indexed=set();reports=[]
+          for i,(host,prefix) in enumerate(sorted(prefixes),1):
+            h0=host[4:] if host.startswith('www.') else host
+            hosts=[]
+            for h in (host,'www.'+h0,h0):
+              if h not in hosts:hosts.append(h)
+            ok=False;rowsn=0;errors=[]
+            for h in hosts:
+              try:
+                r=s.get('https://web.archive.org/cdx/search/cdx',params={'url':h+prefix+'*','output':'json','filter':'statuscode:200','fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'},timeout=120)
+                if r.status_code==200:
+                  ok=True;d=r.json();rows=d[1:] if isinstance(d,list) and d else [];rowsn+=len(rows)
+                  for row in rows:
+                    if len(row)>=2:indexed.add(norm(row[1]))
+                else:errors.append({'host':h,'status':r.status_code})
+              except Exception as ex:errors.append({'host':h,'error':type(ex).__name__+': '+str(ex)[:120]})
+              time.sleep(0.6)
+            reports.append({'host':host,'prefix':prefix,'success':ok,'rows':rowsn,'errors':errors})
+            print(i,'/',len(prefixes),host+prefix,'rows',rowsn,flush=True)
+          results=[]
+          for p in inv:
+            rec={'original':p['original'],'primary_name':p['primary_name'],'aliases':p.get('aliases',[]),'fetch_state':p.get('fetch_state')}
+            if p.get('fetch_state')=='local_reconstruction':
+              rec['asset_state']='local_reconstruction';results.append(rec);continue
+            if p.get('fetch_state')!='source_ok':
+              rec['asset_state']='source_not_available';results.append(rec);continue
+            keys=list(dict.fromkeys(norm(u) for u in p.get('asset_links',[])))
+            found=[k for k in keys if k in indexed];missing=[k for k in keys if k not in indexed]
+            rec.update({'fullsize_asset_count':len(keys),'indexed_fullsize_assets':len(found),'missing_fullsize_assets':len(missing),'missing_asset_paths':missing})
+            if not keys:st='no_fullsize_asset_links_in_source'
+            elif not missing:st='all_fullsize_assets_indexed'
+            elif found:st='some_fullsize_assets_missing'
+            else:st='no_fullsize_assets_indexed'
+            rec['asset_state']=st;results.append(rec)
+          manual={'Baddesley Clinton':'reconstructed from four recovered original photographs','Old Oswestry Hillfort':'user confirmed page does not open','Seckington Castle':'user confirmed photographs missing','Stafford Castle':'user confirmed one photograph missing'}
+          for r in results:
+            if r['primary_name'] in manual:r['manual_observation']=manual[r['primary_name']]
+          summary={'destinations':len(results),'asset_states':dict(Counter(r['asset_state'] for r in results)),'source_ok_pages':sum(1 for p in inv if p.get('fetch_state')=='source_ok'),'pages_with_fullsize_asset_links':sum(1 for r in results if r.get('fullsize_asset_count',0)>0),'referenced_fullsize_assets':len(refs),'indexed_asset_paths':len(indexed),'asset_prefixes_queried':len(prefixes),'successful_prefix_queries':sum(1 for r in reports if r['success']),'scope':'Checks full-size /assets/ image links in archived source against Wayback CDX status-200 records. This is particularly useful for identifying missing original photographs.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'prefix_reports':reports,'results':results},open('catalogue-audit/fullsize-assets.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/fullsize-assets-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/assets.py
+      - name: Commit asset audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/fullsize-assets*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit full-size original photo assets' && git pull --rebase && git push; fi
