@@ -1,18 +1,18 @@
 {
   "destinations": 757,
   "asset_states": {
-    "no_fullsize_asset_links_in_source": 141,
-    "no_fullsize_assets_indexed": 200,
-    "all_fullsize_assets_indexed": 38,
-    "source_not_available": 358,
-    "some_fullsize_assets_missing": 19,
-    "local_reconstruction": 1
+    "no_fullsize_asset_links_in_source": 236,
+    "no_fullsize_assets_indexed": 384,
+    "all_fullsize_assets_indexed": 86,
+    "some_fullsize_assets_missing": 47,
+    "local_reconstruction": 1,
+    "source_not_available": 3
   },
-  "source_ok_pages": 398,
-  "pages_with_fullsize_asset_links": 257,
-  "referenced_fullsize_assets": 2039,
-  "indexed_asset_paths": 896,
-  "asset_prefixes_queried": 20,
-  "successful_prefix_queries": 17,
+  "source_ok_pages": 753,
+  "pages_with_fullsize_asset_links": 517,
+  "referenced_fullsize_assets": 4936,
+  "indexed_asset_paths": 992,
+  "asset_prefixes_queried": 26,
+  "successful_prefix_queries": 26,
   "scope": "Checks full-size /assets/ image links in archived source against Wayback CDX status-200 records. This is particularly useful for identifying missing original photographs."
 }
