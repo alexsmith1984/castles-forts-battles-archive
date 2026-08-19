@@ -1,0 +1,12 @@
+baddesley_castle.jpg <= https://web.archive.org/web/20210618112926id_/http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley_castle.jpg [image/jpeg]
+baddesley_castle2.jpg <= https://web.archive.org/web/20210618112926id_/http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley_castle2.jpg [image/jpeg]
+MISSING: baddesley_clinton_plan.jpg
+baddesley_castle21.jpg <= https://web.archive.org/web/20210618112926im_/http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley_castle21.jpg [image/jpeg]
+MISSING: baddesley_castle5.jpg
+baddesley_castle6.jpg <= https://web.archive.org/web/20210618112926id_/http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley_castle6.jpg [image/jpeg]
+MISSING: baddesley_castle9.jpg
+MISSING: baddesley_castle24.jpg
+MISSING: baddesley_castle23.jpg
+MISSING: baddesley_castle10.jpg
+MISSING: baddesley_castle12.jpg
+MISSING: baddesley_castle14_priest_hole.jpg
