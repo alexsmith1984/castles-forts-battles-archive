@@ -1,0 +1,866 @@
+{
+  "queries": [
+    {
+      "domain": "www.castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 2226204,
+      "rows": 14031
+    },
+    {
+      "domain": "castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 2226204,
+      "rows": 14031
+    },
+    {
+      "domain": "www.battlefieldsofbritain.co.uk",
+      "status": 503,
+      "bytes": 11832
+    },
+    {
+      "domain": "battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 107585,
+      "rows": 691
+    }
+  ],
+  "results": [
+    {
+      "name": "Ambleside Roman Fort",
+      "aliases": [
+        "Ambleside Roman Fort"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html",
+      "candidates": [
+        {
+          "timestamp": "20150920082051",
+          "original": "http://www.castlesfortsbattles.co.uk/ampleside_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.54,
+          "replay": "https://web.archive.org/web/20150920082051/http://www.castlesfortsbattles.co.uk/ampleside_roman_fort.html"
+        },
+        {
+          "timestamp": "20180518172717",
+          "original": "http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.5,
+          "replay": "https://web.archive.org/web/20180518172717/http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html"
+        },
+        {
+          "timestamp": "20180120070403",
+          "original": "http://www.castlesfortsbattles.co.uk/north_west/ravenglass_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.285,
+          "replay": "https://web.archive.org/web/20180120070403/http://www.castlesfortsbattles.co.uk/north_west/ravenglass_roman_fort.html"
+        },
+        {
+          "timestamp": "20171113112934",
+          "original": "http://www.castlesfortsbattles.co.uk/north_west/maryport_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.275,
+          "replay": "https://web.archive.org/web/20171113112934/http://www.castlesfortsbattles.co.uk/north_west/maryport_roman_fort.html"
+        },
+        {
+          "timestamp": "20210618124611",
+          "original": "https://www.castlesfortsbattles.co.uk/north_west/hardknott_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.26,
+          "replay": "https://web.archive.org/web/20210618124611/https://www.castlesfortsbattles.co.uk/north_west/hardknott_roman_fort.html"
+        },
+        {
+          "timestamp": "20150920090932",
+          "original": "http://www.castlesfortsbattles.co.uk/bearsden_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.176,
+          "replay": "https://web.archive.org/web/20150920090932/http://www.castlesfortsbattles.co.uk/bearsden_roman_fort.html"
+        },
+        {
+          "timestamp": "20170208220138",
+          "original": "http://www.castlesfortsbattles.co.uk/central_west_scotland/bearsden_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.176,
+          "replay": "https://web.archive.org/web/20170208220138/http://www.castlesfortsbattles.co.uk/central_west_scotland/bearsden_roman_fort.html"
+        },
+        {
+          "timestamp": "20150920081819",
+          "original": "http://www.castlesfortsbattles.co.uk/lympne_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.169,
+          "replay": "https://web.archive.org/web/20150920081819/http://www.castlesfortsbattles.co.uk/lympne_roman_fort.html"
+        },
+        {
+          "timestamp": "20170913231543",
+          "original": "http://www.castlesfortsbattles.co.uk/south_east/lympne_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.169,
+          "replay": "https://web.archive.org/web/20170913231543/http://www.castlesfortsbattles.co.uk/south_east/lympne_roman_fort.html"
+        },
+        {
+          "timestamp": "20170208215839",
+          "original": "http://www.castlesfortsbattles.co.uk/lothian_borders/cramond_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.152,
+          "replay": "https://web.archive.org/web/20170208215839/http://www.castlesfortsbattles.co.uk/lothian_borders/cramond_roman_fort.html"
+        },
+        {
+          "timestamp": "20150920090302",
+          "original": "http://www.castlesfortsbattles.co.uk/caerleon_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.136,
+          "replay": "https://web.archive.org/web/20150920090302/http://www.castlesfortsbattles.co.uk/caerleon_roman_fort.html"
+        },
+        {
+          "timestamp": "20170221230842",
+          "original": "http://www.castlesfortsbattles.co.uk/south_wales/caerleon_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 1.136,
+          "replay": "https://web.archive.org/web/20170221230842/http://www.castlesfortsbattles.co.uk/south_wales/caerleon_roman_fort.html"
+        }
+      ]
+    },
+    {
+      "name": "Dinieithon Castle",
+      "aliases": [
+        "Dinieithon Castle"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+      "candidates": [
+        {
+          "timestamp": "20180804035359",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/tinboeth_castle.html",
+          "mimetype": "text/html",
+          "score": 1.17,
+          "replay": "https://web.archive.org/web/20180804035359/http://www.castlesfortsbattles.co.uk:80/central_wales/tinboeth_castle.html"
+        },
+        {
+          "timestamp": "20170208212606",
+          "original": "http://www.castlesfortsbattles.co.uk/central_wales/brecon_castle.html",
+          "mimetype": "text/html",
+          "score": 1.11,
+          "replay": "https://web.archive.org/web/20170208212606/http://www.castlesfortsbattles.co.uk/central_wales/brecon_castle.html"
+        },
+        {
+          "timestamp": "20180804034515",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/builth_castle.html",
+          "mimetype": "text/html",
+          "score": 1.11,
+          "replay": "https://web.archive.org/web/20180804034515/http://www.castlesfortsbattles.co.uk:80/central_wales/builth_castle.html"
+        },
+        {
+          "timestamp": "20210618021402",
+          "original": "https://www.castlesfortsbattles.co.uk/central_wales/radnor_castle.html",
+          "mimetype": "text/html",
+          "score": 1.11,
+          "replay": "https://web.archive.org/web/20210618021402/https://www.castlesfortsbattles.co.uk/central_wales/radnor_castle.html"
+        },
+        {
+          "timestamp": "20180125100441",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/tretower_castle.html",
+          "mimetype": "text/html",
+          "score": 1.074,
+          "replay": "https://web.archive.org/web/20180125100441/http://www.castlesfortsbattles.co.uk:80/central_wales/tretower_castle.html"
+        },
+        {
+          "timestamp": "20180804003607",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/alexanderstone_castle.html",
+          "mimetype": "text/html",
+          "score": 1.068,
+          "replay": "https://web.archive.org/web/20180804003607/http://www.castlesfortsbattles.co.uk:80/central_wales/alexanderstone_castle.html"
+        },
+        {
+          "timestamp": "20190429011729",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/dolforwyn_castle.html",
+          "mimetype": "text/html",
+          "score": 1.058,
+          "replay": "https://web.archive.org/web/20190429011729/http://www.castlesfortsbattles.co.uk:80/central_wales/dolforwyn_castle.html"
+        },
+        {
+          "timestamp": "20170208093700",
+          "original": "http://www.castlesfortsbattles.co.uk/central_wales/llanganten_castle.html",
+          "mimetype": "text/html",
+          "score": 1.042,
+          "replay": "https://web.archive.org/web/20170208093700/http://www.castlesfortsbattles.co.uk/central_wales/llanganten_castle.html"
+        },
+        {
+          "timestamp": "20150921080246",
+          "original": "http://www.castlesfortsbattles.co.uk/dirleton_castle.html",
+          "mimetype": "text/html",
+          "score": 1.037,
+          "replay": "https://web.archive.org/web/20150921080246/http://www.castlesfortsbattles.co.uk/dirleton_castle.html"
+        },
+        {
+          "timestamp": "20180530062618",
+          "original": "http://www.castlesfortsbattles.co.uk:80/lothian_borders/dirleton_castle.html",
+          "mimetype": "text/html",
+          "score": 1.037,
+          "replay": "https://web.archive.org/web/20180530062618/http://www.castlesfortsbattles.co.uk:80/lothian_borders/dirleton_castle.html"
+        },
+        {
+          "timestamp": "20180125100432",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/bronllys_castle.html",
+          "mimetype": "text/html",
+          "score": 1.027,
+          "replay": "https://web.archive.org/web/20180125100432/http://www.castlesfortsbattles.co.uk:80/central_wales/bronllys_castle.html"
+        },
+        {
+          "timestamp": "20180804003649",
+          "original": "http://www.castlesfortsbattles.co.uk:80/central_wales/crickhowell_castle.html",
+          "mimetype": "text/html",
+          "score": 1.027,
+          "replay": "https://web.archive.org/web/20180804003649/http://www.castlesfortsbattles.co.uk:80/central_wales/crickhowell_castle.html"
+        }
+      ]
+    },
+    {
+      "name": "Druchtag Motte",
+      "aliases": [
+        "Druchtag Motte"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/druchtag_motte.html",
+      "candidates": [
+        {
+          "timestamp": "20150920092549",
+          "original": "http://www.castlesfortsbattles.co.uk/druchtag_motte.html",
+          "mimetype": "text/html",
+          "score": 1.36,
+          "replay": "https://web.archive.org/web/20150920092549/http://www.castlesfortsbattles.co.uk/druchtag_motte.html"
+        },
+        {
+          "timestamp": "20180804034904",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/castle_ban_motte.html",
+          "mimetype": "text/html",
+          "score": 1.06,
+          "replay": "https://web.archive.org/web/20180804034904/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/castle_ban_motte.html"
+        },
+        {
+          "timestamp": "20210618112351",
+          "original": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/innermessan_castle_motte.html",
+          "mimetype": "text/html",
+          "score": 0.943,
+          "replay": "https://web.archive.org/web/20210618112351/https://www.castlesfortsbattles.co.uk/dumfries_galloway/innermessan_castle_motte.html"
+        },
+        {
+          "timestamp": "20180804034536",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/motte_of_urr.html",
+          "mimetype": "text/html",
+          "score": 0.916,
+          "replay": "https://web.archive.org/web/20180804034536/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/motte_of_urr.html"
+        },
+        {
+          "timestamp": "20220826210455",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/drumcoltran_tower.html",
+          "mimetype": "text/html",
+          "score": 0.863,
+          "replay": "https://web.archive.org/web/20220826210455/http://www.castlesfortsbattles.co.uk/dumfries_galloway/drumcoltran_tower.html"
+        },
+        {
+          "timestamp": "20170208072903",
+          "original": "http://www.castlesfortsbattles.co.uk/central_west_scotland/coulter_motte.html",
+          "mimetype": "text/html",
+          "score": 0.829,
+          "replay": "https://web.archive.org/web/20170208072903/http://www.castlesfortsbattles.co.uk/central_west_scotland/coulter_motte.html"
+        },
+        {
+          "timestamp": "20210618021529",
+          "original": "https://www.castlesfortsbattles.co.uk/central_wales/penarth_motte_powys.html",
+          "mimetype": "text/html",
+          "score": 0.785,
+          "replay": "https://web.archive.org/web/20210618021529/https://www.castlesfortsbattles.co.uk/central_wales/penarth_motte_powys.html"
+        },
+        {
+          "timestamp": "20150920083339",
+          "original": "http://www.castlesfortsbattles.co.uk/halton_castle_motte.html",
+          "mimetype": "text/html",
+          "score": 0.785,
+          "replay": "https://web.archive.org/web/20150920083339/http://www.castlesfortsbattles.co.uk/halton_castle_motte.html"
+        },
+        {
+          "timestamp": "20170208093615",
+          "original": "http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+          "mimetype": "text/html",
+          "score": 0.785,
+          "replay": "https://web.archive.org/web/20170208093615/http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html"
+        },
+        {
+          "timestamp": "20220826211155",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/orchardton_tower.html",
+          "mimetype": "text/html",
+          "score": 0.78,
+          "replay": "https://web.archive.org/web/20220826211155/http://www.castlesfortsbattles.co.uk/dumfries_galloway/orchardton_tower.html"
+        },
+        {
+          "timestamp": "20170424182115",
+          "original": "http://www.castlesfortsbattles.co.uk:80/east/mount_bures_motte.html",
+          "mimetype": "text/html",
+          "score": 0.765,
+          "replay": "https://web.archive.org/web/20170424182115/http://www.castlesfortsbattles.co.uk:80/east/mount_bures_motte.html"
+        },
+        {
+          "timestamp": "20150920081719",
+          "original": "http://www.castlesfortsbattles.co.uk/motte_of_urr.html",
+          "mimetype": "text/html",
+          "score": 0.736,
+          "replay": "https://web.archive.org/web/20150920081719/http://www.castlesfortsbattles.co.uk/motte_of_urr.html"
+        }
+      ]
+    },
+    {
+      "name": "Galdendoch Castle",
+      "aliases": [
+        "Galdendoch Castle"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+      "candidates": [
+        {
+          "timestamp": "20171115114013",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/lochmaben_castle.html",
+          "mimetype": "text/html",
+          "score": 1.104,
+          "replay": "https://web.archive.org/web/20171115114013/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/lochmaben_castle.html"
+        },
+        {
+          "timestamp": "20170208090625",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/caerlaverock_castle.html",
+          "mimetype": "text/html",
+          "score": 1.099,
+          "replay": "https://web.archive.org/web/20170208090625/http://www.castlesfortsbattles.co.uk/dumfries_galloway/caerlaverock_castle.html"
+        },
+        {
+          "timestamp": "20210804103510",
+          "original": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/sanquhar_castle.html",
+          "mimetype": "text/html",
+          "score": 1.074,
+          "replay": "https://web.archive.org/web/20210804103510/https://www.castlesfortsbattles.co.uk/dumfries_galloway/sanquhar_castle.html"
+        },
+        {
+          "timestamp": "20180804035415",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/carsluith_castle.html",
+          "mimetype": "text/html",
+          "score": 1.058,
+          "replay": "https://web.archive.org/web/20180804035415/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/carsluith_castle.html"
+        },
+        {
+          "timestamp": "20220826210509",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/dunskey_castle.html",
+          "mimetype": "text/html",
+          "score": 1.043,
+          "replay": "https://web.archive.org/web/20220826210509/http://www.castlesfortsbattles.co.uk/dumfries_galloway/dunskey_castle.html"
+        },
+        {
+          "timestamp": "20180804034909",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/threave_castle.html",
+          "mimetype": "text/html",
+          "score": 1.043,
+          "replay": "https://web.archive.org/web/20180804034909/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/threave_castle.html"
+        },
+        {
+          "timestamp": "20180302220202",
+          "original": "http://www.castlesfortsbattles.co.uk:80/east/walden_castle.html",
+          "mimetype": "text/html",
+          "score": 1.03,
+          "replay": "https://web.archive.org/web/20180302220202/http://www.castlesfortsbattles.co.uk:80/east/walden_castle.html"
+        },
+        {
+          "timestamp": "20150920082845",
+          "original": "http://www.castlesfortsbattles.co.uk/walden_castle.html",
+          "mimetype": "text/html",
+          "score": 1.03,
+          "replay": "https://web.archive.org/web/20150920082845/http://www.castlesfortsbattles.co.uk/walden_castle.html"
+        },
+        {
+          "timestamp": "20210618015254",
+          "original": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/dumfries_castle.html",
+          "mimetype": "text/html",
+          "score": 1.027,
+          "replay": "https://web.archive.org/web/20210618015254/https://www.castlesfortsbattles.co.uk/dumfries_galloway/dumfries_castle.html"
+        },
+        {
+          "timestamp": "20180822052521",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/torthorwald_castle.html",
+          "mimetype": "text/html",
+          "score": 1.027,
+          "replay": "https://web.archive.org/web/20180822052521/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/torthorwald_castle.html"
+        },
+        {
+          "timestamp": "20170607215336",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/morton_castle.html",
+          "mimetype": "text/html",
+          "score": 1.01,
+          "replay": "https://web.archive.org/web/20170607215336/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/morton_castle.html"
+        },
+        {
+          "timestamp": "20150920084516",
+          "original": "http://www.castlesfortsbattles.co.uk/harlech_castle.html",
+          "mimetype": "text/html",
+          "score": 1.009,
+          "replay": "https://web.archive.org/web/20150920084516/http://www.castlesfortsbattles.co.uk/harlech_castle.html"
+        }
+      ]
+    },
+    {
+      "name": "Kinlochaline Castle",
+      "aliases": [
+        "Kinlochaline Castle"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/kinlochaline_castle.html",
+      "candidates": [
+        {
+          "timestamp": "20190613061927",
+          "original": "http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html",
+          "mimetype": "text/html",
+          "score": 1.36,
+          "replay": "https://web.archive.org/web/20190613061927/http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html"
+        },
+        {
+          "timestamp": "20220826210953",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/css/kinlochaline_castle.css?crc=3978222859",
+          "mimetype": "text/css",
+          "score": 1.211,
+          "replay": "https://web.archive.org/web/20220826210953/http://www.castlesfortsbattles.co.uk/highland/css/kinlochaline_castle.css?crc=3978222859"
+        },
+        {
+          "timestamp": "20220826213512",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle1.jpg?crc=41612463",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826213512/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle1.jpg?crc=41612463"
+        },
+        {
+          "timestamp": "20220826213516",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle2.jpg?crc=4068420871",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826213516/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle2.jpg?crc=4068420871"
+        },
+        {
+          "timestamp": "20220826210952",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle3.jpg?crc=4109904526",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826210952/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle3.jpg?crc=4109904526"
+        },
+        {
+          "timestamp": "20220826210952",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle4.jpg?crc=4182975727",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826210952/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle4.jpg?crc=4182975727"
+        },
+        {
+          "timestamp": "20220826210953",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle5.jpg?crc=149262603",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826210953/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle5.jpg?crc=149262603"
+        },
+        {
+          "timestamp": "20220826210954",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle6.jpg?crc=51873866",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826210954/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle6.jpg?crc=51873866"
+        },
+        {
+          "timestamp": "20220826210952",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle8.jpg?crc=414853821",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826210952/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle8.jpg?crc=414853821"
+        },
+        {
+          "timestamp": "20220826213514",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle9.jpg?crc=443748551",
+          "mimetype": "image/jpeg",
+          "score": 1.193,
+          "replay": "https://web.archive.org/web/20220826213514/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle9.jpg?crc=443748551"
+        },
+        {
+          "timestamp": "20150920085337",
+          "original": "http://www.castlesfortsbattles.co.uk/kilchurn_castle.html",
+          "mimetype": "text/html",
+          "score": 1.178,
+          "replay": "https://web.archive.org/web/20150920085337/http://www.castlesfortsbattles.co.uk/kilchurn_castle.html"
+        },
+        {
+          "timestamp": "20220826210952",
+          "original": "http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle11.jpg?crc=4027673327",
+          "mimetype": "image/jpeg",
+          "score": 1.176,
+          "replay": "https://web.archive.org/web/20220826210952/http://www.castlesfortsbattles.co.uk/highland/images/kinlochaline_castle11.jpg?crc=4027673327"
+        }
+      ]
+    },
+    {
+      "name": "MacLellan’s Castle",
+      "aliases": [
+        "MacLellan’s Castle"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/maclellans_castle.html",
+      "candidates": [
+        {
+          "timestamp": "20150920091855",
+          "original": "http://www.castlesfortsbattles.co.uk/maclellans_castle.html",
+          "mimetype": "text/html",
+          "score": 1.36,
+          "replay": "https://web.archive.org/web/20150920091855/http://www.castlesfortsbattles.co.uk/maclellans_castle.html"
+        },
+        {
+          "timestamp": "20171115114013",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/lochmaben_castle.html",
+          "mimetype": "text/html",
+          "score": 1.104,
+          "replay": "https://web.archive.org/web/20171115114013/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/lochmaben_castle.html"
+        },
+        {
+          "timestamp": "20210918015728",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/ryehill_castle.html",
+          "mimetype": "text/html",
+          "score": 1.092,
+          "replay": "https://web.archive.org/web/20210918015728/http://www.castlesfortsbattles.co.uk/dumfries_galloway/ryehill_castle.html"
+        },
+        {
+          "timestamp": "20210618015254",
+          "original": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/dumfries_castle.html",
+          "mimetype": "text/html",
+          "score": 1.074,
+          "replay": "https://web.archive.org/web/20210618015254/https://www.castlesfortsbattles.co.uk/dumfries_galloway/dumfries_castle.html"
+        },
+        {
+          "timestamp": "20170607215336",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/morton_castle.html",
+          "mimetype": "text/html",
+          "score": 1.06,
+          "replay": "https://web.archive.org/web/20170607215336/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/morton_castle.html"
+        },
+        {
+          "timestamp": "20170208090625",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/caerlaverock_castle.html",
+          "mimetype": "text/html",
+          "score": 1.056,
+          "replay": "https://web.archive.org/web/20170208090625/http://www.castlesfortsbattles.co.uk/dumfries_galloway/caerlaverock_castle.html"
+        },
+        {
+          "timestamp": "20220826210509",
+          "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/dunskey_castle.html",
+          "mimetype": "text/html",
+          "score": 1.043,
+          "replay": "https://web.archive.org/web/20220826210509/http://www.castlesfortsbattles.co.uk/dumfries_galloway/dunskey_castle.html"
+        },
+        {
+          "timestamp": "20180804034909",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/threave_castle.html",
+          "mimetype": "text/html",
+          "score": 1.043,
+          "replay": "https://web.archive.org/web/20180804034909/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/threave_castle.html"
+        },
+        {
+          "timestamp": "20201101013136",
+          "original": "http://www.castlesfortsbattles.co.uk/north_west/malpas_castle.html",
+          "mimetype": "text/html",
+          "score": 1.03,
+          "replay": "https://web.archive.org/web/20201101013136/http://www.castlesfortsbattles.co.uk/north_west/malpas_castle.html"
+        },
+        {
+          "timestamp": "20210804103510",
+          "original": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/sanquhar_castle.html",
+          "mimetype": "text/html",
+          "score": 1.027,
+          "replay": "https://web.archive.org/web/20210804103510/https://www.castlesfortsbattles.co.uk/dumfries_galloway/sanquhar_castle.html"
+        },
+        {
+          "timestamp": "20180804035415",
+          "original": "http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/carsluith_castle.html",
+          "mimetype": "text/html",
+          "score": 1.011,
+          "replay": "https://web.archive.org/web/20180804035415/http://www.castlesfortsbattles.co.uk:80/dumfries_galloway/carsluith_castle.html"
+        },
+        {
+          "timestamp": "20150920080258",
+          "original": "http://www.castlesfortsbattles.co.uk/melling_castle.html",
+          "mimetype": "text/html",
+          "score": 1.009,
+          "replay": "https://web.archive.org/web/20150920080258/http://www.castlesfortsbattles.co.uk/melling_castle.html"
+        }
+      ]
+    },
+    {
+      "name": "Neville’s Cross (Battle of - 1346)",
+      "aliases": [
+        "Neville’s Cross (Battle of - 1346)"
+      ],
+      "unmatched_original": "http://www.battlefieldsofbritain.co.uk/battle_nevilles_cross_1346.html.html",
+      "candidates": [
+        {
+          "timestamp": "20170706211319",
+          "original": "http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html",
+          "mimetype": "text/html",
+          "score": 1.825,
+          "replay": "https://web.archive.org/web/20170706211319/http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html"
+        },
+        {
+          "timestamp": "20220324222903",
+          "original": "http://www.battlefieldsofbritain.co.uk/css/battle_nevilles_cross_1346.css",
+          "mimetype": "text/css",
+          "score": 1.538,
+          "replay": "https://web.archive.org/web/20220324222903/http://www.battlefieldsofbritain.co.uk/css/battle_nevilles_cross_1346.css"
+        },
+        {
+          "timestamp": "20191017131927",
+          "original": "http://www.battlefieldsofbritain.co.uk/css/battle_nevilles_cross_1346.css?crc=76793169",
+          "mimetype": "text/css",
+          "score": 1.538,
+          "replay": "https://web.archive.org/web/20191017131927/http://www.battlefieldsofbritain.co.uk/css/battle_nevilles_cross_1346.css?crc=76793169"
+        },
+        {
+          "timestamp": "20191017131953",
+          "original": "http://www.battlefieldsofbritain.co.uk/css/nomq_battle_nevilles_cross_1346.css?crc=3817813018",
+          "mimetype": "text/css",
+          "score": 1.481,
+          "replay": "https://web.archive.org/web/20191017131953/http://www.battlefieldsofbritain.co.uk/css/nomq_battle_nevilles_cross_1346.css?crc=3817813018"
+        },
+        {
+          "timestamp": "20170716064344",
+          "original": "http://www.battlefieldsofbritain.co.uk:80/battle_mortimers_cross_1461.html",
+          "mimetype": "text/html",
+          "score": 1.246,
+          "replay": "https://web.archive.org/web/20170716064344/http://www.battlefieldsofbritain.co.uk:80/battle_mortimers_cross_1461.html"
+        },
+        {
+          "timestamp": "20191017132040",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346.jpg",
+          "mimetype": "image/jpeg",
+          "score": 1.218,
+          "replay": "https://web.archive.org/web/20191017132040/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346.jpg"
+        },
+        {
+          "timestamp": "20191017131959",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_4.jpg",
+          "mimetype": "image/jpeg",
+          "score": 1.196,
+          "replay": "https://web.archive.org/web/20191017131959/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_4.jpg"
+        },
+        {
+          "timestamp": "20191017131953",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_8.jpg",
+          "mimetype": "image/jpeg",
+          "score": 1.196,
+          "replay": "https://web.archive.org/web/20191017131953/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_8.jpg"
+        },
+        {
+          "timestamp": "20191017131934",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_stats.png",
+          "mimetype": "image/png",
+          "score": 1.155,
+          "replay": "https://web.archive.org/web/20191017131934/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_stats.png"
+        },
+        {
+          "timestamp": "20191017132020",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_action1.png",
+          "mimetype": "image/png",
+          "score": 1.137,
+          "replay": "https://web.archive.org/web/20191017132020/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_action1.png"
+        },
+        {
+          "timestamp": "20191017132020",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_action2.png",
+          "mimetype": "image/png",
+          "score": 1.137,
+          "replay": "https://web.archive.org/web/20191017132020/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_action2.png"
+        },
+        {
+          "timestamp": "20191017132023",
+          "original": "http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_action3.png",
+          "mimetype": "image/png",
+          "score": 1.137,
+          "replay": "https://web.archive.org/web/20191017132023/http://www.battlefieldsofbritain.co.uk/assets/nevilles_cross_1346_action3.png"
+        }
+      ]
+    },
+    {
+      "name": "Oxburgh Hall",
+      "aliases": [
+        "Oxburgh Hall"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+      "candidates": [
+        {
+          "timestamp": "20180729121111",
+          "original": "http://www.castlesfortsbattles.co.uk:80/lothian_borders/roxburgh_castle.html",
+          "mimetype": "text/html",
+          "score": 0.991,
+          "replay": "https://web.archive.org/web/20180729121111/http://www.castlesfortsbattles.co.uk:80/lothian_borders/roxburgh_castle.html"
+        },
+        {
+          "timestamp": "20191129074309",
+          "original": "http://www.castlesfortsbattles.co.uk:80/m/roxburgh_castle.html",
+          "mimetype": "text/html",
+          "score": 0.991,
+          "replay": "https://web.archive.org/web/20191129074309/http://www.castlesfortsbattles.co.uk:80/m/roxburgh_castle.html"
+        },
+        {
+          "timestamp": "20150920080413",
+          "original": "http://www.castlesfortsbattles.co.uk/roxburgh_castle.html",
+          "mimetype": "text/html",
+          "score": 0.991,
+          "replay": "https://web.archive.org/web/20150920080413/http://www.castlesfortsbattles.co.uk/roxburgh_castle.html"
+        },
+        {
+          "timestamp": "20180501191650",
+          "original": "http://www.castlesfortsbattles.co.uk:80/north_west/workington_hall.html",
+          "mimetype": "text/html",
+          "score": 0.883,
+          "replay": "https://web.archive.org/web/20180501191650/http://www.castlesfortsbattles.co.uk:80/north_west/workington_hall.html"
+        },
+        {
+          "timestamp": "20170208033955",
+          "original": "http://www.castlesfortsbattles.co.uk/east/burgh_roman_fort.html",
+          "mimetype": "text/html",
+          "score": 0.812,
+          "replay": "https://web.archive.org/web/20170208033955/http://www.castlesfortsbattles.co.uk/east/burgh_roman_fort.html"
+        },
+        {
+          "timestamp": "20190329015221",
+          "original": "http://www.castlesfortsbattles.co.uk:80/east/norwich_castle.html",
+          "mimetype": "text/html",
+          "score": 0.791,
+          "replay": "https://web.archive.org/web/20190329015221/http://www.castlesfortsbattles.co.uk:80/east/norwich_castle.html"
+        },
+        {
+          "timestamp": "20161021183219",
+          "original": "http://www.castlesfortsbattles.co.uk/east/haughley_castle.html",
+          "mimetype": "text/html",
+          "score": 0.775,
+          "replay": "https://web.archive.org/web/20161021183219/http://www.castlesfortsbattles.co.uk/east/haughley_castle.html"
+        },
+        {
+          "timestamp": "20170927183358",
+          "original": "http://www.castlesfortsbattles.co.uk:80/east/cambridge_castle.html",
+          "mimetype": "text/html",
+          "score": 0.759,
+          "replay": "https://web.archive.org/web/20170927183358/http://www.castlesfortsbattles.co.uk:80/east/cambridge_castle.html"
+        },
+        {
+          "timestamp": "20190129101155",
+          "original": "http://www.castlesfortsbattles.co.uk:80/east/orford_castle.html",
+          "mimetype": "text/html",
+          "score": 0.751,
+          "replay": "https://web.archive.org/web/20190129101155/http://www.castlesfortsbattles.co.uk:80/east/orford_castle.html"
+        },
+        {
+          "timestamp": "20170208220014",
+          "original": "http://www.castlesfortsbattles.co.uk/east/belsars_hill_fort.html",
+          "mimetype": "text/html",
+          "score": 0.744,
+          "replay": "https://web.archive.org/web/20170208220014/http://www.castlesfortsbattles.co.uk/east/belsars_hill_fort.html"
+        },
+        {
+          "timestamp": "20170208043136",
+          "original": "http://www.castlesfortsbattles.co.uk/east/bedford_castle.html",
+          "mimetype": "text/html",
+          "score": 0.736,
+          "replay": "https://web.archive.org/web/20170208043136/http://www.castlesfortsbattles.co.uk/east/bedford_castle.html"
+        },
+        {
+          "timestamp": "20180804035429",
+          "original": "http://www.castlesfortsbattles.co.uk:80/east/burwell_castle.html",
+          "mimetype": "text/html",
+          "score": 0.736,
+          "replay": "https://web.archive.org/web/20180804035429/http://www.castlesfortsbattles.co.uk:80/east/burwell_castle.html"
+        }
+      ]
+    },
+    {
+      "name": "Tynemouth Castle",
+      "aliases": [
+        "Tynemouth Castle"
+      ],
+      "unmatched_original": "http://www.castlesfortsbattles.co.uk/north_east/tynemouth_castle.html",
+      "candidates": [
+        {
+          "timestamp": "20180823233219",
+          "original": "http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html",
+          "mimetype": "text/html",
+          "score": 1.54,
+          "replay": "https://web.archive.org/web/20180823233219/http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html"
+        },
+        {
+          "timestamp": "20150920081823",
+          "original": "http://www.castlesfortsbattles.co.uk/tynemouth_castle.html",
+          "mimetype": "text/html",
+          "score": 1.36,
+          "replay": "https://web.archive.org/web/20150920081823/http://www.castlesfortsbattles.co.uk/tynemouth_castle.html"
+        },
+        {
+          "timestamp": "20220826203652",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/css/tynemouth_castle.css?crc=3787198061",
+          "mimetype": "text/css",
+          "score": 1.189,
+          "replay": "https://web.archive.org/web/20220826203652/http://www.castlesfortsbattles.co.uk/north_east/css/tynemouth_castle.css?crc=3787198061"
+        },
+        {
+          "timestamp": "20220826204654",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle1.jpg?crc=4162872178",
+          "mimetype": "image/jpeg",
+          "score": 1.17,
+          "replay": "https://web.archive.org/web/20220826204654/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle1.jpg?crc=4162872178"
+        },
+        {
+          "timestamp": "20220826203653",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle2.jpg?crc=510246532",
+          "mimetype": "image/jpeg",
+          "score": 1.17,
+          "replay": "https://web.archive.org/web/20220826203653/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle2.jpg?crc=510246532"
+        },
+        {
+          "timestamp": "20220826203656",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle3.jpg?crc=4260863226",
+          "mimetype": "image/jpeg",
+          "score": 1.17,
+          "replay": "https://web.archive.org/web/20220826203656/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle3.jpg?crc=4260863226"
+        },
+        {
+          "timestamp": "20220826203655",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle16.jpg?crc=298904242",
+          "mimetype": "image/jpeg",
+          "score": 1.151,
+          "replay": "https://web.archive.org/web/20220826203655/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle16.jpg?crc=298904242"
+        },
+        {
+          "timestamp": "20220826203934",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle17.jpg?crc=512042352",
+          "mimetype": "image/jpeg",
+          "score": 1.151,
+          "replay": "https://web.archive.org/web/20220826203934/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle17.jpg?crc=512042352"
+        },
+        {
+          "timestamp": "20220826203932",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle20.jpg?crc=369785839",
+          "mimetype": "image/jpeg",
+          "score": 1.151,
+          "replay": "https://web.archive.org/web/20220826203932/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle20.jpg?crc=369785839"
+        },
+        {
+          "timestamp": "20220826203932",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle22.jpg?crc=4092701629",
+          "mimetype": "image/jpeg",
+          "score": 1.151,
+          "replay": "https://web.archive.org/web/20220826203932/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle22.jpg?crc=4092701629"
+        },
+        {
+          "timestamp": "20220826204652",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle23.jpg?crc=285049389",
+          "mimetype": "image/jpeg",
+          "score": 1.151,
+          "replay": "https://web.archive.org/web/20220826204652/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle23.jpg?crc=285049389"
+        },
+        {
+          "timestamp": "20220826205026",
+          "original": "http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle25.jpg?crc=343594608",
+          "mimetype": "image/jpeg",
+          "score": 1.151,
+          "replay": "https://web.archive.org/web/20220826205026/http://www.castlesfortsbattles.co.uk/north_east/images/tynemouth_castle25.jpg?crc=343594608"
+        }
+      ]
+    }
+  ]
+}
