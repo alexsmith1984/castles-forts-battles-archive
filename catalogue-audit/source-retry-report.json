@@ -1,0 +1,37 @@
+{
+  "attempts": [
+    {
+      "name": "Flodden (Battle of - 1513)",
+      "result": "source_ok"
+    },
+    {
+      "name": "Marston Moor (Battle of - 1644)",
+      "result": "source_ok"
+    },
+    {
+      "name": "Methven (Battle of - 1306)",
+      "result": "source_ok"
+    },
+    {
+      "name": "Southampton Castle and City Walls",
+      "result": "still_inconclusive",
+      "last": {
+        "error": "ChunkedEncodingError: Response ended prematurely"
+      }
+    },
+    {
+      "name": "Stafford Castle",
+      "result": "still_inconclusive",
+      "last": {
+        "error": "ChunkedEncodingError: Response ended prematurely"
+      }
+    },
+    {
+      "name": "Urquhart Castle",
+      "result": "still_inconclusive",
+      "last": {
+        "error": "ChunkedEncodingError: Response ended prematurely"
+      }
+    }
+  ]
+}
