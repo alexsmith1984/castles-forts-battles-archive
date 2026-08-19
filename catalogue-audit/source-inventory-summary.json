@@ -1,14 +1,19 @@
 {
   "unique_destinations": 757,
   "fetch_states": {
-    "source_ok": 398,
-    "no_known_snapshot": 358,
+    "source_ok": 404,
+    "no_known_snapshot": 352,
     "local_reconstruction": 1
   },
-  "sources_inventoried": 398,
-  "pages_with_asset_links": 257,
-  "pages_with_any_media_refs": 397,
-  "total_asset_links": 2052,
-  "total_media_refs": 20423,
-  "scope": "Source inventory only. Media references are intended/referenced resources; this pass does not yet assert that each referenced image file is preserved."
+  "sources_inventoried": 404,
+  "late_snapshot_targets": 190,
+  "refresh_outcomes": {
+    "same": 93,
+    "updated": 97
+  },
+  "pages_with_asset_links": 272,
+  "pages_with_any_media_refs": 403,
+  "total_asset_links": 2227,
+  "total_media_refs": 21734,
+  "scope": "Source inventory refreshed where the availability API supplied a snapshot closest to 2022-09-22."
 }
