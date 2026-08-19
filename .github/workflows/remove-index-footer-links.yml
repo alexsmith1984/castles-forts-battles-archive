@@ -1,0 +1,60 @@
+name: Remove footer links from recovered catalogue
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-index-footer-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install beautifulsoup4
+      - name: Remove non-catalogue footer links
+        run: |
+          cat > /tmp/fix.py <<'PY'
+          from bs4 import BeautifulSoup
+          import json,re
+          files=['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']
+          labels=['A–C','D–G','H–L','M–R','S–Z']
+          remove={'About Us','Contact Us','Terms and Conditions'}
+          pages=[]
+          for fn,label in zip(files,labels):
+            soup=BeautifulSoup(open(fn,encoding='utf-8').read(),'html.parser')
+            removed=[]
+            for li in list(soup.find_all('li')):
+              a=li.find('a')
+              if a and a.get_text(' ',strip=True) in remove:
+                removed.append(a.get_text(' ',strip=True)); li.decompose()
+            counts={}
+            for sec in soup.find_all('section'):
+              h=sec.find('h2')
+              if h and len(h.get_text(strip=True))==1 and h.get_text(strip=True).isalpha():
+                counts[h.get_text(strip=True)]=len(sec.find_all('li'))
+            open(fn,'w',encoding='utf-8').write(str(soup))
+            pages.append({'page':fn,'range':label,'entries':sum(counts.values()),'by_letter':counts,'removed_footer_links':removed})
+          total=sum(p['entries'] for p in pages)
+          master='atoz-archive.html'
+          text=open(master,encoding='utf-8').read()
+          text=re.sub(r'\d+ distinct catalogue entries were recovered across A–Z\.',f'{total} distinct catalogue entries were recovered across A–Z.',text)
+          open(master,'w',encoding='utf-8').write(text)
+          json.dump({'total_entries_A_Z':total,'pages':pages},open('index-recovery/build-all-report.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps({'total_entries_A_Z':total,'pages':pages},indent=2))
+          PY
+          python /tmp/fix.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-archive.html atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html index-recovery/build-all-report.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Remove non-catalogue footer links from A-Z indexes' && git push; fi
