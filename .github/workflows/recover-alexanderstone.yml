@@ -1,0 +1,65 @@
+name: Recover Alexanderstone Castle
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-alexanderstone.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4
+      - name: Recover archived text and build static page
+        run: |
+          python - <<'PY'
+          import json,re,html as H,time
+          from pathlib import Path
+          from urllib.parse import urlsplit
+          import requests
+          from bs4 import BeautifulSoup
+          NAME='Alexanderstone Castle';SLUG='alexanderstone-castle'
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          page=next(x for x in inv if x.get('primary_name')==NAME)
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (archival recovery)'
+          r=None
+          for n in range(4):
+            try:r=s.get(page['raw_replay'],timeout=25,allow_redirects=True)
+            except Exception:r=None
+            if r is not None and r.status_code==200 and '<html' in r.text.lower():break
+            time.sleep(2+n*2)
+          if r is None or r.status_code!=200 or '<html' not in r.text.lower():raise SystemExit('source failed')
+          out=Path('recovered')/SLUG;out.mkdir(parents=True,exist_ok=True);raw=r.text;(out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
+          soup=BeautifulSoup(raw,'html.parser')
+          for x in soup(['script','style','noscript']):x.decompose()
+          nav={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
+          blocks=[];seen=set()
+          for el in soup.find_all(['h1','h2','h3','h4','p']):
+            txt=' '.join(el.stripped_strings).strip()
+            if not txt or txt in nav or txt.lower() in ('tweet','share','follow'):continue
+            k=re.sub(r'\s+',' ',txt).casefold()
+            if k in seen:continue
+            seen.add(k);blocks.append((el.name,txt))
+          body=[]
+          for tag,txt in blocks:
+            if tag.startswith('h') or (len(txt)<75 and re.match(r'^(History|Getting There|Bibliography|What.s There|Gallery|Location|Access|Design|Visiting)\b',txt,re.I)):
+              body.append(f'<h2>{H.escape(txt)}</h2>')
+            else:body.append(f'<p>{H.escape(txt)}</p>')
+          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{NAME} | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:#fff;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:900px;margin:auto;padding:24px 18px 50px}}.note,article{{background:#fff;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c}}a{{color:#224d74}}</style></head><body><header><h1>{NAME}</h1></header><main><div class="note">Faithful text-only archival reconstruction. The archived source preserves the written content, but the audit found none of the intended original content images preserved. No substitute photographs have been introduced.</div><article>{''.join(body)}</article><p><a href="../../atoz-part1.html#a">Back to A–Z index</a></p></main></body></html>'''
+          (out/'index.html').write_text(doc,encoding='utf-8')
+          (out/'recovery-report.json').write_text(json.dumps({'name':NAME,'source':page['raw_replay'],'text_blocks':len(blocks),'images_recovered':0,'classification':'text-only; original content images unpreserved'},indent=2),encoding='utf-8')
+          p=Path('atoz-part1.html');text=p.read_text(encoding='utf-8');path=urlsplit(page['original']).path
+          pat=r'href="https?://web\.archive\.org/web/[^\"]*https?://(?:www\.)?castlesfortsbattles\.co\.uk'+re.escape(path)+r'"'
+          text,n=re.subn(pat,f'href="recovered/{SLUG}/index.html"',text);p.write_text(text,encoding='utf-8');print('link replacements',n,'text blocks',len(blocks))
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/alexanderstone-castle atoz-part1.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Recover Alexanderstone Castle text page' && git pull --rebase && git push; fi
