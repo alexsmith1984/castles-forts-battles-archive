@@ -1,0 +1,119 @@
+name: Audit Midlands priority pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-midlands-priority.yml'
+      - 'catalogue-audit/source-inventory.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Compare Midlands media references with Wayback index
+        run: |
+          cat > /tmp/mid.py <<'PY'
+          import json, os, time, html
+          from urllib.parse import urlsplit
+          from collections import Counter
+          import requests
+
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          selected=[]
+          for r in inv:
+            o=r['original'].lower();n=r['primary_name'].lower()
+            if '/midlands/' in o or 'bosworth' in n:selected.append(r)
+          def norm(u):
+            s=urlsplit(u);h=s.netloc.lower();h=h[4:] if h.startswith('www.') else h
+            return h+(s.path or '/').lower()
+          def prefix(u):
+            s=urlsplit(u);p=s.path or '/';lo=p.lower()
+            for m in ('/images/','/assets/'):
+              i=lo.find(m)
+              if i>=0:return s.netloc,p[:i+len(m)]
+            return s.netloc,p.rsplit('/',1)[0]+'/'
+          prefs=set()
+          for r in selected:
+            if r.get('fetch_state')=='source_ok':
+              for u in r.get('all_media',[]):prefs.add(prefix(u))
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles Midlands audit)'
+          indexed=set();preports=[]
+          for host,p in sorted(prefs):
+            h0=host[4:] if host.startswith('www.') else host
+            hosts=[]
+            for h in (host,'www.'+h0,h0):
+              if h not in hosts:hosts.append(h)
+            rowsn=0;ok=False;errs=[]
+            for h in hosts:
+              try:
+                x=s.get('https://web.archive.org/cdx/search/cdx',params={'url':h+p+'*','output':'json','filter':'statuscode:200','fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'},timeout=60)
+                if x.status_code==200:
+                  ok=True;d=x.json();rows=d[1:] if isinstance(d,list) and d else [];rowsn+=len(rows)
+                  for row in rows:
+                    if len(row)>=2:indexed.add(norm(row[1]))
+                else:errs.append({'host':h,'status':x.status_code})
+              except Exception as ex:errs.append({'host':h,'error':type(ex).__name__+': '+str(ex)[:100]})
+              time.sleep(0.5)
+            preports.append({'host':host,'prefix':p,'success':ok,'rows':rowsn,'errors':errs})
+          manual={
+            'Baddesley Clinton':'original Wayback page failed; reconstructed locally with complete recoverable text and four recovered original photographs',
+            'Clun Castle':'user confirmed page opens; photographs not yet visually certified',
+            'Hopton Castle':'user confirmed page opens; photographs not yet visually certified',
+            'Moreton Corbet Castle':'user confirmed page opens; photographs not yet visually certified',
+            'Old Oswestry Hillfort':'user confirmed page does not open',
+            'Peveril Castle':'user confirmed page opens; photographs not yet visually certified',
+            "Richard's Castle":'user confirmed page opens; photographs not yet visually certified',
+            'Seckington Castle':'user confirmed text opens but photographs are missing',
+            'Stafford Castle':'user confirmed page opens but one photograph is missing',
+            'Stokesay Castle':'user confirmed page opens; photographs not yet visually certified',
+            'Tutbury Castle':'user confirmed page opens; photographs not yet visually certified',
+            'Bosworth Field (Battle of - 1485)':'user confirmed page opens; some photographs may be missing',
+          }
+          results=[]
+          for r in selected:
+            rec={'primary_name':r['primary_name'],'aliases':r.get('aliases',[]),'original':r['original'],'fetch_state':r.get('fetch_state')}
+            if r['primary_name'] in manual:rec['manual_observation']=manual[r['primary_name']]
+            if r.get('fetch_state')=='local_reconstruction':rec['media_state']='local_reconstruction';results.append(rec);continue
+            if r.get('fetch_state')!='source_ok':rec['media_state']='source_unavailable_or_unresolved';results.append(rec);continue
+            keys=list(dict.fromkeys(norm(u) for u in r.get('all_media',[])))
+            akeys=list(dict.fromkeys(norm(u) for u in r.get('asset_links',[])))
+            miss=[k for k in keys if k not in indexed];amiss=[k for k in akeys if k not in indexed]
+            rec.update({'referenced_media':len(keys),'indexed_media':len(keys)-len(miss),'missing_media':len(miss),'missing_media_paths':miss,'fullsize_assets':len(akeys),'missing_fullsize_assets':len(amiss),'missing_fullsize_asset_paths':amiss})
+            if not keys:st='no_media_refs_detected'
+            elif not miss:st='all_referenced_media_indexed'
+            elif len(miss)<len(keys):st='some_referenced_media_not_indexed'
+            else:st='no_referenced_media_indexed'
+            rec['media_state']=st;results.append(rec)
+          results.sort(key=lambda x:x['primary_name'].casefold())
+          summary={'selected_destinations':len(results),'states':dict(Counter(r['media_state'] for r in results)),'prefixes_queried':len(preports),'successful_prefixes':sum(1 for p in preports if p['success']),'indexed_media_paths':len(indexed),'scope':'Focused Midlands/Bosworth audit comparing media paths in recoverable archived HTML source with Wayback CDX records.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'prefix_reports':preports,'results':results},open('catalogue-audit/midlands-priority.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/midlands-priority-summary.json','w'),indent=2,ensure_ascii=False)
+          def e(x):return html.escape(str(x),quote=True)
+          rows=[]
+          for r in results:
+            note=r.get('manual_observation','');state=r['media_state'].replace('_',' ')
+            rows.append(f'<tr><td>{e(r["primary_name"])}</td><td>{e(state)}</td><td>{e(r.get("referenced_media",""))}</td><td>{e(r.get("missing_media",""))}</td><td>{e(note)}</td></tr>')
+          page=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Midlands audit | Castles, Forts and Battles Archive</title><style>body{{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222}}header{{background:#3d3528;color:#fff;padding:24px;text-align:center}}main{{max-width:1100px;margin:auto;padding:20px}}.note{{background:#fff;border-left:4px solid #8b7959;padding:12px;margin-bottom:18px}}table{{width:100%;border-collapse:collapse;background:#fff;font-size:14px}}th,td{{border:1px solid #d7cebd;padding:7px;text-align:left;vertical-align:top}}th{{background:#eee6d6}}tr:nth-child(even){{background:#faf8f3}}a{{color:#224d74}}</style></head><body><header><h1>Midlands completeness audit</h1><p>Castles, Forts and Battles archive</p></header><main><div class="note">This is an automated archive-index check, combined with the observations already made during manual browsing. “Indexed” means Wayback has a record for the referenced media path; final visual verification remains a separate step.</div><p><a href="atoz-archive.html">Back to A–Z index</a></p><table><thead><tr><th>Entry</th><th>Archive-media state</th><th>Media refs</th><th>Not indexed</th><th>Manual observation</th></tr></thead><tbody>{''.join(rows)}</tbody></table></main></body></html>'''
+          open('midlands-audit.html','w',encoding='utf-8').write(page)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/mid.py
+      - name: Commit Midlands audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/midlands-priority*.json midlands-audit.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit Midlands catalogue media completeness' && git pull --rebase && git push; fi
