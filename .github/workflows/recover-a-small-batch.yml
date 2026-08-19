@@ -1,129 +1,46 @@
-name: Recover Abergavenny Castle
-
+name: Fetch Abergavenny source
 on:
   push:
     paths:
       - '.github/workflows/recover-a-small-batch.yml'
-  workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
-  recover:
+  fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 6
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - run: pip install requests beautifulsoup4 pillow
-      - name: Recover page and archived images
+      - run: pip install requests beautifulsoup4
+      - name: Fetch known working 2018 source
         run: |
           python - <<'PY'
-          import json,os,re,html as H,time
+          import requests,json,re
           from pathlib import Path
-          from urllib.parse import urlsplit,urlunsplit
-          from io import BytesIO
-          import requests
           from bs4 import BeautifulSoup
-          from PIL import Image
-
-          NAME='Abergavenny Castle'; SLUG='abergavenny-castle'
-          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
-          page=next(x for x in inv if x.get('primary_name')==NAME)
-          out=Path('recovered')/SLUG; imgdir=out/'images'; imgdir.mkdir(parents=True,exist_ok=True)
-          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles archival recovery)'
-          def get(u,t=22):
-            for n in range(3):
-              try:
-                r=s.get(u,timeout=t,allow_redirects=True)
-                if r.status_code in (429,500,502,503,504):time.sleep(2+n*2);continue
-                return r
-              except Exception:time.sleep(2+n*2)
-            return None
-          rr=get(page['raw_replay'],35)
-          if not rr or rr.status_code!=200 or '<html' not in rr.text.lower():raise SystemExit('source failed')
-          raw=rr.text;(out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
-          captures=['20180804035317',str(page.get('spec',{}).get('timestamp') or '')]
-          captures=[x for x in dict.fromkeys(captures) if x]
-          decorative=re.compile(r'(castlesfortsbattles|battlefieldsofbritain|twitter|facebook|blank\.gif|logo|favicon|share)',re.I)
-          refs=[]
-          for u in page.get('img_src_images',[]) or []:
-            b=os.path.basename(urlsplit(u).path)
-            if decorative.search(b):continue
-            if u not in refs:refs.append(u)
-          # Also preserve any full-size links if this older page has them.
-          for u in page.get('asset_links',[]) or []:
-            if u not in refs:refs.append(u)
-          def valid(r):
-            if not r or r.status_code!=200 or len(r.content)<800:return None
-            try:
-              im=Image.open(BytesIO(r.content));w,h=im.size
-              if w<100 or h<100:return None
-              return w,h,im.format
-            except Exception:return None
-          recovered=[];missing=[]
-          for u in refs:
-            got=None
-            for ts in captures:
-              r=get(f'https://web.archive.org/web/{ts}id_/{u}',18)
-              v=valid(r)
-              if v:got=(r,ts,v);break
-            if not got:
-              # exact CDX fallback, protocol/host variants
-              sp=urlsplit(u);hosts=[sp.netloc,sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc]
-              rows=[]
-              for scheme in ('http','https'):
-                for host in hosts:
-                  q=urlunsplit((scheme,host,sp.path,'',''))
-                  try:
-                    z=s.get('https://web.archive.org/cdx/search/cdx',params={'url':q,'output':'json','filter':'statuscode:200','fl':'timestamp,original','collapse':'digest'},timeout=20)
-                    if z.status_code==200:
-                      d=z.json();rows += d[1:] if isinstance(d,list) and len(d)>1 else []
-                  except Exception:pass
-              for row in reversed(rows[-8:]):
-                r=get(f'https://web.archive.org/web/{row[0]}id_/{row[1]}',18);v=valid(r)
-                if v:got=(r,row[0],v);break
-            if got:
-              r,ts,(w,h,fmt)=got;fn=os.path.basename(urlsplit(u).path);fn=re.sub(r'[^A-Za-z0-9._-]','_',fn)
-              (imgdir/fn).write_bytes(r.content);recovered.append({'original':u,'file':'images/'+fn,'timestamp':ts,'dimensions':[w,h],'bytes':len(r.content)})
-            else:missing.append(u)
-            time.sleep(.08)
-
-          soup=BeautifulSoup(raw,'html.parser')
-          for x in soup(['script','style','noscript']):x.decompose()
-          nav={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
-          blocks=[];seen=set()
-          for el in soup.find_all(['h1','h2','h3','h4','p']):
-            txt=' '.join(el.stripped_strings).strip()
-            if not txt or txt in nav or txt.lower() in ('tweet','share','follow'):continue
-            k=re.sub(r'\s+',' ',txt).casefold()
-            if k in seen:continue
-            seen.add(k);blocks.append((el.name,txt))
-          body=[]
-          for tag,txt in blocks:
-            if tag.startswith('h') or (len(txt)<75 and re.match(r'^(History|Getting There|Bibliography|What.s There|Gallery|Location|Access|Design|Visiting)\b',txt,re.I)):
-              body.append(f'<h2>{H.escape(txt)}</h2>')
-            else:body.append(f'<p>{H.escape(txt)}</p>')
-          figs=[]
-          for x in recovered:
-            cap=os.path.splitext(os.path.basename(x['file']))[0].replace('_',' ')
-            figs.append(f'<figure><img src="{H.escape(x["file"],quote=True)}" alt="{H.escape(NAME)}"><figcaption>{H.escape(cap)}</figcaption></figure>')
-          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{NAME} | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:white;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:900px;margin:auto;padding:24px 18px 50px}}.note,article{{background:white;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto}}figcaption{{font-size:13px;color:#6b6255}}a{{color:#224d74}}</style></head><body><header><h1>{NAME}</h1></header><main><div class="note">Static archival reconstruction. Original text is preserved from the archived page. Only genuine archived images are displayed. {len(recovered)} of {len(refs)} detected content-image files were recovered in this pass.</div><article>{''.join(body)}<h2>Recovered original photographs and images</h2>{''.join(figs) if figs else '<p>No original images could be recovered.</p>'}</article><p><a href="../../atoz-part1.html#a">Back to A–Z index</a></p></main></body></html>'''
-          (out/'index.html').write_text(doc,encoding='utf-8')
-          report={'name':NAME,'source':page['raw_replay'],'detected_content_images':len(refs),'recovered':len(recovered),'missing':len(missing),'images':recovered,'missing_urls':missing}
-          (out/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
-          # Link catalogue entry locally.
-          p=Path('atoz-part1.html');text=p.read_text(encoding='utf-8');path=urlsplit(page['original']).path
-          pat=r'href="https?://web\.archive\.org/web/[^\"]*https?://(?:www\.)?castlesfortsbattles\.co\.uk'+re.escape(path)+r'"'
-          text,n=re.subn(pat,f'href="recovered/{SLUG}/index.html"',text);p.write_text(text,encoding='utf-8');print('link replacements',n)
-          print(json.dumps({'recovered':len(recovered),'detected':len(refs),'missing':len(missing)},indent=2))
+          u='https://web.archive.org/web/20180804035317id_/http://www.castlesfortsbattles.co.uk:80/south_wales/abergavenny_castle.html'
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0'
+          r=s.get(u,timeout=30,allow_redirects=True)
+          if r.status_code!=200 or '<html' not in r.text.lower():raise SystemExit(f'source failed {r.status_code}')
+          out=Path('recovered/abergavenny-castle');out.mkdir(parents=True,exist_ok=True)
+          out.joinpath('source.html').write_text(r.text,encoding='utf-8',errors='replace')
+          soup=BeautifulSoup(r.text,'html.parser')
+          imgs=[]
+          for im in soup.find_all('img'):
+            imgs.append({'src':im.get('src'),'alt':im.get('alt'),'title':im.get('title'),'width':im.get('width'),'height':im.get('height')})
+          links=[]
+          for a in soup.find_all('a',href=True):
+            if re.search(r'\.(jpg|jpeg|png|gif)(?:\?|$)',a['href'],re.I):links.append({'href':a['href'],'text':' '.join(a.stripped_strings)})
+          report={'source':u,'bytes':len(r.content),'text_chars':len(' '.join(soup.stripped_strings)),'images':imgs,'image_links':links}
+          out.joinpath('source-analysis.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          print('bytes',len(r.content),'imgs',len(imgs),'image links',len(links))
           PY
-      - name: Commit reconstruction
+      - name: Commit source analysis
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add recovered/abergavenny-castle atoz-part1.html
-          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Recover Abergavenny Castle page' && git pull --rebase && git push; fi
+          git add recovered/abergavenny-castle/source.html recovered/abergavenny-castle/source-analysis.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Fetch Abergavenny Castle archived source' && git pull --rebase && git push; fi
