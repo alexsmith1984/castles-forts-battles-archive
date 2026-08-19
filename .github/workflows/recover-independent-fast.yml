@@ -1,0 +1,168 @@
+name: Bounded independent Baddesley recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-independent-fast.yml'
+      - 'independent-fast-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Search Arquivo.pt and Common Crawl efficiently
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet warcio
+          mkdir -p independent-recovery
+          python3 - <<'PY'
+          import io, json, re, subprocess, urllib.parse, urllib.request, time
+          from pathlib import Path
+          from warcio.archiveiterator import ArchiveIterator
+
+          stems=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
+          report=[]; arquivo_hits=[]; cc_hits=[]
+          ua='Mozilla/5.0 archive-recovery research'
+
+          def curl_text(url, max_time=18):
+              cp=subprocess.run(['curl','-L','--fail','--silent','--show-error','--connect-timeout','7','--max-time',str(max_time),'-A',ua,url],capture_output=True)
+              if cp.returncode: return None
+              return cp.stdout.decode('utf-8','replace')
+
+          # ---------------- Arquivo.pt ----------------
+          for prefix in [
+              'http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley',
+              'http://www.castlesfortsbattles.co.uk/midlands/images/baddesley',
+              'https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley',
+              'https://www.castlesfortsbattles.co.uk/midlands/images/baddesley']:
+              u='https://arquivo.pt/wayback/cdx?'+urllib.parse.urlencode({'url':prefix,'matchType':'prefix','output':'json','limit':'5000'})
+              txt=curl_text(u)
+              n=0
+              if txt:
+                  Path('independent-recovery/arquivo-'+str(len(arquivo_hits))+'.txt').write_text(txt)
+                  for ln in txt.splitlines():
+                      try: r=json.loads(ln)
+                      except: continue
+                      url=(r.get('url') or r.get('original') or '').lower()
+                      if any(s in url for s in stems): arquivo_hits.append(r); n+=1
+              report.append(f'ARQUIVO PREFIX {prefix}: matching rows={n}')
+
+          # Download Arquivo hits.
+          for stem in stems:
+              matches=[r for r in arquivo_hits if stem in (r.get('url') or r.get('original') or '').lower()]
+              found=False
+              def rscore(r):
+                  u=(r.get('url') or r.get('original') or '')
+                  name=urllib.parse.urlparse(u).path.rsplit('/',1)[-1].lower()
+                  exact=1 if name in (stem+'.jpg',stem+'.jpeg',stem+'.png') else 0
+                  try: ln=int(r.get('length') or 0)
+                  except: ln=0
+                  return (exact,ln,str(r.get('timestamp','')))
+              for r in sorted(matches,key=rscore,reverse=True):
+                  ts=str(r.get('timestamp','')); orig=r.get('url') or r.get('original')
+                  if not ts or not orig: continue
+                  for replay in [f'https://arquivo.pt/noFrame/replay/{ts}id_/{orig}',f'https://arquivo.pt/noFrame/replay/{ts}/{orig}']:
+                      tmp=Path('/tmp/arqimg')
+                      cp=subprocess.run(['curl','-L','--fail','--silent','--show-error','--connect-timeout','7','--max-time','18','-A',ua,replay,'-o',str(tmp)],capture_output=True)
+                      if cp.returncode==0 and tmp.exists():
+                          mt=subprocess.check_output(['file','--mime-type','-b',str(tmp)],text=True).strip(); sz=tmp.stat().st_size
+                          if mt.startswith('image/') and sz>1500:
+                              ext='.png' if 'png' in mt else '.jpg'; out=Path('independent-recovery')/(stem+'-arquivo'+ext); out.write_bytes(tmp.read_bytes())
+                              report.append(f'ARQUIVO RECOVERED {stem}: {sz} bytes {mt} {replay}'); found=True; break
+                  if found: break
+              if not found: report.append(f'ARQUIVO MISSING {stem}; candidates={len(matches)}')
+
+          # ---------------- Common Crawl ----------------
+          coll_txt=curl_text('https://index.commoncrawl.org/collinfo.json',12)
+          crawls=[]
+          if coll_txt:
+              try:
+                  coll=json.loads(coll_txt)
+                  for c in coll:
+                      m=re.match(r'CC-MAIN-(\d{4})-',c.get('id',''))
+                      if m and 2017<=int(m.group(1))<=2022: crawls.append(c)
+              except Exception as e: report.append(f'COMMON CRAWL collinfo parse error: {e}')
+          report.append(f'COMMON CRAWL indexes selected={len(crawls)}')
+          prefixes=['www.castlesfortsbattles.co.uk/midlands/assets/baddesley','www.castlesfortsbattles.co.uk/midlands/images/baddesley']
+          for c in crawls:
+              api=c.get('cdx-api')
+              if not api: continue
+              for prefix in prefixes:
+                  q=api+'?'+urllib.parse.urlencode({'url':prefix,'matchType':'prefix','output':'json'})
+                  txt=curl_text(q,10)
+                  if not txt: continue
+                  nh=0
+                  for ln in txt.splitlines():
+                      try: r=json.loads(ln)
+                      except: continue
+                      u=r.get('url','').lower()
+                      if any(s in u for s in stems): r['_crawl']=c.get('id'); cc_hits.append(r); nh+=1
+                  if nh: report.append(f'COMMON CRAWL {c.get("id")} {prefix}: {nh} target rows')
+
+          # Deduplicate CC records.
+          uniq=[]; seen=set()
+          for h in cc_hits:
+              k=(h.get('url'),h.get('filename'),h.get('offset'),h.get('length'))
+              if k not in seen: seen.add(k); uniq.append(h)
+          Path('independent-recovery/commoncrawl-hits.json').write_text(json.dumps(uniq,indent=2))
+          report.append(f'COMMON CRAWL unique target rows={len(uniq)}')
+
+          def get_cc_payload(h):
+              try:
+                  start=int(h['offset']); length=int(h['length']); fn=h['filename']
+              except: return None
+              u='https://data.commoncrawl.org/'+fn
+              cp=subprocess.run(['curl','--fail','--silent','--show-error','--connect-timeout','7','--max-time','20','-A',ua,'-H',f'Range: bytes={start}-{start+length-1}',u],capture_output=True)
+              if cp.returncode: return None
+              try:
+                  for rec in ArchiveIterator(io.BytesIO(cp.stdout)):
+                      if rec.rec_type in ('response','resource'):
+                          payload=rec.content_stream().read(); ct=''
+                          if rec.http_headers: ct=rec.http_headers.get_header('Content-Type') or ''
+                          return payload,ct
+              except: return None
+              return None
+
+          for stem in stems:
+              matches=[h for h in uniq if stem in h.get('url','').lower()]
+              found=False
+              def score(h):
+                  name=urllib.parse.urlparse(h.get('url','')).path.rsplit('/',1)[-1].lower()
+                  exact=1 if name in (stem+'.jpg',stem+'.jpeg',stem+'.png') else 0
+                  try: ln=int(h.get('length') or 0)
+                  except: ln=0
+                  return (exact,ln,h.get('timestamp',''))
+              for h in sorted(matches,key=score,reverse=True)[:10]:
+                  got=get_cc_payload(h)
+                  if not got: continue
+                  payload,ct=got
+                  jpg=payload.startswith(b'\xff\xd8\xff'); png=payload.startswith(b'\x89PNG\r\n\x1a\n'); gif=payload.startswith((b'GIF87a',b'GIF89a'))
+                  if not (jpg or png or gif or ct.lower().startswith('image/')): continue
+                  ext='.png' if png or 'png' in ct.lower() else ('.gif' if gif or 'gif' in ct.lower() else '.jpg')
+                  out=Path('independent-recovery')/(stem+'-commoncrawl'+ext); out.write_bytes(payload)
+                  report.append(f'COMMON CRAWL RECOVERED {stem}: {len(payload)} bytes {ct} {h.get("timestamp")} {h.get("url")} {h.get("_crawl")}'); found=True; break
+              if not found: report.append(f'COMMON CRAWL MISSING {stem}; candidates={len(matches)}')
+
+          Path('independent-recovery/report.txt').write_text('\n'.join(report)+'\n')
+          print('\n'.join(report))
+          PY
+      - name: Commit results
+        shell: bash
+        run: |
+          git config user.name 'archive-recovery-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add independent-recovery
+          if git diff --cached --quiet; then
+            echo 'No result changes.'
+          else
+            git commit -m 'Independent archive recovery results'
+            git push
+          fi
