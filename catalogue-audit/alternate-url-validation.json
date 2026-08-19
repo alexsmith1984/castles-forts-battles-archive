@@ -1,0 +1,97 @@
+{
+  "results": [
+    {
+      "name": "Ambleside Roman Fort",
+      "old": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html",
+      "timestamp": "20180518172717",
+      "url": "http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html",
+      "need": [
+        "ambleside",
+        "roman",
+        "fort"
+      ],
+      "valid": true,
+      "http": 200,
+      "raw_replay": "https://web.archive.org/web/20180518172717id_/http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html",
+      "title": "Ambleside Roman Fort | North West England | Castles, Forts and Battles",
+      "text_sample": "Ambleside Roman Fort | North West England | Castles, Forts and Battles England Scotland Wales England Scotland Wales Home UK Map A-Z England Scotland Wales Links England > North West AMBLESIDE ROMAN FORT Ambleside Roman Fort is located on the northern shores of Lake Windermere. Originally raised as part of a network of forts to suppress an insurgency, it probably also had a role managing mining operations in the region and in addition served as a logistical hub. The fort was rebuilt in the secon"
+    },
+    {
+      "name": "Druchtag Motte",
+      "old": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/druchtag_motte.html",
+      "timestamp": "20150920092549",
+      "url": "http://www.castlesfortsbattles.co.uk/druchtag_motte.html",
+      "need": [
+        "druchtag",
+        "motte"
+      ],
+      "valid": true,
+      "http": 200,
+      "raw_replay": "https://web.archive.org/web/20150920092549id_/http://www.castlesfortsbattles.co.uk/druchtag_motte.html",
+      "title": "Druchtag Motte | Dumfries and Galloway | Castles, Forts and Battles",
+      "text_sample": "ï»¿ Druchtag Motte | Dumfries and Galloway | Castles, Forts and Battles Home UK Map A-Z England Scotland Wales Articles Links About Us Search C astles F orts B attles .co.uk History and satellite navigation for the castles, forts and battles that shaped Britain DRUCHTAG MOTTE, DG8 9LY GETTING THERE Postcode: DG8 9LY Lat/Long: 54.787617N 4.568500W Notes:  Follow the A747 to Mochram after which you will see signs to âDrumtag Motehillâ.\r\n        Effectively keep following the main road through "
+    },
+    {
+      "name": "Kinlochaline Castle",
+      "old": "http://www.castlesfortsbattles.co.uk/kinlochaline_castle.html",
+      "timestamp": "20190613061927",
+      "url": "http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html",
+      "need": [
+        "kinlochaline",
+        "castle"
+      ],
+      "valid": true,
+      "http": 200,
+      "raw_replay": "https://web.archive.org/web/20190613061927id_/http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html",
+      "title": "Kinlochaline Castle | Highlands | Castles, Forts and Battles",
+      "text_sample": "Kinlochaline Castle | Highlands | Castles, Forts and Battles England Scotland Wales England Scotland Wales Home UK Map A-Z England Scotland Wales Links Scotland > Highlands KINLOCHALINE CASTLE Kinlochaline Castle was built in the fifteenth century on the site of an earlier fortification. The Tower House overlooked Loch Alpine and provided direct access to the Sound of Mull, a major trade route that connected the site to the wider region. The castle was attacked in 1644 by Alistair MacColla and a"
+    },
+    {
+      "name": "MacLellan’s Castle",
+      "old": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/maclellans_castle.html",
+      "timestamp": "20150920091855",
+      "url": "http://www.castlesfortsbattles.co.uk/maclellans_castle.html",
+      "need": [
+        "maclellan",
+        "castle"
+      ],
+      "valid": true,
+      "http": 200,
+      "raw_replay": "https://web.archive.org/web/20150920091855id_/http://www.castlesfortsbattles.co.uk/maclellans_castle.html",
+      "title": "MacLellan's Castle | Dumfries and Galloway | Castles, Forts and Battles",
+      "text_sample": "ï»¿ MacLellan's Castle | Dumfries and Galloway | Castles, Forts and Battles Home UK Map A-Z England Scotland Wales Articles Links About Us Search C astles F orts B attles .co.uk History and satellite navigation for the castles, forts and battles that shaped Britain MACLELLANâS CASTLE, DG6 4JD GETTING THERE Postcode: DG6 4JD Lat/Long: 54.837005N 4.052948W Notes:  Located in the town of Kirkcudbright, the castle is easily found. There are\r\n        a number of car parking options including a cent"
+    },
+    {
+      "name": "Neville’s Cross (Battle of - 1346)",
+      "old": "http://www.battlefieldsofbritain.co.uk/battle_nevilles_cross_1346.html.html",
+      "timestamp": "20170706211319",
+      "url": "http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html",
+      "need": [
+        "neville",
+        "cross",
+        "1346"
+      ],
+      "valid": true,
+      "http": 200,
+      "raw_replay": "https://web.archive.org/web/20170706211319id_/http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html",
+      "title": "Battle of Neville's Cross (1346) | Second War of Scottish Independence | Medieval Battles",
+      "text_sample": "Battle of Neville's Cross (1346) | Second War of Scottish Independence | Medieval Battles Battlefields of Britain Map Campaigns A to Z Medieval  >  Second War of Scottish Independence BATTLE OF NEVILLE'S CROSS (1346) Responding to a request from France, King David II of Scotland invaded England in October 1346. With Edward III campaigning on the continent he expected little resistance but, at the Battle of Nevilleâs Cross, he was intercepted and defeated by a large northern army. The defeat wa"
+    },
+    {
+      "name": "Tynemouth Castle",
+      "old": "http://www.castlesfortsbattles.co.uk/north_east/tynemouth_castle.html",
+      "timestamp": "20180823233219",
+      "url": "http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html",
+      "need": [
+        "tynemouth",
+        "castle"
+      ],
+      "valid": true,
+      "http": 200,
+      "raw_replay": "https://web.archive.org/web/20180823233219id_/http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html",
+      "title": "Tynemouth Castle | North East England | Castles, Forts and Battles",
+      "text_sample": "Tynemouth Castle | North East England | Castles, Forts and Battles England Scotland Wales England Scotland Wales Home UK Map A-Z England Scotland Wales Links England > North East TYNEMOUTH CASTLE Tynemouth Castle was an enclosure fortification built around an existing Priory. The fortification re-used the earthworks of earlier defences and evolved into one of the strongest fortifications in northern England.  The Priory was suppressed by Henry VIII and the site was then adapted into an artillery"
+    }
+  ],
+  "validated": 6
+}
