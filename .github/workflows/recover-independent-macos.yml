@@ -14,122 +14,100 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Verify Arquivo.pt and Common Crawl coverage
+      - name: Query Common Crawl with supported wildcard URL patterns
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p mac-recovery-2
+          mkdir -p commoncrawl-verified
           python3 - <<'PY'
-          import concurrent.futures, json, re, urllib.parse, urllib.request
+          import concurrent.futures, json, re, time, urllib.parse, urllib.request
           from pathlib import Path
 
           stems=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
-          headers={'User-Agent':'Mozilla/5.0 archive-recovery research'}
-          result={'arquivo':{'queries':[],'hits':[]},'commoncrawl':{'collinfo_ok':False,'crawl_ids':[],'queries_ok':0,'queries_failed':0,'hits':[]}}
+          hdr={'User-Agent':'castles-forts-battles-archive-recovery/1.0'}
 
-          def fetch(url,timeout=8):
+          def fetch(url, timeout=12):
               try:
-                  req=urllib.request.Request(url,headers=headers)
+                  req=urllib.request.Request(url,headers=hdr)
                   with urllib.request.urlopen(req,timeout=timeout) as r:
                       return True,r.read().decode('utf-8','replace'),getattr(r,'status',200)
               except Exception as e:
                   return False,str(e),None
 
-          # Arquivo.pt: both schemes, both host forms, both Muse resource folders.
-          for scheme in ('http','https'):
-            for host in ('www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk'):
-              for folder in ('assets','images'):
-                prefix=f'{scheme}://{host}/midlands/{folder}/baddesley'
-                url='https://arquivo.pt/wayback/cdx?'+urllib.parse.urlencode({'url':prefix,'matchType':'prefix','output':'json','limit':'5000'})
-                ok,txt,status=fetch(url,12); rows=[]
-                if ok:
-                  for ln in txt.splitlines():
-                    try:r=json.loads(ln)
-                    except:continue
-                    u=(r.get('url') or r.get('original') or '').lower()
-                    if any(s in u for s in stems): rows.append(r)
-                result['arquivo']['queries'].append({'prefix':prefix,'ok':ok,'status':status,'target_rows':len(rows),'error':None if ok else txt[:200]})
-                result['arquivo']['hits'].extend(rows)
+          ok,txt,status=fetch('https://index.commoncrawl.org/collinfo.json')
+          if not ok:
+              raise SystemExit('Could not load Common Crawl collection list: '+txt)
+          crawls=[]
+          for c in json.loads(txt):
+              cid=c.get('id',''); m=re.match(r'CC-MAIN-(\d{4})-',cid)
+              if m and 2017<=int(m.group(1))<=2022:
+                  crawls.append(cid)
 
-          # Common Crawl: get live index list; if unavailable, fall back to known crawl IDs.
-          ok,txt,status=fetch('https://index.commoncrawl.org/collinfo.json',12)
-          ids=[]
-          if ok:
-              try:
-                  coll=json.loads(txt)
-                  for c in coll:
-                      cid=c.get('id',''); m=re.match(r'CC-MAIN-(\d{4})-',cid)
-                      if m and 2017<=int(m.group(1))<=2022: ids.append(cid)
-                  result['commoncrawl']['collinfo_ok']=True
-              except Exception:
-                  pass
-          if not ids:
-              ids=[
-                'CC-MAIN-2022-49','CC-MAIN-2022-40','CC-MAIN-2022-33','CC-MAIN-2022-27','CC-MAIN-2022-21','CC-MAIN-2022-05',
-                'CC-MAIN-2021-49','CC-MAIN-2021-43','CC-MAIN-2021-39','CC-MAIN-2021-31','CC-MAIN-2021-25','CC-MAIN-2021-21','CC-MAIN-2021-17','CC-MAIN-2021-10','CC-MAIN-2021-04',
-                'CC-MAIN-2020-50','CC-MAIN-2020-45','CC-MAIN-2020-40','CC-MAIN-2020-34','CC-MAIN-2020-29','CC-MAIN-2020-24','CC-MAIN-2020-16','CC-MAIN-2020-10','CC-MAIN-2020-05',
-                'CC-MAIN-2019-51','CC-MAIN-2019-47','CC-MAIN-2019-35','CC-MAIN-2019-30','CC-MAIN-2019-26','CC-MAIN-2019-22','CC-MAIN-2019-18','CC-MAIN-2019-13','CC-MAIN-2019-09','CC-MAIN-2019-04',
-                'CC-MAIN-2018-51','CC-MAIN-2018-43','CC-MAIN-2018-39','CC-MAIN-2018-34','CC-MAIN-2018-30','CC-MAIN-2018-26','CC-MAIN-2018-22','CC-MAIN-2018-17','CC-MAIN-2018-13','CC-MAIN-2018-09','CC-MAIN-2018-05',
-                'CC-MAIN-2017-51','CC-MAIN-2017-47','CC-MAIN-2017-43','CC-MAIN-2017-39','CC-MAIN-2017-34','CC-MAIN-2017-30','CC-MAIN-2017-26','CC-MAIN-2017-22','CC-MAIN-2017-17','CC-MAIN-2017-13','CC-MAIN-2017-09','CC-MAIN-2017-04']
-          result['commoncrawl']['crawl_ids']=ids
-
-          query_specs=[]
-          for cid in ids:
-            endpoint=f'https://index.commoncrawl.org/{cid}-index'
-            for scheme in ('http','https'):
-              for host in ('www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk'):
-                for folder in ('assets','images'):
-                  prefix=f'{scheme}://{host}/midlands/{folder}/baddesley'
-                  q=endpoint+'?'+urllib.parse.urlencode({'url':prefix,'matchType':'prefix','output':'json'})
-                  query_specs.append((cid,prefix,q))
+          # Common Crawl documents wildcard prefix searches as url=host/path/*.
+          patterns=[
+              'www.castlesfortsbattles.co.uk/midlands/assets/baddesley*',
+              'www.castlesfortsbattles.co.uk/midlands/images/baddesley*',
+              'castlesfortsbattles.co.uk/midlands/assets/baddesley*',
+              'castlesfortsbattles.co.uk/midlands/images/baddesley*'
+          ]
+          specs=[]
+          for cid in crawls:
+              endpoint=f'https://index.commoncrawl.org/{cid}-index'
+              for pattern in patterns:
+                  q=endpoint+'?'+urllib.parse.urlencode({'url':pattern,'output':'json'})
+                  specs.append((cid,pattern,q))
 
           def one(spec):
-              cid,prefix,q=spec; ok,txt,status=fetch(q,8); rows=[]
+              cid,pattern,q=spec
+              # One retry after a short pause for transient rate limits.
+              ok,body,status=fetch(q,12)
+              if not ok and ('429' in body or '503' in body):
+                  time.sleep(0.8)
+                  ok,body,status=fetch(q,12)
+              rows=[]
               if ok:
-                  for ln in txt.splitlines():
-                      try:r=json.loads(ln)
+                  for line in body.splitlines():
+                      try:r=json.loads(line)
                       except:continue
                       u=r.get('url','').lower()
-                      if any(s in u for s in stems):
+                      if 'baddesley' in u:
                           r['_crawl']=cid; rows.append(r)
-              return cid,prefix,ok,status,rows,None if ok else txt[:160]
+              return {'crawl':cid,'pattern':pattern,'ok':ok,'status':status,'error':None if ok else body[:200],'rows':rows}
 
-          qlog=[]
-          with concurrent.futures.ThreadPoolExecutor(max_workers=24) as ex:
-              for cid,prefix,ok,status,rows,err in ex.map(one,query_specs):
-                  if ok: result['commoncrawl']['queries_ok']+=1
-                  else: result['commoncrawl']['queries_failed']+=1
-                  if rows: result['commoncrawl']['hits'].extend(rows)
-                  qlog.append({'crawl':cid,'prefix':prefix,'ok':ok,'status':status,'target_rows':len(rows),'error':err})
-          result['commoncrawl']['query_log']=qlog
+          logs=[]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
+              for item in ex.map(one,specs):
+                  logs.append(item)
 
-          # Deduplicate hits and provide explicit per-file summary.
-          ah=[];seen=set()
-          for r in result['arquivo']['hits']:
-              k=(r.get('url') or r.get('original'),r.get('timestamp'),r.get('digest'))
-              if k not in seen:seen.add(k);ah.append(r)
-          result['arquivo']['hits']=ah
-          ch=[];seen=set()
-          for r in result['commoncrawl']['hits']:
-              k=(r.get('url'),r.get('filename'),r.get('offset'),r.get('length'))
-              if k not in seen:seen.add(k);ch.append(r)
-          result['commoncrawl']['hits']=ch
-          result['summary']={s:{
-              'arquivo':sum(1 for r in ah if s in (r.get('url') or r.get('original') or '').lower()),
-              'commoncrawl':sum(1 for r in ch if s in r.get('url','').lower())} for s in stems}
+          rows=[]
+          for item in logs: rows.extend(item['rows'])
+          uniq=[]; seen=set()
+          for r in rows:
+              k=(r.get('url'),r.get('timestamp'),r.get('filename'),r.get('offset'),r.get('length'))
+              if k not in seen: seen.add(k); uniq.append(r)
 
-          Path('mac-recovery-2/results.json').write_text(json.dumps(result,indent=2))
-          lines=[f'Arquivo queries: {len(result["arquivo"]["queries"])}; Common Crawl collinfo_ok={result["commoncrawl"]["collinfo_ok"]}; crawls={len(ids)}; CC queries ok={result["commoncrawl"]["queries_ok"]}; failed={result["commoncrawl"]["queries_failed"]}']
-          lines += [f'{s}: Arquivo={v["arquivo"]}; CommonCrawl={v["commoncrawl"]}' for s,v in result['summary'].items()]
-          Path('mac-recovery-2/report.txt').write_text('\n'.join(lines)+'\n')
-          print(Path('mac-recovery-2/report.txt').read_text())
+          summary={s:sum(1 for r in uniq if s in r.get('url','').lower()) for s in stems}
+          ok_count=sum(1 for x in logs if x['ok']); fail_count=len(logs)-ok_count
+          error_counts={}
+          for x in logs:
+              if not x['ok']:
+                  e=x['error'] or 'unknown'; key=e.split(':',1)[0]
+                  error_counts[key]=error_counts.get(key,0)+1
+
+          compact_logs=[{k:v for k,v in x.items() if k!='rows'}|{'row_count':len(x['rows'])} for x in logs]
+          result={'crawls':crawls,'patterns':patterns,'queries_ok':ok_count,'queries_failed':fail_count,'error_counts':error_counts,'summary':summary,'hits':uniq,'query_log':compact_logs}
+          Path('commoncrawl-verified/results.json').write_text(json.dumps(result,indent=2))
+          lines=[f'Common Crawl crawls={len(crawls)}; queries_ok={ok_count}; failed={fail_count}; unique_baddesley_rows={len(uniq)}']
+          lines += [f'{s}: {n}' for s,n in summary.items()]
+          Path('commoncrawl-verified/report.txt').write_text('\n'.join(lines)+'\n')
+          print(Path('commoncrawl-verified/report.txt').read_text())
           PY
-      - name: Commit verification results
+      - name: Commit verified Common Crawl results
         shell: bash
         run: |
           git config user.name 'archive-recovery-bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add mac-recovery-2
-          git commit -m 'Verified independent archive coverage' || exit 0
+          git add commoncrawl-verified
+          git commit -m 'Verified Common Crawl wildcard search' || exit 0
           git pull --rebase origin main
           git push
