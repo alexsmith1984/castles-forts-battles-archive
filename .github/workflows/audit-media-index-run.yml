@@ -102,3 +102,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add catalogue-audit/media-index-audit*.json catalogue-audit.html
           if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit whole-catalogue media preservation' && git pull --rebase && git push; fi
+
+# run against complete source inventory 2026-08-18T23:25-07:00
