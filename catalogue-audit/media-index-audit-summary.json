@@ -1,0 +1,17 @@
+{
+  "destinations": 757,
+  "media_states": {
+    "some_referenced_media_not_indexed": 336,
+    "all_referenced_media_indexed": 15,
+    "no_referenced_media_indexed": 52,
+    "source_not_available_for_media_audit": 352,
+    "local_reconstruction": 1,
+    "no_media_references_detected": 1
+  },
+  "source_ok_pages": 404,
+  "unique_referenced_media_urls": 19635,
+  "unique_indexed_media_paths": 13816,
+  "prefix_queries": 44,
+  "prefix_queries_successful": 39,
+  "scope": "Compares archived-source media paths with Wayback CDX 200 records. Indexed paths are not yet byte/visual certified."
+}
