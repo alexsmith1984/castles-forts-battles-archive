@@ -1,0 +1,167 @@
+name: Audit A pages batch 1
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-a-batch1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Audit first ten A entries
+        run: |
+          cat > /tmp/audit.py <<'PY'
+          import json, os, re, time
+          from urllib.parse import urljoin, urlsplit, urlunsplit
+          import requests
+          from bs4 import BeautifulSoup
+
+          pages=[
+            ('Aberdour Castle','http://www.castlesfortsbattles.co.uk/perth_fife/aberdour_castle.html'),
+            ('Aberedw Castle','http://www.castlesfortsbattles.co.uk/central_wales/aberedw_castle.html'),
+            ('Abergavenny Castle','http://www.castlesfortsbattles.co.uk/south_wales/abergavenny_castle.html'),
+            ('Aberystwyth Castle','http://www.castlesfortsbattles.co.uk/south_west_wales/aberystwyth_castle.html'),
+            ('Abington Castle','http://www.castlesfortsbattles.co.uk/central_west_scotland/nether_abington_castle.html'),
+            ('Acton Burnell Castle','http://www.castlesfortsbattles.co.uk/midlands/acton_burnell_castle.html'),
+            ('Agaton Fort','http://www.castlesfortsbattles.co.uk/south_west/plymouth_northern_lines_west.html'),
+            ('Alberbury Castle','http://www.castlesfortsbattles.co.uk/midlands/alberbury_castle.html'),
+            ('Aldborough Castle','http://www.castlesfortsbattles.co.uk/yorkshire/aldborough_town_castle.html'),
+            ('Aldborough Roman Town','http://www.castlesfortsbattles.co.uk/yorkshire/aldborough_town_castle.html'),
+          ]
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (archive-audit)'
+          os.makedirs('page-audit',exist_ok=True)
+
+          def get(url,timeout=12):
+            try:return s.get(url,timeout=timeout,allow_redirects=True)
+            except Exception:return None
+
+          def captures(original):
+            variants=[]; sp=urlsplit(original)
+            hosts=[sp.netloc]
+            if sp.netloc.startswith('www.'): hosts.append(sp.netloc[4:])
+            else: hosts.append('www.'+sp.netloc)
+            for scheme in ('http','https'):
+              for host in hosts:
+                variants.append(urlunsplit((scheme,host,sp.path,'','')))
+            rows=[]
+            for v in variants:
+              try:
+                r=s.get('https://web.archive.org/cdx/search/cdx',params={
+                  'url':v,'output':'json','filter':['statuscode:200','mimetype:text/html'],
+                  'fl':'timestamp,original,digest','collapse':'digest','from':'2017','to':'2023'
+                },timeout=15)
+                if r.status_code==200:
+                  d=r.json()
+                  if isinstance(d,list) and len(d)>1: rows.extend(d[1:])
+              except Exception: pass
+            rows=sorted({(x[0],x[1],x[2] if len(x)>2 else '') for x in rows},reverse=True)
+            return rows
+
+          def find_source(original):
+            rows=captures(original)
+            candidates=[(x[0],x[1]) for x in rows]
+            # fallback timestamp known to cover much of site
+            candidates += [('20220922000000',original),('20220826210000',original),('20210618000000',original)]
+            seen=set()
+            for ts,orig in candidates[:12]:
+              if (ts,orig) in seen: continue
+              seen.add((ts,orig))
+              r=get(f'https://web.archive.org/web/{ts}id_/{orig}')
+              if r is not None and r.status_code==200 and ('<html' in r.text.lower() or '<!doctype' in r.text.lower()) and len(r.content)>1000:
+                return ts,orig,r.text,r.url,len(rows)
+            return None,None,None,None,len(rows)
+
+          def image_refs(html,base):
+            soup=BeautifulSoup(html,'html.parser'); refs=[]
+            attrs=('data-orig-src','data-muse-src','data-src','data-hidpi-src','src')
+            for img in soup.find_all('img'):
+              vals=[]
+              for a in attrs:
+                v=(img.get(a) or '').strip()
+                if v: vals.append(v)
+              # Prefer the non-placeholder real source for each img.
+              chosen=None
+              for v in vals:
+                if 'blank.gif' not in v.lower() and not v.startswith('data:'):
+                  chosen=v; break
+              if chosen: refs.append(urljoin(base,chosen))
+            # Full-size image assets linked by Muse slideshows.
+            for a in soup.find_all('a',href=True):
+              v=a['href'].strip()
+              if re.search(r'\.(?:jpe?g|png|gif)(?:\?|$)',v,re.I): refs.append(urljoin(base,v))
+            out=[]; seen=set()
+            for u in refs:
+              # remove fragment only, retain query because Muse CRC URLs can matter
+              sp=urlsplit(u); u=urlunsplit((sp.scheme,sp.netloc,sp.path,sp.query,''))
+              if u not in seen: seen.add(u); out.append(u)
+            return out
+
+          def archived_image(ts,u):
+            # One short attempt only; this is deliberately a small audit, not recovery.
+            r=get(f'https://web.archive.org/web/{ts}id_/{u}',timeout=8)
+            if r is None:return 'inconclusive'
+            ctype=(r.headers.get('content-type') or '').lower()
+            if r.status_code==200 and ctype.startswith('image/') and len(r.content)>500:
+              return 'found'
+            if r.status_code in (404,410):return 'missing'
+            if r.status_code in (429,500,502,503,504):return 'inconclusive'
+            if 'text/html' in ctype:return 'missing'
+            return 'inconclusive'
+
+          results=[]
+          cache={}
+          for name,original in pages:
+            ts,orig,html,replay,ncaps=find_source(original)
+            if not html:
+              results.append({'name':name,'original':original,'page':'not recovered','capture_count':ncaps})
+              continue
+            soup=BeautifulSoup(html,'html.parser')
+            text=' '.join(soup.stripped_strings)
+            refs=image_refs(html,orig)
+            counts={'found':0,'missing':0,'inconclusive':0}
+            details=[]
+            for u in refs[:30]:
+              key=(ts,u)
+              if key not in cache: cache[key]=archived_image(ts,u)
+              st=cache[key]; counts[st]+=1; details.append({'url':u,'status':st})
+              time.sleep(0.08)
+            truncated=len(refs)>30
+            if counts['missing']>0:
+              classification='opens but archived image(s) missing'
+            elif counts['inconclusive']>0 or truncated:
+              classification='opens; image completeness inconclusive'
+            else:
+              classification='opens; all detected images recovered at capture'
+            results.append({
+              'name':name,'original':original,'page':'recovered','capture_timestamp':ts,
+              'capture_original':orig,'replay_source':replay,'capture_count':ncaps,
+              'text_chars':len(text),'detected_image_resources':len(refs),
+              'images_checked':min(len(refs),30),'image_status':counts,'truncated_image_check':truncated,
+              'classification':classification,'images':details
+            })
+            print(name,classification,counts)
+          with open('page-audit/a-batch1.json','w',encoding='utf-8') as f:json.dump(results,f,indent=2,ensure_ascii=False)
+          with open('page-audit/a-batch1.txt','w',encoding='utf-8') as f:
+            for x in results:
+              f.write(f"{x['name']}\t{x.get('classification',x.get('page'))}\timages={x.get('image_status',{})}\tdetected={x.get('detected_image_resources','')}\n")
+          PY
+          python /tmp/audit.py
+      - name: Commit audit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add page-audit/a-batch1.json page-audit/a-batch1.txt
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit A pages batch 1' && git pull --rebase && git push; fi
