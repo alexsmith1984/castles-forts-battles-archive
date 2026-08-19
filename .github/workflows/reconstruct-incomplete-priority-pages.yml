@@ -1,0 +1,168 @@
+name: Reconstruct incomplete priority pages from all recoverable originals
+
+on:
+  push:
+    paths:
+      - '.github/workflows/reconstruct-incomplete-priority-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4
+      - name: Build stable best-available local copies
+        run: |
+          cat > /tmp/rebuild.py <<'PY'
+          import json,os,re,time,hashlib
+          from urllib.parse import urljoin,urlsplit
+          import requests
+          from bs4 import BeautifulSoup
+
+          TARGETS={
+            'Hopton Castle':'hopton-castle',
+            'Old Oswestry Hillfort':'old-oswestry-hillfort',
+            'Peveril Castle':'peveril-castle',
+            "Richard's Castle":'richards-castle',
+            'Seckington Castle':'seckington-castle',
+            'Bosworth Field (Battle of - 1485)':'bosworth-field-1485',
+          }
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          byname={r['primary_name']:r for r in inv}
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles best-available reconstruction)'
+          image_ext=re.compile(r'\.(?:jpe?g|png|gif|webp|bmp|tiff?)(?:[?#].*)?$',re.I)
+          css_url_re=re.compile(r'url\(([^)]+)\)',re.I)
+
+          def fetch(url,timeout=45):
+            last=None
+            for delay in (0,3,8):
+              if delay:time.sleep(delay)
+              try:
+                r=s.get(url,timeout=timeout,allow_redirects=True)
+                if r.status_code==200:return r
+                last=r
+                if r.status_code not in (429,500,502,503,504):return r
+              except Exception as ex:last=ex
+            return last
+
+          def safe_name(url):
+            b=os.path.basename(urlsplit(url).path) or 'image'
+            b=re.sub(r'[^A-Za-z0-9._-]+','_',b)
+            stem,ext=os.path.splitext(b);suffix=ext if ext else '.bin'
+            h=hashlib.sha1(url.encode()).hexdigest()[:8]
+            return f'{stem}-{h}{suffix}'
+
+          def raw(ts,u):return f'https://web.archive.org/web/{ts}id_/{u}'
+
+          def inline_css(soup,ts,base):
+            count=0
+            for link in list(soup.find_all('link',href=True)):
+              rel=' '.join(link.get('rel') or []).lower()
+              if 'stylesheet' not in rel:continue
+              u=urljoin(base,link['href']);r=fetch(raw(ts,u),30)
+              if hasattr(r,'status_code') and r.status_code==200 and r.text:
+                st=soup.new_tag('style');st.string=css_url_re.sub('none',r.text);link.replace_with(st);count+=1
+              else:link.decompose()
+            st=soup.new_tag('style')
+            st.string='''body{font-family:Georgia,"Times New Roman",serif!important;line-height:1.45!important;background:#fff!important;color:#222!important;max-width:1200px;margin:0 auto;padding:18px}img{max-width:100%!important;height:auto!important}.archive-recovery-banner{background:#f4f0e6;border:1px solid #cfc3af;padding:12px 14px;margin:0 0 18px;font-size:14px}.archive-recovery-banner a{color:#224d74}'''
+            (soup.head or soup).append(st);return count
+
+          summaries=[]
+          for name,slug in TARGETS.items():
+            rec=byname[name];spec=rec.get('spec') or {};ts=spec.get('timestamp');orig=spec.get('original') or rec['original']
+            if not ts:raise RuntimeError(f'No timestamp for {name}')
+            r=fetch(raw(ts,orig),60)
+            if not hasattr(r,'status_code') or r.status_code!=200:raise RuntimeError(f'Could not fetch source for {name}')
+            txt=r.text
+            if '<html' not in txt.lower() and '<!doctype' not in txt.lower():raise RuntimeError(f'Non-HTML source for {name}')
+            soup=BeautifulSoup(txt,'html.parser')
+            for t in soup.find_all(['script','iframe','object','embed']):t.decompose()
+            for m in soup.find_all('meta'):
+              if (m.get('http-equiv') or '').lower()=='refresh':m.decompose()
+            for b in soup.find_all('base'):b.decompose()
+            css_count=inline_css(soup,ts,orig)
+            outdir=os.path.join('recovered',slug);imgdir=os.path.join(outdir,'images');os.makedirs(imgdir,exist_ok=True)
+            mapping={};failed={};refs=[]
+            for tag in soup.find_all(['img','source']):
+              for at in ('src','data-src','data-orig-src','data-muse-src','data-hidpi-src'):
+                v=(tag.get(at) or '').strip()
+                if v and image_ext.search(v):refs.append(urljoin(orig,v))
+              ss=(tag.get('srcset') or '').strip()
+              if ss:
+                for bit in ss.split(','):
+                  v=bit.strip().split()[0] if bit.strip() else ''
+                  if v and image_ext.search(v):refs.append(urljoin(orig,v))
+            for a in soup.find_all('a',href=True):
+              v=a['href'].strip()
+              if image_ext.search(v):refs.append(urljoin(orig,v))
+            refs=list(dict.fromkeys(refs))
+            for u in refs:
+              if '/images/blank.gif' in u.lower():continue
+              rr=fetch(raw(ts,u),45);ok=False
+              if hasattr(rr,'status_code') and rr.status_code==200:
+                ct=(rr.headers.get('content-type') or '').lower();data=rr.content
+                if len(data)>150 and ('image/' in ct or data[:8]==b'\x89PNG\r\n\x1a\n' or data[:2]==b'\xff\xd8'):
+                  fn=safe_name(u);open(os.path.join(imgdir,fn),'wb').write(data);mapping[u]='images/'+fn;ok=True
+              if not ok:failed[u]=getattr(rr,'status_code',None)
+
+            def local(v):
+              if not v:return None
+              return mapping.get(urljoin(orig,v.strip()))
+            # Rewrite each visible image to the best recoverable referenced copy; remove broken placeholders.
+            visible_kept=0;visible_removed=0
+            for tag in list(soup.find_all('img')):
+              best=None
+              for at in ('data-orig-src','data-muse-src','data-src','src'):
+                lv=local(tag.get(at))
+                if lv:best=lv;break
+              if best:
+                tag['src']=best;visible_kept+=1
+              else:
+                # If none of this IMG's candidates survived, remove the image node only; surrounding text/caption remains.
+                tag.decompose();visible_removed+=1;continue
+              for at in ('data-orig-src','data-muse-src','data-src','data-hidpi-src','srcset'):tag.attrs.pop(at,None)
+              tag['src']=best
+            for source in soup.find_all('source'):source.decompose()
+            for a in soup.find_all('a',href=True):
+              lv=local(a['href'])
+              if lv:a['href']=lv
+            for link in soup.find_all('link',href=True):
+              if str(link['href']).startswith(('http://','https://')):link.decompose()
+
+            banner=soup.new_tag('div',attrs={'class':'archive-recovery-banner'})
+            banner.append(BeautifulSoup('<strong>Best-available recovered archive copy.</strong> The original text is preserved. Every photograph displayed here is an original archived image recovered from the defunct site; unrecovered image slots have been removed rather than replaced with substitutes. <a href="../../atoz-archive.html">Return to the A–Z index</a>.','html.parser'))
+            if soup.body:soup.body.insert(0,banner)
+            else:soup.insert(0,banner)
+            open(os.path.join(outdir,'index.html'),'w',encoding='utf-8').write(str(soup))
+            summaries.append({'name':name,'slug':slug,'source_timestamp':ts,'source_url':orig,'image_references':len(refs),'archive_images_downloaded':len(mapping),'archive_image_fetch_failures':len(failed),'visible_images_kept':visible_kept,'visible_images_removed':visible_removed,'stylesheets_inlined':css_count,'text_chars':len(' '.join(soup.stripped_strings)),'failed_urls':list(failed)})
+            print(name,'downloaded',len(mapping),'visible kept',visible_kept,'removed',visible_removed,flush=True)
+
+          targets={x['name']:'recovered/'+x['slug']+'/' for x in summaries};changes={}
+          for part in ['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']:
+            soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser');n=0
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2 or len(h2.get_text(' ',strip=True))!=1:continue
+              for a in sec.find_all('a',href=True):
+                nm=a.get_text(' ',strip=True)
+                if nm in targets and a['href']!=targets[nm]:a['href']=targets[nm];n+=1
+            if n:open(part,'w',encoding='utf-8').write(str(soup))
+            changes[part]=n
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'pages':summaries,'index_changes':changes},open('catalogue-audit/incomplete-priority-local-reconstructions-summary.json','w'),indent=2,ensure_ascii=False)
+          PY
+          python /tmp/rebuild.py
+      - name: Commit best-available recovered pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/ catalogue-audit/incomplete-priority-local-reconstructions-summary.json atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Reconstruct six incomplete priority pages from recoverable originals' && git pull --rebase && git push; fi
