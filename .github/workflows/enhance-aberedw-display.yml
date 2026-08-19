@@ -1,0 +1,116 @@
+name: Enhance Aberedw with archived display images
+on:
+  push:
+    paths:
+      - '.github/workflows/enhance-aberedw-display.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover archived display images and rebuild page
+        run: |
+          cat > /tmp/enhance.py <<'PY'
+          import os,re,json,html as H,time,hashlib
+          from pathlib import Path
+          from urllib.parse import urljoin,urlsplit,urlunsplit
+          from io import BytesIO
+          import requests
+          from bs4 import BeautifulSoup
+          from PIL import Image
+
+          OUT=Path('recovered/aberedw-castle'); IMG=OUT/'images'; IMG.mkdir(parents=True,exist_ok=True)
+          captures=[
+            ('20190216213144','http://www.castlesfortsbattles.co.uk:80/central_wales/aberedw_castle.html'),
+            ('20210625101549','https://www.castlesfortsbattles.co.uk/central_wales/aberedw_castle.html')]
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (archival recovery)'
+          def get(u,t=20):
+            try:return s.get(u,timeout=t,allow_redirects=True)
+            except Exception:return None
+          # use the 2019 source because its display-image replay is demonstrably richer
+          ts,base=captures[0]
+          r=get(f'https://web.archive.org/web/{ts}id_/{base}',35)
+          if not r or r.status_code!=200:raise SystemExit('source failed')
+          raw=r.text; (OUT/'source-2019.html').write_text(raw,encoding='utf-8',errors='replace')
+          soup=BeautifulSoup(raw,'html.parser')
+          refs=[]
+          for img in soup.find_all('img'):
+            for a in ('data-orig-src','data-muse-src','data-src','src'):
+              v=(img.get(a) or '').strip()
+              if not v or 'blank.gif' in v.lower() or v.startswith('data:'):continue
+              u=urljoin(base,v)
+              p=urlsplit(u).path.lower()
+              if 'aberedw' in os.path.basename(p) and re.search(r'\.(jpg|jpeg|png)$',p,re.I):
+                u=urlunsplit((urlsplit(u).scheme,urlsplit(u).netloc,urlsplit(u).path,urlsplit(u).query,''))
+                if u not in refs:refs.append(u)
+          def canonical(filename):
+            stem=os.path.splitext(filename)[0]
+            stem=re.sub(r'(?:\d+x\d+)$','',stem,flags=re.I)
+            return stem.lower()
+          best={}; attempts=[]
+          for u in refs:
+            got=None
+            for cts,cbase in captures:
+              # preserve original URL path but try both archived timestamps
+              rr=get(f'https://web.archive.org/web/{cts}id_/{u}',15)
+              if not rr or rr.status_code!=200 or len(rr.content)<900:continue
+              try:
+                im=Image.open(BytesIO(rr.content)); w,h=im.size; fmt=im.format
+                if w<100 or h<100:continue
+              except Exception:continue
+              got=(rr.content,w,h,fmt,cts);break
+            attempts.append({'url':u,'found':bool(got),'timestamp':got[4] if got else None,'dimensions':[got[1],got[2]] if got else None})
+            if not got:continue
+            b,w,h,fmt,cts=got; fn=os.path.basename(urlsplit(u).path); key=canonical(fn)
+            # keep largest-area version of each canonical photograph
+            if key not in best or w*h>best[key]['area']:
+              ext='.png' if fmt=='PNG' else '.jpg'
+              best[key]={'bytes_data':b,'area':w*h,'dimensions':[w,h],'timestamp':cts,'source_url':u,'filename':key+ext,'sha256':hashlib.sha256(b).hexdigest()}
+            time.sleep(.05)
+          # clear only image files created for this page; keep source/report/index
+          for p in IMG.glob('*'):
+            if p.is_file():p.unlink()
+          recovered=[]
+          for key,x in sorted(best.items()):
+            (IMG/x['filename']).write_bytes(x.pop('bytes_data'))
+            x['file']='images/'+x['filename'];x.pop('area',None);recovered.append(x)
+
+          # rebuild static page from source text, preserving unique content blocks
+          for x in soup(['script','style','noscript']):x.decompose()
+          nav={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
+          blocks=[];seen=set()
+          for el in soup.find_all(['h1','h2','h3','h4','p']):
+            txt=' '.join(el.stripped_strings).strip()
+            if not txt or txt in nav or txt.lower() in ('tweet','share','follow'):continue
+            k=re.sub(r'\s+',' ',txt).casefold()
+            if k in seen:continue
+            seen.add(k);blocks.append((el.name,txt))
+          body=[]
+          for tag,txt in blocks:
+            if tag.startswith('h') or (len(txt)<75 and re.match(r'^(History|Getting There|Bibliography|What.s There|Gallery|Location|Access)\b',txt,re.I)):
+              body.append(f'<h2>{H.escape(txt)}</h2>')
+            else:body.append(f'<p>{H.escape(txt)}</p>')
+          figs=[]
+          for x in recovered:
+            cap=os.path.splitext(os.path.basename(x['source_url']))[0].replace('_',' ')
+            figs.append(f'<figure><img src="{H.escape(x["file"],quote=True)}" alt="Aberedw Castle"><figcaption>{H.escape(cap)}</figcaption></figure>')
+          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aberedw Castle | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:#fff;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:900px;margin:auto;padding:24px 18px 50px}}.note,article{{background:#fff;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto}}figcaption{{font-size:13px;color:#6b6255}}a{{color:#224d74}}</style></head><body><header><h1>Aberedw Castle</h1></header><main><div class="note">Recovered from the archived CastlesFortsBattles.co.uk page. Original text is preserved; only genuine archived images are shown. {len(recovered)} distinct original/display photographs or images were recovered from the archived page captures.</div><article>{''.join(body)}<h2>Recovered original photographs and images</h2>{''.join(figs) if figs else '<p>No original images could be recovered.</p>'}</article><p><a href="../../atoz-part1.html#a">Back to A–Z index</a></p></main></body></html>'''
+          (OUT/'index.html').write_text(doc,encoding='utf-8')
+          report={'name':'Aberedw Castle','source_capture':captures[0],'candidate_display_urls':len(refs),'recovered_distinct_images':len(recovered),'recovered':recovered,'attempts':attempts,'note':'Responsive duplicates were collapsed by canonical filename stem; the largest recovered version was kept.'}
+          (OUT/'display-recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({'candidates':len(refs),'recovered_distinct':len(recovered)},indent=2))
+          PY
+          python /tmp/enhance.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/aberedw-castle
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Enhance Aberedw Castle with archived display images' && git pull --rebase && git push; fi
