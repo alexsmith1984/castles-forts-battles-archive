@@ -1,0 +1,8 @@
+{
+  "input_inconclusive": 357,
+  "resolutions": {
+    "available": 349,
+    "no_snapshot_found": 8
+  },
+  "method": "Single-threaded low-rate Wayback availability retry with backoff; http/https and www/non-www variants."
+}
