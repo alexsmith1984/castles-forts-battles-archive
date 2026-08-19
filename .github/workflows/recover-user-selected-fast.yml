@@ -1,0 +1,103 @@
+name: Fast recover nine selected pages
+on:
+  push:
+    paths: ['.github/workflows/recover-user-selected-fast.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover pages quickly from supplied captures
+        run: |
+          python - <<'PY'
+          import os,re,json,hashlib,html as H
+          from pathlib import Path
+          from urllib.parse import urlsplit,urljoin
+          from io import BytesIO
+          import requests
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          T=[
+          ('Hopton Heath (Battle of - 1643)','hopton-heath-1643','20201128123644','http://www.battlefieldsofbritain.co.uk/battle_hopton_heath_1643.html'),
+          ('Hopton Castle','hopton-castle','20210618112059','https://www.castlesfortsbattles.co.uk/midlands/hopton_castle.html'),
+          ('Montgomery Castle','montgomery-castle','20220326093850','http://www.castlesfortsbattles.co.uk/central_wales/montgomery_castle.html'),
+          ('Moreton Corbet Castle','moreton-corbet-castle','20220826212006','http://www.castlesfortsbattles.co.uk/midlands/moreton_corbet.html'),
+          ('Nantwich (Battle of - 1644)','nantwich-1644','20210510075340','http://battlefieldsofbritain.co.uk/battle_nantwich_1644.html'),
+          ('Old Oswestry Hillfort','old-oswestry-hillfort','20210804094545','https://www.castlesfortsbattles.co.uk/midlands/old_oswestry_hillfort.html'),
+          ('Peveril Castle','peveril-castle','20191212142218','http://www.castlesfortsbattles.co.uk/midlands/peveril_castle.html'),
+          ('Seckington Castle','seckington-castle','20210804093024','https://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html'),
+          ('Stokesay Castle','stokesay-castle','20210804081957','https://www.castlesfortsbattles.co.uk/midlands/stokesay_castle.html')]
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0'
+          deco=re.compile(r'(facebook|twitter|google|email|print|share|logo|favicon|blank\.gif)',re.I)
+          nav={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
+          reports=[]
+          def get(u,t=15):
+            try:return s.get(u,timeout=t,allow_redirects=True)
+            except Exception:return None
+          def okimg(r):
+            if not r or r.status_code!=200 or len(r.content)<700:return False
+            try:
+              im=Image.open(BytesIO(r.content));w,h=im.size
+              return w>=80 and h>=60
+            except Exception:return False
+          for name,slug,ts,orig in T:
+            rawurl=f'https://web.archive.org/web/{ts}id_/{orig}';r=get(rawurl,25)
+            if not r or r.status_code!=200 or '<html' not in r.text.lower():
+              reports.append({'name':name,'status':'source-failed'});continue
+            out=Path('recovered')/slug;imgdir=out/'images';imgdir.mkdir(parents=True,exist_ok=True);raw=r.text;(out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
+            soup=BeautifulSoup(raw,'html.parser');refs=[]
+            for e in soup.find_all(['img','a']):
+              vals=[]
+              if e.name=='img':
+                for a in ('data-orig-src','data-muse-src','data-src','data-hidpi-src','src'):
+                  v=(e.get(a) or '').strip()
+                  if v and 'blank.gif' not in v.lower() and not v.startswith('data:'):vals.append(v)
+              else:
+                v=(e.get('href') or '').strip()
+                if re.search(r'\.(jpg|jpeg|png|gif|webp)(\?|$)',v,re.I):vals.append(v)
+              for v in vals:
+                u=urljoin(orig,v);b=os.path.basename(urlsplit(u).path)
+                if b and not deco.search(b) and u not in refs:refs.append(u)
+            shown=[];hashes=set();attempt=[]
+            for u in refs[:45]:
+              rr=get(f'https://web.archive.org/web/{ts}id_/{u}',8)
+              if okimg(rr):
+                h=hashlib.sha256(rr.content).hexdigest()
+                if h in hashes:continue
+                hashes.add(h);fn=re.sub(r'[^A-Za-z0-9._-]+','_',os.path.basename(urlsplit(u).path) or 'image.jpg');p=imgdir/fn
+                if p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()!=h:
+                  stem,suf=os.path.splitext(fn);fn=f'{stem}-{h[:8]}{suf}';p=imgdir/fn
+                p.write_bytes(rr.content);shown.append((u,'images/'+fn));attempt.append({'url':u,'status':'recovered','file':'images/'+fn})
+              else:attempt.append({'url':u,'status':'unrecovered'})
+            for x in soup(['script','style','noscript']):x.decompose()
+            blocks=[];seen=set()
+            for e in soup.find_all(['h1','h2','h3','h4','p','li']):
+              tx=' '.join(e.stripped_strings).strip();key=re.sub(r'\s+',' ',tx).casefold()
+              if not tx or tx in nav or key in seen or tx.lower() in ('tweet','share','follow'):continue
+              seen.add(key);blocks.append((e.name,tx))
+            body=[]
+            for tag,tx in blocks:
+              if tag.startswith('h') or (len(tx)<90 and re.match(r'^(History|Historical Background|Prelude|Numbers|The Battle|Battle|Aftermath|Bibliography|What.s There|Getting There|Gallery|Design|Location|Access)',tx,re.I)):body.append(f'<h2>{H.escape(tx)}</h2>')
+              elif tag=='li':body.append(f'<p>• {H.escape(tx)}</p>')
+              else:body.append(f'<p>{H.escape(tx)}</p>')
+            figs=[]
+            for u,rel in shown:
+              cap=os.path.splitext(os.path.basename(urlsplit(u).path))[0].replace('_',' ');figs.append(f'<figure><img src="{H.escape(rel,quote=True)}" alt="{H.escape(name)}"><figcaption>{H.escape(cap)}</figcaption></figure>')
+            doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H.escape(name)} | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:#fff;padding:28px 18px;text-align:center}}main{{max-width:920px;margin:auto;padding:24px 18px 50px}}.note,article{{background:#fff;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto}}figcaption{{font-size:13px;color:#6b6255}}a{{color:#224d74}}</style></head><body><header><h1>{H.escape(name)}</h1></header><main><div class="note">Recovered from the supplied archived page. The archived written content is preserved. Only genuine original images successfully recovered from the archive are shown ({len(shown)} distinct images).</div><article>{''.join(body)}<h2>Recovered original photographs, plans and images</h2>{''.join(figs) if figs else '<p>No original image files could be recovered from this capture.</p>'}</article><p><a href="../../atoz-archive.html">Back to A–Z index</a></p></main></body></html>'''
+            (out/'index.html').write_text(doc,encoding='utf-8');rep={'name':name,'status':'built','text_blocks':len(blocks),'image_refs':len(refs),'images_recovered':len(shown),'images':attempt,'public_path':f'recovered/{slug}/index.html'};(out/'recovery-report.json').write_text(json.dumps(rep,indent=2),encoding='utf-8');reports.append(rep);print(name,len(blocks),len(refs),len(shown))
+          Path('page-audit').mkdir(exist_ok=True);Path('page-audit/user-selected-fast.json').write_text(json.dumps(reports,indent=2),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/hopton-heath-1643 recovered/hopton-castle recovered/montgomery-castle recovered/moreton-corbet-castle recovered/nantwich-1644 recovered/old-oswestry-hillfort recovered/peveril-castle recovered/seckington-castle recovered/stokesay-castle page-audit/user-selected-fast.json
+          if git diff --cached --quiet; then echo none; else git commit -m 'Publish nine requested recovered pages' && git pull --rebase && git push; fi
