@@ -1,0 +1,104 @@
+name: Run whole-catalogue media index audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-media-index-run.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests
+      - name: Audit referenced media folders
+        run: |
+          cat > /tmp/runmedia.py <<'PY'
+          import json,os,time,html
+          from urllib.parse import urlsplit
+          from collections import Counter
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          import requests
+
+          pages=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          def norm(u):
+            s=urlsplit(u);h=s.netloc.lower();h=h[4:] if h.startswith('www.') else h
+            return h+(s.path or '/').lower()
+          def pref(u):
+            s=urlsplit(u);p=s.path or '/';lo=p.lower()
+            for m in ('/images/','/assets/'):
+              i=lo.find(m)
+              if i>=0:return (s.netloc,p[:i+len(m)])
+            return (s.netloc,p.rsplit('/',1)[0]+'/')
+          refs=set();prefs=set()
+          for p in pages:
+            if p.get('fetch_state')=='source_ok':
+              for u in p.get('all_media',[]):refs.add(u);prefs.add(pref(u))
+          def query(item):
+            host,prefix=item;h0=host[4:] if host.startswith('www.') else host
+            hosts=[]
+            for h in (host,'www.'+h0,h0):
+              if h not in hosts:hosts.append(h)
+            out=set();errs=[];ok=False;rowsn=0
+            s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles media audit)'
+            for h in hosts:
+              try:
+                r=s.get('https://web.archive.org/cdx/search/cdx',params={'url':h+prefix+'*','output':'json','filter':'statuscode:200','fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'},timeout=60)
+                if r.status_code==200:
+                  ok=True;d=r.json();rows=d[1:] if isinstance(d,list) and d else [];rowsn+=len(rows)
+                  for row in rows:
+                    if len(row)>=2:out.add(norm(row[1]))
+                else:errs.append({'host':h,'status':r.status_code})
+              except Exception as ex:errs.append({'host':h,'error':type(ex).__name__+': '+str(ex)[:120]})
+              time.sleep(.3)
+            return item,out,{'host':host,'prefix':prefix,'success':ok,'rows':rowsn,'errors':errs}
+          indexed=set();preports=[]
+          with ThreadPoolExecutor(max_workers=2) as ex:
+            futs=[ex.submit(query,x) for x in sorted(prefs)]
+            for i,f in enumerate(as_completed(futs),1):
+              item,paths,rep=f.result();indexed.update(paths);preports.append(rep)
+              if i%10==0:print(i,'/',len(futs),'prefixes',len(indexed),'indexed paths',flush=True)
+          manual={'Baddesley Clinton':'reconstructed: complete recoverable text; four original photographs','Old Oswestry Hillfort':'user confirmed: page does not open','Seckington Castle':'user confirmed: text opens; photographs missing','Stafford Castle':'user confirmed: opens; one photograph missing'}
+          results=[]
+          for p in pages:
+            r={'original':p['original'],'primary_name':p['primary_name'],'aliases':p.get('aliases',[]),'fetch_state':p.get('fetch_state')}
+            if p['primary_name'] in manual:r['manual_observation']=manual[p['primary_name']]
+            if p.get('fetch_state')=='local_reconstruction':r['media_state']='local_reconstruction';results.append(r);continue
+            if p.get('fetch_state')!='source_ok':r['media_state']='source_not_available_for_media_audit';results.append(r);continue
+            keys=list(dict.fromkeys(norm(u) for u in p.get('all_media',[])));akeys=list(dict.fromkeys(norm(u) for u in p.get('asset_links',[])))
+            miss=[k for k in keys if k not in indexed];amiss=[k for k in akeys if k not in indexed]
+            r.update({'referenced_media_count':len(keys),'indexed_media_count':len(keys)-len(miss),'missing_media_count':len(miss),'missing_media_paths':miss,'asset_link_count':len(akeys),'indexed_asset_links':len(akeys)-len(amiss),'missing_asset_links':len(amiss),'missing_asset_paths':amiss})
+            if not keys:st='no_media_references_detected'
+            elif not miss:st='all_referenced_media_indexed'
+            elif len(miss)<len(keys):st='some_referenced_media_not_indexed'
+            else:st='no_referenced_media_indexed'
+            r['media_state']=st;results.append(r)
+          summary={'destinations':len(results),'media_states':dict(Counter(r['media_state'] for r in results)),'source_ok_pages':sum(1 for p in pages if p.get('fetch_state')=='source_ok'),'unique_referenced_media_urls':len(refs),'unique_indexed_media_paths':len(indexed),'prefix_queries':len(preports),'prefix_queries_successful':sum(1 for x in preports if x['success']),'scope':'Compares archived-source media paths with Wayback CDX 200 records. Indexed paths are not yet byte/visual certified.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'prefix_reports':preports,'results':results},open('catalogue-audit/media-index-audit.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/media-index-audit-summary.json','w'),indent=2,ensure_ascii=False)
+          def e(x):return html.escape(str(x),quote=True)
+          rows=[]
+          for r in sorted(results,key=lambda x:x['primary_name'].casefold()):
+            st=r['media_state'].replace('_',' ')
+            if r.get('manual_observation'):st+=' — '+r['manual_observation']
+            rows.append(f'<tr><td>{e(r["primary_name"])}</td><td>{e(st)}</td><td>{e(r.get("referenced_media_count",""))}</td><td>{e(r.get("missing_media_count",""))}</td></tr>')
+          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catalogue completeness audit</title><style>body{{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222}}header{{background:#3d3528;color:white;padding:24px;text-align:center}}main{{max-width:1100px;margin:auto;padding:20px}}.note{{background:white;border-left:4px solid #8b7959;padding:12px;margin-bottom:18px}}table{{width:100%;border-collapse:collapse;background:white;font-size:14px}}th,td{{border:1px solid #d7cebd;padding:7px;text-align:left;vertical-align:top}}th{{background:#eee6d6}}tr:nth-child(even){{background:#faf8f3}}</style></head><body><header><h1>Castles, Forts and Battles — completeness audit</h1><p>Archived page source and media preservation</p></header><main><div class="note">This is the systematic archive-index audit. A referenced image marked indexed has a Wayback CDX record; final byte/visual verification is stricter and will follow for incomplete or priority pages.</div><p><a href="atoz-archive.html">Back to A–Z index</a></p><table><thead><tr><th>Entry</th><th>State</th><th>Media refs</th><th>Not indexed</th></tr></thead><tbody>{''.join(rows)}</tbody></table></main></body></html>'''
+          open('catalogue-audit.html','w',encoding='utf-8').write(doc)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/runmedia.py
+      - name: Commit audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/media-index-audit*.json catalogue-audit.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit whole-catalogue media preservation' && git pull --rebase && git push; fi
