@@ -1,0 +1,10 @@
+Aberdour Castle	opens but archived image(s) missing	images={'found': 13, 'missing': 2, 'inconclusive': 2}	detected=17
+Aberedw Castle	opens but archived image(s) missing	images={'found': 15, 'missing': 15, 'inconclusive': 0}	detected=71
+Abergavenny Castle	opens but archived image(s) missing	images={'found': 12, 'missing': 3, 'inconclusive': 2}	detected=17
+Aberystwyth Castle	opens; image completeness inconclusive	images={'found': 19, 'missing': 0, 'inconclusive': 2}	detected=21
+Abington Castle	opens but archived image(s) missing	images={'found': 10, 'missing': 9, 'inconclusive': 2}	detected=21
+Acton Burnell Castle	not recovered	images={}	detected=
+Agaton Fort	opens but archived image(s) missing	images={'found': 1, 'missing': 29, 'inconclusive': 0}	detected=213
+Alberbury Castle	opens but archived image(s) missing	images={'found': 14, 'missing': 16, 'inconclusive': 0}	detected=58
+Aldborough Castle	opens but archived image(s) missing	images={'found': 9, 'missing': 21, 'inconclusive': 0}	detected=79
+Aldborough Roman Town	opens but archived image(s) missing	images={'found': 9, 'missing': 21, 'inconclusive': 0}	detected=79
