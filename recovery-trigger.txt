@@ -1,1 +1,1 @@
-Trigger Baddesley Clinton CDX recovery run.
+Trigger Baddesley Clinton fast CDX recovery run.
