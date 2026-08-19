@@ -93,4 +93,4 @@ jobs:
           git add catalogue-audit/fullsize-assets*.json
           if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit full-size original photo assets' && git pull --rebase && git push; fi
 
-# run against complete source inventory 2026-08-18T23:24-07:00
+# rerun after all 753 Wayback sources were recovered 2026-08-18T23:31-07:00
