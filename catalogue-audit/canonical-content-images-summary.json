@@ -1,0 +1,40 @@
+{
+  "destinations": 757,
+  "source_ok_pages": 753,
+  "states": {
+    "all_content_images_exactly_indexed": 224,
+    "some_content_images_unpreserved": 335,
+    "no_content_images_preserved": 186,
+    "local_reconstruction": 1,
+    "all_content_images_recoverable_some_via_alternate_path": 7,
+    "source_unavailable": 3,
+    "no_content_images_detected": 1
+  },
+  "domain_queries": [
+    {
+      "host": "www.battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 107585,
+      "rows": 691
+    },
+    {
+      "host": "battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 107585,
+      "rows": 691
+    },
+    {
+      "host": "www.castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 2226204,
+      "rows": 14031
+    },
+    {
+      "host": "castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 2226204,
+      "rows": 14031
+    }
+  ],
+  "method": "Uses /assets/ full-size originals when the page source supplies them; otherwise uses non-decorative lazy/display image references. Exact Wayback CDX matches are preferred; same-filename alternate paths are reported separately, never silently substituted."
+}
