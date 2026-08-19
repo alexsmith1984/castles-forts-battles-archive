@@ -1,0 +1,117 @@
+name: Audit canonical content images across catalogue
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-canonical-content-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests
+      - name: Audit original/full-size images or fallback displayed images
+        run: |
+          cat > /tmp/canonical.py <<'PY'
+          import json,os,time,re,html
+          from urllib.parse import urlsplit
+          from collections import defaultdict,Counter
+          import requests
+
+          pages=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          def hostkey(h):
+            h=h.lower();return h[4:] if h.startswith('www.') else h
+          def norm(u):
+            s=urlsplit(u);return hostkey(s.netloc)+(s.path or '/').lower()
+          def basename(u):return (urlsplit(u).path or '').rsplit('/',1)[-1].lower()
+          decorative=re.compile(r'(?:castlesfortsbattles|battlefieldsofbritain|twitter|facebook|blank\.gif|logo|favicon|share)',re.I)
+          def content_refs(p):
+            assets=list(dict.fromkeys(p.get('asset_links',[]) or []))
+            if assets:return 'fullsize_assets',assets
+            lazy=[u for u in list(dict.fromkeys(p.get('lazy_images',[]) or [])) if not decorative.search(basename(u))]
+            if lazy:return 'display_images_lazy',lazy
+            src=[u for u in list(dict.fromkeys(p.get('img_src_images',[]) or [])) if not decorative.search(basename(u))]
+            return 'display_images',src
+
+          # Query complete Wayback status-200 index for each relevant domain family, once.
+          domain_families=sorted(set(hostkey(urlsplit(p['original']).netloc) for p in pages if p.get('fetch_state')=='source_ok' and urlsplit(p['original']).netloc))
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles canonical image audit)'
+          exact=set();bybase=defaultdict(list);reports=[]
+          for dom in domain_families:
+            # Query www and non-www; Wayback sometimes indexes them separately.
+            hosts=['www.'+dom,dom]
+            for h in hosts:
+              try:
+                r=s.get('https://web.archive.org/cdx/search/cdx',params={'url':h+'/*','output':'json','filter':'statuscode:200','fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'},timeout=180)
+                rep={'host':h,'status':r.status_code,'bytes':len(r.content)}
+                if r.status_code==200:
+                  d=r.json();rows=d[1:] if isinstance(d,list) and d else [];rep['rows']=len(rows)
+                  for row in rows:
+                    if len(row)<2:continue
+                    u=row[1];k=norm(u);exact.add(k);b=basename(u)
+                    if b and b not in ('','index.html'):bybase[(hostkey(urlsplit(u).netloc),b)].append({'timestamp':row[0],'original':u,'mimetype':row[3] if len(row)>3 else ''})
+                reports.append(rep)
+              except Exception as ex:reports.append({'host':h,'error':type(ex).__name__+': '+str(ex)[:160]})
+              time.sleep(1)
+
+          manual={
+            'Baddesley Clinton':'reconstructed locally; complete recoverable text; four genuine original photographs',
+            'Old Oswestry Hillfort':'user confirmed original replay does not open',
+            'Seckington Castle':'user confirmed text opens but photographs are missing',
+            'Stafford Castle':'user confirmed page opens but one photograph is missing',
+            'Bosworth Field (Battle of - 1485)':'user confirmed page opens but some photographs may be missing',
+          }
+          results=[]
+          for p in pages:
+            r={'primary_name':p['primary_name'],'aliases':p.get('aliases',[]),'original':p['original'],'fetch_state':p.get('fetch_state')}
+            if p['primary_name'] in manual:r['manual_observation']=manual[p['primary_name']]
+            if p.get('fetch_state')=='local_reconstruction':r['content_image_state']='local_reconstruction';results.append(r);continue
+            if p.get('fetch_state')!='source_ok':r['content_image_state']='source_unavailable';results.append(r);continue
+            method,refs=content_refs(p);r['method']=method;r['intended_content_images']=len(refs)
+            exact_found=[];alt_found=[];missing=[]
+            dom=hostkey(urlsplit(p['original']).netloc)
+            for u in refs:
+              k=norm(u)
+              if k in exact:exact_found.append(u);continue
+              alts=bybase.get((dom,basename(u)),[])
+              # Only use same-filename alternate path as recoverability evidence; do not silently replace it in the page.
+              if alts:alt_found.append({'requested':u,'alternates':alts[:5]})
+              else:missing.append(u)
+            r.update({'exact_indexed':len(exact_found),'alternate_path_same_filename':len(alt_found),'not_indexed_anywhere_same_filename':len(missing),'missing_images':missing,'alternate_candidates':alt_found})
+            if not refs:state='no_content_images_detected'
+            elif not missing and not alt_found:state='all_content_images_exactly_indexed'
+            elif not missing:state='all_content_images_recoverable_some_via_alternate_path'
+            elif len(missing)<len(refs):state='some_content_images_unpreserved'
+            else:state='no_content_images_preserved'
+            r['content_image_state']=state;results.append(r)
+          states=Counter(r['content_image_state'] for r in results)
+          summary={'destinations':len(results),'source_ok_pages':sum(1 for p in pages if p.get('fetch_state')=='source_ok'),'states':dict(states),'domain_queries':reports,'method':'Uses /assets/ full-size originals when the page source supplies them; otherwise uses non-decorative lazy/display image references. Exact Wayback CDX matches are preferred; same-filename alternate paths are reported separately, never silently substituted.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'results':results},open('catalogue-audit/canonical-content-images.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/canonical-content-images-summary.json','w'),indent=2,ensure_ascii=False)
+          def e(x):return html.escape(str(x),quote=True)
+          rows=[]
+          for r in sorted(results,key=lambda x:x['primary_name'].casefold()):
+            state=r['content_image_state'].replace('_',' ')
+            if r.get('manual_observation'):state+=' — '+r['manual_observation']
+            rows.append(f'<tr><td>{e(r["primary_name"])}</td><td>{e(r.get("method",""))}</td><td>{e(r.get("intended_content_images",""))}</td><td>{e(r.get("not_indexed_anywhere_same_filename",""))}</td><td>{e(state)}</td></tr>')
+          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image completeness audit | Castles, Forts and Battles Archive</title><style>body{{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222}}header{{background:#3d3528;color:white;padding:24px;text-align:center}}main{{max-width:1200px;margin:auto;padding:20px}}.note{{background:white;border-left:4px solid #8b7959;padding:12px;margin-bottom:18px}}table{{width:100%;border-collapse:collapse;background:white;font-size:14px}}th,td{{border:1px solid #d7cebd;padding:7px;text-align:left;vertical-align:top}}th{{background:#eee6d6}}tr:nth-child(even){{background:#faf8f3}}a{{color:#224d74}}</style></head><body><header><h1>Castles, Forts and Battles — image completeness audit</h1><p>Canonical original/display image preservation</p></header><main><div class="note">For Adobe Muse pages this audit uses the linked full-size original photographs in <code>/assets/</code> where available, avoiding false alarms from missing responsive thumbnails. Older pages without full-size asset links are checked using their displayed-image references. An indexed file is archival evidence, but final visual/byte verification remains stricter.</div><p><a href="atoz-archive.html">Back to A–Z index</a></p><table><thead><tr><th>Entry</th><th>Method</th><th>Intended images</th><th>Filename absent from archive</th><th>Status</th></tr></thead><tbody>{''.join(rows)}</tbody></table></main></body></html>'''
+          open('image-audit.html','w',encoding='utf-8').write(doc)
+          print(json.dumps({k:v for k,v in summary.items() if k!='domain_queries'},indent=2))
+          PY
+          python /tmp/canonical.py
+      - name: Commit canonical image audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/canonical-content-images*.json image-audit.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit canonical content-image preservation' && git pull --rebase && git push; fi
