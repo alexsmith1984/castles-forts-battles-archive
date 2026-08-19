@@ -1,3 +1,4 @@
+# Triggered manually on 2026-08-19 08:02 PDT
 name: Second-pass photo recovery for selected pages
 on:
   push:
@@ -62,9 +63,7 @@ jobs:
             out=[]
             for scheme in ('http','https'):
               for host in dict.fromkeys(hosts):
-                # exact path, no query
                 out.append(urlunsplit((scheme,host,sp.path,'','')))
-                # preserve query too
                 if sp.query: out.append(urlunsplit((scheme,host,sp.path,sp.query,'')))
             return list(dict.fromkeys(out))
 
@@ -76,10 +75,9 @@ jobs:
                   params={'url':v if match=='exact' else v+'*','output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'}
                   r=get('https://web.archive.org/cdx/search/cdx?'+requests.compat.urlencode(params),22)
                   if r and r.status_code==200:
-                    d=r.json();
+                    d=r.json()
                     if isinstance(d,list) and len(d)>1: rows += d[1:]
                 except Exception: pass
-            # filename search catches moved/root copies
             fn=os.path.basename(urlsplit(u).path)
             host=urlsplit(u).netloc.replace('www.','')
             if fn:
@@ -88,7 +86,7 @@ jobs:
                   q=f'{scheme}://{host}/*/{fn}'
                   r=get('https://web.archive.org/cdx/search/cdx?'+requests.compat.urlencode({'url':q,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'}),22)
                   if r and r.status_code==200:
-                    d=r.json();
+                    d=r.json()
                     if isinstance(d,list) and len(d)>1: rows += d[1:]
                 except Exception: pass
             uniq=[]; seen=set()
@@ -113,7 +111,6 @@ jobs:
             return out,searched
 
           def commoncrawl_candidates(u):
-            # Current public index list; failures are explicitly inconclusive.
             indices=['CC-MAIN-2026-30','CC-MAIN-2026-26','CC-MAIN-2026-21','CC-MAIN-2025-47','CC-MAIN-2025-38','CC-MAIN-2024-51','CC-MAIN-2023-50','CC-MAIN-2022-49','CC-MAIN-2021-49']
             hits=[]; any_success=False; errors=[]
             for idx in indices:
@@ -140,20 +137,17 @@ jobs:
             rep=json.loads(rp.read_text(encoding='utf-8'))
             imgdir=rp.parent/'images';imgdir.mkdir(exist_ok=True)
             gained=[]; unresolved=[]
-            # support both earlier report shapes
             entries=rep.get('images',[])
             for item in entries:
               status=item.get('status')
               u=item.get('url') or item.get('requested') or item.get('original')
               if not u or status=='recovered':continue
               found=None
-              # Wayback exhaustive
               for row in wayback_candidates(u):
                 ts,orig=row[0],row[1]
                 r=get(f'https://web.archive.org/web/{ts}id_/{orig}',14)
                 if okimg(r):
                   rel,h,dims=save(r,u,imgdir); found={'status':'recovered','file':rel,'method':'wayback-second-pass','timestamp':ts,'archived_original':orig,'sha256':h,'dimensions':dims};break
-              # Arquivo
               ar_searched=False
               if not found:
                 ars,ar_searched=arquivo_candidates(u)
@@ -161,7 +155,6 @@ jobs:
                   r=get(f'https://arquivo.pt/noFrame/replay/{ts}id_/{orig}',14)
                   if okimg(r):
                     rel,h,dims=save(r,u,imgdir); found={'status':'recovered','file':rel,'method':'arquivo-second-pass','timestamp':ts,'archived_original':orig,'sha256':h,'dimensions':dims};break
-              # Common Crawl index check (index only here; WARC byte retrieval intentionally not attempted unless indexed)
               cc_hits=[];cc_success=False;cc_errors=[]
               if not found:
                 cc_hits,cc_success,cc_errors=commoncrawl_candidates(u)
@@ -172,7 +165,6 @@ jobs:
                 unresolved.append(u)
             rep['second_pass']={'new_images_recovered':len(gained),'remaining_unresolved':len(unresolved),'note':'No substitute images used. Common Crawl service failures are treated as inconclusive.'}
             rp.write_text(json.dumps(rep,indent=2,ensure_ascii=False),encoding='utf-8')
-            # Add newly recovered images to page if not already referenced
             ip=rp.parent/'index.html'
             if ip.exists() and gained:
               html=ip.read_text(encoding='utf-8')
