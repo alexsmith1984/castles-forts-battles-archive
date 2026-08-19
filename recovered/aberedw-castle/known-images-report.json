@@ -1,0 +1,141 @@
+{
+  "capture": "20190216213144",
+  "found": [
+    {
+      "file": "images/aberedw_castle11_manor.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor.jpg?crc=514610365",
+      "bytes": 99585,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle16_manor.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor.jpg?crc=3873354256",
+      "bytes": 131929,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle12_manor500x333.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor500x333.jpg?crc=120573466",
+      "bytes": 127889,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle2_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle2_motte.jpg?crc=3956422146",
+      "bytes": 55241,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle3_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle3_motte.jpg?crc=4182980585",
+      "bytes": 101257,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle4_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle4_motte.jpg?crc=65859273",
+      "bytes": 82306,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle6_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle6_motte.jpg?crc=140922779",
+      "bytes": 108832,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle7_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle7_motte.jpg?crc=4275628926",
+      "bytes": 100312,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle9_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle9_motte.jpg?crc=3896591429",
+      "bytes": 63409,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle10_motte.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle10_motte.jpg?crc=516477252",
+      "bytes": 67172,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle13_manor.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle13_manor.jpg?crc=3958080387",
+      "bytes": 113855,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle14_manor.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle14_manor.jpg?crc=519134751",
+      "bytes": 140133,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle15_manor.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle15_manor.jpg?crc=4120971946",
+      "bytes": 139421,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle17_manor.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle17_manor.jpg?crc=494087494",
+      "bytes": 135290,
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "file": "images/aberedw_castle18.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle18.jpg?crc=4122889379",
+      "bytes": 62380,
+      "dimensions": [
+        500,
+        333
+      ]
+    }
+  ],
+  "failed": []
+}
