@@ -27,7 +27,7 @@ jobs:
           cat > /tmp/assets.py <<'PY'
           import json, os, time
           from urllib.parse import urlsplit
-          from collections import defaultdict, Counter
+          from collections import Counter
           import requests
 
           inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
@@ -66,10 +66,8 @@ jobs:
           results=[]
           for p in inv:
             rec={'original':p['original'],'primary_name':p['primary_name'],'aliases':p.get('aliases',[]),'fetch_state':p.get('fetch_state')}
-            if p.get('fetch_state')=='local_reconstruction':
-              rec['asset_state']='local_reconstruction';results.append(rec);continue
-            if p.get('fetch_state')!='source_ok':
-              rec['asset_state']='source_not_available';results.append(rec);continue
+            if p.get('fetch_state')=='local_reconstruction':rec['asset_state']='local_reconstruction';results.append(rec);continue
+            if p.get('fetch_state')!='source_ok':rec['asset_state']='source_not_available';results.append(rec);continue
             keys=list(dict.fromkeys(norm(u) for u in p.get('asset_links',[])))
             found=[k for k in keys if k in indexed];missing=[k for k in keys if k not in indexed]
             rec.update({'fullsize_asset_count':len(keys),'indexed_fullsize_assets':len(found),'missing_fullsize_assets':len(missing),'missing_asset_paths':missing})
@@ -94,3 +92,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add catalogue-audit/fullsize-assets*.json
           if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit full-size original photo assets' && git pull --rebase && git push; fi
+
+# run against complete source inventory 2026-08-18T23:24-07:00
