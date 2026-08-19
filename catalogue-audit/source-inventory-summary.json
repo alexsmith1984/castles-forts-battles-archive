@@ -1,22 +1,20 @@
 {
   "unique_destinations": 757,
   "fetch_states": {
-    "source_ok": 750,
+    "source_ok": 753,
     "local_reconstruction": 1,
-    "no_known_snapshot": 3,
-    "inconclusive_service_error": 3
+    "no_known_snapshot": 3
   },
-  "sources_inventoried": 750,
-  "retry_targets": 6,
-  "retry_resolved": 3,
-  "still_inconclusive": [
+  "sources_inventoried": 753,
+  "curl_retry_resolved": [
     "Southampton Castle and City Walls",
     "Stafford Castle",
     "Urquhart Castle"
   ],
-  "pages_with_asset_links": 516,
-  "pages_with_any_media_refs": 749,
-  "total_asset_links": 4954,
-  "total_media_refs": 43660,
-  "scope": "Source inventory after low-rate retry of transient Wayback source-fetch errors."
+  "still_inconclusive": [],
+  "pages_with_asset_links": 517,
+  "pages_with_any_media_refs": 752,
+  "total_asset_links": 4980,
+  "total_media_refs": 43794,
+  "scope": "Source inventory after curl HTTP/1.1 retry of remaining chunked-transfer failures."
 }
