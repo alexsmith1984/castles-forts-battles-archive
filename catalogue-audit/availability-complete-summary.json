@@ -1,0 +1,74 @@
+{
+  "unique_destinations": 757,
+  "availability": {
+    "snapshot_found": 747,
+    "no_snapshot_found": 9,
+    "reconstructed_local": 1
+  },
+  "no_snapshot_pages": [
+    {
+      "name": "Ambleside Roman Fort",
+      "aliases": [
+        "Ambleside Roman Fort"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html"
+    },
+    {
+      "name": "Dinieithon Castle",
+      "aliases": [
+        "Dinieithon Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html"
+    },
+    {
+      "name": "Druchtag Motte",
+      "aliases": [
+        "Druchtag Motte"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/druchtag_motte.html"
+    },
+    {
+      "name": "Galdendoch Castle",
+      "aliases": [
+        "Galdendoch Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html"
+    },
+    {
+      "name": "Kinlochaline Castle",
+      "aliases": [
+        "Kinlochaline Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/kinlochaline_castle.html"
+    },
+    {
+      "name": "MacLellan’s Castle",
+      "aliases": [
+        "MacLellan’s Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/maclellans_castle.html"
+    },
+    {
+      "name": "Neville’s Cross (Battle of - 1346)",
+      "aliases": [
+        "Neville’s Cross (Battle of - 1346)"
+      ],
+      "original": "http://www.battlefieldsofbritain.co.uk/battle_nevilles_cross_1346.html.html"
+    },
+    {
+      "name": "Oxburgh Hall",
+      "aliases": [
+        "Oxburgh Hall"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html"
+    },
+    {
+      "name": "Tynemouth Castle",
+      "aliases": [
+        "Tynemouth Castle"
+      ],
+      "original": "http://www.castlesfortsbattles.co.uk/north_east/tynemouth_castle.html"
+    }
+  ],
+  "inconclusive_pages": []
+}
