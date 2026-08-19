@@ -1,0 +1,134 @@
+name: Common Crawl Baddesley image recovery
+
+on:
+  pull_request:
+    paths:
+      - 'commoncrawl-trigger.txt'
+  workflow_dispatch:
+
+jobs:
+  common-crawl-recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Search Common Crawl indexes and extract matching WARC image records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet warcio
+          mkdir -p commoncrawl-recovery
+          python3 - <<'PY'
+          import io, json, re, urllib.parse, urllib.request, gzip, subprocess, time
+          from pathlib import Path
+          from warcio.archiveiterator import ArchiveIterator
+
+          stems=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
+          report=[]; index_hits=[]
+          headers={'User-Agent':'Mozilla/5.0 archive-recovery research'}
+
+          def get_json(url,timeout=60):
+              req=urllib.request.Request(url,headers=headers)
+              with urllib.request.urlopen(req,timeout=timeout) as r: return json.load(r)
+
+          try:
+              coll=get_json('https://index.commoncrawl.org/collinfo.json')
+          except Exception as e:
+              report.append(f'COLLINFO ERROR: {type(e).__name__}: {e}'); coll=[]
+
+          # Relevant era: the site and this Muse page are known from the late 2010s through 2022.
+          indexes=[]
+          for c in coll:
+              ident=c.get('id','')
+              m=re.search(r'CC-MAIN-(\d{4})-',ident)
+              if m and 2017 <= int(m.group(1)) <= 2024:
+                  indexes.append(c)
+          report.append(f'COMMON CRAWL INDEXES SEARCHED: {len(indexes)}')
+
+          prefixes=[
+            'www.castlesfortsbattles.co.uk/midlands/images/baddesley',
+            'www.castlesfortsbattles.co.uk/midlands/assets/baddesley',
+            'castlesfortsbattles.co.uk/midlands/images/baddesley',
+            'castlesfortsbattles.co.uk/midlands/assets/baddesley']
+
+          for c in indexes:
+              api=c.get('cdx-api') or c.get('cdxApi')
+              if not api: continue
+              for prefix in prefixes:
+                  q=api+'?'+urllib.parse.urlencode({'url':prefix+'*','output':'json','matchType':'prefix','filter':'status:200'})
+                  try:
+                      req=urllib.request.Request(q,headers=headers)
+                      with urllib.request.urlopen(req,timeout=50) as r:
+                          txt=r.read().decode('utf-8','replace')
+                      n=0
+                      for ln in txt.splitlines():
+                          try: rec=json.loads(ln)
+                          except: continue
+                          u=rec.get('url','').lower()
+                          if any(s in u for s in stems):
+                              rec['_index']=c.get('id'); index_hits.append(rec); n+=1
+                      if n: report.append(f'HITS {c.get("id")} {prefix}: {n}')
+                  except Exception as e:
+                      # Most old indexes simply return no match/404 for a prefix; record only unusual failures concisely.
+                      if '404' not in str(e): report.append(f'INDEX ERROR {c.get("id")} {prefix}: {type(e).__name__}: {e}')
+                  time.sleep(.03)
+
+          # Deduplicate hits by URL + WARC location.
+          uniq=[]; seen=set()
+          for h in index_hits:
+              k=(h.get('url'),h.get('filename'),h.get('offset'),h.get('length'))
+              if k not in seen: seen.add(k); uniq.append(h)
+          Path('commoncrawl-recovery/index-hits.json').write_text(json.dumps(uniq,indent=2))
+          report.append(f'UNIQUE COMMON CRAWL IMAGE RECORDS: {len(uniq)}')
+
+          def fetch_warc_record(h):
+              fn=h.get('filename'); off=h.get('offset'); length=h.get('length')
+              if not fn or off is None or length is None: return None
+              start=int(off); end=start+int(length)-1
+              url='https://data.commoncrawl.org/'+fn
+              req=urllib.request.Request(url,headers={**headers,'Range':f'bytes={start}-{end}'})
+              try:
+                  with urllib.request.urlopen(req,timeout=120) as r: blob=r.read()
+                  # Range is a gzip member containing one WARC record.
+                  for record in ArchiveIterator(io.BytesIO(blob)):
+                      if record.rec_type not in ('response','resource'): continue
+                      payload=record.content_stream().read()
+                      ctype=''
+                      if record.http_headers:
+                          ctype=record.http_headers.get_header('Content-Type') or ''
+                      return payload,ctype
+              except Exception as e:
+                  return None
+              return None
+
+          for stem in stems:
+              matches=[h for h in uniq if stem in h.get('url','').lower()]
+              report.append(f'COMMON CRAWL CANDIDATES {stem}: {len(matches)}')
+              # Prefer exact full-size names, then largest captured payload.
+              def score(h):
+                  name=urllib.parse.urlparse(h.get('url','')).path.rsplit('/',1)[-1].lower()
+                  exact=1 if name in (stem+'.jpg',stem+'.jpeg',stem+'.png') else 0
+                  try: ln=int(h.get('length',0))
+                  except: ln=0
+                  return (exact,ln,h.get('timestamp',''))
+              found=None
+              for h in sorted(matches,key=score,reverse=True):
+                  got=fetch_warc_record(h)
+                  if not got: continue
+                  payload,ctype=got
+                  # Validate image signatures and/or content type.
+                  isjpg=payload.startswith(b'\xff\xd8\xff'); ispng=payload.startswith(b'\x89PNG\r\n\x1a\n'); isgif=payload.startswith((b'GIF87a',b'GIF89a'))
+                  if not (isjpg or ispng or isgif or ctype.lower().startswith('image/')): continue
+                  ext='.png' if ispng or 'png' in ctype.lower() else ('.gif' if isgif or 'gif' in ctype.lower() else '.jpg')
+                  out=Path('commoncrawl-recovery')/(stem+ext); out.write_bytes(payload)
+                  report.append(f'COMMON CRAWL RECOVERED {stem}: {out} | {len(payload)} bytes | {ctype} | {h.get("timestamp")} | {h.get("url")} | {h.get("_index")}')
+                  found=out; break
+              if not found: report.append(f'COMMON CRAWL MISSING {stem}')
+
+          Path('commoncrawl-recovery/report.txt').write_text('\n'.join(report)+'\n')
+          print('\n'.join(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: common-crawl-baddesley-recovery
+          path: commoncrawl-recovery/
+          if-no-files-found: error
