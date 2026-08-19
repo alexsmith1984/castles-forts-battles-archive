@@ -1,0 +1,80 @@
+name: Verified Common Crawl recovery Windows
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-commoncrawl-windows.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Query Common Crawl wildcard indexes
+        shell: pwsh
+        run: |
+          @'
+          import concurrent.futures, json, re, time, urllib.parse, urllib.request
+          from pathlib import Path
+
+          stems=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
+          headers={'User-Agent':'castles-forts-battles-archive-recovery/1.0'}
+          def fetch(url,timeout=10):
+              try:
+                  req=urllib.request.Request(url,headers=headers)
+                  with urllib.request.urlopen(req,timeout=timeout) as r:return True,r.read().decode('utf-8','replace'),getattr(r,'status',200)
+              except Exception as e:return False,str(e),None
+
+          ok,body,status=fetch('https://index.commoncrawl.org/collinfo.json',12)
+          if not ok: raise SystemExit('collinfo failed: '+body)
+          crawls=[]
+          for c in json.loads(body):
+              cid=c.get('id',''); m=re.match(r'CC-MAIN-(\d{4})-',cid)
+              if m and 2017<=int(m.group(1))<=2022:crawls.append(cid)
+          patterns=['www.castlesfortsbattles.co.uk/midlands/assets/baddesley*','www.castlesfortsbattles.co.uk/midlands/images/baddesley*','castlesfortsbattles.co.uk/midlands/assets/baddesley*','castlesfortsbattles.co.uk/midlands/images/baddesley*']
+          specs=[]
+          for cid in crawls:
+              for pat in patterns:
+                  u=f'https://index.commoncrawl.org/{cid}-index?'+urllib.parse.urlencode({'url':pat,'output':'json'})
+                  specs.append((cid,pat,u))
+          def one(s):
+              cid,pat,u=s; ok,b,st=fetch(u,10)
+              if not ok and ('429' in b or '503' in b):time.sleep(1);ok,b,st=fetch(u,10)
+              rows=[]
+              if ok:
+                  for ln in b.splitlines():
+                      try:r=json.loads(ln)
+                      except:continue
+                      if 'baddesley' in r.get('url','').lower():r['_crawl']=cid;rows.append(r)
+              return cid,pat,ok,st,b[:180] if not ok else None,rows
+          logs=[];hits=[]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+              for cid,pat,ok,st,err,rows in ex.map(one,specs):
+                  logs.append({'crawl':cid,'pattern':pat,'ok':ok,'status':st,'error':err,'rows':len(rows)});hits.extend(rows)
+          uniq=[];seen=set()
+          for r in hits:
+              k=(r.get('url'),r.get('timestamp'),r.get('filename'),r.get('offset'),r.get('length'))
+              if k not in seen:seen.add(k);uniq.append(r)
+          summ={s:sum(1 for r in uniq if s in r.get('url','').lower()) for s in stems}
+          good=sum(x['ok'] for x in logs); bad=len(logs)-good
+          Path('commoncrawl-windows').mkdir(exist_ok=True)
+          Path('commoncrawl-windows/results.json').write_text(json.dumps({'crawls':crawls,'queries_ok':good,'queries_failed':bad,'summary':summ,'hits':uniq,'query_log':logs},indent=2),encoding='utf-8')
+          lines=[f'Common Crawl crawls={len(crawls)}; queries_ok={good}; failed={bad}; unique_baddesley_rows={len(uniq)}']+[f'{s}: {n}' for s,n in summ.items()]
+          Path('commoncrawl-windows/report.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+          print(Path('commoncrawl-windows/report.txt').read_text())
+          '@ | Set-Content -Encoding utf8 verify_cc.py
+          python verify_cc.py
+      - name: Commit verification
+        shell: pwsh
+        run: |
+          git config user.name archive-recovery-bot
+          git config user.email actions@users.noreply.github.com
+          git add commoncrawl-windows
+          git commit -m "Verified Common Crawl wildcard search on Windows"
+          if ($LASTEXITCODE -ne 0) { exit 0 }
+          git pull --rebase origin main
+          git push
