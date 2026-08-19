@@ -1,0 +1,51 @@
+name: Recover selected pages in parallel
+on:
+  push:
+    paths: ['.github/workflows/recover-selected-matrix.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 9
+      matrix:
+        include:
+          - {name: 'Hopton Heath (Battle of - 1643)', slug: 'hopton-heath-1643', ts: '20201128123644', orig: 'http://www.battlefieldsofbritain.co.uk/battle_hopton_heath_1643.html'}
+          - {name: 'Hopton Castle', slug: 'hopton-castle', ts: '20210618112059', orig: 'https://www.castlesfortsbattles.co.uk/midlands/hopton_castle.html'}
+          - {name: 'Montgomery Castle', slug: 'montgomery-castle', ts: '20220326093850', orig: 'http://www.castlesfortsbattles.co.uk/central_wales/montgomery_castle.html'}
+          - {name: 'Moreton Corbet Castle', slug: 'moreton-corbet-castle', ts: '20220826212006', orig: 'http://www.castlesfortsbattles.co.uk/midlands/moreton_corbet.html'}
+          - {name: 'Nantwich (Battle of - 1644)', slug: 'nantwich-1644', ts: '20210510075340', orig: 'http://battlefieldsofbritain.co.uk/battle_nantwich_1644.html'}
+          - {name: 'Old Oswestry Hillfort', slug: 'old-oswestry-hillfort', ts: '20210804094545', orig: 'https://www.castlesfortsbattles.co.uk/midlands/old_oswestry_hillfort.html'}
+          - {name: 'Peveril Castle', slug: 'peveril-castle', ts: '20191212142218', orig: 'http://www.castlesfortsbattles.co.uk/midlands/peveril_castle.html'}
+          - {name: 'Seckington Castle', slug: 'seckington-castle', ts: '20210804093024', orig: 'https://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html'}
+          - {name: 'Stokesay Castle', slug: 'stokesay-castle', ts: '20210804081957', orig: 'https://www.castlesfortsbattles.co.uk/midlands/stokesay_castle.html'}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover ${{ matrix.name }}
+        env:
+          NAME: ${{ matrix.name }}
+          SLUG: ${{ matrix.slug }}
+          TS: ${{ matrix.ts }}
+          ORIG: ${{ matrix.orig }}
+        run: python scripts/recover_single_capture.py
+      - name: Commit ${{ matrix.slug }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "recovered/${{ matrix.slug }}" "page-audit/${{ matrix.slug }}-failed.json" 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Recover ${{ matrix.name }}"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || { git rebase --abort 2>/dev/null || true; sleep $((i*2)); continue; }
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((i*2))
+          done
+          exit 1
