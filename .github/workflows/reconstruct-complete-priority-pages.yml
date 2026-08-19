@@ -22,9 +22,8 @@ jobs:
       - name: Rebuild five priority pages with local archived images
         run: |
           cat > /tmp/rebuild.py <<'PY'
-          import json,os,re,time,hashlib,html
+          import json,os,re,time,hashlib
           from urllib.parse import urljoin,urlsplit
-          from collections import Counter
           import requests
           from bs4 import BeautifulSoup
 
@@ -58,7 +57,8 @@ jobs:
             b=re.sub(r'[^A-Za-z0-9._-]+','_',b)
             stem,ext=os.path.splitext(b)
             h=hashlib.sha1(url.encode()).hexdigest()[:8]
-            return f'{stem}-{h}{ext or ".bin"}'
+            suffix=ext if ext else '.bin'
+            return f'{stem}-{h}{suffix}'
 
           def wayback_raw(ts,orig):
             return f'https://web.archive.org/web/{ts}id_/{orig}'
@@ -77,7 +77,6 @@ jobs:
                   txt=css_url_re.sub('none',txt)
                   st=soup.new_tag('style');st.string=txt;link.replace_with(st);added.append(href);continue
               link.decompose()
-            # fallback guarantees readability even if historical CSS does not survive
             st=soup.new_tag('style')
             st.string='''body{font-family:Georgia,"Times New Roman",serif!important;line-height:1.45!important;background:#fff!important;color:#222!important;max-width:1200px;margin:0 auto;padding:18px}img{max-width:100%!important;height:auto!important}.archive-recovery-banner{background:#f4f0e6;border:1px solid #cfc3af;padding:12px 14px;margin:0 0 18px;font-size:14px}.archive-recovery-banner a{color:#224d74}'''
             (soup.head or soup).append(st)
@@ -87,8 +86,8 @@ jobs:
           for name,slug in TARGETS.items():
             rec=byname[name];spec=rec.get('spec') or {};ts=spec.get('timestamp');orig=spec.get('original') or rec['original']
             if not ts:raise RuntimeError(f'No timestamp for {name}')
-            raw=wayback_raw(ts,orig);r=fetch(raw,60)
-            if not hasattr(r,'status_code') or r.status_code!=200:raise RuntimeError(f'Could not fetch source for {name}: {r}')
+            r=fetch(wayback_raw(ts,orig),60)
+            if not hasattr(r,'status_code') or r.status_code!=200:raise RuntimeError(f'Could not fetch source for {name}')
             txt=r.text
             if '<html' not in txt.lower() and '<!doctype' not in txt.lower():raise RuntimeError(f'Non-HTML source for {name}')
             soup=BeautifulSoup(txt,'html.parser')
@@ -99,11 +98,9 @@ jobs:
             css_count=len(inline_styles(soup,ts,orig))
 
             outdir=os.path.join('recovered',slug);imgdir=os.path.join(outdir,'images');os.makedirs(imgdir,exist_ok=True)
-            mapping={};downloaded={};failed={}
-            refs=[]
-            attrs=('src','data-src','data-orig-src','data-muse-src','data-hidpi-src')
+            mapping={};downloaded={};failed={};refs=[]
             for tag in soup.find_all(['img','source']):
-              for at in attrs:
+              for at in ('src','data-src','data-orig-src','data-muse-src','data-hidpi-src'):
                 v=(tag.get(at) or '').strip()
                 if v and image_ext.search(v):refs.append(urljoin(orig,v))
               ss=(tag.get('srcset') or '').strip()
@@ -118,29 +115,24 @@ jobs:
 
             for u in refs:
               if '/images/blank.gif' in u.lower():continue
-              resp=fetch(wayback_raw(ts,u),45)
-              ok=False
+              resp=fetch(wayback_raw(ts,u),45);ok=False
               if hasattr(resp,'status_code') and resp.status_code==200:
-                ct=(resp.headers.get('content-type') or '').lower()
-                data=resp.content
-                if len(data)>150 and ('image/' in ct or data[:8] in (b'\x89PNG\r\n\x1a\n',) or data[:2]==b'\xff\xd8'):
+                ct=(resp.headers.get('content-type') or '').lower();data=resp.content
+                if len(data)>150 and ('image/' in ct or data[:8]==b'\x89PNG\r\n\x1a\n' or data[:2]==b'\xff\xd8'):
                   fn=safe_name(u);open(os.path.join(imgdir,fn),'wb').write(data);mapping[u]='images/'+fn;downloaded[u]=len(data);ok=True
               if not ok:failed[u]=getattr(resp,'status_code',None)
 
             def local_for(v):
               if not v:return None
-              u=urljoin(orig,v.strip())
-              return mapping.get(u)
+              return mapping.get(urljoin(orig,v.strip()))
             for tag in soup.find_all(['img','source']):
-              # Prefer lazy/original source over blank placeholder.
               preferred=None
               for at in ('data-orig-src','data-muse-src','data-src','src'):
                 lv=local_for(tag.get(at))
                 if lv:preferred=lv;break
               if preferred and tag.name=='img':tag['src']=preferred
               elif tag.name=='img' and '/blank.gif' in (tag.get('src') or '').lower():tag.attrs.pop('src',None)
-              for at in ('data-orig-src','data-muse-src','data-src','data-hidpi-src'):
-                tag.attrs.pop(at,None)
+              for at in ('data-orig-src','data-muse-src','data-src','data-hidpi-src'):tag.attrs.pop(at,None)
               if tag.get('srcset'):
                 new=[]
                 for bit in tag['srcset'].split(','):
@@ -153,8 +145,6 @@ jobs:
             for a in soup.find_all('a',href=True):
               lv=local_for(a['href'])
               if lv:a['href']=lv
-
-            # Remove any remaining automatic external resource fetches.
             for tag in soup.find_all(['img','source']):
               if tag.get('src') and str(tag['src']).startswith(('http://','https://')):tag.attrs.pop('src',None)
               if tag.get('srcset') and ('http://' in tag['srcset'] or 'https://' in tag['srcset']):tag.attrs.pop('srcset',None)
@@ -169,11 +159,7 @@ jobs:
             summaries.append({'name':name,'slug':slug,'source_timestamp':ts,'source_url':orig,'image_references':len(refs),'images_downloaded':len(downloaded),'images_failed':len(failed),'failed_urls':list(failed),'stylesheets_inlined':css_count,'text_chars':len(' '.join(soup.stripped_strings))})
             print(name,'downloaded',len(downloaded),'failed',len(failed),flush=True)
 
-          json.dump({'pages':summaries},open('catalogue-audit/priority-local-reconstructions.json','w'),indent=2,ensure_ascii=False)
-
-          # Point catalogue entries to local copies only when reconstruction actually exists.
-          name_to_target={x['name']:'recovered/'+x['slug']+'/' for x in summaries}
-          changed={}
+          name_to_target={x['name']:'recovered/'+x['slug']+'/' for x in summaries};changed={}
           for part in ['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']:
             soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser');n=0
             for sec in soup.find_all('section'):
@@ -184,6 +170,7 @@ jobs:
                 if nm in name_to_target and a['href']!=name_to_target[nm]:a['href']=name_to_target[nm];n+=1
             if n:open(part,'w',encoding='utf-8').write(str(soup))
             changed[part]=n
+          os.makedirs('catalogue-audit',exist_ok=True)
           json.dump({'pages':summaries,'index_changes':changed},open('catalogue-audit/priority-local-reconstructions-summary.json','w'),indent=2,ensure_ascii=False)
           PY
           python /tmp/rebuild.py
@@ -191,5 +178,5 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add recovered/ catalogue-audit/priority-local-reconstructions*.json atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html
+          git add recovered/ catalogue-audit/priority-local-reconstructions-summary.json atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html
           if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Reconstruct five priority pages with local archived assets' && git pull --rebase && git push; fi
