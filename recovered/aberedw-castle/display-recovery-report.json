@@ -1,0 +1,596 @@
+{
+  "name": "Aberedw Castle",
+  "source_capture": [
+    "20190216213144",
+    "http://www.castlesfortsbattles.co.uk:80/central_wales/aberedw_castle.html"
+  ],
+  "candidate_display_urls": 62,
+  "recovered_distinct_images": 15,
+  "recovered": [
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle10_motte.jpg?crc=516477252",
+      "filename": "aberedw_castle10_motte.jpg",
+      "sha256": "ecae88963a6585f1bee8303e074acaa14b3b4afd417659b277e465cdb14b2fa0",
+      "file": "images/aberedw_castle10_motte.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor.jpg?crc=514610365",
+      "filename": "aberedw_castle11_manor.jpg",
+      "sha256": "9b739a13d2beb5f92cfd67452e013dbb97e3115e7ca473d2596c939e7ec2d911",
+      "file": "images/aberedw_castle11_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor500x333.jpg?crc=120573466",
+      "filename": "aberedw_castle12_manor.jpg",
+      "sha256": "da397dab846c79573e2439bba5128f57c6d2fa8319e161aeb598160d25c43267",
+      "file": "images/aberedw_castle12_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle13_manor.jpg?crc=3958080387",
+      "filename": "aberedw_castle13_manor.jpg",
+      "sha256": "c05541d51cdb1ef86b39b1368f1bfb9c423eadccdddb6b07f02d03e09cf635fb",
+      "file": "images/aberedw_castle13_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle14_manor.jpg?crc=519134751",
+      "filename": "aberedw_castle14_manor.jpg",
+      "sha256": "ea615a25d65ba96011e8ab88925cee18cdbd7a15bd36f59875108fd8403a3a0c",
+      "file": "images/aberedw_castle14_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle15_manor.jpg?crc=4120971946",
+      "filename": "aberedw_castle15_manor.jpg",
+      "sha256": "8d74b7abd42156fedd8e6abd08fd801e541055beabe22569d0d3a6186288e1a6",
+      "file": "images/aberedw_castle15_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor.jpg?crc=3873354256",
+      "filename": "aberedw_castle16_manor.jpg",
+      "sha256": "ae377d0520184c1862fae0734510787a9678d2fffb3b7183a78142bb2e10e4de",
+      "file": "images/aberedw_castle16_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle17_manor.jpg?crc=494087494",
+      "filename": "aberedw_castle17_manor.jpg",
+      "sha256": "ff321a0609342fdcf2134b3cbc12cdb0785804217976e3e06fe1271f13e749dc",
+      "file": "images/aberedw_castle17_manor.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle18.jpg?crc=4122889379",
+      "filename": "aberedw_castle18.jpg",
+      "sha256": "f716c08b0b91c052d8fb5699b1d3ee815db39b8d5daa85e16c6deeedaa328f8a",
+      "file": "images/aberedw_castle18.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle2_motte.jpg?crc=3956422146",
+      "filename": "aberedw_castle2_motte.jpg",
+      "sha256": "41cb971c3d506f3b53552258bba7eef3653a16dfa87f72a72a46150434d41213",
+      "file": "images/aberedw_castle2_motte.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle3_motte.jpg?crc=4182980585",
+      "filename": "aberedw_castle3_motte.jpg",
+      "sha256": "3572c61809de81a18a405ceaf9d4fbeb216a33c07897bc15d55c6dfa3c2a4c8c",
+      "file": "images/aberedw_castle3_motte.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle4_motte.jpg?crc=65859273",
+      "filename": "aberedw_castle4_motte.jpg",
+      "sha256": "637435bb5e81dddf49693a1204e59580b7a1f003420369642dc87f5565594ad3",
+      "file": "images/aberedw_castle4_motte.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle6_motte.jpg?crc=140922779",
+      "filename": "aberedw_castle6_motte.jpg",
+      "sha256": "3c2d5a5dd8d13964bb230760ab87198f3970d51290eba8892ab112e24019fc7b",
+      "file": "images/aberedw_castle6_motte.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle7_motte.jpg?crc=4275628926",
+      "filename": "aberedw_castle7_motte.jpg",
+      "sha256": "5dff96eaea5c6959d8b14806bf092c950954158c46542b342c2ad4dbdd05ee11",
+      "file": "images/aberedw_castle7_motte.jpg"
+    },
+    {
+      "dimensions": [
+        500,
+        333
+      ],
+      "timestamp": "20190216213144",
+      "source_url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle9_motte.jpg?crc=3896591429",
+      "filename": "aberedw_castle9_motte.jpg",
+      "sha256": "433f0d54e25bce622d8ada8706b3e18a56005e24aa796009300a96b0547018b6",
+      "file": "images/aberedw_castle9_motte.jpg"
+    }
+  ],
+  "attempts": [
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle_motte.jpg?crc=3982830918",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor.jpg?crc=3959402133",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle5_motte.jpg?crc=340060459",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle8_motte.jpg?crc=4276993428",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle1.jpg?crc=460244560",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor.jpg?crc=514610365",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor.jpg?crc=3873354256",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor500x333.jpg?crc=120573466",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle2_motte.jpg?crc=3956422146",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle3_motte.jpg?crc=4182980585",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle4_motte.jpg?crc=65859273",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle6_motte.jpg?crc=140922779",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle7_motte.jpg?crc=4275628926",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle9_motte.jpg?crc=3896591429",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle10_motte.jpg?crc=516477252",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle13_manor.jpg?crc=3958080387",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle14_manor.jpg?crc=519134751",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle15_manor.jpg?crc=4120971946",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle17_manor.jpg?crc=494087494",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle18.jpg?crc=4122889379",
+      "found": true,
+      "timestamp": "20190216213144",
+      "dimensions": [
+        500,
+        333
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor60x40.jpg?crc=34744905",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle17_manor60x40.jpg?crc=186189115",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor60x40.jpg?crc=3858721039",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle1860x40.jpg?crc=321637156",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor60x40.jpg?crc=83095971",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle2_motte60x40.jpg?crc=200421527",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle3_motte60x40.jpg?crc=4292526459",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle4_motte60x40.jpg?crc=190655567",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle6_motte60x40.jpg?crc=3946402333",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle7_motte60x40.jpg?crc=4253063952",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle9_motte60x40.jpg?crc=3901399223",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle10_motte60x40.jpg?crc=3915272778",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle13_manor60x40.jpg?crc=4164956120",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle14_manor60x40.jpg?crc=3863303607",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle15_manor60x40.jpg?crc=468097463",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle_motte665x282.jpg?crc=485753820",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor454x303.jpg?crc=4037893852",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle5_motte659x245.jpg?crc=50680589",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle8_motte660x218.jpg?crc=3981045517",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle1660x179.jpg?crc=3978514889",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor326x217.jpg?crc=4248334432",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor326x217.jpg?crc=217718660",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor495x330.jpg?crc=444157767",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle5_motte658x245.jpg?crc=4079046397",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle8_motte659x217.jpg?crc=4211753352",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle1659x179.jpg?crc=394922026",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor325x217.jpg?crc=4080715184",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor325x217.jpg?crc=297341713",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle_motte501x213.jpg?crc=3793679626",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor443x295.jpg?crc=270139370",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle5_motte496x185.jpg?crc=221693125",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle8_motte497x164.jpg?crc=3850413178",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle1497x135.jpg?crc=3394279",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor246x164.jpg?crc=3912382499",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor246x164.jpg?crc=3812977650",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle_motte500x212.jpg?crc=4222152530",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor442x295.jpg?crc=271330694",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle5_motte495x185.jpg?crc=40696001",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle8_motte496x164.jpg?crc=3850413178",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle1496x135.jpg?crc=3394279",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor245x164.jpg?crc=3912382499",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor245x164.jpg?crc=3812977650",
+      "found": false,
+      "timestamp": null,
+      "dimensions": null
+    }
+  ],
+  "note": "Responsive duplicates were collapsed by canonical filename stem; the largest recovered version was kept."
+}
