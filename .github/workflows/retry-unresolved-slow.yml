@@ -1,0 +1,90 @@
+name: Slow retry of inconclusive Wayback availability checks
+
+on:
+  push:
+    paths:
+      - '.github/workflows/retry-unresolved-slow.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Retry at low request rate
+        run: |
+          cat > /tmp/retry.py <<'PY'
+          import json, os, time
+          from urllib.parse import urlsplit,urlunsplit
+          from collections import Counter
+          import requests
+
+          first=json.load(open('catalogue-audit/availability-unresolved.json',encoding='utf-8'))['results']
+          todo=[r for r in first if r.get('resolution')=='inconclusive_service_error']
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles archival audit low-rate retry)'
+          def variants(u):
+            sp=urlsplit(u);h0=sp.netloc[4:] if sp.netloc.startswith('www.') else sp.netloc
+            out=[]
+            for sch in ('http','https'):
+              for h in ('www.'+h0,h0):
+                v=urlunsplit((sch,h,sp.path,sp.query,''))
+                if v not in out:out.append(v)
+            if u in out:out.remove(u);out.insert(0,u)
+            return out
+          def ask(u):
+            delays=[0,5,12]
+            last=None
+            for delay in delays:
+              if delay:time.sleep(delay)
+              try:
+                r=s.get('https://archive.org/wayback/available',params={'url':u,'timestamp':'20220922'},timeout=20)
+                if r.status_code==200:
+                  d=r.json();c=((d.get('archived_snapshots') or {}).get('closest') or {})
+                  if c.get('available') and c.get('url'):return {'state':'available','query':u,'snapshot_url':c['url'],'timestamp':c.get('timestamp'),'status':c.get('status')}
+                  return {'state':'none','query':u}
+                if r.status_code not in (429,500,502,503,504):return {'state':'http_error','query':u,'http':r.status_code}
+                last={'state':'service_error','query':u,'http':r.status_code}
+              except requests.Timeout:last={'state':'service_error','query':u,'error':'timeout'}
+              except Exception as ex:last={'state':'service_error','query':u,'error':type(ex).__name__+': '+str(ex)[:150]}
+            return last or {'state':'service_error','query':u}
+          results=[]
+          for i,rec in enumerate(todo,1):
+            attempts=[];resolved=None;service=False
+            for v in variants(rec['original']):
+              a=ask(v);attempts.append(a)
+              if a['state']=='available':resolved=a;break
+              if a['state']=='service_error':service=True;break
+              time.sleep(0.8)
+            if resolved:
+              out={**rec,'slow_resolution':'available','resolved_variant':resolved['query'],'best_replay':resolved['snapshot_url'],'capture_timestamp':resolved.get('timestamp'),'slow_attempts':attempts}
+            elif service:
+              out={**rec,'slow_resolution':'still_inconclusive_service_error','slow_attempts':attempts}
+            else:
+              out={**rec,'slow_resolution':'no_snapshot_found','slow_attempts':attempts}
+            results.append(out)
+            time.sleep(0.8)
+            if i%25==0:print(i,'/',len(todo),Counter(r['slow_resolution'] for r in results),flush=True)
+          summary={'input_inconclusive':len(todo),'resolutions':dict(Counter(r['slow_resolution'] for r in results)),
+                   'method':'Single-threaded low-rate Wayback availability retry with backoff; http/https and www/non-www variants.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'results':results},open('catalogue-audit/availability-slow-retry.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/availability-slow-retry-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/retry.py
+      - name: Commit retry results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/availability-slow-retry*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Retry inconclusive Wayback availability checks' && git pull --rebase && git push; fi
