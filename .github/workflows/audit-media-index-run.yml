@@ -103,4 +103,4 @@ jobs:
           git add catalogue-audit/media-index-audit*.json catalogue-audit.html
           if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Audit whole-catalogue media preservation' && git pull --rebase && git push; fi
 
-# run against complete source inventory 2026-08-18T23:25-07:00
+# rerun after all 753 Wayback sources were recovered 2026-08-18T23:30-07:00
