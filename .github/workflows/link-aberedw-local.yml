@@ -1,0 +1,31 @@
+name: Link Aberedw local reconstruction
+on:
+  push:
+    paths:
+      - '.github/workflows/link-aberedw-local.yml'
+permissions:
+  contents: write
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Update A-Z link
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('atoz-part1.html')
+          s=p.read_text(encoding='utf-8')
+          pat=r'href="https?://web\.archive\.org/web/[^\"]*https?://(?:www\.)?castlesfortsbattles\.co\.uk/central_wales/aberedw_castle\.html"'
+          s,n=re.subn(pat,'href="recovered/aberedw-castle/index.html"',s)
+          print('replacements',n)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-part1.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Link Aberedw Castle to local reconstruction' && git pull --rebase && git push; fi
