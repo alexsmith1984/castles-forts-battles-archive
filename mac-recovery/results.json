@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "baddesley_clinton_plan": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle5": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle9": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle24": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle23": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle10": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle12": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    },
+    "baddesley_castle14_priest_hole": {
+      "arquivo": 0,
+      "commoncrawl": 0
+    }
+  },
+  "arquivo": [],
+  "commoncrawl": [],
+  "queries": [
+    {
+      "source": "arquivo",
+      "query": "http://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+      "target_rows": 0
+    },
+    {
+      "source": "arquivo",
+      "query": "http://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+      "target_rows": 0
+    },
+    {
+      "source": "arquivo",
+      "query": "https://www.castlesfortsbattles.co.uk/midlands/assets/baddesley",
+      "target_rows": 0
+    },
+    {
+      "source": "arquivo",
+      "query": "https://www.castlesfortsbattles.co.uk/midlands/images/baddesley",
+      "target_rows": 0
+    }
+  ]
+}

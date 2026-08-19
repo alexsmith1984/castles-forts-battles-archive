@@ -1,0 +1,8 @@
+baddesley_clinton_plan: Arquivo=0, CommonCrawl=0
+baddesley_castle5: Arquivo=0, CommonCrawl=0
+baddesley_castle9: Arquivo=0, CommonCrawl=0
+baddesley_castle24: Arquivo=0, CommonCrawl=0
+baddesley_castle23: Arquivo=0, CommonCrawl=0
+baddesley_castle10: Arquivo=0, CommonCrawl=0
+baddesley_castle12: Arquivo=0, CommonCrawl=0
+baddesley_castle14_priest_hole: Arquivo=0, CommonCrawl=0
