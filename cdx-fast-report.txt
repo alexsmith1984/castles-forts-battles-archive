@@ -1,0 +1,20 @@
+PREFIX www.castlesfortsbattles.co.uk/midlands/images/: 678 rows
+PREFIX www.castlesfortsbattles.co.uk/midlands/assets/: 59 rows
+PREFIX castlesfortsbattles.co.uk/midlands/images/: 678 rows
+PREFIX castlesfortsbattles.co.uk/midlands/assets/: 59 rows
+CANDIDATES baddesley_clinton_plan: 0
+MISSING baddesley_clinton_plan
+CANDIDATES baddesley_castle5: 0
+MISSING baddesley_castle5
+CANDIDATES baddesley_castle9: 0
+MISSING baddesley_castle9
+CANDIDATES baddesley_castle24: 0
+MISSING baddesley_castle24
+CANDIDATES baddesley_castle23: 0
+MISSING baddesley_castle23
+CANDIDATES baddesley_castle10: 0
+MISSING baddesley_castle10
+CANDIDATES baddesley_castle12: 0
+MISSING baddesley_castle12
+CANDIDATES baddesley_castle14_priest_hole: 0
+MISSING baddesley_castle14_priest_hole
