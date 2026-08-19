@@ -1,0 +1,108 @@
+name: Refresh source inventory from late-2022 snapshots
+
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh-source-latest.yml'
+      - 'catalogue-audit/best-snapshots.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Refresh recoverable sources from closest late snapshots
+        run: |
+          cat > /tmp/refresh.py <<'PY'
+          import json, os, re, threading
+          from urllib.parse import urljoin,urlsplit
+          from collections import Counter
+          from concurrent.futures import ThreadPoolExecutor,as_completed
+          import requests
+          from bs4 import BeautifulSoup
+
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))
+          best=json.load(open('catalogue-audit/best-snapshots.json',encoding='utf-8'))['results']
+          bestmap={r['original']:r for r in best if r.get('best_state')=='available'}
+          wb=re.compile(r'https?://web\.archive\.org/web/(\d+)(?:[a-z_]+)?/(https?://.+)',re.I)
+          img=re.compile(r'\.(?:jpe?g|png|gif|webp|bmp|tiff?)(?:[?#].*)?$',re.I)
+          local=threading.local()
+          def sess():
+            if not hasattr(local,'s'):
+              local.s=requests.Session();local.s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles late-source refresh)'
+            return local.s
+          def media(v,base):
+            if not v:v=''
+            v=v.strip()
+            if not v or v.startswith(('data:','javascript:','#')) or not img.search(v):return None
+            u=urljoin(base,v);low=u.lower()
+            return None if '/images/blank.gif' in low or low.endswith('/blank.gif') else u
+          def extract(txt,base):
+            soup=BeautifulSoup(txt,'html.parser');visible=' '.join(soup.stripped_strings)
+            assets=[];lazy=[];srcs=[];allr=[]
+            for a in soup.find_all('a',href=True):
+              u=media(a.get('href'),base)
+              if u:
+                allr.append(u)
+                if '/assets/' in urlsplit(u).path.lower():assets.append(u)
+            for t in soup.find_all(['img','source']):
+              for at in ('data-orig-src','data-muse-src','data-src','data-hidpi-src'):
+                u=media(t.get(at),base)
+                if u:lazy.append(u);allr.append(u)
+              u=media(t.get('src'),base)
+              if u:srcs.append(u);allr.append(u)
+              for bit in (t.get('srcset') or '').split(','):
+                vv=bit.strip().split()[0] if bit.strip() else ''
+                u=media(vv,base)
+                if u:allr.append(u)
+            uq=lambda xs:list(dict.fromkeys(xs))
+            assets,lazy,srcs,allr=map(uq,(assets,lazy,srcs,allr))
+            return {'text_chars':len(visible),'asset_links':assets,'lazy_images':lazy,'img_src_images':srcs,'all_media':allr,'asset_link_count':len(assets),'lazy_image_count':len(lazy),'img_src_count':len(srcs),'all_media_count':len(allr),'uses_blank_lazy':('blank.gif' in txt.lower() and any(x in txt for x in ('data-orig-src','data-muse-src','data-src')))}
+          def one(rec):
+            b=bestmap[rec['original']];u=b.get('best_replay','');m=wb.match(u)
+            if not m:return rec,None
+            ts,orig=m.group(1),m.group(2)
+            oldts=((rec.get('spec') or {}).get('timestamp') or '')
+            if oldts==ts:return rec,'same'
+            out=dict(rec);out['spec']={'kind':'wayback','timestamp':ts,'original':orig,'replay':u,'source':'best_snapshot_late_2022'}
+            raw=f'https://web.archive.org/web/{ts}id_/{orig}'
+            try:
+              r=sess().get(raw,timeout=22,allow_redirects=True);txt=r.text
+              if r.status_code==200 and ('<html' in txt.lower() or '<!doctype' in txt.lower()):
+                out['fetch_state']='source_ok';out['raw_replay']=r.url;out['bytes']=len(r.content);out.update(extract(txt,orig));return out,'updated'
+              if r.status_code in (429,500,502,503,504):return rec,'service_error'
+              return rec,'failed'
+            except Exception:return rec,'service_error'
+          targets=[r for r in inv['results'] if r['original'] in bestmap and r.get('fetch_state')!='local_reconstruction']
+          repl={};outcomes=[]
+          with ThreadPoolExecutor(max_workers=3) as ex:
+            futs={ex.submit(one,r):r for r in targets}
+            for i,f in enumerate(as_completed(futs),1):
+              z,oc=f.result();repl[z['original']]=z;outcomes.append(oc)
+              if i%40==0:print(i,'/',len(targets),Counter(outcomes),flush=True)
+          results=[repl.get(r['original'],r) for r in inv['results']]
+          ok=[r for r in results if r.get('fetch_state')=='source_ok']
+          summary={'unique_destinations':len(results),'fetch_states':dict(Counter(r.get('fetch_state') for r in results)),'sources_inventoried':len(ok),'late_snapshot_targets':len(targets),'refresh_outcomes':dict(Counter(outcomes)),'pages_with_asset_links':sum(1 for r in ok if r.get('asset_link_count',0)>0),'pages_with_any_media_refs':sum(1 for r in ok if r.get('all_media_count',0)>0),'total_asset_links':sum(r.get('asset_link_count',0) for r in ok),'total_media_refs':sum(r.get('all_media_count',0) for r in ok),'scope':'Source inventory refreshed where the availability API supplied a snapshot closest to 2022-09-22.'}
+          json.dump({'summary':summary,'results':results},open('catalogue-audit/source-inventory.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/source-inventory-summary.json','w'),indent=2,ensure_ascii=False)
+          json.dump({'targets':len(targets),'outcomes':dict(Counter(outcomes))},open('catalogue-audit/source-refresh-summary.json','w'),indent=2)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/refresh.py
+      - name: Commit refreshed source inventory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/source-inventory*.json catalogue-audit/source-refresh-summary.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Refresh source inventory from late snapshots' && git pull --rebase && git push; fi
