@@ -1,3 +1,4 @@
+# trigger
 name: Fast recover nine selected pages
 on:
   push:
