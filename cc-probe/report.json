@@ -1,0 +1,46 @@
+{
+  "url": "https://index.commoncrawl.org/CC-MAIN-2019-35-index?url=www.castlesfortsbattles.co.uk%2Fmidlands%2Fassets%2Fbaddesley%2A&output=json",
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok": false,
+      "error": "<HTTPError 504: 'Gateway Time-out'>"
+    },
+    {
+      "attempt": 2,
+      "ok": false,
+      "error": "<HTTPError 404: 'Not Found'>"
+    },
+    {
+      "attempt": 3,
+      "ok": false,
+      "error": "<HTTPError 404: 'Not Found'>"
+    },
+    {
+      "attempt": 4,
+      "ok": false,
+      "error": "<HTTPError 503: 'Service Temporarily Unavailable'>"
+    },
+    {
+      "attempt": 5,
+      "ok": false,
+      "error": "<HTTPError 504: 'Gateway Time-out'>"
+    },
+    {
+      "attempt": 6,
+      "ok": false,
+      "error": "<HTTPError 502: 'Bad Gateway'>"
+    },
+    {
+      "attempt": 7,
+      "ok": false,
+      "error": "<HTTPError 503: 'Service Temporarily Unavailable'>"
+    },
+    {
+      "attempt": 8,
+      "ok": false,
+      "error": "<HTTPError 404: 'Not Found'>"
+    }
+  ],
+  "rows": []
+}
