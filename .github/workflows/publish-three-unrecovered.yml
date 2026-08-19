@@ -1,0 +1,56 @@
+name: Publish notices for three unrecovered catalogue pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-three-unrecovered.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install beautifulsoup4
+      - name: Create notices and connect A-Z entries
+        run: |
+          python - <<'PY'
+          import json,html
+          from bs4 import BeautifulSoup
+          items={
+            'Dinieithon Castle':('dinieithon-castle-unrecovered.html','http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html'),
+            'Galdendoch Castle':('galdendoch-castle-unrecovered.html','http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html'),
+            'Oxburgh Hall':('oxburgh-hall-unrecovered.html','http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html'),
+          }
+          css='''body{font-family:Georgia,"Times New Roman",serif;margin:0;background:#f4f0e6;color:#222;line-height:1.5}header{background:#3d3528;color:white;padding:28px 18px;text-align:center}main{max-width:800px;margin:auto;padding:24px}.card{background:white;border:1px solid #d7cebd;border-radius:7px;padding:20px}.status{border-left:4px solid #8b7959;padding:10px 14px;background:#faf8f3}a{color:#224d74}code{overflow-wrap:anywhere}'''
+          for name,(fn,orig) in items.items():
+            page=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(name)} | Castles, Forts and Battles Archive</title><style>{css}</style></head><body><header><h1>{html.escape(name)}</h1><p>Castles, Forts and Battles — archival recovery status</p></header><main><div class="card"><p class="status"><strong>No original page copy has yet been recovered.</strong></p><p>The A–Z catalogue confirms that this entry existed, but the archive searches completed so far have not produced the original webpage.</p><p>Wayback was checked across the original URL variants and returned no matching snapshot. Arquivo.pt likewise returned no record. Common Crawl could not be conclusively checked because its index requests failed, so that avenue remains technically inconclusive.</p><p>No substitute text, photographs or reconstructed historical content have been inserted.</p><p><strong>Original catalogue destination:</strong><br><code>{html.escape(orig)}</code></p><p><a href="atoz-archive.html">Return to the A–Z index</a></p></div></main></body></html>'''
+            open(fn,'w',encoding='utf-8').write(page)
+          changes={}
+          for part in ['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']:
+            soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser');n=0
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2 or len(h2.get_text(' ',strip=True))!=1:continue
+              for a in sec.find_all('a',href=True):
+                name=a.get_text(' ',strip=True)
+                if name in items:
+                  fn,_=items[name]
+                  if a['href']!=fn:a['href']=fn;n+=1
+            if n:open(part,'w',encoding='utf-8').write(str(soup))
+            changes[part]=n
+          json.dump({'pages':list(items),'index_changes':changes,'note':'These are status pages only; no historical content has been invented.'},open('catalogue-audit/unrecovered-pages-summary.json','w'),indent=2,ensure_ascii=False)
+          print(changes)
+          PY
+      - name: Commit notices
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dinieithon-castle-unrecovered.html galdendoch-castle-unrecovered.html oxburgh-hall-unrecovered.html atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html catalogue-audit/unrecovered-pages-summary.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Publish status pages for unrecovered catalogue entries' && git pull --rebase && git push; fi
