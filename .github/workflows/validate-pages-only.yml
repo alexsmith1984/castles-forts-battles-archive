@@ -1,0 +1,47 @@
+name: Validate published A-Z pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/validate-pages-only.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Wait for Pages
+        run: sleep 15
+      - name: Check public pages
+        run: |
+          cat > /tmp/check.py <<'PY'
+          import requests,json
+          base='https://alexsmith1984.github.io/castles-forts-battles-archive/'
+          paths=['','atoz-archive.html','atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html','baddesley-clinton-final.html']
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0'
+          out={}
+          for p in paths:
+            u=base+p
+            try:
+              r=s.get(u,timeout=15,allow_redirects=True)
+              out[p or '/']={'status':r.status_code,'bytes':len(r.content),'final_url':r.url,'has_html':'<html' in r.text.lower()}
+            except Exception as e: out[p or '/']={'error':repr(e)}
+          open('index-recovery/pages-only-validation.json','w').write(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
+          python /tmp/check.py
+      - name: Commit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index-recovery/pages-only-validation.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Record public A-Z Pages validation' && git pull --rebase && git push; fi
