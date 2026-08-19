@@ -1,0 +1,142 @@
+name: Build recovered A-Z pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-atoz-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build clean static indexes
+        run: |
+          cat > /tmp/build.py <<'PY'
+          import json, os, re
+          from urllib.parse import urlsplit
+          from html import escape
+
+          PARTS = [
+            ('atoz_part2','D–G','DEFG','atoz-part2.html'),
+            ('atoz_part3','H–L','HIJKL','atoz-part3.html'),
+            ('atoz_part4','M–R','MNOPQR','atoz-part4.html'),
+            ('atoz_part5','S–Z','STUVWXYZ','atoz-part5.html'),
+          ]
+          NAV_PATHS = {
+            '/castles_england.html','/castles_scotland.html','/castles_wales.html',
+            '/index.html','/main.html','/links2.html','/atoz.html',
+            '/atoz_part2.html','/atoz_part3.html','/atoz_part4.html','/atoz_part5.html'
+          }
+          WAYBACK_TS='20220922000000'
+
+          def first_letter(s):
+            m=re.search(r'[A-Za-z]',s or '')
+            return m.group(0).upper() if m else ''
+
+          def archival_url(url):
+            return f'https://web.archive.org/web/{WAYBACK_TS}/{url}'
+
+          def is_entry(item, letters):
+            text=(item.get('text') or '').strip()
+            url=(item.get('absolute') or '').strip()
+            if not text or not url: return False
+            if first_letter(text) not in letters: return False
+            sp=urlsplit(url)
+            path=(sp.path or '').lower()
+            host=(sp.netloc or '').lower()
+            if path in NAV_PATHS: return False
+            if host in ('twitter.com','www.twitter.com'): return False
+            if host.endswith('battlefieldsofbritain.co.uk') and path in ('','/'): return False
+            if host.endswith('castlesfortsbattles.co.uk'):
+              if not path.endswith(('.html','.htm')): return False
+            elif host.endswith('battlefieldsofbritain.co.uk'):
+              if not path.endswith(('.html','.htm')): return False
+            else:
+              # preserve specific external historical destinations only when they look like pages
+              if not path.endswith(('.html','.htm')): return False
+            return True
+
+          CSS='''
+          *{box-sizing:border-box} body{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.45}
+          header{background:#3d3528;color:#fff;padding:24px 18px;text-align:center} header h1{margin:0 0 6px;font-size:30px} header p{margin:0;color:#e7dfd0}
+          .wrap{max-width:980px;margin:0 auto;padding:24px 20px 50px}.alpha{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 0 26px}
+          .alpha a{display:inline-block;min-width:34px;text-align:center;padding:7px 8px;border:1px solid #b7aa91;border-radius:4px;background:#fff;color:#493e2c;text-decoration:none;font-weight:bold}
+          .alpha a:hover{background:#eee6d6}.note{background:#fff;border-left:4px solid #8b7959;padding:12px 14px;margin:0 0 26px}
+          section{background:#fff;border:1px solid #d7cebd;border-radius:6px;margin:0 0 18px;padding:18px 22px} section h2{font-size:26px;margin:0 0 10px;color:#493e2c;border-bottom:1px solid #ddd3c1;padding-bottom:6px}
+          ul{list-style:none;padding:0;margin:0;columns:2;column-gap:32px} li{break-inside:avoid;padding:4px 0} li a{color:#224d74;text-decoration:none} li a:hover{text-decoration:underline}
+          .foot{text-align:center;color:#6b6255;font-size:14px;margin-top:25px}.partlinks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0}.partlinks a{background:#fff;border:1px solid #c7baa3;padding:10px 14px;border-radius:5px;text-decoration:none;color:#493e2c;font-weight:bold}
+          @media(max-width:700px){ul{columns:1} header h1{font-size:25px}.wrap{padding:18px 12px 40px}}
+          '''
+
+          alphabet=[]
+          for ch in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            if ch in 'ABC':
+              href=f'https://web.archive.org/web/20220921221911/http://www.castlesfortsbattles.co.uk/atoz.html#{ch.lower()}'
+            elif ch in 'DEFG': href=f'atoz-part2.html#{ch.lower()}'
+            elif ch in 'HIJKL': href=f'atoz-part3.html#{ch.lower()}'
+            elif ch in 'MNOPQR': href=f'atoz-part4.html#{ch.lower()}'
+            else: href=f'atoz-part5.html#{"xyz" if ch in "XYZ" else ch.lower()}'
+            alphabet.append((ch,href))
+
+          def nav_html():
+            return '<nav class="alpha" aria-label="Alphabetical index">'+''.join(f'<a href="{escape(h,quote=True)}">{c}</a>' for c,h in alphabet)+'</nav>'
+
+          report=[]
+          combined={c:[] for c in 'DEFGHIJKLMNOPQRSTUVWXYZ'}
+          for stem,label,letters,outname in PARTS:
+            with open(f'index-recovery/{stem}.links.json',encoding='utf-8') as f: data=json.load(f)
+            items=[]; seen=set()
+            for item in data['links']:
+              if not is_entry(item,letters): continue
+              key=((item.get('text') or '').strip(),(item.get('absolute') or '').strip())
+              if key in seen: continue
+              seen.add(key); items.append(item)
+            groups={c:[] for c in letters}
+            for item in items:
+              c=first_letter(item['text'])
+              if c in groups: groups[c].append(item)
+            for c in groups:
+              groups[c].sort(key=lambda x:(x['text'].casefold(),x['absolute']))
+              combined[c].extend(groups[c])
+            blocks=[]
+            for c in letters:
+              if not groups[c]: continue
+              secid='xyz' if c in 'XYZ' and stem=='atoz_part5' else c.lower()
+              rows=''.join(f'<li><a href="{escape(archival_url(x["absolute"]),quote=True)}">{escape(x["text"])}</a></li>' for x in groups[c])
+              blocks.append(f'<section id="{secid}"><h2>{c}</h2><ul>{rows}</ul></section>')
+            html=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A–Z {label} | Castles, Forts and Battles Archive</title><style>{CSS}</style></head><body><header><h1>Castles, Forts and Battles — A–Z {label}</h1><p>Recovered alphabetical index</p></header><main class="wrap">{nav_html()}<div class="note">This is a clean reconstruction of the original {label} index. Entry names and destinations come from the archived original. Links open the corresponding site through the Internet Archive.</div>{''.join(blocks)}<div class="partlinks"><a href="atoz-archive.html">A–Z home</a></div><p class="foot">Recovered from the archived CastlesFortsBattles.co.uk index. No substitute entries have been invented.</p></main></body></html>'''
+            with open(outname,'w',encoding='utf-8') as f:f.write(html)
+            report.append({'page':outname,'range':label,'entries':len(items),'by_letter':{c:len(groups[c]) for c in groups}})
+
+          # Master landing page. It deliberately sends A-C to the verified working original archive index.
+          cards='''<div class="partlinks"><a href="https://web.archive.org/web/20220921221911/http://www.castlesfortsbattles.co.uk/atoz.html">A–C — original archived index</a><a href="atoz-part2.html">D–G — recovered</a><a href="atoz-part3.html">H–L — recovered</a><a href="atoz-part4.html">M–R — recovered</a><a href="atoz-part5.html">S–Z — recovered</a></div>'''
+          totals=sum(x['entries'] for x in report)
+          master=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A–Z | Castles, Forts and Battles Archive</title><style>{CSS}</style></head><body><header><h1>Castles, Forts and Battles — A–Z</h1><p>Recovered navigation for the defunct CastlesFortsBattles.co.uk website</p></header><main class="wrap">{nav_html()}<div class="note"><strong>A–C</strong> remains available in its original Wayback copy. The broken <strong>D–Z</strong> index pages have been reconstructed from their archived source so that the catalogue can be browsed again. Individual destination pages have not yet all been checked for missing photographs.</div>{cards}<section><h2>Recovered index coverage</h2><p>D–Z contains {totals} recovered index entries across Parts 2–5. Use the alphabet above or the four recovered sections to browse them.</p><p><a href="baddesley-clinton-final.html">Baddesley Clinton recovered page</a></p></section><p class="foot">Index reconstruction only. Individual pages will be audited separately for completeness.</p></main></body></html>'''
+          with open('atoz-archive.html','w',encoding='utf-8') as f:f.write(master)
+          with open('index-recovery/build-report.json','w',encoding='utf-8') as f:json.dump({'total_entries_D_Z':totals,'pages':report},f,indent=2,ensure_ascii=False)
+          print(json.dumps({'total_entries_D_Z':totals,'pages':report},indent=2))
+          PY
+          python /tmp/build.py
+      - name: Commit pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add atoz-archive.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html index-recovery/build-report.json
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'Publish recovered A-Z index pages'
+            git push
+          fi
+
+# run marker 2026-08-18T22:35-07:00
