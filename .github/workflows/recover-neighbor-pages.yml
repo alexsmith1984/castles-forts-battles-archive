@@ -1,0 +1,119 @@
+name: Historical Baddesley page image recovery
+
+on:
+  pull_request:
+    paths:
+      - 'neighbor-trigger.txt'
+  workflow_dispatch:
+
+jobs:
+  historical-page-recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect every archived Baddesley page capture and recover referenced images
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p historical-recovery
+          python3 - <<'PY'
+          import json, re, subprocess, urllib.parse, urllib.request
+          from pathlib import Path
+          from html import unescape
+
+          missing=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
+          page_variants=[
+            'http://www.castlesfortsbattles.co.uk/midlands/baddesley_clinton.html',
+            'https://www.castlesfortsbattles.co.uk/midlands/baddesley_clinton.html',
+            'http://castlesfortsbattles.co.uk/midlands/baddesley_clinton.html',
+            'https://castlesfortsbattles.co.uk/midlands/baddesley_clinton.html']
+          report=[]; page_rows=[]; all_refs={}
+
+          def cdx(u):
+              q=urllib.parse.urlencode([('url',u),('output','json'),('fl','timestamp,original,statuscode,digest,length')])
+              req=urllib.request.Request('https://web.archive.org/cdx/search/cdx?'+q,headers={'User-Agent':'Mozilla/5.0 archive recovery'})
+              try:
+                  with urllib.request.urlopen(req,timeout=60) as r: d=json.load(r)
+                  return d[1:] if d and isinstance(d[0],list) else []
+              except Exception as e:
+                  report.append(f'PAGE CDX ERROR {u}: {type(e).__name__}: {e}')
+                  return []
+
+          for pv in page_variants:
+              rows=cdx(pv); report.append(f'PAGE CAPTURES {pv}: {len(rows)}'); page_rows += rows
+          # Deduplicate page captures.
+          uniq=[]; seen=set()
+          for r in page_rows:
+              k=(r[0],r[1])
+              if k not in seen: seen.add(k); uniq.append(r)
+          uniq.sort(key=lambda r:r[0])
+          report.append(f'UNIQUE PAGE CAPTURES: {len(uniq)}')
+
+          refs_by_stem={s:set() for s in missing}
+          capture_html={}
+          for ts,orig,status,digest,length in uniq:
+              replay=f'https://web.archive.org/web/{ts}id_/{orig}'
+              cp=subprocess.run(['curl','-L','--fail','--silent','--show-error','--retry','2','--retry-all-errors','--connect-timeout','20','--max-time','90','-A','Mozilla/5.0 archive recovery',replay],capture_output=True)
+              if cp.returncode!=0: continue
+              try: text=cp.stdout.decode('utf-8','replace')
+              except: continue
+              capture_html[ts]=text
+              Path(f'historical-recovery/page-{ts}.html').write_text(text)
+              # Collect quoted and CSS url() resources containing baddesley.
+              refs=set(re.findall(r'''(?:src|href|data-orig-src|data-src|data-muse-src)=["']([^"']+)["']''',text,re.I))
+              refs.update(re.findall(r'''url\(["']?([^)'"\s]+)["']?\)''',text,re.I))
+              refs={unescape(x) for x in refs if 'baddesley' in x.lower() and any(e in x.lower() for e in ('.jpg','.jpeg','.png'))}
+              all_refs[ts]=sorted(refs)
+              for ref in refs:
+                  low=ref.lower()
+                  for stem in missing:
+                      if stem in low:
+                          refs_by_stem[stem].add((ts,orig,ref))
+              report.append(f'PAGE {ts}: {len(refs)} Baddesley image refs')
+
+          def normalize(pageorig,ref):
+              # strip Wayback wrappers if present
+              m=re.search(r'https?://web\.archive\.org/web/\d+(?:id_|im_)?/(https?://.+)',ref)
+              if m: return m.group(1)
+              return urllib.parse.urljoin(pageorig,ref)
+
+          def try_image(ts,original,stem):
+              # Try exact capture second, then timestamp wildcard replay which can resolve nearest capture.
+              variants=[]
+              for mod in ('id_','im_'):
+                  variants.append(f'https://web.archive.org/web/{ts}{mod}/{original}')
+              for u in variants:
+                  tmp=Path('/tmp/historical-candidate')
+                  cp=subprocess.run(['curl','-L','--fail','--silent','--show-error','--retry','2','--retry-all-errors','--connect-timeout','20','--max-time','90','-A','Mozilla/5.0 archive recovery',u,'-o',str(tmp)],capture_output=True,text=True)
+                  if cp.returncode==0 and tmp.exists():
+                      mt=subprocess.check_output(['file','--mime-type','-b',str(tmp)],text=True).strip(); n=tmp.stat().st_size
+                      if mt.startswith('image/') and n>1500:
+                          ext='.png' if 'png' in mt else '.jpg'; out=Path('historical-recovery')/(stem+ext); out.write_bytes(tmp.read_bytes())
+                          return out,u,mt,n
+              return None
+
+          for stem in missing:
+              entries=sorted(refs_by_stem[stem],reverse=True)
+              report.append(f'REFERENCES {stem}: {len(entries)}')
+              found=None
+              # Prefer larger-looking filenames, then newer page captures.
+              def rscore(e):
+                  ts,pageorig,ref=e
+                  nums=[int(x) for x in re.findall(r'\d+',ref.rsplit('/',1)[-1].split('?',1)[0])]
+                  return (max(nums or [0]),ts)
+              for ts,pageorig,ref in sorted(entries,key=rscore,reverse=True):
+                  original=normalize(pageorig,ref)
+                  got=try_image(ts,original,stem)
+                  if got:
+                      out,u,mt,n=got; report.append(f'RECOVERED {stem}: {out} | {n} bytes | {mt} | page capture {ts} | ref {ref} | replay {u}'); found=got; break
+              if not found: report.append(f'MISSING {stem} after historical page replay attempts')
+
+          Path('historical-recovery/report.txt').write_text('\n'.join(report)+'\n')
+          Path('historical-recovery/references.json').write_text(json.dumps(all_refs,indent=2))
+          print('\n'.join(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: historical-baddesley-recovery
+          path: historical-recovery/
+          if-no-files-found: error
