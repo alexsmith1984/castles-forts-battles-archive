@@ -1,0 +1,125 @@
+name: Arquivo.pt Baddesley recovery
+
+on:
+  pull_request:
+    paths:
+      - 'arquivo-trigger.txt'
+  workflow_dispatch:
+
+jobs:
+  arquivo-recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Search Arquivo.pt for the Baddesley page and image resources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p arquivo-recovery
+          python3 - <<'PY'
+          import json, re, subprocess, urllib.parse, urllib.request
+          from pathlib import Path
+
+          stems=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
+          report=[]; raw={}
+          page='http://www.castlesfortsbattles.co.uk/midlands/baddesley_clinton.html'
+
+          def get_text(url,timeout=90):
+              req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 archive recovery'})
+              with urllib.request.urlopen(req,timeout=timeout) as r: return r.read()
+
+          # 1. URL-history API for the page.
+          vh='https://arquivo.pt/textsearch?prettyPrint=true&maxItems=500&versionHistory='+urllib.parse.quote(page,safe='')
+          try:
+              data=json.loads(get_text(vh).decode('utf-8','replace'))
+              raw['versionHistory']=data
+              items=data.get('response_items',[])
+              report.append(f'ARQUIVO PAGE VERSIONS: {len(items)}')
+          except Exception as e:
+              items=[]; report.append(f'ARQUIVO PAGE HISTORY ERROR: {type(e).__name__}: {e}')
+
+          # 2. CDX wildcard/prefix queries for Baddesley image names on every URL form.
+          queries=[]
+          for scheme in ('http','https'):
+              for host in ('www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk'):
+                  queries += [
+                    f'{scheme}://{host}/midlands/images/baddesley*',
+                    f'{scheme}://{host}/midlands/assets/baddesley*',
+                    f'{scheme}://{host}/midlands/baddesley_clinton.html'
+                  ]
+          cdx_lines=[]
+          for qurl in queries:
+              api='https://arquivo.pt/wayback/cdx?url='+urllib.parse.quote(qurl,safe='')
+              try:
+                  text=get_text(api).decode('utf-8','replace')
+                  raw[qurl]=text
+                  lines=[ln for ln in text.splitlines() if ln.strip() and not ln.startswith(' CDX')]
+                  cdx_lines += lines
+                  report.append(f'ARQUIVO CDX {qurl}: {len(lines)} lines')
+              except Exception as e:
+                  report.append(f'ARQUIVO CDX ERROR {qurl}: {type(e).__name__}: {e}')
+
+          # Parse loose CDX lines and collect Baddesley URLs/timestamps.
+          records=[]
+          for ln in cdx_lines:
+              parts=ln.split()
+              if len(parts)<3: continue
+              # Arquivo CDX normally starts urlkey timestamp original ...
+              ts=next((p for p in parts if re.fullmatch(r'\d{14}',p)),None)
+              originals=[p for p in parts if p.startswith(('http://','https://'))]
+              if ts and originals:
+                  records.append((ts,originals[0],ln))
+          # Also use linkToArchive values from versionHistory and inspect page HTML for image refs.
+          for item in items:
+              link=item.get('linkToArchive') or item.get('linkToArchiveNoFrame')
+              orig=item.get('originalURL',page)
+              if not link: continue
+              try:
+                  html=get_text(link).decode('utf-8','replace')
+                  ts_match=re.search(r'/wayback/(\d{14})/',link); ts=ts_match.group(1) if ts_match else ''
+                  Path(f'arquivo-recovery/page-{ts or len(records)}.html').write_text(html)
+                  refs=set(re.findall(r'''(?:src|href|data-orig-src|data-src|data-muse-src)=["']([^"']+)["']''',html,re.I))
+                  for ref in refs:
+                      if 'baddesley' in ref.lower() and any(ext in ref.lower() for ext in ('.jpg','.jpeg','.png')):
+                          full=urllib.parse.urljoin(orig,ref)
+                          if ts: records.append((ts,full,f'PAGE-REF {ref}'))
+              except Exception as e:
+                  report.append(f'ARQUIVO PAGE FETCH ERROR {link}: {type(e).__name__}: {e}')
+
+          # Deduplicate and attempt replays from Arquivo.pt itself.
+          uniq=[]; seen=set()
+          for r in records:
+              k=(r[0],r[1])
+              if k not in seen: seen.add(k); uniq.append(r)
+          report.append(f'ARQUIVO UNIQUE RESOURCE RECORDS: {len(uniq)}')
+
+          def dl(ts,orig,stem):
+              urls=[f'https://arquivo.pt/wayback/noFrame/{ts}/{orig}',f'https://arquivo.pt/wayback/{ts}/{orig}']
+              for u in urls:
+                  tmp=Path('/tmp/arquivo-candidate')
+                  cp=subprocess.run(['curl','-L','--fail','--silent','--show-error','--retry','2','--connect-timeout','20','--max-time','90','-A','Mozilla/5.0 archive recovery',u,'-o',str(tmp)],capture_output=True,text=True)
+                  if cp.returncode==0 and tmp.exists():
+                      mt=subprocess.check_output(['file','--mime-type','-b',str(tmp)],text=True).strip(); n=tmp.stat().st_size
+                      if mt.startswith('image/') and n>1500:
+                          ext='.png' if 'png' in mt else '.jpg'; out=Path('arquivo-recovery')/(stem+ext); out.write_bytes(tmp.read_bytes()); return out,u,mt,n
+              return None
+
+          for stem in stems:
+              matches=[r for r in uniq if stem in r[1].lower()]
+              report.append(f'ARQUIVO CANDIDATES {stem}: {len(matches)}')
+              found=None
+              for ts,orig,line in sorted(matches,reverse=True):
+                  found=dl(ts,orig,stem)
+                  if found:
+                      out,u,mt,n=found; report.append(f'ARQUIVO RECOVERED {stem}: {out} | {n} bytes | {mt} | {u}'); break
+              if not found: report.append(f'ARQUIVO MISSING {stem}')
+
+          Path('arquivo-recovery/report.txt').write_text('\n'.join(report)+'\n')
+          Path('arquivo-recovery/raw.json').write_text(json.dumps(raw,indent=2,default=str))
+          print('\n'.join(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arquivo-pt-baddesley-recovery
+          path: arquivo-recovery/
+          if-no-files-found: error
