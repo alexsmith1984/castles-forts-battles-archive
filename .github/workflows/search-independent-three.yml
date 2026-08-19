@@ -1,0 +1,104 @@
+name: Search independent archives for final three missing pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/search-independent-three.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests
+      - name: Search Arquivo.pt and Common Crawl
+        run: |
+          cat > /tmp/search.py <<'PY'
+          import requests,json,time,os,re
+          targets={
+            'Dinieithon Castle':[
+              'http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html',
+              'https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html',
+              'http://www.castlesfortsbattles.co.uk/dinieithon_castle.html',
+              'http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html',
+              'http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html',
+              'http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html'],
+            'Galdendoch Castle':[
+              'http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html',
+              'https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html',
+              'http://www.castlesfortsbattles.co.uk/galdendoch_castle.html'],
+            'Oxburgh Hall':[
+              'http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html',
+              'https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html',
+              'http://www.castlesfortsbattles.co.uk/oxburgh_hall.html',
+              'http://www.castlesfortsbattles.co.uk/east/oxburgh.html']}
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 archival recovery research'
+          arquivo=[]
+          for name,urls in targets.items():
+            for u in urls:
+              try:
+                r=s.get('https://arquivo.pt/wayback/cdx',params={'url':u,'output':'json','filter':'statuscode:200'},timeout=35)
+                text=r.text;rows=[]
+                if r.status_code==200:
+                  try:
+                    d=r.json();rows=d[1:] if isinstance(d,list) and d and isinstance(d[0],list) else (d if isinstance(d,list) else [])
+                  except Exception:
+                    rows=[line for line in text.splitlines() if line.strip()]
+                arquivo.append({'name':name,'url':u,'status':r.status_code,'rows':len(rows),'sample':rows[:3]})
+              except Exception as ex:arquivo.append({'name':name,'url':u,'error':type(ex).__name__+': '+str(ex)[:150]})
+              time.sleep(.5)
+          # Common Crawl: low-rate exact URL checks against representative crawls 2017-2022.
+          cc={'collinfo':None,'queries':[]}
+          try:
+            r=s.get('https://index.commoncrawl.org/collinfo.json',timeout=30);cols=r.json() if r.status_code==200 else [];cc['collinfo']={'status':r.status_code,'count':len(cols)}
+            wanted=[]
+            for year in ['2022','2021','2020','2019','2018','2017']:
+              ys=[c for c in cols if year in c.get('id','')]
+              if ys:wanted.extend([ys[0],ys[-1]] if len(ys)>1 else ys)
+            seen=set();wanted=[c for c in wanted if not (c['id'] in seen or seen.add(c['id']))]
+            for name,urls in targets.items():
+              for u in urls:
+                hit=False
+                for c in wanted:
+                  endpoint=c.get('cdx-api') or ('https://index.commoncrawl.org/'+c['id']+'-index')
+                  try:
+                    q=s.get(endpoint,params={'url':u,'output':'json','filter':'status:200'},timeout=20)
+                    lines=[x for x in q.text.splitlines() if x.strip()] if q.status_code==200 else []
+                    rec={'name':name,'url':u,'crawl':c['id'],'status':q.status_code,'rows':len(lines),'sample':lines[:2]}
+                    cc['queries'].append(rec)
+                    if lines:hit=True;break
+                    if q.status_code in (429,500,502,503,504):
+                      # record but do not treat as negative
+                      time.sleep(2)
+                    else:time.sleep(.4)
+                  except Exception as ex:
+                    cc['queries'].append({'name':name,'url':u,'crawl':c['id'],'error':type(ex).__name__+': '+str(ex)[:130]})
+                    time.sleep(1)
+                if hit:continue
+          except Exception as ex:cc['collinfo']={'error':repr(ex)}
+          summary={}
+          for name in targets:
+            ah=sum(x.get('rows',0) for x in arquivo if x['name']==name)
+            cq=[x for x in cc['queries'] if x['name']==name];ch=sum(x.get('rows',0) for x in cq)
+            ok=sum(1 for x in cq if x.get('status')==200);fail=sum(1 for x in cq if x.get('status') not in (None,200) or 'error' in x)
+            summary[name]={'arquivo_rows':ah,'commoncrawl_rows':ch,'commoncrawl_successful_queries':ok,'commoncrawl_failed_queries':fail}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'arquivo':arquivo,'commoncrawl':cc},open('catalogue-audit/independent-three.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/independent-three-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2,ensure_ascii=False))
+          PY
+          python /tmp/search.py
+      - name: Commit independent archive results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/independent-three*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Search independent archives for final unmatched pages' && git pull --rebase && git push; fi
