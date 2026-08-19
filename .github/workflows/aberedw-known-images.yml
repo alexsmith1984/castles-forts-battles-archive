@@ -1,0 +1,64 @@
+name: Recover known surviving Aberedw images
+on:
+  push:
+    paths:
+      - '.github/workflows/aberedw-known-images.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Fetch known archived images
+        run: |
+          mkdir -p recovered/aberedw-castle/images
+          python - <<'PY'
+          import os,requests,re,json
+          from pathlib import Path
+          from urllib.parse import urlsplit
+          urls=[
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle11_manor.jpg?crc=514610365',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle16_manor.jpg?crc=3873354256',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle12_manor500x333.jpg?crc=120573466',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle2_motte.jpg?crc=3956422146',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle3_motte.jpg?crc=4182980585',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle4_motte.jpg?crc=65859273',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle6_motte.jpg?crc=140922779',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle7_motte.jpg?crc=4275628926',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle9_motte.jpg?crc=3896591429',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle10_motte.jpg?crc=516477252',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle13_manor.jpg?crc=3958080387',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle14_manor.jpg?crc=519134751',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle15_manor.jpg?crc=4120971946',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle17_manor.jpg?crc=494087494',
+          'http://www.castlesfortsbattles.co.uk:80/central_wales/images/aberedw_castle18.jpg?crc=4122889379']
+          ts='20190216213144'; out=Path('recovered/aberedw-castle/images'); s=requests.Session();s.headers['User-Agent']='Mozilla/5.0'
+          found=[]; failed=[]
+          for u in urls:
+            replay=f'https://web.archive.org/web/{ts}id_/{u}'
+            try:r=s.get(replay,timeout=18,allow_redirects=True)
+            except Exception as e: failed.append({'url':u,'error':type(e).__name__});continue
+            b=r.content; ct=(r.headers.get('content-type') or '').lower()
+            if r.status_code==200 and len(b)>900 and (ct.startswith('image/') or b.startswith(b'\xff\xd8\xff') or b.startswith(b'\x89PNG')):
+              fn=os.path.basename(urlsplit(u).path)
+              (out/fn).write_bytes(b);found.append({'url':u,'file':'images/'+fn,'bytes':len(b)})
+            else: failed.append({'url':u,'status':r.status_code,'type':ct,'bytes':len(b)})
+          Path('recovered/aberedw-castle/known-images-report.json').write_text(json.dumps({'found':found,'failed':failed},indent=2),encoding='utf-8')
+          p=Path('recovered/aberedw-castle/index.html')
+          if p.exists() and found:
+            text=p.read_text(encoding='utf-8')
+            figs=''.join('<figure><img src="%s" alt="Aberedw Castle"><figcaption>%s</figcaption></figure>'%(x['file'],os.path.splitext(os.path.basename(x['file']))[0].replace('_',' ')) for x in found)
+            text=re.sub(r'<p>No original image files could be recovered\.</p>',figs,text)
+            text=re.sub(r'0 intended full-size image file\(s\) were recovered and 7 could not be recovered in this pass\.',f'{len(found)} genuine archived display image file(s) were recovered; the seven full-size originals were not preserved in the archive.',text)
+            p.write_text(text,encoding='utf-8')
+          print('found',len(found),'failed',len(failed))
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/aberedw-castle
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Add surviving Aberedw Castle display images' && git pull --rebase && git push; fi
