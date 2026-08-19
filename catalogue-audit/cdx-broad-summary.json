@@ -1,0 +1,36 @@
+{
+  "catalogue_entries": 917,
+  "unique_destinations": 757,
+  "states": {
+    "indexed_200_capture": 305,
+    "no_200_htmlpath_capture": 451,
+    "reconstructed_local": 1
+  },
+  "queries": [
+    {
+      "domain": "www.castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 173664,
+      "rows": 1214
+    },
+    {
+      "domain": "castlesfortsbattles.co.uk",
+      "status": 200,
+      "bytes": 173664,
+      "rows": 1214
+    },
+    {
+      "domain": "www.battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 10921,
+      "rows": 76
+    },
+    {
+      "domain": "battlefieldsofbritain.co.uk",
+      "status": 200,
+      "bytes": 10921,
+      "rows": 76
+    }
+  ],
+  "scope": "CDX status-200 search for .html paths without MIME restriction."
+}
