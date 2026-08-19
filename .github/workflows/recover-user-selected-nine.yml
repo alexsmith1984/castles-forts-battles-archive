@@ -1,0 +1,201 @@
+name: Recover nine selected full pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-user-selected-nine.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover selected pages
+        run: |
+          cat > /tmp/recover_selected.py <<'PY'
+          import os,re,json,time,hashlib,html as H
+          from pathlib import Path
+          from urllib.parse import urlsplit,urlunsplit,urljoin
+          from io import BytesIO
+          import requests
+          from bs4 import BeautifulSoup
+          from PIL import Image
+
+          TARGETS=[
+            ('Hopton Heath (Battle of - 1643)','hopton-heath-1643','https://web.archive.org/web/20201128123644/http://www.battlefieldsofbritain.co.uk/battle_hopton_heath_1643.html'),
+            ('Hopton Castle','hopton-castle','https://web.archive.org/web/20210618112059/https://www.castlesfortsbattles.co.uk/midlands/hopton_castle.html'),
+            ('Montgomery Castle','montgomery-castle','http://web.archive.org/web/20220326093850/http://www.castlesfortsbattles.co.uk/central_wales/montgomery_castle.html'),
+            ('Moreton Corbet Castle','moreton-corbet-castle','https://web.archive.org/web/20220826212006/http://www.castlesfortsbattles.co.uk/midlands/moreton_corbet.html'),
+            ('Nantwich (Battle of - 1644)','nantwich-1644','http://web.archive.org/web/20210510075340/http://battlefieldsofbritain.co.uk/battle_nantwich_1644.html'),
+            ('Old Oswestry Hillfort','old-oswestry-hillfort','https://web.archive.org/web/20210804094545/https://www.castlesfortsbattles.co.uk/midlands/old_oswestry_hillfort.html'),
+            ('Peveril Castle','peveril-castle','https://web.archive.org/web/20191212142218/http://www.castlesfortsbattles.co.uk/midlands/peveril_castle.html'),
+            ('Seckington Castle','seckington-castle','http://web.archive.org/web/20210804093024/https://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html'),
+            ('Stokesay Castle','stokesay-castle','http://web.archive.org/web/20210804081957/https://www.castlesfortsbattles.co.uk/midlands/stokesay_castle.html'),
+          ]
+
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles archival reconstruction)'
+          def req(url,timeout=22):
+            for i in range(3):
+              try:
+                r=s.get(url,timeout=timeout,allow_redirects=True)
+                if r.status_code in (429,500,502,503,504): time.sleep(2+i*2); continue
+                return r
+              except Exception:
+                time.sleep(2+i*2)
+            return None
+
+          def parse_wayback(u):
+            m=re.search(r'/web/(\d+)/(https?://.+)$',u)
+            if not m: raise ValueError(u)
+            return m.group(1),m.group(2)
+
+          def image_ok(r):
+            if r is None or r.status_code!=200 or len(r.content)<700:return False
+            ct=(r.headers.get('content-type') or '').lower()
+            b=r.content[:12]
+            if not (ct.startswith('image/') or b.startswith(b'\xff\xd8\xff') or b.startswith(b'\x89PNG\r\n\x1a\n') or b[:6] in (b'GIF87a',b'GIF89a')): return False
+            try:
+              im=Image.open(BytesIO(r.content)); w,h=im.size
+              return w>=80 and h>=60
+            except Exception:return False
+
+          def variants(u):
+            sp=urlsplit(u); hosts=[sp.netloc]
+            hosts.append(sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc)
+            out=[]
+            for scheme in ('http','https'):
+              for host in dict.fromkeys(hosts):
+                out.append(urlunsplit((scheme,host,sp.path,'','')))
+            return list(dict.fromkeys(out))
+
+          def recover_one(ts,u,imgdir):
+            candidates=[(ts,u,'same-capture')]
+            for v in variants(u):
+              try:
+                q=s.get('https://web.archive.org/cdx/search/cdx',params={'url':v,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'},timeout=16)
+                if q.status_code==200:
+                  d=q.json(); rows=d[1:] if isinstance(d,list) and len(d)>1 else []
+                  for row in reversed(rows[-8:]): candidates.append((row[0],row[1],'wayback-cdx'))
+              except Exception: pass
+            seen=set()
+            for cts,cu,how in candidates:
+              if (cts,cu) in seen:continue
+              seen.add((cts,cu))
+              r=req(f'https://web.archive.org/web/{cts}id_/{cu}',16)
+              if image_ok(r):
+                try:
+                  im=Image.open(BytesIO(r.content)); dims=list(im.size)
+                except Exception:dims=None
+                digest=hashlib.sha256(r.content).hexdigest()
+                ext=os.path.splitext(urlsplit(u).path)[1].lower()
+                if ext not in ('.jpg','.jpeg','.png','.gif','.webp'): ext='.jpg'
+                fn=re.sub(r'[^A-Za-z0-9._-]+','_',os.path.basename(urlsplit(u).path) or ('image'+ext))
+                p=imgdir/fn
+                if p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()!=digest:
+                  stem,suf=os.path.splitext(fn); fn=f'{stem}-{digest[:8]}{suf}'; p=imgdir/fn
+                p.write_bytes(r.content)
+                return {'status':'recovered','file':'images/'+fn,'method':how,'timestamp':cts,'archived_original':cu,'bytes':len(r.content),'dimensions':dims,'sha256':digest}
+            # Arquivo exact variants; a successful empty query is a genuine negative for this route.
+            ar_ok=False
+            for v in variants(u):
+              try:
+                q=s.get('https://arquivo.pt/wayback/cdx',params={'url':v,'output':'json','filter':'status:200','fields':'timestamp,url,mime,status','limit':30},timeout=14)
+                if q.status_code!=200:continue
+                ar_ok=True; data=q.json()
+                if not isinstance(data,list):continue
+                for row in reversed(data):
+                  ats=row.get('timestamp'); au=row.get('url')
+                  if not ats or not au:continue
+                  r=req(f'https://arquivo.pt/noFrame/replay/{ats}id_/{au}',16)
+                  if image_ok(r):
+                    digest=hashlib.sha256(r.content).hexdigest(); ext=os.path.splitext(urlsplit(u).path)[1].lower() or '.jpg'
+                    fn=re.sub(r'[^A-Za-z0-9._-]+','_',os.path.basename(urlsplit(u).path) or ('image'+ext)); p=imgdir/fn; p.write_bytes(r.content)
+                    try:dims=list(Image.open(BytesIO(r.content)).size)
+                    except Exception:dims=None
+                    return {'status':'recovered','file':'images/'+fn,'method':'arquivo','timestamp':ats,'archived_original':au,'bytes':len(r.content),'dimensions':dims,'sha256':digest}
+              except Exception:pass
+            return {'status':'unrecovered','arquivo':'searched-no-copy' if ar_ok else 'inconclusive'}
+
+          decor=re.compile(r'(?:facebook|twitter|google|email|print|share|logo|favicon|blank\.gif|castlesfortsbattles(?:-crop)?\.(?:jpg|png)|battlefieldsofbritain(?:-crop)?\.(?:jpg|png))',re.I)
+          nav_exact={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
+          reports=[]
+
+          for name,slug,wb in TARGETS:
+            ts,original=parse_wayback(wb)
+            rawurl=f'https://web.archive.org/web/{ts}id_/{original}'
+            r=req(rawurl,35)
+            if r is None or r.status_code!=200 or '<html' not in r.text.lower():
+              reports.append({'name':name,'slug':slug,'status':'source-failed','status_code':None if r is None else r.status_code}); continue
+            raw=r.text
+            out=Path('recovered')/slug; imgdir=out/'images'; imgdir.mkdir(parents=True,exist_ok=True)
+            (out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
+            soup=BeautifulSoup(raw,'html.parser')
+
+            refs=[]
+            for el in soup.find_all(['img','a']):
+              vals=[]
+              if el.name=='img':
+                for a in ('data-orig-src','data-muse-src','data-src','data-hidpi-src','src'):
+                  v=(el.get(a) or '').strip()
+                  if v and not v.startswith('data:') and 'blank.gif' not in v.lower(): vals.append(v)
+              else:
+                v=(el.get('href') or '').strip()
+                if re.search(r'\.(?:jpe?g|png|gif|webp)(?:\?|$)',v,re.I): vals.append(v)
+              for v in vals:
+                u=urljoin(original,v); b=os.path.basename(urlsplit(u).path)
+                if not b or decor.search(b):continue
+                if u not in refs:refs.append(u)
+
+            image_results=[]; shown=[]; hashes=set()
+            for u in refs[:80]:
+              x=recover_one(ts,u,imgdir); x['requested']=u; image_results.append(x)
+              if x['status']=='recovered' and x['sha256'] not in hashes:
+                hashes.add(x['sha256']); shown.append((u,x['file']))
+              time.sleep(.08)
+
+            for x in soup(['script','style','noscript']):x.decompose()
+            blocks=[]; seen=set()
+            for el in soup.find_all(['h1','h2','h3','h4','p','li']):
+              txt=' '.join(el.stripped_strings).strip()
+              if not txt or txt in nav_exact or txt.lower() in ('tweet','share','follow'):continue
+              key=re.sub(r'\s+',' ',txt).casefold()
+              if key in seen:continue
+              seen.add(key)
+              if len(txt)<2:continue
+              blocks.append((el.name,txt))
+            body=[]
+            for tag,txt in blocks:
+              if tag.startswith('h') or (len(txt)<85 and re.match(r'^(History|Getting There|Bibliography|What.s There|Location|Access|Design|Visiting|Gallery|Battle|Aftermath|Background|Forces|Action|Statistics|Parking)\b',txt,re.I)):
+                body.append(f'<h2>{H.escape(txt)}</h2>')
+              elif tag=='li': body.append(f'<p>• {H.escape(txt)}</p>')
+              else: body.append(f'<p>{H.escape(txt)}</p>')
+            figs=[]
+            for u,rel in shown:
+              cap=os.path.splitext(os.path.basename(urlsplit(u).path))[0].replace('_',' ')
+              figs.append(f'<figure><img src="{H.escape(rel,quote=True)}" alt="{H.escape(name)}"><figcaption>{H.escape(cap)}</figcaption></figure>')
+            rc=len(shown); miss=sum(1 for x in image_results if x['status']!='recovered')
+            doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H.escape(name)} | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:white;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:920px;margin:auto;padding:24px 18px 50px}}.note,article{{background:white;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c;margin-top:1.35em}}p{{margin:.75em 0}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto;border:1px solid #d7cebd}}figcaption{{font-size:13px;color:#6b6255;margin-top:5px}}a{{color:#224d74}}</style></head><body><header><h1>{H.escape(name)}</h1></header><main><div class="note">Static archival reconstruction from the supplied Wayback capture. The archived written content is preserved; only genuine original images recovered from web archives are displayed. {rc} distinct archived content image(s) recovered.</div><article>{''.join(body)}<h2>Recovered original photographs, plans and images</h2>{''.join(figs) if figs else '<p>No original image files could be recovered from the available archive copies.</p>'}</article><p><a href="../../atoz-archive.html">Back to recovered A–Z index</a></p></main></body></html>'''
+            (out/'index.html').write_text(doc,encoding='utf-8')
+            report={'name':name,'slug':slug,'status':'built','source_wayback':wb,'raw_source':rawurl,'source_bytes':len(r.content),'text_blocks':len(blocks),'image_references_detected':len(refs),'distinct_images_recovered':rc,'unrecovered_image_references':miss,'images':image_results,'public_path':f'recovered/{slug}/index.html'}
+            (out/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8'); reports.append(report)
+            print(name,'text',len(blocks),'refs',len(refs),'recovered',rc,'miss',miss)
+
+          Path('page-audit').mkdir(exist_ok=True)
+          Path('page-audit/user-selected-nine.json').write_text(json.dumps(reports,indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+          python /tmp/recover_selected.py
+      - name: Commit recovered pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/hopton-heath-1643 recovered/hopton-castle recovered/montgomery-castle recovered/moreton-corbet-castle recovered/nantwich-1644 recovered/old-oswestry-hillfort recovered/peveril-castle recovered/seckington-castle recovered/stokesay-castle page-audit/user-selected-nine.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Recover nine requested full pages' && git pull --rebase && git push; fi
