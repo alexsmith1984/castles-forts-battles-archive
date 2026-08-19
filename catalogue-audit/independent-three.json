@@ -1,0 +1,1371 @@
+{
+  "summary": {
+    "Dinieithon Castle": {
+      "arquivo_rows": 0,
+      "commoncrawl_rows": 0,
+      "commoncrawl_successful_queries": 0,
+      "commoncrawl_failed_queries": 72
+    },
+    "Galdendoch Castle": {
+      "arquivo_rows": 0,
+      "commoncrawl_rows": 0,
+      "commoncrawl_successful_queries": 0,
+      "commoncrawl_failed_queries": 36
+    },
+    "Oxburgh Hall": {
+      "arquivo_rows": 0,
+      "commoncrawl_rows": 0,
+      "commoncrawl_successful_queries": 0,
+      "commoncrawl_failed_queries": 48
+    }
+  },
+  "arquivo": [
+    {
+      "name": "Dinieithon Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Dinieithon Castle",
+      "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Dinieithon Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Dinieithon Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Dinieithon Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Dinieithon Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Galdendoch Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Galdendoch Castle",
+      "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Galdendoch Castle",
+      "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Oxburgh Hall",
+      "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Oxburgh Hall",
+      "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Oxburgh Hall",
+      "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    },
+    {
+      "name": "Oxburgh Hall",
+      "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+      "status": 200,
+      "rows": 0,
+      "sample": []
+    }
+  ],
+  "commoncrawl": {
+    "collinfo": {
+      "status": 200,
+      "count": 126
+    },
+    "queries": [
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dinieithon_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/central_wales/cefnllys_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Dinieithon Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/cefnllys_old_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "https://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Galdendoch Castle",
+        "url": "http://www.castlesfortsbattles.co.uk/galdendoch_castle.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 502,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "https://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/oxburgh_hall.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2022-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2022-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2021-49",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2021-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2020-50",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2020-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2019-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2019-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2018-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2018-05",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2017-51",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      },
+      {
+        "name": "Oxburgh Hall",
+        "url": "http://www.castlesfortsbattles.co.uk/east/oxburgh.html",
+        "crawl": "CC-MAIN-2017-04",
+        "status": 404,
+        "rows": 0,
+        "sample": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Dinieithon Castle": {
+    "arquivo_rows": 0,
+    "commoncrawl_rows": 0,
+    "commoncrawl_successful_queries": 0,
+    "commoncrawl_failed_queries": 72
+  },
+  "Galdendoch Castle": {
+    "arquivo_rows": 0,
+    "commoncrawl_rows": 0,
+    "commoncrawl_successful_queries": 0,
+    "commoncrawl_failed_queries": 36
+  },
+  "Oxburgh Hall": {
+    "arquivo_rows": 0,
+    "commoncrawl_rows": 0,
+    "commoncrawl_successful_queries": 0,
+    "commoncrawl_failed_queries": 48
+  }
+}
