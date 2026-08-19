@@ -1,0 +1,232 @@
+name: Recover Aberedw Castle
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-aberedw-castle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Recover source, genuine images, and build clean page
+        run: |
+          cat > /tmp/recover_aberedw.py <<'PY'
+          import json, os, re, time, mimetypes
+          from pathlib import Path
+          from urllib.parse import urlsplit, urlunsplit
+          import requests
+          from bs4 import BeautifulSoup
+
+          NAME='Aberedw Castle'
+          SLUG='aberedw-castle'
+          OUT=Path('recovered')/SLUG
+          IMG=OUT/'images'
+          OUT.mkdir(parents=True,exist_ok=True); IMG.mkdir(parents=True,exist_ok=True)
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles archival recovery)'
+
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          page=next(x for x in inv if x.get('primary_name')==NAME)
+          canon=json.load(open('catalogue-audit/canonical-content-images.json',encoding='utf-8'))['results']
+          rec=next(x for x in canon if x.get('primary_name')==NAME)
+          raw_url=page['raw_replay']
+
+          def req(url,timeout=20):
+              try:return s.get(url,timeout=timeout,allow_redirects=True)
+              except Exception:return None
+
+          r=req(raw_url,30)
+          if r is None or r.status_code!=200 or len(r.content)<5000:
+              raise SystemExit('Could not recover source HTML')
+          raw=r.text
+          (OUT/'source.html').write_text(raw,encoding='utf-8',errors='replace')
+
+          def is_image_response(r):
+              if r is None or r.status_code!=200 or len(r.content)<600:return False
+              ct=(r.headers.get('content-type') or '').lower()
+              if ct.startswith('image/'):return True
+              b=r.content[:12]
+              return b.startswith(b'\xff\xd8\xff') or b.startswith(b'\x89PNG\r\n\x1a\n') or b[:6] in (b'GIF87a',b'GIF89a')
+
+          def safe_name(url):
+              p=urlsplit(url).path; b=os.path.basename(p) or 'image'
+              return re.sub(r'[^A-Za-z0-9._-]+','_',b)
+
+          # Precomputed alternate same-filename candidates from the full-site audit.
+          alternates={}
+          for a in rec.get('alternate_candidates',[]) or []:
+              alternates[a['requested']]=a.get('alternates',[]) or []
+
+          def try_wayback(original):
+              # First use precomputed alternate candidates, then exact availability/CDX variants.
+              candidates=[]
+              for a in alternates.get(original,[]):
+                  if a.get('timestamp') and a.get('original'):
+                      candidates.append((a['timestamp'],a['original'],'wayback-alternate-path'))
+              sp=urlsplit(original)
+              hosts=[sp.netloc]
+              if sp.netloc.startswith('www.'):hosts.append(sp.netloc[4:])
+              else:hosts.append('www.'+sp.netloc)
+              for scheme in ('http','https'):
+                  for host in hosts:
+                      v=urlunsplit((scheme,host,sp.path,'',''))
+                      try:
+                          q=s.get('https://web.archive.org/cdx/search/cdx',params={
+                              'url':v,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'
+                          },timeout=12)
+                          if q.status_code==200:
+                              d=q.json(); rows=d[1:] if isinstance(d,list) and len(d)>1 else []
+                              for row in reversed(rows[-8:]):
+                                  candidates.append((row[0],row[1],'wayback-exact'))
+                      except Exception: pass
+              seen=set()
+              for ts,u,how in candidates:
+                  key=(ts,u)
+                  if key in seen:continue
+                  seen.add(key)
+                  rr=req(f'https://web.archive.org/web/{ts}id_/{u}',15)
+                  if is_image_response(rr):return rr.content,how,ts,u
+              return None
+
+          def arquivo_query(original):
+              # Exact URL variants first; then same filename under the same directory prefix.
+              sp=urlsplit(original); variants=[]
+              hosts=[sp.netloc]
+              if sp.netloc.startswith('www.'):hosts.append(sp.netloc[4:])
+              else:hosts.append('www.'+sp.netloc)
+              for scheme in ('http','https'):
+                  for host in hosts:
+                      variants.append(urlunsplit((scheme,host,sp.path,'','')))
+              for v in variants:
+                  try:
+                      q=s.get('https://arquivo.pt/wayback/cdx',params={
+                          'url':v,'output':'json','filter':'status:200','fields':'timestamp,url,mime,status','limit':50
+                      },timeout=12)
+                      if q.status_code!=200:continue
+                      data=q.json()
+                      rows=data if isinstance(data,list) else []
+                      for row in reversed(rows):
+                          ts=row.get('timestamp'); u=row.get('url')
+                          if not ts or not u:continue
+                          rr=req(f'https://arquivo.pt/noFrame/replay/{ts}id_/{u}',15)
+                          if is_image_response(rr):return rr.content,'arquivo-exact',ts,u
+                  except Exception:pass
+              return None
+
+          # Common Crawl is probed only as an index check. Service failures stay inconclusive.
+          def commoncrawl_probe(original):
+              crawls=['CC-MAIN-2022-49','CC-MAIN-2021-49','CC-MAIN-2020-50','CC-MAIN-2019-51','CC-MAIN-2018-51','CC-MAIN-2017-51']
+              attempts=[]
+              for cid in crawls:
+                  try:
+                      q=s.get(f'https://index.commoncrawl.org/{cid}-index',params={'url':original,'output':'json'},timeout=7)
+                      attempts.append({'crawl':cid,'status':q.status_code})
+                      if q.status_code==200 and q.text.strip():
+                          return {'state':'index-hit','crawl':cid,'line':q.text.splitlines()[0][:800],'attempts':attempts}
+                      if q.status_code in (429,500,502,503,504):
+                          continue
+                  except Exception as e:
+                      attempts.append({'crawl':cid,'error':type(e).__name__})
+              ok=[a for a in attempts if a.get('status') in (200,404)]
+              if ok and all(a.get('status')==404 for a in ok) and len(ok)==len(attempts):
+                  return {'state':'no-index-hit','attempts':attempts}
+              return {'state':'inconclusive','attempts':attempts}
+
+          intended=rec.get('missing_images',[]) or []
+          # Add all canonical intended refs: missing + exact/alternate candidates inferred from source asset links.
+          for u in page.get('asset_links',[]) or []:
+              if u not in intended:intended.append(u)
+
+          recovered={}; recovery_report=[]
+          for original in intended:
+              got=try_wayback(original)
+              independent={'arquivo':'not-needed','commoncrawl':'not-needed'}
+              if not got:
+                  got=arquivo_query(original)
+                  independent['arquivo']='found' if got else 'no-copy-found'
+                  if not got:
+                      cc=commoncrawl_probe(original); independent['commoncrawl']=cc
+              if got:
+                  data,how,ts,u=got
+                  fn=safe_name(original)
+                  # avoid collisions safely
+                  dest=IMG/fn
+                  if dest.exists() and dest.read_bytes()!=data:
+                      stem,suf=os.path.splitext(fn); i=2
+                      while (IMG/f'{stem}-{i}{suf}').exists():i+=1
+                      dest=IMG/f'{stem}-{i}{suf}'
+                  dest.write_bytes(data)
+                  rel=f'images/{dest.name}'
+                  recovered[os.path.basename(urlsplit(original).path).lower()]=rel
+                  recovery_report.append({'original':original,'status':'recovered','method':how,'timestamp':ts,'archived_original':u,'local':str(dest),'independent':independent,'bytes':len(data)})
+              else:
+                  recovery_report.append({'original':original,'status':'unrecovered','independent':independent})
+              time.sleep(.15)
+
+          # Build a readable static reconstruction from the original source. We preserve unique headings/paragraphs in source order;
+          # duplicate breakpoint copies and navigation/footer boilerplate are removed.
+          soup=BeautifulSoup(raw,'html.parser')
+          for x in soup(['script','style','noscript']):x.decompose()
+          nav_exact={
+              'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions',
+              'CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'
+          }
+          text_blocks=[]; seen_text=set()
+          for el in soup.find_all(['h1','h2','h3','h4','p']):
+              txt=' '.join(el.stripped_strings).strip()
+              if not txt or txt in nav_exact:continue
+              if txt.lower() in {'tweet','share','follow'}:continue
+              key=re.sub(r'\s+',' ',txt).casefold()
+              if key in seen_text:continue
+              seen_text.add(key)
+              # suppress tiny menu fragments and obvious cookie/social boilerplate
+              if len(txt)<2:continue
+              text_blocks.append((el.name,txt))
+
+          # Recoverable images are shown in the order the canonical asset links occur in the source/audit.
+          image_blocks=[]; seen_img=set()
+          for u in page.get('asset_links',[]) or []:
+              b=os.path.basename(urlsplit(u).path).lower()
+              if b in recovered and recovered[b] not in seen_img:
+                  seen_img.add(recovered[b]); image_blocks.append((u,recovered[b]))
+
+          import html as H
+          paras=[]
+          for tag,txt in text_blocks:
+              if tag in ('h1','h2','h3','h4') or (len(txt)<80 and re.match(r'^(History|Design|Getting There|Visiting|Bibliography|References|Sources|Location|Access|Introduction|Overview)\b',txt,re.I)):
+                  paras.append(f'<h2>{H.escape(txt)}</h2>')
+              else:
+                  paras.append(f'<p>{H.escape(txt)}</p>')
+          figs=[]
+          for orig,rel in image_blocks:
+              label=os.path.splitext(os.path.basename(urlsplit(orig).path))[0].replace('_',' ')
+              figs.append(f'<figure><img src="{H.escape(rel,quote=True)}" alt="{H.escape(NAME)}"><figcaption>{H.escape(label)}</figcaption></figure>')
+          rec_count=sum(1 for x in recovery_report if x['status']=='recovered')
+          miss_count=sum(1 for x in recovery_report if x['status']=='unrecovered')
+          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H.escape(NAME)} | Castles, Forts and Battles Archive</title><style>
+          *{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:white;padding:28px 18px;text-align:center}}header h1{{margin:0;font-size:32px}}main{{max-width:900px;margin:auto;padding:24px 18px 50px}}.note{{background:#fff;border-left:4px solid #8b7959;padding:12px 14px;margin-bottom:22px}}article{{background:#fff;border:1px solid #d7cebd;border-radius:6px;padding:22px}}h2{{color:#493e2c;margin-top:1.4em}}p{{margin:.8em 0}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto;border:1px solid #d7cebd}}figcaption{{font-size:13px;color:#6b6255;margin-top:5px}}a{{color:#224d74}}.gallery{{margin-top:25px;border-top:1px solid #ddd3c1;padding-top:12px}}@media(max-width:650px){{header h1{{font-size:26px}}article{{padding:16px}}}}
+          </style></head><body><header><h1>{H.escape(NAME)}</h1></header><main><div class="note">Recovered from the archived CastlesFortsBattles.co.uk page. Original text is preserved from the archived source; only genuine original images recovered from web archives are shown. {rec_count} intended full-size image file(s) were recovered and {miss_count} could not be recovered in this pass.</div><article>{''.join(paras)}<div class="gallery"><h2>Recovered original photographs and images</h2>{''.join(figs) if figs else '<p>No original image files could be recovered.</p>'}</div></article><p><a href="../../atoz-part1.html#a">Back to A–Z index</a></p></main></body></html>'''
+          (OUT/'index.html').write_text(doc,encoding='utf-8')
+          report={'name':NAME,'source':raw_url,'source_bytes':len(raw.encode('utf-8')),'text_blocks':len(text_blocks),'intended_asset_files':len(intended),'recovered_assets':rec_count,'unrecovered_assets':miss_count,'images':recovery_report,'public_path':f'recovered/{SLUG}/index.html'}
+          (OUT/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({'name':NAME,'source_bytes':report['source_bytes'],'text_blocks':report['text_blocks'],'intended':len(intended),'recovered':rec_count,'unrecovered':miss_count},indent=2))
+          PY
+          python /tmp/recover_aberedw.py
+      - name: Commit recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/aberedw-castle/
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Recover Aberedw Castle page' && git pull --rebase && git push; fi
