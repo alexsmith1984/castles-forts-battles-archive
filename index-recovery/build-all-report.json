@@ -1,15 +1,19 @@
 {
-  "total_entries_A_Z": 920,
+  "total_entries_A_Z": 917,
   "pages": [
     {
       "page": "atoz-part1.html",
       "range": "A–C",
-      "entries": 270,
+      "entries": 268,
       "by_letter": {
-        "A": 48,
+        "A": 47,
         "B": 93,
-        "C": 129
-      }
+        "C": 128
+      },
+      "removed_footer_links": [
+        "About Us",
+        "Contact Us"
+      ]
     },
     {
       "page": "atoz-part2.html",
@@ -20,7 +24,8 @@
         "E": 25,
         "F": 49,
         "G": 25
-      }
+      },
+      "removed_footer_links": []
     },
     {
       "page": "atoz-part3.html",
@@ -32,7 +37,8 @@
         "J": 1,
         "K": 25,
         "L": 47
-      }
+      },
+      "removed_footer_links": []
     },
     {
       "page": "atoz-part4.html",
@@ -45,22 +51,25 @@
         "P": 41,
         "Q": 1,
         "R": 43
-      }
+      },
+      "removed_footer_links": []
     },
     {
       "page": "atoz-part5.html",
       "range": "S–Z",
-      "entries": 173,
+      "entries": 172,
       "by_letter": {
         "S": 74,
-        "T": 40,
+        "T": 39,
         "U": 7,
         "V": 2,
         "W": 45,
-        "X": 0,
         "Y": 4,
         "Z": 1
-      }
+      },
+      "removed_footer_links": [
+        "Terms and Conditions"
+      ]
     }
   ]
 }
