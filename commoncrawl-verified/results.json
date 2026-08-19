@@ -1,0 +1,2012 @@
+{
+  "crawls": [
+    "CC-MAIN-2022-49",
+    "CC-MAIN-2022-40",
+    "CC-MAIN-2022-33",
+    "CC-MAIN-2022-27",
+    "CC-MAIN-2022-21",
+    "CC-MAIN-2022-05",
+    "CC-MAIN-2021-49",
+    "CC-MAIN-2021-43",
+    "CC-MAIN-2021-39",
+    "CC-MAIN-2021-31",
+    "CC-MAIN-2021-25",
+    "CC-MAIN-2021-21",
+    "CC-MAIN-2021-17",
+    "CC-MAIN-2021-10",
+    "CC-MAIN-2021-04",
+    "CC-MAIN-2020-50",
+    "CC-MAIN-2020-45",
+    "CC-MAIN-2020-40",
+    "CC-MAIN-2020-34",
+    "CC-MAIN-2020-29",
+    "CC-MAIN-2020-24",
+    "CC-MAIN-2020-16",
+    "CC-MAIN-2020-10",
+    "CC-MAIN-2020-05",
+    "CC-MAIN-2019-51",
+    "CC-MAIN-2019-47",
+    "CC-MAIN-2019-43",
+    "CC-MAIN-2019-39",
+    "CC-MAIN-2019-35",
+    "CC-MAIN-2019-30",
+    "CC-MAIN-2019-26",
+    "CC-MAIN-2019-22",
+    "CC-MAIN-2019-18",
+    "CC-MAIN-2019-13",
+    "CC-MAIN-2019-09",
+    "CC-MAIN-2019-04",
+    "CC-MAIN-2018-51",
+    "CC-MAIN-2018-47",
+    "CC-MAIN-2018-43",
+    "CC-MAIN-2018-39",
+    "CC-MAIN-2018-34",
+    "CC-MAIN-2018-30",
+    "CC-MAIN-2018-26",
+    "CC-MAIN-2018-22",
+    "CC-MAIN-2018-17",
+    "CC-MAIN-2018-13",
+    "CC-MAIN-2018-09",
+    "CC-MAIN-2018-05",
+    "CC-MAIN-2017-51",
+    "CC-MAIN-2017-47",
+    "CC-MAIN-2017-43",
+    "CC-MAIN-2017-39",
+    "CC-MAIN-2017-34",
+    "CC-MAIN-2017-30",
+    "CC-MAIN-2017-26",
+    "CC-MAIN-2017-22",
+    "CC-MAIN-2017-17",
+    "CC-MAIN-2017-13",
+    "CC-MAIN-2017-09",
+    "CC-MAIN-2017-04"
+  ],
+  "patterns": [
+    "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+    "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+    "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+    "castlesfortsbattles.co.uk/midlands/images/baddesley*"
+  ],
+  "queries_ok": 0,
+  "queries_failed": 240,
+  "error_counts": {
+    "HTTP Error 503": 4,
+    "HTTP Error 500": 2,
+    "<urlopen error [Errno 61] Connection refused>": 202,
+    "<urlopen error timed out>": 31,
+    "HTTP Error 404": 1
+  },
+  "summary": {
+    "baddesley_clinton_plan": 0,
+    "baddesley_castle5": 0,
+    "baddesley_castle9": 0,
+    "baddesley_castle24": 0,
+    "baddesley_castle23": 0,
+    "baddesley_castle10": 0,
+    "baddesley_castle12": 0,
+    "baddesley_castle14_priest_hole": 0
+  },
+  "hits": [],
+  "query_log": [
+    {
+      "crawl": "CC-MAIN-2022-49",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-49",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-49",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 500: Internal Error: An error occurred (SlowDown) when calling the GetObject operation (reached max retries: 4): Please reduce your request rate.",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-49",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-40",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 500: Internal Error: An error occurred (SlowDown) when calling the GetObject operation (reached max retries: 4): Please reduce your request rate.",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-40",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 503: Service Temporarily Unavailable",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-40",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-40",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-33",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-33",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-33",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-33",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-27",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-27",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-27",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-27",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-21",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-21",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-21",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-21",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-05",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-05",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-05",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2022-05",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-49",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-49",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-49",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-49",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-31",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-31",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-31",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-31",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-25",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-25",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-25",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-25",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-21",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-21",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-21",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-21",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-17",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-17",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-17",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-17",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-10",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-10",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-10",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-10",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-04",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-04",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-04",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2021-04",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-50",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-50",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-50",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-50",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-45",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-45",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-45",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-45",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-40",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-40",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-40",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-40",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-34",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-34",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-34",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-34",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-29",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-29",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-29",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-29",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-24",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-24",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-24",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-24",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-16",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-16",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-16",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-16",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-10",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-10",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-10",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-10",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-05",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-05",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-05",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2020-05",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-51",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-51",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-51",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-51",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-47",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-47",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-47",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-47",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-35",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-35",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-35",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-35",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-30",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-30",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-30",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-30",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-26",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-26",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-26",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-26",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-22",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-22",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-22",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-22",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-18",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-18",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-18",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-18",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-13",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-13",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-13",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-13",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-09",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-09",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-09",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-09",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-04",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-04",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-04",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2019-04",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-51",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-51",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-51",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-51",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-47",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-47",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-47",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-47",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-34",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-34",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-34",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-34",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-30",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-30",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-30",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-30",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-26",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-26",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-26",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-26",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-22",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-22",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-22",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-22",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-17",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-17",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-17",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-17",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-13",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-13",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-13",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-13",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-09",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-09",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-09",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-09",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-05",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-05",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-05",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2018-05",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-51",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-51",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-51",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-51",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-47",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-47",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-47",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-47",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-43",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-43",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-39",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-39",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-34",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-34",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "HTTP Error 404: Not Found",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-34",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-34",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-30",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-30",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-30",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-30",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-26",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-26",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-26",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-26",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-22",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-22",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-22",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-22",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-17",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-17",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-17",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-17",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-13",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-13",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-13",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-13",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error timed out>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-09",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-09",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-09",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-09",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-04",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-04",
+      "pattern": "www.castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-04",
+      "pattern": "castlesfortsbattles.co.uk/midlands/assets/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    },
+    {
+      "crawl": "CC-MAIN-2017-04",
+      "pattern": "castlesfortsbattles.co.uk/midlands/images/baddesley*",
+      "ok": false,
+      "status": null,
+      "error": "<urlopen error [Errno 61] Connection refused>",
+      "row_count": 0
+    }
+  ]
+}

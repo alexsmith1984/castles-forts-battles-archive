@@ -1,0 +1,9 @@
+Common Crawl crawls=60; queries_ok=0; failed=240; unique_baddesley_rows=0
+baddesley_clinton_plan: 0
+baddesley_castle5: 0
+baddesley_castle9: 0
+baddesley_castle24: 0
+baddesley_castle23: 0
+baddesley_castle10: 0
+baddesley_castle12: 0
+baddesley_castle14_priest_hole: 0
