@@ -1,0 +1,86 @@
+name: Recover archived images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-images.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: image-recovery
+      - name: Recover Baddesley Clinton images
+        shell: bash
+        run: |
+          set -u
+          mkdir -p images
+          : > image-recovery-report.txt
+
+          recover_one() {
+            out="$1"
+            display="$2"
+            asset="$3"
+            shift 3
+            found=0
+            for ts in 20210618112926 20220826211917 20220921221911 20220922002533; do
+              for mod in id_ im_; do
+                for rel in "images/$display" "assets/$asset"; do
+                  [ -z "$display" ] && continue
+                  url="https://web.archive.org/web/${ts}${mod}/http://www.castlesfortsbattles.co.uk/midlands/${rel}"
+                  tmp="/tmp/${out}.tmp"
+                  rm -f "$tmp"
+                  echo "Trying $url"
+                  if curl -L --fail --silent --show-error --retry 2 --connect-timeout 20 --max-time 90 -A 'Mozilla/5.0' "$url" -o "$tmp"; then
+                    mime=$(file --mime-type -b "$tmp" || true)
+                    if [[ "$mime" == image/* ]]; then
+                      mv "$tmp" "images/$out"
+                      echo "$out <= $url [$mime]" >> image-recovery-report.txt
+                      found=1
+                      break 3
+                    fi
+                  fi
+                done
+              done
+            done
+            if [ "$found" -eq 0 ]; then
+              echo "MISSING: $out" >> image-recovery-report.txt
+            fi
+          }
+
+          recover_one baddesley_castle.jpg baddesley_castle.jpg baddesley_castle.jpg
+          recover_one baddesley_castle2.jpg baddesley_castle2.jpg baddesley_castle2.jpg
+          recover_one baddesley_clinton_plan.jpg baddesley_clinton_plan.jpg baddesley_clinton_plan.png
+          recover_one baddesley_castle21.jpg baddesley_castle21.jpg baddesley_castle21.jpg
+          recover_one baddesley_castle5.jpg baddesley_castle5.jpg baddesley_castle5.jpg
+          recover_one baddesley_castle6.jpg baddesley_castle6.jpg baddesley_castle6.jpg
+          recover_one baddesley_castle9.jpg baddesley_castle9.jpg baddesley_castle9.jpg
+          recover_one baddesley_castle24.jpg baddesley_castle24.jpg baddesley_castle24.jpg
+          recover_one baddesley_castle23.jpg baddesley_castle23.jpg baddesley_castle23.jpg
+          recover_one baddesley_castle10.jpg baddesley_castle10.jpg baddesley_castle10.jpg
+          recover_one baddesley_castle12.jpg baddesley_castle12.jpg baddesley_castle12.jpg
+          recover_one baddesley_castle14_priest_hole.jpg baddesley_castle14_priest_hole.jpg baddesley_castle14_priest_hole.jpg
+
+          echo '--- recovered files ---'
+          ls -lh images || true
+          echo '--- report ---'
+          cat image-recovery-report.txt
+
+      - name: Commit recovered images
+        shell: bash
+        run: |
+          git config user.name 'archive-recovery-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add images image-recovery-report.txt
+          if git diff --cached --quiet; then
+            echo 'No recovered images to commit.'
+          else
+            git commit -m 'Recover Baddesley Clinton images from Wayback'
+            git push origin HEAD:image-recovery
+          fi
