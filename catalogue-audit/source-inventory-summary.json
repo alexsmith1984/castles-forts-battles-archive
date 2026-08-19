@@ -1,0 +1,14 @@
+{
+  "unique_destinations": 757,
+  "fetch_states": {
+    "source_ok": 398,
+    "no_known_snapshot": 358,
+    "local_reconstruction": 1
+  },
+  "sources_inventoried": 398,
+  "pages_with_asset_links": 257,
+  "pages_with_any_media_refs": 397,
+  "total_asset_links": 2052,
+  "total_media_refs": 20423,
+  "scope": "Source inventory only. Media references are intended/referenced resources; this pass does not yet assert that each referenced image file is preserved."
+}
