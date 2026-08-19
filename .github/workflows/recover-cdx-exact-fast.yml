@@ -1,0 +1,93 @@
+name: Exact CRC CDX Baddesley recovery
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  exact-cdx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - name: Query exact source URLs in CDX
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p exact-cdx-images
+          python3 - <<'PY'
+          import json, urllib.parse, urllib.request, subprocess, re, time
+          from pathlib import Path
+
+          targets={
+            'baddesley_clinton_plan':['assets/baddesley_clinton_plan.png','images/baddesley_clinton_plan.jpg?crc=4079519696','images/baddesley_clinton_plan266x254.jpg?crc=9451670'],
+            'baddesley_castle5':['assets/baddesley_castle5.jpg','images/baddesley_castle5.jpg?crc=3975735450','images/baddesley_castle5321x214.jpg?crc=3861364141'],
+            'baddesley_castle9':['assets/baddesley_castle9.jpg','images/baddesley_castle9.jpg?crc=3843622111','images/baddesley_castle9a.jpg?crc=4214904937','images/baddesley_castle9170x215.jpg?crc=82528509'],
+            'baddesley_castle24':['assets/baddesley_castle24.jpg','images/baddesley_castle24.jpg?crc=327368683','images/baddesley_castle2463x309.jpg?crc=138612683','images/baddesley_castle24324x216.jpg?crc=252502805'],
+            'baddesley_castle23':['assets/baddesley_castle23.jpg','images/baddesley_castle23.jpg?crc=529354828','images/baddesley_castle2398x266.jpg?crc=4013420218','images/baddesley_castle23325x217.jpg?crc=4075909043'],
+            'baddesley_castle10':['assets/baddesley_castle10.jpg','images/baddesley_castle10.jpg?crc=4077471748','images/baddesley_castle10341x227.jpg?crc=320332269'],
+            'baddesley_castle12':['assets/baddesley_castle12.jpg','images/baddesley_castle12.jpg?crc=3868328721','images/baddesley_castle12341x227.jpg?crc=346029863'],
+            'baddesley_castle14_priest_hole':['assets/baddesley_castle14_priest_hole.jpg','images/baddesley_castle14_priest_hole.jpg?crc=42613693','images/baddesley_castle14_priest_hole309x463.jpg?crc=4059488850']
+          }
+          bases=['http://www.castlesfortsbattles.co.uk/midlands/','https://www.castlesfortsbattles.co.uk/midlands/','http://castlesfortsbattles.co.uk/midlands/','https://castlesfortsbattles.co.uk/midlands/']
+          report=[]; raw={}
+          def query(orig):
+              params=[('url',orig),('output','json'),('fl','timestamp,original,mimetype,statuscode,digest,length')]
+              u='https://web.archive.org/cdx/search/cdx?'+urllib.parse.urlencode(params)
+              try:
+                  req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0 archive recovery'})
+                  with urllib.request.urlopen(req,timeout=45) as r: d=json.load(r)
+                  rows=d[1:] if d and isinstance(d[0],list) else []
+                  raw[orig]=rows
+                  return rows
+              except Exception as e:
+                  report.append(f'CDX ERROR {orig}: {type(e).__name__}: {e}')
+                  return []
+          def download(row,stem):
+              ts,orig,mime,status,digest,length=row
+              for mod in ('id_','im_'):
+                  u=f'https://web.archive.org/web/{ts}{mod}/{orig}'
+                  tmp=Path('/tmp/exact-cdx-candidate')
+                  cp=subprocess.run(['curl','-L','--fail','--silent','--show-error','--retry','2','--retry-all-errors','--connect-timeout','20','--max-time','90','-A','Mozilla/5.0 archive recovery',u,'-o',str(tmp)],capture_output=True,text=True)
+                  if cp.returncode==0 and tmp.exists():
+                      mt=subprocess.check_output(['file','--mime-type','-b',str(tmp)],text=True).strip(); n=tmp.stat().st_size
+                      if mt.startswith('image/') and n>1500:
+                          ext='.png' if 'png' in mt else '.jpg'; out=Path('exact-cdx-images')/(stem+ext); out.write_bytes(tmp.read_bytes())
+                          return out,u,mt,n
+              return None
+          for stem,rels in targets.items():
+              found=None; total=0
+              for rel in rels:
+                  if found: break
+                  for base in bases:
+                      orig=base+rel; rows=query(orig); total+=len(rows)
+                      # Newest and largest first, but try every returned capture if needed.
+                      def sk(r):
+                          try: n=int(r[5])
+                          except: n=0
+                          ok=1 if str(r[3]).startswith(('2','3')) else 0
+                          im=1 if str(r[2]).startswith('image/') else 0
+                          return (im,ok,n,r[0])
+                      for row in sorted(rows,key=sk,reverse=True):
+                          got=download(row,stem)
+                          if got:
+                              out,u,mt,n=got; report.append(f'RECOVERED {stem}: {out} | {n} bytes | {mt} | row={row} | replay={u}'); found=got; break
+                      if found: break
+                      time.sleep(.1)
+              if not found: report.append(f'MISSING {stem}: exact CDX rows={total}')
+          Path('exact-cdx-report.txt').write_text('\n'.join(report)+'\n')
+          Path('exact-cdx-raw.json').write_text(json.dumps(raw,indent=2))
+          print('\n'.join(report))
+          PY
+      - name: Commit exact CDX results
+        shell: bash
+        run: |
+          git config user.name 'archive-recovery-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add exact-cdx-images exact-cdx-report.txt exact-cdx-raw.json
+          if git diff --cached --quiet; then echo 'No changes.'; else git commit -m 'Exact CRC CDX recovery results'; git push origin HEAD:${{ github.head_ref }}; fi
