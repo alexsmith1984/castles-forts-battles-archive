@@ -1,0 +1,9 @@
+{
+  "input_unresolved": 451,
+  "resolutions": {
+    "available_via_api": 93,
+    "no_snapshot_via_availability_api": 1,
+    "inconclusive_service_error": 357
+  },
+  "method": "Wayback availability API, trying http/https and www/non-www variants; service failures are treated as inconclusive."
+}
