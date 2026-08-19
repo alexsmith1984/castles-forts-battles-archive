@@ -1,0 +1,146 @@
+name: Inventory media references from recoverable catalogue pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-source-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Fetch raw archived HTML and inventory media
+        run: |
+          cat > /tmp/inventory.py <<'PY'
+          import json, os, re, threading, time
+          from urllib.parse import urlsplit, urljoin
+          from collections import Counter
+          from concurrent.futures import ThreadPoolExecutor, as_completed
+          import requests
+          from bs4 import BeautifulSoup
+
+          base=json.load(open('catalogue-audit/cdx-fast.json',encoding='utf-8'))['results']
+          avail_data=json.load(open('catalogue-audit/availability-unresolved.json',encoding='utf-8'))['results']
+          avail={r['original']:r for r in avail_data if r.get('resolution')=='available_via_api'}
+          wb_re=re.compile(r'https?://web\.archive\.org/web/(\d+)(?:[a-z_]+)?/(https?://.+)',re.I)
+          image_re=re.compile(r'\.(?:jpe?g|png|gif|webp|bmp|tiff?)(?:[?#].*)?$',re.I)
+
+          def source_spec(r):
+            if r['state']=='reconstructed_local':return {'kind':'local'}
+            if r['original'] in avail:
+              a=avail[r['original']];u=a.get('best_replay') or ''
+              m=wb_re.match(u)
+              if m:return {'kind':'wayback','timestamp':m.group(1),'original':m.group(2),'replay':u,'source':'availability_api'}
+            if r['state']=='indexed_html_capture':
+              return {'kind':'wayback','timestamp':r['capture_timestamp'],'original':r['captured_original'],'replay':r['best_replay'],'source':'cdx'}
+            return {'kind':'unresolved'}
+
+          local=threading.local()
+          def sess():
+            if not hasattr(local,'s'):
+              local.s=requests.Session();local.s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles source audit)'
+            return local.s
+
+          def norm_media(v,baseurl):
+            if not v:return None
+            v=v.strip()
+            if not v or v.startswith(('data:','javascript:','#')):return None
+            if not image_re.search(v):return None
+            u=urljoin(baseurl,v)
+            low=u.lower()
+            if '/images/blank.gif' in low or low.endswith('/blank.gif'):return None
+            return u
+
+          def extract(html_text,baseurl):
+            soup=BeautifulSoup(html_text,'html.parser')
+            visible=' '.join(soup.stripped_strings)
+            asset_links=[];lazy=[];imgsrc=[];allrefs=[]
+            for a in soup.find_all('a',href=True):
+              u=norm_media(a.get('href'),baseurl)
+              if u:
+                allrefs.append(u)
+                if '/assets/' in urlsplit(u).path.lower():asset_links.append(u)
+            for tag in soup.find_all(['img','source']):
+              for attr in ('data-orig-src','data-muse-src','data-src','data-hidpi-src'):
+                u=norm_media(tag.get(attr),baseurl)
+                if u:lazy.append(u);allrefs.append(u)
+              u=norm_media(tag.get('src'),baseurl)
+              if u:imgsrc.append(u);allrefs.append(u)
+              ss=(tag.get('srcset') or '').strip()
+              if ss:
+                for part in ss.split(','):
+                  v=part.strip().split()[0] if part.strip() else ''
+                  u=norm_media(v,baseurl)
+                  if u:allrefs.append(u)
+            def uniq(seq):
+              out=[];seen=set()
+              for x in seq:
+                if x not in seen:seen.add(x);out.append(x)
+              return out
+            asset_links=uniq(asset_links);lazy=uniq(lazy);imgsrc=uniq(imgsrc);allrefs=uniq(allrefs)
+            return {'text_chars':len(visible),'asset_links':asset_links,'lazy_images':lazy,'img_src_images':imgsrc,'all_media':allrefs,
+                    'asset_link_count':len(asset_links),'lazy_image_count':len(lazy),'img_src_count':len(imgsrc),'all_media_count':len(allrefs),
+                    'uses_blank_lazy':('blank.gif' in html_text.lower() and any(x in html_text for x in ('data-orig-src','data-muse-src','data-src')))}
+
+          def fetch_one(r):
+            spec=source_spec(r)
+            out={'original':r['original'],'primary_name':r['primary_name'],'aliases':r.get('aliases',[]),'spec':spec}
+            if spec['kind']=='local':
+              out['fetch_state']='local_reconstruction';return out
+            if spec['kind']!='wayback':
+              out['fetch_state']='no_known_snapshot';return out
+            raw=f'https://web.archive.org/web/{spec["timestamp"]}id_/{spec["original"]}'
+            try:
+              resp=sess().get(raw,timeout=20,allow_redirects=True)
+              ctype=(resp.headers.get('content-type') or '').lower();txt=resp.text
+              if resp.status_code==200 and ('<html' in txt.lower() or '<!doctype' in txt.lower()):
+                out['fetch_state']='source_ok';out['raw_replay']=resp.url;out['bytes']=len(resp.content);out.update(extract(txt,spec['original']))
+              elif resp.status_code in (429,500,502,503,504):
+                out['fetch_state']='inconclusive_service_error';out['http']=resp.status_code
+              else:
+                out['fetch_state']='source_not_retrieved';out['http']=resp.status_code;out['final_url']=resp.url
+            except requests.Timeout:out['fetch_state']='inconclusive_service_error';out['error']='timeout'
+            except Exception as ex:out['fetch_state']='inconclusive_service_error';out['error']=type(ex).__name__+': '+str(ex)[:160]
+            return out
+
+          results=[]
+          with ThreadPoolExecutor(max_workers=4) as ex:
+            futs={ex.submit(fetch_one,r):r for r in base}
+            for i,f in enumerate(as_completed(futs),1):
+              try:results.append(f.result())
+              except Exception as exc:
+                r=futs[f];results.append({'original':r['original'],'primary_name':r['primary_name'],'fetch_state':'inconclusive_exception','error':repr(exc)})
+              if i%50==0:print(i,'/',len(base),Counter(x['fetch_state'] for x in results),flush=True)
+          results.sort(key=lambda r:r['primary_name'].casefold())
+          states=Counter(r['fetch_state'] for r in results)
+          ok=[r for r in results if r['fetch_state']=='source_ok']
+          summary={'unique_destinations':len(base),'fetch_states':dict(states),'sources_inventoried':len(ok),
+                   'pages_with_asset_links':sum(1 for r in ok if r.get('asset_link_count',0)>0),
+                   'pages_with_any_media_refs':sum(1 for r in ok if r.get('all_media_count',0)>0),
+                   'total_asset_links':sum(r.get('asset_link_count',0) for r in ok),
+                   'total_media_refs':sum(r.get('all_media_count',0) for r in ok),
+                   'scope':'Source inventory only. Media references are intended/referenced resources; this pass does not yet assert that each referenced image file is preserved.'}
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'summary':summary,'results':results},open('catalogue-audit/source-inventory.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open('catalogue-audit/source-inventory-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/inventory.py
+      - name: Commit source inventory
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/source-inventory*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Inventory archived page media references' && git pull --rebase && git push; fi
