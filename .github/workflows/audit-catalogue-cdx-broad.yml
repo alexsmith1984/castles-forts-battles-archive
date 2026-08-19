@@ -1,0 +1,95 @@
+name: Broad CDX catalogue audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-catalogue-cdx-broad.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Query all 200 HTML-path captures regardless of MIME
+        run: |
+          cat > /tmp/broad.py <<'PY'
+          import json, os, re, html, time
+          from urllib.parse import urlsplit
+          from collections import defaultdict, Counter
+          import requests
+          from bs4 import BeautifulSoup
+
+          OUT='catalogue-audit';os.makedirs(OUT,exist_ok=True)
+          PARTS=['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']
+          WB_RE=re.compile(r'^https://web\.archive\.org/web/\d+(?:[a-z_]+)?/(https?://.+)$',re.I)
+          def original(h):
+            h=html.unescape(h or '').strip()
+            if h=='baddesley-clinton-final.html':return 'LOCAL:baddesley-clinton-final.html'
+            m=WB_RE.match(h);return m.group(1) if m else h
+          def key(u):
+            if u.startswith('LOCAL:'):return u
+            s=urlsplit(u);host=s.netloc.lower();host=host[4:] if host.startswith('www.') else host
+            path=(s.path or '/').lower().rstrip('/') or '/'
+            return host+path
+          entries=[]
+          for p in PARTS:
+            soup=BeautifulSoup(open(p,encoding='utf-8').read(),'html.parser')
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2');letter=h2.get_text(' ',strip=True).upper() if h2 else ''
+              if len(letter)!=1 or not letter.isalpha():continue
+              for a in sec.find_all('a',href=True):
+                n=a.get_text(' ',strip=True);o=original(a['href'])
+                if n and o:entries.append({'name':n,'original':o})
+          by=defaultdict(list)
+          for e in entries:by[e['original']].append(e['name'])
+
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 archival-audit'
+          found=defaultdict(list);qs=[]
+          for dom in ['www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk','www.battlefieldsofbritain.co.uk','battlefieldsofbritain.co.uk']:
+            params={'url':dom+'/*','output':'json','filter':['statuscode:200','original:.*\\.html(?:[?#].*)?$'],'fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'}
+            try:
+              r=s.get('https://web.archive.org/cdx/search/cdx',params=params,timeout=120)
+              q={'domain':dom,'status':r.status_code,'bytes':len(r.content)}
+              if r.status_code==200:
+                data=r.json();rows=data[1:] if isinstance(data,list) and data else [];q['rows']=len(rows)
+                for row in rows:
+                  if len(row)>=2:found[key(row[1])].append({'timestamp':row[0],'original':row[1],'mimetype':row[3] if len(row)>3 else ''})
+              else:q['error']=r.text[:300]
+            except Exception as ex:q={'domain':dom,'error':type(ex).__name__+': '+str(ex)[:200]}
+            qs.append(q);time.sleep(2)
+          res=[]
+          for o,names0 in by.items():
+            names=[]
+            for n in names0:
+              if n not in names:names.append(n)
+            if o.startswith('LOCAL:'):rec={'original':o,'primary_name':names[0],'aliases':names,'state':'reconstructed_local','best_replay':'baddesley-clinton-final.html'}
+            else:
+              caps=found.get(key(o),[])
+              if caps:
+                c=sorted(caps,key=lambda x:x['timestamp'])[-1]
+                rec={'original':o,'primary_name':names[0],'aliases':names,'state':'indexed_200_capture','capture_timestamp':c['timestamp'],'captured_original':c['original'],'mimetype':c['mimetype'],'best_replay':f'https://web.archive.org/web/{c["timestamp"]}/{c["original"]}'}
+              else:rec={'original':o,'primary_name':names[0],'aliases':names,'state':'no_200_htmlpath_capture'}
+            res.append(rec)
+          summary={'catalogue_entries':len(entries),'unique_destinations':len(by),'states':dict(Counter(r['state'] for r in res)),'queries':qs,'scope':'CDX status-200 search for .html paths without MIME restriction.'}
+          json.dump({'summary':summary,'results':res},open(f'{OUT}/cdx-broad.json','w'),indent=2,ensure_ascii=False)
+          json.dump(summary,open(f'{OUT}/cdx-broad-summary.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps(summary,indent=2))
+          PY
+          python /tmp/broad.py
+      - name: Commit broad audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/cdx-broad*.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Record broad CDX catalogue audit' && git pull --rebase && git push; fi
