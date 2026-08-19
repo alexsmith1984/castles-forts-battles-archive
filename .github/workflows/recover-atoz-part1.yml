@@ -1,0 +1,66 @@
+name: Recover A-C index source
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-atoz-part1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Recover A-C
+        run: |
+          cat > /tmp/recover1.py <<'PY'
+          import requests,json,os,time
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin
+          os.makedirs('index-recovery',exist_ok=True)
+          ts='20220921221911'; original='http://www.castlesfortsbattles.co.uk/atoz.html'
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0'
+          raw=None; replay=None
+          for mod in ('id_',''):
+            u=f'https://web.archive.org/web/{ts}{mod}/{original}'
+            for i in range(5):
+              try:
+                r=s.get(u,timeout=45,allow_redirects=True)
+                if r.status_code==200 and len(r.content)>500:
+                  raw=r.text; replay=r.url; break
+              except Exception: pass
+              time.sleep(2+i*3)
+            if raw: break
+          if not raw: raise SystemExit('Could not recover A-C source')
+          open('index-recovery/atoz_part1.source.html','w',encoding='utf-8',errors='replace').write(raw)
+          soup=BeautifulSoup(raw,'html.parser'); links=[]; seen=set()
+          for a in soup.find_all('a',href=True):
+            href=a.get('href','').strip(); text=' '.join(a.stripped_strings).strip(); title=(a.get('title') or '').strip()
+            if not text:
+              img=a.find('img'); text=(img.get('alt') or '').strip() if img else ''
+            if href.startswith(('javascript:','mailto:','tel:')): continue
+            absolute=urljoin(original,href); key=(text,title,absolute)
+            if key in seen: continue
+            seen.add(key); links.append({'text':text,'title':title,'href':href,'absolute':absolute})
+          json.dump({'name':'atoz_part1','capture':[ts,original,'id_'],'replay':replay,'links':links},open('index-recovery/atoz_part1.links.json','w',encoding='utf-8'),ensure_ascii=False,indent=2)
+          open('index-recovery/atoz_part1.text.txt','w',encoding='utf-8').write('\n'.join(x.strip() for x in soup.stripped_strings if x.strip()))
+          json.dump({'status':'OK','bytes':len(raw.encode('utf-8')),'links':len(links),'replay':replay},open('index-recovery/part1-report.json','w'),indent=2)
+          print(len(links))
+          PY
+          python /tmp/recover1.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index-recovery/atoz_part1.* index-recovery/part1-report.json
+          git commit -m 'Recover A-C index source for integrated navigation' || exit 0
+          git push
