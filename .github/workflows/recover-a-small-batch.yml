@@ -1,0 +1,189 @@
+name: Recover incomplete A pages small batch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-a-small-batch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover Abergavenny and Abington
+        run: |
+          cat > /tmp/recover_batch.py <<'PY'
+          import json,os,re,time,html as H
+          from pathlib import Path
+          from urllib.parse import urlsplit,urlunsplit
+          from io import BytesIO
+          import requests
+          from bs4 import BeautifulSoup
+          from PIL import Image
+
+          TARGETS=[
+            ('Abergavenny Castle','abergavenny-castle'),
+            ('Abington Castle','abington-castle'),
+          ]
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results']
+          canon=json.load(open('catalogue-audit/canonical-content-images.json',encoding='utf-8'))['results']
+          byname={x['primary_name']:x for x in inv}; cby={x['primary_name']:x for x in canon}
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (CastlesFortsBattles recovery batch)'
+
+          def req(url,timeout=22):
+            for n in range(3):
+              try:
+                r=s.get(url,timeout=timeout,allow_redirects=True)
+                if r.status_code in (429,500,502,503,504): time.sleep(2+n*2); continue
+                return r
+              except Exception: time.sleep(2+n*2)
+            return None
+
+          def image_ok(r):
+            if not r or r.status_code!=200 or len(r.content)<900:return False
+            ct=(r.headers.get('content-type') or '').lower()
+            if not ct.startswith('image/'):
+              b=r.content[:10]
+              if not (b.startswith(b'\xff\xd8\xff') or b.startswith(b'\x89PNG')):return False
+            try:
+              im=Image.open(BytesIO(r.content)); w,h=im.size
+              return w>=100 and h>=100
+            except Exception:return False
+
+          def cdx_rows(u):
+            sp=urlsplit(u); hosts=[sp.netloc]
+            hosts.append(sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc)
+            urls=[]
+            for scheme in ('http','https'):
+              for host in hosts: urls.append(urlunsplit((scheme,host,sp.path,'','')))
+            rows=[]
+            for v in dict.fromkeys(urls):
+              try:
+                r=s.get('https://web.archive.org/cdx/search/cdx',params={'url':v,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'},timeout=25)
+                if r.status_code==200:
+                  d=r.json(); rows += d[1:] if isinstance(d,list) and len(d)>1 else []
+              except Exception: pass
+            rows.sort(key=lambda z:z[0],reverse=True)
+            return rows
+
+          def recover_image(requested, alternates, imgdir):
+            candidates=[]
+            for a in alternates:
+              if a.get('timestamp') and a.get('original'): candidates.append((a['timestamp'],a['original'],'alternate-path'))
+            for row in cdx_rows(requested)[:10]: candidates.append((row[0],row[1],'exact-cdx'))
+            seen=set()
+            for ts,u,how in candidates:
+              if (ts,u) in seen:continue
+              seen.add((ts,u)); r=req(f'https://web.archive.org/web/{ts}id_/{u}')
+              if image_ok(r):
+                fn=os.path.basename(urlsplit(requested).path) or 'image.jpg'
+                fn=re.sub(r'[^A-Za-z0-9._-]','_',fn)
+                p=imgdir/fn; p.write_bytes(r.content)
+                return {'status':'recovered','file':'images/'+fn,'method':how,'timestamp':ts,'archived_original':u,'bytes':len(r.content)}
+            # independent archive exact URL variants
+            sp=urlsplit(requested); variants=[]
+            hosts=[sp.netloc,sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc]
+            for scheme in ('http','https'):
+              for host in hosts:variants.append(urlunsplit((scheme,host,sp.path,'','')))
+            arquivo_ok=False
+            for v in dict.fromkeys(variants):
+              try:
+                q=s.get('https://arquivo.pt/wayback/cdx',params={'url':v,'output':'json','filter':'status:200','fields':'timestamp,url,mime,status','limit':20},timeout=20)
+                if q.status_code!=200:continue
+                arquivo_ok=True; data=q.json()
+                if not isinstance(data,list):continue
+                for row in reversed(data):
+                  ts=row.get('timestamp');u=row.get('url')
+                  if not ts or not u:continue
+                  rr=req(f'https://arquivo.pt/noFrame/replay/{ts}id_/{u}')
+                  if image_ok(rr):
+                    fn=os.path.basename(urlsplit(requested).path) or 'image.jpg';fn=re.sub(r'[^A-Za-z0-9._-]','_',fn)
+                    (imgdir/fn).write_bytes(rr.content)
+                    return {'status':'recovered','file':'images/'+fn,'method':'arquivo','timestamp':ts,'archived_original':u,'bytes':len(rr.content)}
+              except Exception:pass
+            return {'status':'unrecovered','arquivo':'searched-no-copy' if arquivo_ok else 'inconclusive'}
+
+          nav={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
+          built=[]
+          for name,slug in TARGETS:
+            page=byname[name]; rec=cby[name]
+            out=Path('recovered')/slug; imgdir=out/'images'; imgdir.mkdir(parents=True,exist_ok=True)
+            rr=req(page['raw_replay'],35)
+            if not rr or rr.status_code!=200 or '<html' not in rr.text.lower():
+              built.append({'name':name,'status':'source-failed'});continue
+            raw=rr.text; (out/'source.html').write_text(raw,encoding='utf-8',errors='replace')
+            alternates={a['requested']:a.get('alternates',[]) for a in (rec.get('alternate_candidates') or [])}
+            intended=[]
+            for u in page.get('asset_links',[]) or []:
+              if u not in intended:intended.append(u)
+            if not intended:
+              # older pages: use canonical display refs from audit result if available from missing list plus source img refs
+              for u in rec.get('missing_images',[]) or []:
+                if u not in intended:intended.append(u)
+              for u in page.get('img_src_images',[]) or []:
+                b=os.path.basename(urlsplit(u).path).lower()
+                if any(x in b for x in ('logo','blank','twitter','facebook','castlesfortsbattles')):continue
+                if u not in intended:intended.append(u)
+            image_results=[]; recovered=[]
+            for u in intended[:30]:
+              x=recover_image(u,alternates.get(u,[]),imgdir); x['original']=u; image_results.append(x)
+              if x['status']=='recovered':recovered.append((u,x['file']))
+              time.sleep(.15)
+
+            soup=BeautifulSoup(raw,'html.parser')
+            for x in soup(['script','style','noscript']):x.decompose()
+            blocks=[];seen=set()
+            for el in soup.find_all(['h1','h2','h3','h4','p']):
+              txt=' '.join(el.stripped_strings).strip()
+              if not txt or txt in nav or txt.lower() in ('tweet','share','follow'):continue
+              key=re.sub(r'\s+',' ',txt).casefold()
+              if key in seen:continue
+              seen.add(key)
+              if len(txt)<2:continue
+              blocks.append((el.name,txt))
+            body=[]
+            for tag,txt in blocks:
+              if tag.startswith('h') or (len(txt)<75 and re.match(r'^(History|Getting There|Bibliography|What.s There|Location|Access|Design|Visiting|Gallery)\b',txt,re.I)):
+                body.append(f'<h2>{H.escape(txt)}</h2>')
+              else:body.append(f'<p>{H.escape(txt)}</p>')
+            figs=[]
+            for u,rel in recovered:
+              cap=os.path.splitext(os.path.basename(urlsplit(u).path))[0].replace('_',' ')
+              figs.append(f'<figure><img src="{H.escape(rel,quote=True)}" alt="{H.escape(name)}"><figcaption>{H.escape(cap)}</figcaption></figure>')
+            rc=len(recovered); mc=len(intended)-rc
+            doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{H.escape(name)} | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:white;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:900px;margin:auto;padding:24px 18px 50px}}.note,article{{background:white;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto}}figcaption{{font-size:13px;color:#6b6255}}a{{color:#224d74}}</style></head><body><header><h1>{H.escape(name)}</h1></header><main><div class="note">Static archival reconstruction. Original text is preserved from the archived page. Only genuine original images recovered from web archives are displayed. Recovered {rc} of {len(intended)} intended content-image files in this pass.</div><article>{''.join(body)}<h2>Recovered original photographs and images</h2>{''.join(figs) if figs else '<p>No original image files could be recovered.</p>'}</article><p><a href="../../atoz-part1.html#a">Back to A–Z index</a></p></main></body></html>'''
+            (out/'index.html').write_text(doc,encoding='utf-8')
+            report={'name':name,'original':page['original'],'source':page['raw_replay'],'text_blocks':len(blocks),'intended':len(intended),'recovered':rc,'unrecovered':mc,'images':image_results,'public_path':f'recovered/{slug}/index.html'}
+            (out/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+            built.append(report)
+
+          # Switch only these catalogue entries to the stable local reconstructions.
+          p=Path('atoz-part1.html'); text=p.read_text(encoding='utf-8')
+          for name,slug in TARGETS:
+            original=byname[name]['original']
+            # replace any Wayback href whose embedded original URL matches this page, regardless of timestamp/protocol
+            path=urlsplit(original).path
+            pat=r'href="https?://web\.archive\.org/web/[^\"]*https?://(?:www\.)?castlesfortsbattles\.co\.uk'+re.escape(path)+r'"'
+            text,n=re.subn(pat,f'href="recovered/{slug}/index.html"',text)
+            print(name,'index replacements',n)
+          p.write_text(text,encoding='utf-8')
+          Path('page-audit').mkdir(exist_ok=True)
+          Path('page-audit/a-recovery-batch1.json').write_text(json.dumps(built,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps([{'name':x.get('name'),'recovered':x.get('recovered'),'intended':x.get('intended'),'status':x.get('status','built')} for x in built],indent=2))
+          PY
+          python /tmp/recover_batch.py
+      - name: Commit reconstructions
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/abergavenny-castle recovered/abington-castle atoz-part1.html page-audit/a-recovery-batch1.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Recover Abergavenny and Abington pages' && git pull --rebase && git push; fi
