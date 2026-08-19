@@ -1,0 +1,92 @@
+name: Reconstruct four complete priority pages fast
+
+on:
+  push:
+    paths:
+      - '.github/workflows/reconstruct-four-complete-fast.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4
+      - name: Build local pages
+        run: |
+          cat > /tmp/build.py <<'PY'
+          import json,os,re,hashlib,time
+          from urllib.parse import urljoin,urlsplit
+          import requests
+          from bs4 import BeautifulSoup
+
+          TARGETS={'Moreton Corbet Castle':'moreton-corbet-castle','Stafford Castle':'stafford-castle','Stokesay Castle':'stokesay-castle','Tutbury Castle':'tutbury-castle'}
+          inv=json.load(open('catalogue-audit/source-inventory.json',encoding='utf-8'))['results'];by={r['primary_name']:r for r in inv}
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 priority archival reconstruction'
+          def get(u):
+            last=None
+            for d in (0,2,5):
+              if d:time.sleep(d)
+              try:
+                r=s.get(u,timeout=35,allow_redirects=True)
+                if r.status_code==200:return r
+                last=r
+              except Exception as ex:last=ex
+            return last
+          def localize(name,slug):
+            rec=by[name];spec=rec['spec'];ts=spec['timestamp'];orig=spec['original']
+            src=get(f'https://web.archive.org/web/{ts}id_/{orig}')
+            if not hasattr(src,'status_code') or src.status_code!=200:raise RuntimeError(name+' source fetch failed')
+            soup=BeautifulSoup(src.text,'html.parser')
+            for t in soup.find_all(['script','iframe','object','embed']):t.decompose()
+            for t in soup.find_all('link'):t.decompose()
+            for t in soup.find_all('base'):t.decompose()
+            for m in soup.find_all('meta'):
+              if (m.get('http-equiv') or '').lower()=='refresh':m.decompose()
+            out='recovered/'+slug;imgdir=out+'/images';os.makedirs(imgdir,exist_ok=True)
+            downloaded=[];failed=[]
+            for i,img in enumerate(list(soup.find_all('img')),1):
+              chosen=None
+              for at in ('data-orig-src','data-muse-src','data-src','src'):
+                v=(img.get(at) or '').strip()
+                if v and 'blank.gif' not in v.lower():chosen=urljoin(orig,v);break
+              if not chosen:img.decompose();continue
+              r=get(f'https://web.archive.org/web/{ts}id_/{chosen}');ok=False
+              if hasattr(r,'status_code') and r.status_code==200:
+                data=r.content;ct=(r.headers.get('content-type') or '').lower()
+                if len(data)>150 and ('image/' in ct or data[:2]==b'\xff\xd8' or data[:8]==b'\x89PNG\r\n\x1a\n'):
+                  b=os.path.basename(urlsplit(chosen).path) or f'image{i}.jpg';stem,ext=os.path.splitext(b);suffix=ext if ext else '.jpg';fn=f'{stem}-{hashlib.sha1(chosen.encode()).hexdigest()[:8]}{suffix}'
+                  open(imgdir+'/'+fn,'wb').write(data);img.attrs={'src':'images/'+fn,'alt':img.get('alt','')};downloaded.append(chosen);ok=True
+              if not ok:failed.append(chosen);img.decompose()
+            for t in soup.find_all('source'):t.decompose()
+            st=soup.new_tag('style');st.string='''*{box-sizing:border-box}body{font-family:Georgia,"Times New Roman",serif;line-height:1.5;color:#222;background:#f4f0e6;margin:0;padding:0}body>div.archive-head{max-width:1000px;margin:0 auto;background:#fff;padding:14px 18px;border-bottom:1px solid #d7cebd}body>*:not(.archive-head){max-width:1000px;margin-left:auto!important;margin-right:auto!important}img{display:block;max-width:100%!important;height:auto!important;margin:14px auto!important}.archive-head a{color:#224d74}''';(soup.head or soup).append(st)
+            banner=soup.new_tag('div',attrs={'class':'archive-head'});banner.append(BeautifulSoup(f'<strong>Recovered archive copy — {name}.</strong> All photographs shown are original archived images from the defunct site. Scripts and automatic external requests have been removed. <a href="../../atoz-archive.html">Return to the A–Z index</a>.','html.parser'));soup.body.insert(0,banner)
+            open(out+'/index.html','w',encoding='utf-8').write(str(soup))
+            return {'name':name,'slug':slug,'source_timestamp':ts,'visible_images_downloaded':len(downloaded),'visible_images_failed':len(failed),'failed':failed,'text_chars':len(' '.join(soup.stripped_strings))}
+          reports=[localize(n,s) for n,s in TARGETS.items()]
+          os.makedirs('catalogue-audit',exist_ok=True);json.dump({'pages':reports},open('catalogue-audit/four-complete-local-reconstructions.json','w'),indent=2,ensure_ascii=False)
+          for part in ['atoz-part1.html','atoz-part2.html','atoz-part3.html','atoz-part4.html','atoz-part5.html']:
+            soup=BeautifulSoup(open(part,encoding='utf-8').read(),'html.parser');changed=False
+            for sec in soup.find_all('section'):
+              h2=sec.find('h2')
+              if not h2 or len(h2.get_text(' ',strip=True))!=1:continue
+              for a in sec.find_all('a',href=True):
+                nm=a.get_text(' ',strip=True)
+                if nm in TARGETS:a['href']='recovered/'+TARGETS[nm]+'/';changed=True
+            if changed:open(part,'w',encoding='utf-8').write(str(soup))
+          print(json.dumps({'pages':reports},indent=2))
+          PY
+          python /tmp/build.py
+      - name: Commit recovered pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/moreton-corbet-castle recovered/stafford-castle recovered/stokesay-castle recovered/tutbury-castle catalogue-audit/four-complete-local-reconstructions.json atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Publish four stable local priority reconstructions' && git pull --rebase && git push; fi
