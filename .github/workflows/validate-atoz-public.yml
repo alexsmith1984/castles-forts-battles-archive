@@ -1,0 +1,67 @@
+name: Validate public A-Z archive pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/validate-atoz-public.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Wait for GitHub Pages deployment
+        run: sleep 20
+      - name: Validate
+        run: |
+          cat > /tmp/validate.py <<'PY'
+          import requests, json, time
+          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0'
+          urls=[
+            'https://alexsmith1984.github.io/castles-forts-battles-archive/',
+            'https://alexsmith1984.github.io/castles-forts-battles-archive/atoz-archive.html',
+            'https://alexsmith1984.github.io/castles-forts-battles-archive/atoz-part2.html',
+            'https://alexsmith1984.github.io/castles-forts-battles-archive/atoz-part3.html',
+            'https://alexsmith1984.github.io/castles-forts-battles-archive/atoz-part4.html',
+            'https://alexsmith1984.github.io/castles-forts-battles-archive/atoz-part5.html',
+          ]
+          tests={}
+          for u in urls:
+            try:
+              r=s.get(u,timeout=30,allow_redirects=True)
+              tests[u]={'status':r.status_code,'final_url':r.url,'bytes':len(r.content),'title_fragment':r.text[:160]}
+            except Exception as e: tests[u]={'error':repr(e)}
+          known={
+            'Peveril Castle':'http://www.castlesfortsbattles.co.uk/midlands/peveril_castle.html',
+            'Tutbury Castle':'http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html',
+            'Stokesay Castle':'http://www.castlesfortsbattles.co.uk/midlands/stokesay_castle.html',
+            'Hopton Castle':'http://www.castlesfortsbattles.co.uk/midlands/hopton_castle.html',
+            'Moreton Corbet':'http://www.castlesfortsbattles.co.uk/midlands/moreton_corbet.html',
+            'Richards Castle':'http://www.castlesfortsbattles.co.uk/midlands/richards_castle.html',
+          }
+          wayback={}
+          for name,orig in known.items():
+            u='https://web.archive.org/web/20220922000000/'+orig
+            try:
+              r=s.get(u,timeout=45,allow_redirects=True)
+              wayback[name]={'status':r.status_code,'final_url':r.url,'bytes':len(r.content),'calendar':('calendar' in r.url.lower() or 'save' in r.url.lower())}
+            except Exception as e: wayback[name]={'error':repr(e)}
+            time.sleep(1)
+          out={'public_pages':tests,'sample_wayback_links':wayback}
+          open('index-recovery/public-validation.json','w').write(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
+          python /tmp/validate.py
+      - name: Commit validation report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index-recovery/public-validation.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Validate public A-Z archive pages' && git push; fi
