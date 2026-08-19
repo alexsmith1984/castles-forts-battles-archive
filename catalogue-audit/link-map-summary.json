@@ -1,0 +1,35 @@
+{
+  "mapped_destinations": 402,
+  "pages": {
+    "atoz-part1.html": {
+      "entry_links": 268,
+      "rewritten_this_run": 237,
+      "unmapped": 30
+    },
+    "atoz-part2.html": {
+      "entry_links": 147,
+      "rewritten_this_run": 72,
+      "unmapped": 75
+    },
+    "atoz-part3.html": {
+      "entry_links": 147,
+      "rewritten_this_run": 74,
+      "unmapped": 73
+    },
+    "atoz-part4.html": {
+      "entry_links": 183,
+      "rewritten_this_run": 90,
+      "unmapped": 93
+    },
+    "atoz-part5.html": {
+      "entry_links": 172,
+      "rewritten_this_run": 39,
+      "unmapped": 133
+    }
+  },
+  "mapping_sources": {
+    "best-snapshot": 189,
+    "cdx": 212,
+    "local": 1
+  }
+}
