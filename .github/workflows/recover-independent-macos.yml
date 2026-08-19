@@ -1,0 +1,94 @@
+name: Independent Baddesley recovery macOS
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-independent-macos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: macos-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Search independent archive indexes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mac-recovery
+          python3 - <<'PY'
+          import concurrent.futures, json, re, urllib.parse, urllib.request
+          from pathlib import Path
+          stems=['baddesley_clinton_plan','baddesley_castle5','baddesley_castle9','baddesley_castle24','baddesley_castle23','baddesley_castle10','baddesley_castle12','baddesley_castle14_priest_hole']
+          ua={'User-Agent':'Mozilla/5.0 archive recovery'}
+          report=[]; ah=[]; ch=[]
+          def text(url,timeout=12):
+              try:
+                  req=urllib.request.Request(url,headers=ua)
+                  with urllib.request.urlopen(req,timeout=timeout) as r:return r.read().decode('utf-8','replace')
+              except Exception as e:return ''
+          # Arquivo four prefix queries
+          arqs=[]
+          for scheme in ('http','https'):
+              for folder in ('assets','images'):
+                  p=f'{scheme}://www.castlesfortsbattles.co.uk/midlands/{folder}/baddesley'
+                  u='https://arquivo.pt/wayback/cdx?'+urllib.parse.urlencode({'url':p,'matchType':'prefix','output':'json','limit':'5000'})
+                  arqs.append((p,u))
+          for p,u in arqs:
+              t=text(u); n=0
+              for ln in t.splitlines():
+                  try:r=json.loads(ln)
+                  except:continue
+                  x=(r.get('url') or r.get('original') or '').lower()
+                  if any(s in x for s in stems):ah.append(r);n+=1
+              report.append({'source':'arquivo','query':p,'target_rows':n})
+          # Common Crawl crawl list and parallel prefix queries
+          c=text('https://index.commoncrawl.org/collinfo.json')
+          crawls=[]
+          try:
+              for x in json.loads(c):
+                  m=re.match(r'CC-MAIN-(\d{4})-',x.get('id',''))
+                  if m and 2017<=int(m.group(1))<=2022:crawls.append(x)
+          except:pass
+          qs=[]
+          for x in crawls:
+              for folder in ('assets','images'):
+                  p=f'www.castlesfortsbattles.co.uk/midlands/{folder}/baddesley'
+                  u=x['cdx-api']+'?'+urllib.parse.urlencode({'url':p,'matchType':'prefix','output':'json'})
+                  qs.append((x['id'],p,u))
+          def qone(item):
+              cid,p,u=item;t=text(u,10);rows=[]
+              for ln in t.splitlines():
+                  try:r=json.loads(ln)
+                  except:continue
+                  if any(s in r.get('url','').lower() for s in stems):r['_crawl']=cid;rows.append(r)
+              return cid,p,rows
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+              for cid,p,rows in ex.map(qone,qs):
+                  if rows:report.append({'source':'commoncrawl','crawl':cid,'query':p,'target_rows':len(rows)});ch.extend(rows)
+          # dedupe
+          au=[];seen=set()
+          for r in ah:
+              k=(r.get('url') or r.get('original'),r.get('timestamp'),r.get('digest'))
+              if k not in seen:seen.add(k);au.append(r)
+          cu=[];seen=set()
+          for r in ch:
+              k=(r.get('url'),r.get('filename'),r.get('offset'),r.get('length'))
+              if k not in seen:seen.add(k);cu.append(r)
+          summary={s:{'arquivo':sum(1 for r in au if s in (r.get('url') or r.get('original') or '').lower()),'commoncrawl':sum(1 for r in cu if s in r.get('url','').lower())} for s in stems}
+          Path('mac-recovery/results.json').write_text(json.dumps({'summary':summary,'arquivo':au,'commoncrawl':cu,'queries':report},indent=2))
+          Path('mac-recovery/report.txt').write_text('\n'.join(f'{s}: Arquivo={v["arquivo"]}, CommonCrawl={v["commoncrawl"]}' for s,v in summary.items())+'\n')
+          print(Path('mac-recovery/report.txt').read_text())
+          PY
+      - name: Commit index results
+        shell: bash
+        run: |
+          git config user.name 'archive-recovery-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add mac-recovery
+          git commit -m 'Independent archive index results from macOS' || exit 0
+          git pull --rebase origin main
+          git push
