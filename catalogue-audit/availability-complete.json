@@ -2,31 +2,17 @@
   "summary": {
     "unique_destinations": 757,
     "availability": {
-      "snapshot_found": 747,
-      "no_snapshot_found": 9,
-      "reconstructed_local": 1
+      "snapshot_found": 753,
+      "reconstructed_local": 1,
+      "no_snapshot_found": 3
     },
     "no_snapshot_pages": [
-      {
-        "name": "Ambleside Roman Fort",
-        "aliases": [
-          "Ambleside Roman Fort"
-        ],
-        "original": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html"
-      },
       {
         "name": "Dinieithon Castle",
         "aliases": [
           "Dinieithon Castle"
         ],
         "original": "http://www.castlesfortsbattles.co.uk/central_wales/dinieithon_castle.html"
-      },
-      {
-        "name": "Druchtag Motte",
-        "aliases": [
-          "Druchtag Motte"
-        ],
-        "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/druchtag_motte.html"
       },
       {
         "name": "Galdendoch Castle",
@@ -36,42 +22,15 @@
         "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/galdendoch_castle.html"
       },
       {
-        "name": "Kinlochaline Castle",
-        "aliases": [
-          "Kinlochaline Castle"
-        ],
-        "original": "http://www.castlesfortsbattles.co.uk/kinlochaline_castle.html"
-      },
-      {
-        "name": "MacLellan’s Castle",
-        "aliases": [
-          "MacLellan’s Castle"
-        ],
-        "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/maclellans_castle.html"
-      },
-      {
-        "name": "Neville’s Cross (Battle of - 1346)",
-        "aliases": [
-          "Neville’s Cross (Battle of - 1346)"
-        ],
-        "original": "http://www.battlefieldsofbritain.co.uk/battle_nevilles_cross_1346.html.html"
-      },
-      {
         "name": "Oxburgh Hall",
         "aliases": [
           "Oxburgh Hall"
         ],
         "original": "http://www.castlesfortsbattles.co.uk/east/oxburgh_hall.html"
-      },
-      {
-        "name": "Tynemouth Castle",
-        "aliases": [
-          "Tynemouth Castle"
-        ],
-        "original": "http://www.castlesfortsbattles.co.uk/north_east/tynemouth_castle.html"
       }
     ],
-    "inconclusive_pages": []
+    "inconclusive_pages": [],
+    "validated_alternate_urls": 6
   },
   "results": [
     {
@@ -287,8 +246,11 @@
         "Ambleside Roman Fort"
       ],
       "original": "http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html",
-      "availability": "no_snapshot_found",
-      "source": "availability"
+      "availability": "snapshot_found",
+      "source": "validated_alternate_url",
+      "best_replay": "https://web.archive.org/web/20180518172717/http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html",
+      "timestamp": "20180518172717",
+      "corrected_original": "http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html"
     },
     {
       "primary_name": "Ambrey Hillfort (Croft Ambrey)",
@@ -3183,8 +3145,11 @@
         "Druchtag Motte"
       ],
       "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/druchtag_motte.html",
-      "availability": "no_snapshot_found",
-      "source": "slow_retry"
+      "availability": "snapshot_found",
+      "source": "validated_alternate_url",
+      "best_replay": "https://web.archive.org/web/20150920092549/http://www.castlesfortsbattles.co.uk/druchtag_motte.html",
+      "timestamp": "20150920092549",
+      "corrected_original": "http://www.castlesfortsbattles.co.uk/druchtag_motte.html"
     },
     {
       "primary_name": "Drumcoltran Tower",
@@ -5014,8 +4979,11 @@
         "Kinlochaline Castle"
       ],
       "original": "http://www.castlesfortsbattles.co.uk/kinlochaline_castle.html",
-      "availability": "no_snapshot_found",
-      "source": "slow_retry"
+      "availability": "snapshot_found",
+      "source": "validated_alternate_url",
+      "best_replay": "https://web.archive.org/web/20190613061927/http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html",
+      "timestamp": "20190613061927",
+      "corrected_original": "http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html"
     },
     {
       "primary_name": "Kinnaird Head Castle",
@@ -5533,8 +5501,11 @@
         "MacLellan’s Castle"
       ],
       "original": "http://www.castlesfortsbattles.co.uk/dumfries_galloway/maclellans_castle.html",
-      "availability": "no_snapshot_found",
-      "source": "slow_retry"
+      "availability": "snapshot_found",
+      "source": "validated_alternate_url",
+      "best_replay": "https://web.archive.org/web/20150920091855/http://www.castlesfortsbattles.co.uk/maclellans_castle.html",
+      "timestamp": "20150920091855",
+      "corrected_original": "http://www.castlesfortsbattles.co.uk/maclellans_castle.html"
     },
     {
       "primary_name": "Maiden Castle",
@@ -6008,8 +5979,11 @@
         "Neville’s Cross (Battle of - 1346)"
       ],
       "original": "http://www.battlefieldsofbritain.co.uk/battle_nevilles_cross_1346.html.html",
-      "availability": "no_snapshot_found",
-      "source": "slow_retry"
+      "availability": "snapshot_found",
+      "source": "validated_alternate_url",
+      "best_replay": "https://web.archive.org/web/20170706211319/http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html",
+      "timestamp": "20170706211319",
+      "corrected_original": "http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html"
     },
     {
       "primary_name": "New Radnor Castle",
@@ -8110,8 +8084,11 @@
         "Tynemouth Castle"
       ],
       "original": "http://www.castlesfortsbattles.co.uk/north_east/tynemouth_castle.html",
-      "availability": "no_snapshot_found",
-      "source": "slow_retry"
+      "availability": "snapshot_found",
+      "source": "validated_alternate_url",
+      "best_replay": "https://web.archive.org/web/20180823233219/http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html",
+      "timestamp": "20180823233219",
+      "corrected_original": "http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html"
     },
     {
       "primary_name": "U-534",

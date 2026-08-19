@@ -1,17 +1,16 @@
 {
   "unique_destinations": 757,
   "fetch_states": {
-    "source_ok": 741,
-    "no_known_snapshot": 9,
+    "source_ok": 747,
     "local_reconstruction": 1,
+    "no_known_snapshot": 3,
     "inconclusive_service_error": 6
   },
-  "sources_inventoried": 741,
-  "newly_attempted": 343,
-  "newly_source_ok": 337,
-  "pages_with_asset_links": 509,
-  "pages_with_any_media_refs": 740,
-  "total_asset_links": 4869,
-  "total_media_refs": 43220,
-  "scope": "Extended source inventory including snapshots recovered by the slow availability retry."
+  "sources_inventoried": 747,
+  "validated_alternate_sources_added": 6,
+  "pages_with_asset_links": 513,
+  "pages_with_any_media_refs": 746,
+  "total_asset_links": 4919,
+  "total_media_refs": 43573,
+  "scope": "Source inventory including six validated alternate archive URLs."
 }
