@@ -1,4 +1,4 @@
-name: Fetch Abergavenny source
+name: Build Abergavenny local reconstruction
 on:
   push:
     paths:
@@ -6,41 +6,76 @@ on:
 permissions:
   contents: write
 jobs:
-  fetch:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - run: pip install requests beautifulsoup4
-      - name: Fetch known working 2018 source
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover two original display photographs and build page
         run: |
           python - <<'PY'
-          import requests,json,re
+          import os,re,json,html as H
           from pathlib import Path
+          from io import BytesIO
+          from urllib.parse import urlsplit
+          import requests
           from bs4 import BeautifulSoup
-          u='https://web.archive.org/web/20180804035317id_/http://www.castlesfortsbattles.co.uk:80/south_wales/abergavenny_castle.html'
+          from PIL import Image
+          out=Path('recovered/abergavenny-castle'); img=out/'images';img.mkdir(parents=True,exist_ok=True)
+          raw=out.joinpath('source.html').read_text(encoding='utf-8',errors='replace')
+          ts='20180804035317'
+          photos=[
+            'http://www.castlesfortsbattles.co.uk/wpimages/wpbd919f4e_05_06.jpg',
+            'http://www.castlesfortsbattles.co.uk/wpimages/wp2764119b_05_06.jpg']
           s=requests.Session();s.headers['User-Agent']='Mozilla/5.0'
-          r=s.get(u,timeout=30,allow_redirects=True)
-          if r.status_code!=200 or '<html' not in r.text.lower():raise SystemExit(f'source failed {r.status_code}')
-          out=Path('recovered/abergavenny-castle');out.mkdir(parents=True,exist_ok=True)
-          out.joinpath('source.html').write_text(r.text,encoding='utf-8',errors='replace')
-          soup=BeautifulSoup(r.text,'html.parser')
-          imgs=[]
-          for im in soup.find_all('img'):
-            imgs.append({'src':im.get('src'),'alt':im.get('alt'),'title':im.get('title'),'width':im.get('width'),'height':im.get('height')})
-          links=[]
-          for a in soup.find_all('a',href=True):
-            if re.search(r'\.(jpg|jpeg|png|gif)(?:\?|$)',a['href'],re.I):links.append({'href':a['href'],'text':' '.join(a.stripped_strings)})
-          report={'source':u,'bytes':len(r.content),'text_chars':len(' '.join(soup.stripped_strings)),'images':imgs,'image_links':links}
-          out.joinpath('source-analysis.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
-          print('bytes',len(r.content),'imgs',len(imgs),'image links',len(links))
+          found=[];failed=[]
+          for u in photos:
+            try:r=s.get(f'https://web.archive.org/web/{ts}id_/{u}',timeout=20,allow_redirects=True)
+            except Exception as e:failed.append({'url':u,'error':type(e).__name__});continue
+            ok=False
+            if r.status_code==200 and len(r.content)>900:
+              try:
+                im=Image.open(BytesIO(r.content));w,h=im.size;ok=w>=100 and h>=100
+              except Exception:ok=False
+            if ok:
+              fn=os.path.basename(urlsplit(u).path);(img/fn).write_bytes(r.content);found.append({'url':u,'file':'images/'+fn,'bytes':len(r.content),'dimensions':[w,h]})
+            else:failed.append({'url':u,'status':r.status_code,'bytes':len(r.content)})
+          soup=BeautifulSoup(raw,'html.parser')
+          for x in soup(['script','style','noscript']):x.decompose()
+          nav={'England','Scotland','Wales','Home','UK Map','A-Z','Links','About Us','Contact Us','Terms and Conditions','CastlesFortsBattles.co.uk','BattlefieldsofBritain.co.uk','A-C','D-G','H-L','M-R','S-Z'}
+          blocks=[];seen=set()
+          for el in soup.find_all(['h1','h2','h3','h4','p']):
+            txt=' '.join(el.stripped_strings).strip()
+            if not txt or txt in nav or txt.lower() in ('tweet','share','follow'):continue
+            k=re.sub(r'\s+',' ',txt).casefold()
+            if k in seen:continue
+            seen.add(k);blocks.append((el.name,txt))
+          body=[]
+          for tag,txt in blocks:
+            if tag.startswith('h') or (len(txt)<75 and re.match(r'^(History|Getting There|Bibliography|What.s There|Gallery|Location|Access|Design|Visiting)\b',txt,re.I)):
+              body.append(f'<h2>{H.escape(txt)}</h2>')
+            else:body.append(f'<p>{H.escape(txt)}</p>')
+          figs=[]
+          for i,x in enumerate(found,1):
+            figs.append(f'<figure><img src="{x["file"]}" alt="Abergavenny Castle"><figcaption>Abergavenny Castle — recovered original photograph {i}</figcaption></figure>')
+          note=f'The archived source contains two principal photographic display images. {len(found)} were recovered as genuine archived originals. The two separately linked full-size JPG originals were not preserved in the archive; no substitute photographs have been introduced.'
+          doc=f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Abergavenny Castle | Castles, Forts and Battles Archive</title><style>*{{box-sizing:border-box}}body{{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}}header{{background:#3d3528;color:#fff;padding:28px 18px;text-align:center}}header h1{{margin:0}}main{{max-width:900px;margin:auto;padding:24px 18px 50px}}.note,article{{background:#fff;border:1px solid #d7cebd;padding:18px 22px}}.note{{border-left:4px solid #8b7959;margin-bottom:20px}}h2{{color:#493e2c}}figure{{margin:24px auto;text-align:center}}figure img{{max-width:100%;height:auto}}figcaption{{font-size:13px;color:#6b6255}}a{{color:#224d74}}</style></head><body><header><h1>Abergavenny Castle</h1></header><main><div class="note">{H.escape(note)}</div><article>{''.join(body)}<h2>Recovered original photographs</h2>{''.join(figs) if figs else '<p>No original photographs could be recovered.</p>'}</article><p><a href="../../atoz-part1.html#a">Back to A–Z index</a></p></main></body></html>'''
+          out.joinpath('index.html').write_text(doc,encoding='utf-8')
+          report={'name':'Abergavenny Castle','capture':ts,'display_photographs_expected':2,'display_photographs_recovered':len(found),'full_size_links_unpreserved':['http://www.castlesfortsbattles.co.uk/Abergavenny_Castle1.JPG','http://www.castlesfortsbattles.co.uk/Abergavenny_Castle4.JPG'],'recovered':found,'failed':failed}
+          out.joinpath('recovery-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+          # Link A-Z entry to the local reconstruction.
+          p=Path('atoz-part1.html');text=p.read_text(encoding='utf-8')
+          pat=r'href="https?://web\.archive\.org/web/[^\"]*https?://(?:www\.)?castlesfortsbattles\.co\.uk/south_wales/abergavenny_castle\.html"'
+          text,n=re.subn(pat,'href="recovered/abergavenny-castle/index.html"',text);p.write_text(text,encoding='utf-8')
+          print('photos recovered',len(found),'link replacements',n)
           PY
-      - name: Commit source analysis
+      - name: Commit
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add recovered/abergavenny-castle/source.html recovered/abergavenny-castle/source-analysis.json
-          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Fetch Abergavenny Castle archived source' && git pull --rebase && git push; fi
+          git add recovered/abergavenny-castle atoz-part1.html
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Publish recovered Abergavenny Castle page' && git pull --rebase && git push; fi
