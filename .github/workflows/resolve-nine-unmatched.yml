@@ -1,0 +1,80 @@
+name: Resolve nine unmatched catalogue URLs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/resolve-nine-unmatched.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests
+      - name: Compare unmatched URLs against all archived HTML URLs
+        run: |
+          python - <<'PY'
+          import json,os,re,time,difflib
+          from urllib.parse import urlsplit
+          import requests
+          miss=json.load(open('catalogue-audit/availability-complete-summary.json',encoding='utf-8'))['no_snapshot_pages']
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 archival URL reconciliation'
+          rows=[];queries=[]
+          for dom in ['www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk','www.battlefieldsofbritain.co.uk','battlefieldsofbritain.co.uk']:
+            try:
+              r=s.get('https://web.archive.org/cdx/search/cdx',params={'url':dom+'/*','output':'json','filter':'statuscode:200','fl':'timestamp,original,statuscode,mimetype,digest','collapse':'urlkey'},timeout=120)
+              q={'domain':dom,'status':r.status_code,'bytes':len(r.content)}
+              if r.status_code==200:
+                d=r.json();rr=d[1:] if isinstance(d,list) and d else [];q['rows']=len(rr);rows.extend(rr)
+              queries.append(q)
+            except Exception as ex:queries.append({'domain':dom,'error':repr(ex)})
+            time.sleep(1)
+          # unique captured URLs
+          captures={}
+          for row in rows:
+            if len(row)>=2:
+              u=row[1];captures.setdefault(u,{'timestamp':row[0],'original':u,'mimetype':row[3] if len(row)>3 else ''})
+          def tokens(path):
+            stem=path.lower().rsplit('/',1)[-1]
+            stem=re.sub(r'\.html?$', '', stem);stem=stem.replace('.html','')
+            return [x for x in re.split(r'[_\-.]+',stem) if len(x)>2]
+          out=[]
+          for m in miss:
+            o=m['original'];sp=urlsplit(o);path=sp.path.lower();base=path.rsplit('/',1)[-1]
+            toks=tokens(path)
+            scored=[]
+            for u,c in captures.items():
+              su=urlsplit(u);up=su.path.lower();ub=up.rsplit('/',1)[-1]
+              # prioritize same domain family and keyword overlap
+              domok=('battlefieldsofbritain' in sp.netloc)==('battlefieldsofbritain' in su.netloc)
+              if not domok:continue
+              overlap=sum(1 for t in toks if t in ub or t in up)
+              ratio=difflib.SequenceMatcher(None,base,ub).ratio()
+              same_dir=path.rsplit('/',1)[0]==up.rsplit('/',1)[0]
+              score=ratio+0.18*overlap+(0.18 if same_dir else 0)
+              if overlap or ratio>.55:scored.append((score,c))
+            scored.sort(key=lambda x:x[0],reverse=True)
+            candidates=[]
+            seen=set()
+            for score,c in scored[:12]:
+              k=c['original']
+              if k in seen:continue
+              seen.add(k);c=dict(c);c['score']=round(score,3);c['replay']=f'https://web.archive.org/web/{c["timestamp"]}/{c["original"]}';candidates.append(c)
+            out.append({'name':m['name'],'aliases':m.get('aliases',[]),'unmatched_original':o,'candidates':candidates})
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'queries':queries,'results':out},open('catalogue-audit/unmatched-url-candidates.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps({'queries':queries,'results':out},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit candidates
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/unmatched-url-candidates.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Find archive candidates for unmatched catalogue URLs' && git pull --rebase && git push; fi
