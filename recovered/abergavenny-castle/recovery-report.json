@@ -1,0 +1,31 @@
+{
+  "name": "Abergavenny Castle",
+  "capture": "20180804035317",
+  "display_photographs_expected": 2,
+  "display_photographs_recovered": 2,
+  "full_size_links_unpreserved": [
+    "http://www.castlesfortsbattles.co.uk/Abergavenny_Castle1.JPG",
+    "http://www.castlesfortsbattles.co.uk/Abergavenny_Castle4.JPG"
+  ],
+  "recovered": [
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpbd919f4e_05_06.jpg",
+      "file": "images/wpbd919f4e_05_06.jpg",
+      "bytes": 171993,
+      "dimensions": [
+        920,
+        372
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp2764119b_05_06.jpg",
+      "file": "images/wp2764119b_05_06.jpg",
+      "bytes": 89152,
+      "dimensions": [
+        476,
+        316
+      ]
+    }
+  ],
+  "failed": []
+}
