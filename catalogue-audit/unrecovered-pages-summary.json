@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "Dinieithon Castle",
+    "Galdendoch Castle",
+    "Oxburgh Hall"
+  ],
+  "index_changes": {
+    "atoz-part1.html": 0,
+    "atoz-part2.html": 2,
+    "atoz-part3.html": 0,
+    "atoz-part4.html": 1,
+    "atoz-part5.html": 0
+  },
+  "note": "These are status pages only; no historical content has been invented."
+}
