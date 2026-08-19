@@ -1,0 +1,55 @@
+name: Validate obvious alternate archive URLs
+
+on:
+  push:
+    paths:
+      - '.github/workflows/validate-obvious-alternate-urls.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4
+      - name: Validate candidate pages by title and visible text
+        run: |
+          python - <<'PY'
+          import json,os,re
+          import requests
+          from bs4 import BeautifulSoup
+          candidates=[
+            {'name':'Ambleside Roman Fort','old':'http://www.castlesfortsbattles.co.uk/north_west/ampleside_roman_fort.html','timestamp':'20180518172717','url':'http://www.castlesfortsbattles.co.uk:80/north_west/ambleside_roman_fort.html','need':['ambleside','roman','fort']},
+            {'name':'Druchtag Motte','old':'http://www.castlesfortsbattles.co.uk/dumfries_galloway/druchtag_motte.html','timestamp':'20150920092549','url':'http://www.castlesfortsbattles.co.uk/druchtag_motte.html','need':['druchtag','motte']},
+            {'name':'Kinlochaline Castle','old':'http://www.castlesfortsbattles.co.uk/kinlochaline_castle.html','timestamp':'20190613061927','url':'http://www.castlesfortsbattles.co.uk:80/highland/kinlochaline_castle.html','need':['kinlochaline','castle']},
+            {'name':'MacLellan’s Castle','old':'http://www.castlesfortsbattles.co.uk/dumfries_galloway/maclellans_castle.html','timestamp':'20150920091855','url':'http://www.castlesfortsbattles.co.uk/maclellans_castle.html','need':['maclellan','castle']},
+            {'name':'Neville’s Cross (Battle of - 1346)','old':'http://www.battlefieldsofbritain.co.uk/battle_nevilles_cross_1346.html.html','timestamp':'20170706211319','url':'http://www.battlefieldsofbritain.co.uk:80/battle_nevilles_cross_1346.html','need':['neville','cross','1346']},
+            {'name':'Tynemouth Castle','old':'http://www.castlesfortsbattles.co.uk/north_east/tynemouth_castle.html','timestamp':'20180823233219','url':'http://www.castlesfortsbattles.co.uk:80/north_east/tynemouth_castle.html','need':['tynemouth','castle']},
+          ]
+          s=requests.Session();s.headers['User-Agent']='Mozilla/5.0 archival URL validation'
+          results=[]
+          for c in candidates:
+            raw=f'https://web.archive.org/web/{c["timestamp"]}id_/{c["url"]}'
+            try:
+              r=s.get(raw,timeout=35,allow_redirects=True);txt=r.text
+              soup=BeautifulSoup(txt,'html.parser');title=(soup.title.get_text(' ',strip=True) if soup.title else '');vis=' '.join(soup.stripped_strings)
+              hay=(title+' '+vis[:8000]).lower()
+              valid=r.status_code==200 and all(x in hay for x in c['need']) and ('<html' in txt.lower() or '<!doctype' in txt.lower())
+              results.append({**c,'valid':valid,'http':r.status_code,'raw_replay':r.url,'title':title,'text_sample':vis[:500]})
+            except Exception as ex:results.append({**c,'valid':False,'error':type(ex).__name__+': '+str(ex)[:180]})
+          os.makedirs('catalogue-audit',exist_ok=True)
+          json.dump({'results':results,'validated':sum(1 for r in results if r['valid'])},open('catalogue-audit/alternate-url-validation.json','w'),indent=2,ensure_ascii=False)
+          print(json.dumps({'results':results,'validated':sum(1 for r in results if r['valid'])},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit validation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add catalogue-audit/alternate-url-validation.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Validate corrected archive URLs for unmatched entries' && git pull --rebase && git push; fi
