@@ -1,188 +1,33 @@
-# Triggered for Ludlow Castle on 2026-08-21
-name: Second-pass photo recovery for selected pages
+name: Reconcile selected recovered photographs
 on:
-  push:
-    paths: ['.github/workflows/recover-selected-second-pass.yml']
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: selected-photo-reconciliation
+  cancel-in-progress: false
 jobs:
-  recover:
+  reconcile:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with: {fetch-depth: 0}
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
-      - run: pip install requests pillow beautifulsoup4
-      - name: Deep second pass for missing images
+      - run: pip install pillow
+      - name: Reconcile exact local photographs and write summary
+        run: python scripts/reconcile_selected_images.py
+      - name: Validate generated reports
         run: |
-          python - <<'PY'
-          import os,re,json,time,hashlib
-          from pathlib import Path
-          from urllib.parse import urlsplit,urlunsplit,quote
-          from io import BytesIO
-          import requests
-          from PIL import Image
-
-          slugs=['ludlow-castle']
-          s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (archival recovery)'
-
-          def get(u,t=18):
-            for i in range(3):
-              try:
-                r=s.get(u,timeout=t,allow_redirects=True)
-                if r.status_code in (429,500,502,503,504): time.sleep(1.5*(i+1)); continue
-                return r
-              except Exception: time.sleep(1.5*(i+1))
-            return None
-
-          def okimg(r):
-            if r is None or r.status_code!=200 or len(r.content)<700:return False
-            try:
-              im=Image.open(BytesIO(r.content)); w,h=im.size
-              return w>=80 and h>=60
-            except Exception:return False
-
-          def save(r, requrl, imgdir):
-            h=hashlib.sha256(r.content).hexdigest()
-            fn=os.path.basename(urlsplit(requrl).path) or 'image.jpg'
-            fn=re.sub(r'[^A-Za-z0-9._-]+','_',fn)
-            p=imgdir/fn
-            if p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()!=h:
-              stem,suf=os.path.splitext(fn); fn=f'{stem}-{h[:8]}{suf}'; p=imgdir/fn
-            p.write_bytes(r.content)
-            try:dims=list(Image.open(BytesIO(r.content)).size)
-            except Exception:dims=None
-            return 'images/'+fn,h,dims
-
-          def variants(u):
-            sp=urlsplit(u); hosts=[sp.netloc]
-            hosts.append(sp.netloc[4:] if sp.netloc.startswith('www.') else 'www.'+sp.netloc)
-            out=[]
-            for scheme in ('http','https'):
-              for host in dict.fromkeys(hosts):
-                out.append(urlunsplit((scheme,host,sp.path,'','')))
-                if sp.query: out.append(urlunsplit((scheme,host,sp.path,sp.query,'')))
-            return list(dict.fromkeys(out))
-
-          def wayback_candidates(u):
-            rows=[]
-            for v in variants(u):
-              for match in ('exact','prefix'):
-                try:
-                  params={'url':v if match=='exact' else v+'*','output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'}
-                  r=get('https://web.archive.org/cdx/search/cdx?'+requests.compat.urlencode(params),22)
-                  if r and r.status_code==200:
-                    d=r.json()
-                    if isinstance(d,list) and len(d)>1: rows += d[1:]
-                except Exception: pass
-            fn=os.path.basename(urlsplit(u).path)
-            host=urlsplit(u).netloc.replace('www.','')
-            if fn:
-              for scheme in ('http','https'):
-                try:
-                  q=f'{scheme}://{host}/*/{fn}'
-                  r=get('https://web.archive.org/cdx/search/cdx?'+requests.compat.urlencode({'url':q,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length','collapse':'digest'}),22)
-                  if r and r.status_code==200:
-                    d=r.json()
-                    if isinstance(d,list) and len(d)>1: rows += d[1:]
-                except Exception: pass
-            uniq=[]; seen=set()
-            for row in rows:
-              if len(row)<2:continue
-              k=(row[0],row[1])
-              if k not in seen:seen.add(k);uniq.append(row)
-            uniq.sort(key=lambda x:x[0],reverse=True)
-            return uniq[:40]
-
-          def arquivo_candidates(u):
-            out=[]; searched=False
-            for v in variants(u):
-              try:
-                r=get('https://arquivo.pt/wayback/cdx?'+requests.compat.urlencode({'url':v,'output':'json','filter':'status:200','fields':'timestamp,url,mime,status','limit':50}),18)
-                if r and r.status_code==200:
-                  searched=True; d=r.json()
-                  if isinstance(d,list):
-                    for row in d:
-                      if isinstance(row,dict) and row.get('timestamp') and row.get('url'):out.append((row['timestamp'],row['url']))
-              except Exception:pass
-            return out,searched
-
-          def commoncrawl_candidates(u):
-            indices=['CC-MAIN-2026-30','CC-MAIN-2026-26','CC-MAIN-2026-21','CC-MAIN-2025-47','CC-MAIN-2025-38','CC-MAIN-2024-51','CC-MAIN-2023-50','CC-MAIN-2022-49','CC-MAIN-2021-49']
-            hits=[]; any_success=False; errors=[]
-            for idx in indices:
-              for v in variants(u)[:2]:
-                try:
-                  endpoint=f'https://index.commoncrawl.org/{idx}-index?url={quote(v,safe="")}&output=json'
-                  r=get(endpoint,12)
-                  if r is None: errors.append((idx,'no-response')); continue
-                  if r.status_code==200:
-                    any_success=True
-                    for line in r.text.splitlines():
-                      try:
-                        j=json.loads(line)
-                        if j.get('url'): hits.append(j)
-                      except Exception:pass
-                  elif r.status_code not in (404,): errors.append((idx,r.status_code))
-                except Exception as e: errors.append((idx,type(e).__name__))
-            return hits,any_success,errors
-
-          summary=[]
-          for slug in slugs:
-            rp=Path('recovered')/slug/'recovery-report.json'
-            if not rp.exists():continue
-            rep=json.loads(rp.read_text(encoding='utf-8'))
-            imgdir=rp.parent/'images';imgdir.mkdir(exist_ok=True)
-            gained=[]; unresolved=[]
-            entries=rep.get('images',[])
-            for item in entries:
-              status=item.get('status')
-              u=item.get('url') or item.get('requested') or item.get('original')
-              if not u or status=='recovered':continue
-              found=None
-              for row in wayback_candidates(u):
-                ts,orig=row[0],row[1]
-                r=get(f'https://web.archive.org/web/{ts}id_/{orig}',14)
-                if okimg(r):
-                  rel,h,dims=save(r,u,imgdir); found={'status':'recovered','file':rel,'method':'wayback-second-pass','timestamp':ts,'archived_original':orig,'sha256':h,'dimensions':dims};break
-              ar_searched=False
-              if not found:
-                ars,ar_searched=arquivo_candidates(u)
-                for ts,orig in reversed(ars):
-                  r=get(f'https://arquivo.pt/noFrame/replay/{ts}id_/{orig}',14)
-                  if okimg(r):
-                    rel,h,dims=save(r,u,imgdir); found={'status':'recovered','file':rel,'method':'arquivo-second-pass','timestamp':ts,'archived_original':orig,'sha256':h,'dimensions':dims};break
-              cc_hits=[];cc_success=False;cc_errors=[]
-              if not found:
-                cc_hits,cc_success,cc_errors=commoncrawl_candidates(u)
-              if found:
-                item.update(found); gained.append({'url':u,**found})
-              else:
-                item['second_pass']={'wayback':'searched-no-image','arquivo':'searched-no-image' if ar_searched else 'inconclusive','commoncrawl':'indexed-hit' if cc_hits else ('searched-no-hit' if cc_success else 'inconclusive'),'commoncrawl_hits':cc_hits[:5],'commoncrawl_errors':cc_errors[:8]}
-                unresolved.append(u)
-            rep['second_pass']={'new_images_recovered':len(gained),'remaining_unresolved':len(unresolved),'note':'No substitute images used. Common Crawl service failures are treated as inconclusive.'}
-            rp.write_text(json.dumps(rep,indent=2,ensure_ascii=False),encoding='utf-8')
-            ip=rp.parent/'index.html'
-            if ip.exists() and gained:
-              html=ip.read_text(encoding='utf-8')
-              figs=[]
-              for g in gained:
-                if g['file'] in html:continue
-                cap=os.path.splitext(os.path.basename(urlsplit(g['url']).path))[0].replace('_',' ')
-                figs.append(f'<figure><img src="{g["file"]}" alt="Recovered original image"><figcaption>{cap}</figcaption></figure>')
-              marker='</article>'
-              if figs and marker in html: html=html.replace(marker,''.join(figs)+marker,1); ip.write_text(html,encoding='utf-8')
-            summary.append({'slug':slug,'new':len(gained),'remaining':len(unresolved)})
-            print(slug,'new',len(gained),'remaining',len(unresolved))
-          Path('page-audit').mkdir(exist_ok=True)
-          Path('page-audit/selected-second-pass-summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
-          PY
-      - name: Commit second-pass results
+          python -m json.tool page-audit/selected-second-pass-summary.json >/dev/null
+          git diff --check
+      - name: Commit reconciled results
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add recovered page-audit/selected-second-pass-summary.json
-          if git diff --cached --quiet; then echo 'No new changes'; else git commit -m 'Second-pass recovery of selected page photographs' && git pull --rebase && git push; fi
+          if git diff --cached --quiet; then echo 'No new changes'; exit 0; fi
+          git commit -m 'Repair selected photo recovery reconciliation'
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -154,5 +154,11 @@
       "status": "unrecovered"
     }
   ],
-  "public_path": "recovered/hopton-heath-1643/index.html"
+  "public_path": "recovered/hopton-heath-1643/index.html",
+  "second_pass": {
+    "exact_local_references_reconciled": 0,
+    "remaining_unresolved_references": 37,
+    "invalid_local_files": [],
+    "note": "Exact filenames only; no substitute images were used."
+  }
 }

@@ -16,7 +16,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle.jpg?crc=4293256653",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle.jpg",
+      "sha256": "328b04696092b350039568a7c50dcd32a57187236b794984f7e6f36ec753fb73",
+      "dimensions": [
+        6000,
+        2559
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle8.jpg",
@@ -25,7 +32,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle8.jpg?crc=24325008",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle8.jpg",
+      "sha256": "5d773faef2d35964d41fdf997af45d0470aa5a35bedf3bfaac5f901f0df35ed3",
+      "dimensions": [
+        4912,
+        3264
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/hen_domen_castle.jpg",
@@ -34,7 +48,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/hen_domen_castle.jpg?crc=4124995064",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/hen_domen_castle.jpg",
+      "sha256": "db28212f792b5fc61dbe28aa702dd4433f1a7e6a13311da7edf884790200a2ab",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle23.jpg",
@@ -43,7 +64,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle23.jpg?crc=4179211319",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle23.jpg",
+      "sha256": "175eeb2b1dce45f396ad9b380382fd05d164c031b657dd39631351eea9db76df",
+      "dimensions": [
+        3992,
+        2992
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_town_walls2.jpg",
@@ -52,7 +80,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls2.jpg?crc=449966970",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_town_walls2.jpg",
+      "sha256": "71176890b712a197637d7c850232586fab29cd579f3f57770c247099b53e0a54",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle21.jpg",
@@ -61,7 +96,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle21.jpg?crc=3786467187",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle21.jpg",
+      "sha256": "f0451bc125679ee297b58a921a1912a0111c550e12390606ea1a9688d665b3fa",
+      "dimensions": [
+        3992,
+        2992
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle22.jpg",
@@ -70,7 +112,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle22.jpg?crc=4093328843",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle22.jpg",
+      "sha256": "26825cb920d671536d1ecf27579d7de1cc5339142ef6080b75aa237e8b168964",
+      "dimensions": [
+        3992,
+        2992
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle1b.jpg",
@@ -79,7 +128,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle1b.jpg?crc=348039421",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle1b.jpg",
+      "sha256": "79e12ba2519899e5cba746849cfa6b9f803636dad4f67b48ba01403d60d237df",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle2.jpg",
@@ -88,7 +144,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle2.jpg?crc=3909048777",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle2.jpg",
+      "sha256": "5261e6a4aec1ddf8075123904ac3ccb4e478711461d43da2ebae7b849b86d63e",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle5.jpg",
@@ -97,7 +160,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle5.jpg?crc=450272295",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle5.jpg",
+      "sha256": "31d3bba6ceeafdd450dcb155fe91189a8bf2edb4425a34ff26ed1e167625e4c2",
+      "dimensions": [
+        10403,
+        3447
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle4a.jpg",
@@ -106,7 +176,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle4a.jpg?crc=132913179",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle4a.jpg",
+      "sha256": "c51ac7fd7981b6a0988b56569b718a435854931c51dc2a1b8ec09bd667035133",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle7.jpg",
@@ -115,7 +192,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle7.jpg?crc=4271762688",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle7.jpg",
+      "sha256": "b92c95533b6c4e3ad425258784dbe6491a07f944958291ab428d655bb784357a",
+      "dimensions": [
+        4912,
+        3264
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/assets/montgomery_castle9.jpg",
@@ -190,20 +274,54 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle9.jpg?crc=4014086989",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle9.jpg",
+      "sha256": "25a854894fd5c01318f9f892e3cb4e76b1bd54b6477cde097f221119e25192a1",
+      "dimensions": [
+        6980,
+        4696
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle11_inner_ward.jpg?crc=3920811162",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle11_inner_ward.jpg",
+      "sha256": "f1b0e81d5c28bc9f46c3953644986517f5badd00b265086c1b65a0eb3a594479",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle12a.jpg?crc=3775073072",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_castle12a.jpg",
+      "sha256": "e0ff2a4614b12c0ff2df9f7bb37b6c6f5f531b2f3ea14da869c447f4e687286d",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls1.jpg?crc=4018045181",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/montgomery_town_walls1.jpg",
+      "sha256": "4f93527b0f3d4ede5dcdfc335888d21121b5ffcb92fbc4f30f9e9d6621c310b4",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "method": "exact-local-basename-reconciliation"
     }
   ],
-  "public_path": "recovered/montgomery-castle/index.html"
+  "public_path": "recovered/montgomery-castle/index.html",
+  "second_pass": {
+    "exact_local_references_reconciled": 16,
+    "remaining_unresolved_references": 10,
+    "invalid_local_files": [],
+    "note": "Exact filenames only; no substitute images were used."
+  }
 }

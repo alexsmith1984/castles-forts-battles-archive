@@ -1,0 +1,528 @@
+[
+  {
+    "slug": "hopton-heath-1643",
+    "reconciled": 0,
+    "remaining": 37,
+    "reconciled_items": [],
+    "unresolved": [
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643.jpg?crc=321009538",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_statistics.png",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_statistics.jpg?crc=3787970121",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action1.png",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action1a.jpg?crc=59817572",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action2.png",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action2a.jpg?crc=501839057",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action3.png",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action3a.jpg?crc=4219245659",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action4.png",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action4a.jpg?crc=299125111",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_action5.png",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_action5a.jpg?crc=127957582",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_1.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_1.jpg?crc=474527323",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_2.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_2.jpg?crc=282052398",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_4a_monument.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_4a_monument.jpg?crc=348745995",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_7b.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_7b.jpg?crc=378975180",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_17_heathyards_farm.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_17_heathyards_farm.jpg?crc=3973076826",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_18_heathyards_farm_track.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_18_heathyards_farm_track.jpg?crc=362383798",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_16_heathyards_farm.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_16_heathyards_farm.jpg?crc=4202663447",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_12_sandon_lane.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_12_sandon_lane.jpg?crc=337086420",
+      "http://www.battlefieldsofbritain.co.uk/assets/hopton_heath_1643_9_mod_stafford_site6.jpg",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_9_mod_stafford_site6.jpg?crc=4043944296",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643824x352.jpg?crc=32407723",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_1287x192.jpg?crc=132000455",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_2287x192.jpg?crc=4189150177",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_12_sandon_lane350x233.jpg?crc=76366839",
+      "http://www.battlefieldsofbritain.co.uk/images/hopton_heath_1643_9_mod_stafford_site6349x233.jpg?crc=4120376528"
+    ]
+  },
+  {
+    "slug": "hopton-castle",
+    "reconciled": 5,
+    "remaining": 24,
+    "reconciled_items": [
+      {
+        "requested": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle1.jpg",
+        "file": "images/hopton_castle1.jpg",
+        "sha256": "8c904a066647dbfc4c3742317ace2fc2a35db526919b95a91e8d7d9f96508e2c"
+      },
+      {
+        "requested": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle4.jpg",
+        "file": "images/hopton_castle4.jpg",
+        "sha256": "1bee9acc23a0906c2ae7c0cb90db61f48184cddbaac0918e058f7321c210df5d"
+      },
+      {
+        "requested": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle5.jpg",
+        "file": "images/hopton_castle5.jpg",
+        "sha256": "fefc1b6f65526a9e928be786d3eaf80ac6fea281ac43761c92863657bfb74264"
+      },
+      {
+        "requested": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle10.jpg",
+        "file": "images/hopton_castle10.jpg",
+        "sha256": "1c93ae3950bc679281957a0dfb5c2b16899a8ae6278e28265918a68cf7156a6f"
+      },
+      {
+        "requested": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle11.jpg",
+        "file": "images/hopton_castle11.jpg",
+        "sha256": "9ff322125ae2a9ac36710b95db2f14eeb8fe5b936f357a971cb0e7b0a48fc0d6"
+      }
+    ],
+    "unresolved": [
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle.jpg?crc=362019969",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle3.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3.jpg?crc=127266941",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle_plan.png",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle_plan.jpg?crc=378951817",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3325x217.jpg?crc=4038810833",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle4325x217.jpg?crc=3874668160",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle5325x217.jpg?crc=332307003",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle13_earthworks.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle13_earthworks.jpg?crc=3783881679",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle160x40.jpg?crc=528087221",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1560x40.jpg?crc=120723168",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle360x40.jpg?crc=4292320823",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle16_earthworks60x40.jpg?crc=3869403734",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle460x40.jpg?crc=251721801",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle560x40.jpg?crc=4113814785",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1060x40.jpg?crc=334461604",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1160x40.jpg?crc=496090744",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle260x40.jpg?crc=4222488236",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle860x40.jpg?crc=3793183259",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1260x40.jpg?crc=30172140",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1460x40.jpg?crc=3995177087",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle3277x184.jpg?crc=4256546309"
+    ]
+  },
+  {
+    "slug": "montgomery-castle",
+    "reconciled": 16,
+    "remaining": 10,
+    "reconciled_items": [
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle.jpg?crc=4293256653",
+        "file": "images/montgomery_castle.jpg",
+        "sha256": "328b04696092b350039568a7c50dcd32a57187236b794984f7e6f36ec753fb73"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle8.jpg?crc=24325008",
+        "file": "images/montgomery_castle8.jpg",
+        "sha256": "5d773faef2d35964d41fdf997af45d0470aa5a35bedf3bfaac5f901f0df35ed3"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/hen_domen_castle.jpg?crc=4124995064",
+        "file": "images/hen_domen_castle.jpg",
+        "sha256": "db28212f792b5fc61dbe28aa702dd4433f1a7e6a13311da7edf884790200a2ab"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle23.jpg?crc=4179211319",
+        "file": "images/montgomery_castle23.jpg",
+        "sha256": "175eeb2b1dce45f396ad9b380382fd05d164c031b657dd39631351eea9db76df"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls2.jpg?crc=449966970",
+        "file": "images/montgomery_town_walls2.jpg",
+        "sha256": "71176890b712a197637d7c850232586fab29cd579f3f57770c247099b53e0a54"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle21.jpg?crc=3786467187",
+        "file": "images/montgomery_castle21.jpg",
+        "sha256": "f0451bc125679ee297b58a921a1912a0111c550e12390606ea1a9688d665b3fa"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle22.jpg?crc=4093328843",
+        "file": "images/montgomery_castle22.jpg",
+        "sha256": "26825cb920d671536d1ecf27579d7de1cc5339142ef6080b75aa237e8b168964"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle1b.jpg?crc=348039421",
+        "file": "images/montgomery_castle1b.jpg",
+        "sha256": "79e12ba2519899e5cba746849cfa6b9f803636dad4f67b48ba01403d60d237df"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle2.jpg?crc=3909048777",
+        "file": "images/montgomery_castle2.jpg",
+        "sha256": "5261e6a4aec1ddf8075123904ac3ccb4e478711461d43da2ebae7b849b86d63e"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle5.jpg?crc=450272295",
+        "file": "images/montgomery_castle5.jpg",
+        "sha256": "31d3bba6ceeafdd450dcb155fe91189a8bf2edb4425a34ff26ed1e167625e4c2"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle4a.jpg?crc=132913179",
+        "file": "images/montgomery_castle4a.jpg",
+        "sha256": "c51ac7fd7981b6a0988b56569b718a435854931c51dc2a1b8ec09bd667035133"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle7.jpg?crc=4271762688",
+        "file": "images/montgomery_castle7.jpg",
+        "sha256": "b92c95533b6c4e3ad425258784dbe6491a07f944958291ab428d655bb784357a"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle9.jpg?crc=4014086989",
+        "file": "images/montgomery_castle9.jpg",
+        "sha256": "25a854894fd5c01318f9f892e3cb4e76b1bd54b6477cde097f221119e25192a1"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle11_inner_ward.jpg?crc=3920811162",
+        "file": "images/montgomery_castle11_inner_ward.jpg",
+        "sha256": "f1b0e81d5c28bc9f46c3953644986517f5badd00b265086c1b65a0eb3a594479"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle12a.jpg?crc=3775073072",
+        "file": "images/montgomery_castle12a.jpg",
+        "sha256": "e0ff2a4614b12c0ff2df9f7bb37b6c6f5f531b2f3ea14da869c447f4e687286d"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls1.jpg?crc=4018045181",
+        "file": "images/montgomery_town_walls1.jpg",
+        "sha256": "4f93527b0f3d4ede5dcdfc335888d21121b5ffcb92fbc4f30f9e9d6621c310b4"
+      }
+    ],
+    "unresolved": [
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/castlesfortsbattles.jpg?crc=468208580",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle9322x217.jpg?crc=260598994",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle11_inner_ward324x216.jpg?crc=182787883",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_castle12a324x216.jpg?crc=451861288",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls_plan.jpg?crc=3824259970",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls1374x250.jpg?crc=328800076",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_town_walls2374x250.jpg?crc=4234396573",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/montgomery_fortifications2.jpg?crc=170502034",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/ffridd_faldwyn_hillfort5358x268.jpg?crc=147945962",
+      "http://www.castlesfortsbattles.co.uk/central_wales/images/hen_domen_castle358x239.jpg?crc=4073587531"
+    ]
+  },
+  {
+    "slug": "moreton-corbet-castle",
+    "reconciled": 0,
+    "remaining": 15,
+    "reconciled_items": [],
+    "unresolved": [
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "http://www.castlesfortsbattles.co.uk/Moreton_Corbet_Castle1.JPG",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "http://www.castlesfortsbattles.co.uk/Moreton_Corbet_Castle_Layout.JPG.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp7126f784_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpd811724e_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "http://www.castlesfortsbattles.co.uk/Moreton_Corbet_Castle8.JPG"
+    ]
+  },
+  {
+    "slug": "nantwich-1644",
+    "reconciled": 0,
+    "remaining": 41,
+    "reconciled_items": [],
+    "unresolved": [
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644.jpg?crc=118836058",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_stats.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_stats.jpg?crc=120695670",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action1.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action1a.jpg?crc=394837402",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action2.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action2a.jpg?crc=3871921656",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action3.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action3a.jpg?crc=4289853150",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action4.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action4a.jpg?crc=4287143024",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action5.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action5a.jpg?crc=84241754",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action6.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action6a.jpg?crc=152153011",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_1644_action7.png",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644_action7a.jpg?crc=533788330",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_battlefield1.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield1.jpg?crc=3857592419",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_battlefield11.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield11.jpg?crc=311957704",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_battlefield7_st_marys_church.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield7_st_marys_church.jpg?crc=4227231291",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield9_battle_damage.jpg?crc=4014143060",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_battlefield3.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield3.jpg?crc=3882537111",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_battlefield5_shropshire_union_canal.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield5_shropshire_union_canal.jpg?crc=347524496",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_town1.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_town1.jpg?crc=204722447",
+      "http://battlefieldsofbritain.co.uk/assets/nantwich_town4.jpg",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_town4.jpg?crc=3846367607",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_1644824x348.jpg?crc=4072043129",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield1707x186.jpg?crc=56406648",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield7_st_marys_church350x233.jpg?crc=355957251",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield9_battle_damage349x232.jpg?crc=233259567",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield3349x232.jpg?crc=429669181",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_battlefield5_shropshire_union_canal349x232.jpg?crc=134528169",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_town1349x232.jpg?crc=4202820345",
+      "http://battlefieldsofbritain.co.uk/images/nantwich_town4348x231.jpg?crc=4136758519"
+    ]
+  },
+  {
+    "slug": "old-oswestry-hillfort",
+    "reconciled": 0,
+    "remaining": 44,
+    "reconciled_items": [],
+    "unresolved": [
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry_hillfort.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry_hillfort.jpg?crc=393051371",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry20.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry20.jpg?crc=35465921",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry3.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry3.jpg?crc=245737741",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry19.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry19.jpg?crc=3927768463",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry7.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry7.jpg?crc=330840489",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry15_air.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry15_air.jpg?crc=102144202",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry16_entrance.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry16_entrance.jpg?crc=13438815",
+      "https://www.castlesfortsbattles.co.uk/midlands/assets/old_oswestry17_defences.jpg",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry17_defences.jpg?crc=39446877",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry20445x333.jpg?crc=177721374",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1.jpg?crc=525457977",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry4.jpg?crc=513557962",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry5.jpg?crc=3838776452",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry6.jpg?crc=4221109287",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry9.jpg?crc=397630412",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry10.jpg?crc=401645482",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry11.jpg?crc=4075517955",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry12.jpg?crc=476013278",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry14.jpg?crc=401129575",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry18.jpg?crc=4199947512",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry760x40.jpg?crc=4109715939",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1260x40.jpg?crc=374476450",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry15_air60x21.jpg?crc=3859246609",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1460x40.jpg?crc=246154310",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry16_entrance60x45.jpg?crc=4128556854",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1860x45.jpg?crc=401989499",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry17_defences60x45.jpg?crc=354872845",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1960x45.jpg?crc=4271853757",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry2060x45.jpg?crc=375990132",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry160x40.jpg?crc=3932706486",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry460x40.jpg?crc=307986789",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry560x40.jpg?crc=4048963412",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry660x40.jpg?crc=3958020268",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry960x40.jpg?crc=4269210101",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1060x40.jpg?crc=3858942194",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/old_oswestry1160x40.jpg?crc=3811347876",
+      "https://www.castlesfortsbattles.co.uk/midlands/images/castlesfortsbattles-crop-u301.jpg?crc=3914299394"
+    ]
+  },
+  {
+    "slug": "peveril-castle",
+    "reconciled": 4,
+    "remaining": 16,
+    "reconciled_items": [
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle2.jpg",
+        "file": "images/peveril_castle2.jpg",
+        "sha256": "839dace1d70d3a91b13d4829cc41d730f3d6bdc42ca28f9146a53cef3d16de5d"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle4.jpg",
+        "file": "images/peveril_castle4.jpg",
+        "sha256": "1dfb3cc662e52a1de8fbdd47a68b01bef21c964b968a84defbf64890d6f47161"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle6.jpg",
+        "file": "images/peveril_castle6.jpg",
+        "sha256": "16c481d3193e538de3a7606778505af7eb92e68f32bcf991492c989ad86dafce"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle21a.jpg",
+        "file": "images/peveril_castle21a.jpg",
+        "sha256": "8e19338bf83f1b46aaa010ed4183bcd950f191e564d282b1aac06f570b2f7443"
+      }
+    ],
+    "unresolved": [
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle.jpg?crc=444331860",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle20.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle20.jpg?crc=9778261",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_castleton_plan.png",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle_castleton_plan.jpg?crc=429587443",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_layout2.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle_layout2.jpg?crc=76732129",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle_layout3.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle_layout3.jpg?crc=135002886",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle23.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle23.jpg?crc=192185211",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle29_bailey.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle29_bailey.jpg?crc=350484065",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/castleton_rampart.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/castleton_rampart.jpg?crc=461103384"
+    ]
+  },
+  {
+    "slug": "seckington-castle",
+    "reconciled": 0,
+    "remaining": 20,
+    "reconciled_items": [],
+    "unresolved": [
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp7126f784_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpc3b5ceae_06.png",
+      "http://www.castlesfortsbattles.co.uk/Seckington_Castle4A.jpg",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp88362264_05_06.jpg",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "http://www.castlesfortsbattles.co.uk/Seckington_Castle11_Motte.JPG",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp7442ef30_05_06.jpg",
+      "http://www.castlesfortsbattles.co.uk/Seckington_Castle8.jpg",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp002bd462_05_06.jpg",
+      "http://www.castlesfortsbattles.co.uk/Seckington_Castle9.jpg",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp66001bee_05_06.jpg"
+    ]
+  },
+  {
+    "slug": "stokesay-castle",
+    "reconciled": 0,
+    "remaining": 15,
+    "reconciled_items": [],
+    "unresolved": [
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "http://www.castlesfortsbattles.co.uk/Stokesay_Castle2.jpg",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp7126f784_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp08a834da_06.png",
+      "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "http://www.castlesfortsbattles.co.uk/Stokesay_Castle4.JPG",
+      "http://www.castlesfortsbattles.co.uk/Stokesay_Castle9.jpg"
+    ]
+  },
+  {
+    "slug": "ludlow-castle",
+    "reconciled": 16,
+    "remaining": 15,
+    "reconciled_items": [
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle8.jpg",
+        "file": "images/ludlow_castle8.jpg",
+        "sha256": "3a2a6db9e80d51c965fa3018420780894ccb30544be6b90cbfee3ce014d006b3"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle19.jpg",
+        "file": "images/ludlow_castle19.jpg",
+        "sha256": "64b1f46140becaceb86f10802e38249953a57221d5bcc109358dc9369a660f4f"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle28.jpg",
+        "file": "images/ludlow_castle28.jpg",
+        "sha256": "2686abdbd16c89f1aeaff32d6ba5f45298d19006a490f9345cc71fa70616c573"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle28.jpg?crc=183100592",
+        "file": "images/ludlow_castle28.jpg",
+        "sha256": "2686abdbd16c89f1aeaff32d6ba5f45298d19006a490f9345cc71fa70616c573"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls25_st_johns_road.jpg",
+        "file": "images/ludlow_town_walls25_st_johns_road.jpg",
+        "sha256": "f9cc8c1f25749695b83e875fe4e4f313143524d58ff60f2c628847264e45bd63"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls25_st_johns_road.jpg?crc=125264485",
+        "file": "images/ludlow_town_walls25_st_johns_road.jpg",
+        "sha256": "f9cc8c1f25749695b83e875fe4e4f313143524d58ff60f2c628847264e45bd63"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle4.jpg",
+        "file": "images/ludlow_castle4.jpg",
+        "sha256": "d551b1f89158de8598ba0ecd18211b2f49eca7ad9d55b4585c62a6a83be43381"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle4.jpg?crc=3861176548",
+        "file": "images/ludlow_castle4.jpg",
+        "sha256": "d551b1f89158de8598ba0ecd18211b2f49eca7ad9d55b4585c62a6a83be43381"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle16.jpg",
+        "file": "images/ludlow_castle16.jpg",
+        "sha256": "127afcccc3637111e50b05e852a53297922366a37fc797f7d2938346d0360505"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle16.jpg?crc=521026755",
+        "file": "images/ludlow_castle16.jpg",
+        "sha256": "127afcccc3637111e50b05e852a53297922366a37fc797f7d2938346d0360505"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle18.jpg",
+        "file": "images/ludlow_castle18.jpg",
+        "sha256": "ece2e124e877ed5ec94d848a99a92829ab81945673683238a1fd72af25f31321"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle18.jpg?crc=4050375110",
+        "file": "images/ludlow_castle18.jpg",
+        "sha256": "ece2e124e877ed5ec94d848a99a92829ab81945673683238a1fd72af25f31321"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle30.jpg",
+        "file": "images/ludlow_castle30.jpg",
+        "sha256": "294679e936db28ac14bd250c73c7c47b5a2d354cfb18ee1e0e54dc2c858a8eb7"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle23.jpg",
+        "file": "images/ludlow_castle23.jpg",
+        "sha256": "dcbb562482b6c2320727888864e41cbad74ce618f33b695f1abda8a9b917e0d5"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls29_broad_gate.jpg",
+        "file": "images/ludlow_town_walls29_broad_gate.jpg",
+        "sha256": "112eee0fb14767e9e9da311191af1e75fb8c64d1d5fa70c78d8891c0653a879e"
+      },
+      {
+        "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls32_ludlow_bridge.jpg",
+        "file": "images/ludlow_town_walls32_ludlow_bridge.jpg",
+        "sha256": "cb51bbb95197e500b20d87704be1553a975e1112d5e05152aa0f840ad5723dbc"
+      }
+    ],
+    "unresolved": [
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle.jpg?crc=4026588139",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle_town_walls_plan.png",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle_town_walls_plan.jpg?crc=4142194210",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle20.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle20324x215.jpg?crc=49799475",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle30324x215.jpg?crc=111764338",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle23324x215.jpg?crc=464558772",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_castle7.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle7.jpg?crc=475179433",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls34_site_mill_gate.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls34_site_mill_gate.jpg?crc=445294084",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls33_mill_gate.jpg",
+      "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls33_mill_gate.jpg?crc=3839556709",
+      "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls35_dinham_gate.jpg"
+    ]
+  }
+]

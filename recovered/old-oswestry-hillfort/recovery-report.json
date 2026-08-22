@@ -187,5 +187,11 @@
       "status": "unrecovered"
     }
   ],
-  "public_path": "recovered/old-oswestry-hillfort/index.html"
+  "public_path": "recovered/old-oswestry-hillfort/index.html",
+  "second_pass": {
+    "exact_local_references_reconciled": 0,
+    "remaining_unresolved_references": 44,
+    "invalid_local_files": [],
+    "note": "Exact filenames only; no substitute images were used."
+  }
 }

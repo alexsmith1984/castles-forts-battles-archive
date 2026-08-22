@@ -52,7 +52,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle2.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/peveril_castle2.jpg",
+      "sha256": "839dace1d70d3a91b13d4829cc41d730f3d6bdc42ca28f9146a53cef3d16de5d",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle2.jpg?crc=4273639298",
@@ -61,7 +68,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle4.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/peveril_castle4.jpg",
+      "sha256": "1dfb3cc662e52a1de8fbdd47a68b01bef21c964b968a84defbf64890d6f47161",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle4.jpg?crc=356822857",
@@ -70,7 +84,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle6.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/peveril_castle6.jpg",
+      "sha256": "16c481d3193e538de3a7606778505af7eb92e68f32bcf991492c989ad86dafce",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle6.jpg?crc=421786956",
@@ -87,7 +108,14 @@
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/assets/peveril_castle21a.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/peveril_castle21a.jpg",
+      "sha256": "8e19338bf83f1b46aaa010ed4183bcd950f191e564d282b1aac06f570b2f7443",
+      "dimensions": [
+        230,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "http://www.castlesfortsbattles.co.uk/midlands/images/peveril_castle21a.jpg?crc=3906463300",
@@ -211,5 +239,11 @@
       "file": "images/peveril_castle19a_keep.jpg"
     }
   ],
-  "public_path": "recovered/peveril-castle/index.html"
+  "public_path": "recovered/peveril-castle/index.html",
+  "second_pass": {
+    "exact_local_references_reconciled": 4,
+    "remaining_unresolved_references": 16,
+    "invalid_local_files": [],
+    "note": "Exact filenames only; no substitute images were used."
+  }
 }

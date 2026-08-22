@@ -36,7 +36,14 @@
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle1.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/hopton_castle1.jpg",
+      "sha256": "8c904a066647dbfc4c3742317ace2fc2a35db526919b95a91e8d7d9f96508e2c",
+      "dimensions": [
+        541,
+        361
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle1.jpg?crc=3958631876",
@@ -49,7 +56,14 @@
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle4.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/hopton_castle4.jpg",
+      "sha256": "1bee9acc23a0906c2ae7c0cb90db61f48184cddbaac0918e058f7321c210df5d",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle4325x217.jpg?crc=3874668160",
@@ -57,7 +71,14 @@
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle5.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/hopton_castle5.jpg",
+      "sha256": "fefc1b6f65526a9e928be786d3eaf80ac6fea281ac43761c92863657bfb74264",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle5325x217.jpg?crc=332307003",
@@ -65,7 +86,14 @@
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle10.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/hopton_castle10.jpg",
+      "sha256": "1c93ae3950bc679281957a0dfb5c2b16899a8ae6278e28265918a68cf7156a6f",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle10.jpg?crc=4200351811",
@@ -74,7 +102,14 @@
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/assets/hopton_castle11.jpg",
-      "status": "unrecovered"
+      "status": "recovered",
+      "file": "images/hopton_castle11.jpg",
+      "sha256": "9ff322125ae2a9ac36710b95db2f14eeb8fe5b936f357a971cb0e7b0a48fc0d6",
+      "dimensions": [
+        500,
+        333
+      ],
+      "method": "exact-local-basename-reconciliation"
     },
     {
       "url": "https://www.castlesfortsbattles.co.uk/midlands/images/hopton_castle11.jpg?crc=4241528016",
@@ -202,5 +237,11 @@
       "status": "unrecovered"
     }
   ],
-  "public_path": "recovered/hopton-castle/index.html"
+  "public_path": "recovered/hopton-castle/index.html",
+  "second_pass": {
+    "exact_local_references_reconciled": 5,
+    "remaining_unresolved_references": 24,
+    "invalid_local_files": [],
+    "note": "Exact filenames only; no substitute images were used."
+  }
 }
