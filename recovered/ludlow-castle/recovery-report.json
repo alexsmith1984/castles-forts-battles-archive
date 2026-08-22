@@ -5,7 +5,7 @@
   "source_original": "http://www.castlesfortsbattles.co.uk/midlands/ludlow_castle.html",
   "text_blocks": 75,
   "image_refs": 190,
-  "images_recovered": 4,
+  "images_recovered": 42,
   "images": [
     {
       "status": "unrecovered",
@@ -176,5 +176,566 @@
       "requested": "http://www.castlesfortsbattles.co.uk/midlands/assets/ludlow_town_walls35_dinham_gate.jpg"
     }
   ],
-  "public_path": "recovered/ludlow-castle/index.html"
+  "public_path": "recovered/ludlow-castle/index.html",
+  "broad_media_index_pass": {
+    "scope": "All status-200 Wayback CDX records matching /midlands/images/ludlow*",
+    "indexed_records_checked": 43,
+    "unique_images_verified": 42,
+    "results": [
+      {
+        "timestamp": "20220826211354",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle1.jpg?crc=4240501277",
+        "archive_url": "https://web.archive.org/web/20220826211354id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle1.jpg?crc=4240501277",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle1.jpg",
+        "sha256": "a5c6c4cc8181880a775e1388eef2415e7f54591060012609892fa58eef94630c",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211206",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle10.jpg?crc=386710430",
+        "archive_url": "https://web.archive.org/web/20220826211206id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle10.jpg?crc=386710430",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle10.jpg",
+        "sha256": "51b76256c5ac7a011f603b56feb63a1eb89f03e3ba88ad003bccc0e8fd0127dd",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211205",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle11.jpg?crc=354099672",
+        "archive_url": "https://web.archive.org/web/20220826211205id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle11.jpg?crc=354099672",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle11.jpg",
+        "sha256": "7e0b8553055d03c745d1f685969282f977d0b6c5a0e50e1d1f6f09a2fe33bc99",
+        "dimensions": [
+          221,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211211",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle12.jpg?crc=3831416758",
+        "archive_url": "https://web.archive.org/web/20220826211211id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle12.jpg?crc=3831416758",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle12.jpg",
+        "sha256": "cdb2ce112b673c06b484c26870829cc1004fcd22be7006fa1e14d8892330bf26",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211205",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle13.jpg?crc=154337160",
+        "archive_url": "https://web.archive.org/web/20220826211205id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle13.jpg?crc=154337160",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle13.jpg",
+        "sha256": "7fe3fe0442afaeb6431c3e8a0d44f8fdc8862d1c3efac6a208138be217cb3878",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211358",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle14.jpg?crc=226497760",
+        "archive_url": "https://web.archive.org/web/20220826211358id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle14.jpg?crc=226497760",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle14.jpg",
+        "sha256": "6f97117a2a7c5757572ce7ca51e376c19e4d5053aa648be5373dfcde28fecb2b",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211212",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle14b.jpg?crc=127687729",
+        "archive_url": "https://web.archive.org/web/20220826211212id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle14b.jpg?crc=127687729",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle14b.jpg",
+        "sha256": "a0da2d3bf0b5470d1850cf117d936f17aa4614ab1dd2e9f5b689d00e718b89ea",
+        "dimensions": [
+          222,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211159",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle16.jpg?crc=521026755",
+        "archive_url": "https://web.archive.org/web/20220826211159id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle16.jpg?crc=521026755",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle16.jpg",
+        "sha256": "127afcccc3637111e50b05e852a53297922366a37fc797f7d2938346d0360505",
+        "dimensions": [
+          224,
+          337
+        ]
+      },
+      {
+        "timestamp": "20220826211208",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle17.jpg?crc=446383540",
+        "archive_url": "https://web.archive.org/web/20220826211208id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle17.jpg?crc=446383540",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle17.jpg",
+        "sha256": "063ebaeefb2fe1c4f0d85ca534714cfd5127aa9f53eb8ba1a56ffd4380b76e58",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211202",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle18.jpg?crc=4050375110",
+        "archive_url": "https://web.archive.org/web/20220826211202id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle18.jpg?crc=4050375110",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle18.jpg",
+        "sha256": "ece2e124e877ed5ec94d848a99a92829ab81945673683238a1fd72af25f31321",
+        "dimensions": [
+          508,
+          337
+        ]
+      },
+      {
+        "timestamp": "20220826211204",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle19.jpg?crc=400240738",
+        "archive_url": "https://web.archive.org/web/20220826211204id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle19.jpg?crc=400240738",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle19.jpg",
+        "sha256": "64b1f46140becaceb86f10802e38249953a57221d5bcc109358dc9369a660f4f",
+        "dimensions": [
+          233,
+          337
+        ]
+      },
+      {
+        "timestamp": "20220826211206",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle2.jpg?crc=3840445626",
+        "archive_url": "https://web.archive.org/web/20220826211206id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle2.jpg?crc=3840445626",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle2.jpg",
+        "sha256": "66863a701b6d1f0483bbcc89153c5b8b752ccba43dc329575e55484ed69e0d9b",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211353",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle20.jpg?crc=4078494498",
+        "archive_url": "https://web.archive.org/web/20220826211353id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle20.jpg?crc=4078494498",
+        "http_status": 200,
+        "status": "unrecovered",
+        "error": "OSError"
+      },
+      {
+        "timestamp": "20220826211210",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle21.jpg?crc=4026316053",
+        "archive_url": "https://web.archive.org/web/20220826211210id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle21.jpg?crc=4026316053",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle21.jpg",
+        "sha256": "03832029683e6e00c847599016e04dbb6040e2928a99b8f7013bf9125f4b0717",
+        "dimensions": [
+          228,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211203",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle23.jpg?crc=385136417",
+        "archive_url": "https://web.archive.org/web/20220826211203id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle23.jpg?crc=385136417",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle23.jpg",
+        "sha256": "dcbb562482b6c2320727888864e41cbad74ce618f33b695f1abda8a9b917e0d5",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211209",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle24.jpg?crc=23160344",
+        "archive_url": "https://web.archive.org/web/20220826211209id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle24.jpg?crc=23160344",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle24.jpg",
+        "sha256": "190c8215736da4df82294d435bbb77ab5612aad224ea111e6b76d152e807b7d4",
+        "dimensions": [
+          314,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211206",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle27.jpg?crc=441434608",
+        "archive_url": "https://web.archive.org/web/20220826211206id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle27.jpg?crc=441434608",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle27.jpg",
+        "sha256": "6063e2e90268567c53bf20664ef63a4bee04c386b4de093acb4d42c76998a4aa",
+        "dimensions": [
+          221,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211216",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle28.jpg?crc=183100592",
+        "archive_url": "https://web.archive.org/web/20220826211216id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle28.jpg?crc=183100592",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle28.jpg",
+        "sha256": "2686abdbd16c89f1aeaff32d6ba5f45298d19006a490f9345cc71fa70616c573",
+        "dimensions": [
+          278,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211405",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle3.jpg?crc=239693533",
+        "archive_url": "https://web.archive.org/web/20220826211405id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle3.jpg?crc=239693533",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle3.jpg",
+        "sha256": "07854dec2c4e5a778bc285a4d5791da9e1de2a6b02a8bf49b3cea9050099f6f8",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211205",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle30.jpg?crc=275071510",
+        "archive_url": "https://web.archive.org/web/20220826211205id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle30.jpg?crc=275071510",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle30.jpg",
+        "sha256": "294679e936db28ac14bd250c73c7c47b5a2d354cfb18ee1e0e54dc2c858a8eb7",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211213",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle34.jpg?crc=418940266",
+        "archive_url": "https://web.archive.org/web/20220826211213id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle34.jpg?crc=418940266",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle34.jpg",
+        "sha256": "8ebfd396b8a8f9ef62f4ddac1ca148a937674dfa345549ff87029d28442fc100",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211210",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle35.jpg?crc=3926366288",
+        "archive_url": "https://web.archive.org/web/20220826211210id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle35.jpg?crc=3926366288",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle35.jpg",
+        "sha256": "5f9288d2923efc0b8864e60b258a17c6faa55e5da18bc6878ab5165541d9fca8",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211203",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle4.jpg?crc=3861176548",
+        "archive_url": "https://web.archive.org/web/20220826211203id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle4.jpg?crc=3861176548",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle4.jpg",
+        "sha256": "d551b1f89158de8598ba0ecd18211b2f49eca7ad9d55b4585c62a6a83be43381",
+        "dimensions": [
+          544,
+          361
+        ]
+      },
+      {
+        "timestamp": "20220826211357",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle6.jpg?crc=4181418066",
+        "archive_url": "https://web.archive.org/web/20220826211357id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle6.jpg?crc=4181418066",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle6.jpg",
+        "sha256": "5d251d03af7be53c8a9e46470dfaccfd0eb610c629c0151f63dc3d723a1ba5db",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211201",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle8.jpg?crc=428494243",
+        "archive_url": "https://web.archive.org/web/20220826211201id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle8.jpg?crc=428494243",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle8.jpg",
+        "sha256": "3a2a6db9e80d51c965fa3018420780894ccb30544be6b90cbfee3ce014d006b3",
+        "dimensions": [
+          650,
+          432
+        ]
+      },
+      {
+        "timestamp": "20220826211216",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle8a.jpg?crc=33980744",
+        "archive_url": "https://web.archive.org/web/20220826211216id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle8a.jpg?crc=33980744",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle8a.jpg",
+        "sha256": "bb32aa011531011294781b7b178a8758ff01e3b95e2b5f7b9b85997828cde6e0",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211208",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle9.jpg?crc=4031515390",
+        "archive_url": "https://web.archive.org/web/20220826211208id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_castle9.jpg?crc=4031515390",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_castle9.jpg",
+        "sha256": "a1e87328102e2b114ec66a4cfdb4975967a7309ae2e288000c10ae470c372bcd",
+        "dimensions": [
+          501,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211211",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls13_feathers_hotel.jpg?crc=3786326345",
+        "archive_url": "https://web.archive.org/web/20220826211211id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls13_feathers_hotel.jpg?crc=3786326345",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls13_feathers_hotel.jpg",
+        "sha256": "f0c68c12ba34618d52a607501da6b6247fb65eee1ffc002b36c8fdb65f011f14",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211212",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls15_wall_fragments.jpg?crc=3934663427",
+        "archive_url": "https://web.archive.org/web/20220826211212id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls15_wall_fragments.jpg?crc=3934663427",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls15_wall_fragments.jpg",
+        "sha256": "ab1143656fd197bb5395a2479b3a2637e576a54774f20d0eaf40439586e7b373",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211200",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls1_upper_linney_road.jpg?crc=495734488",
+        "archive_url": "https://web.archive.org/web/20220826211200id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls1_upper_linney_road.jpg?crc=495734488",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls1_upper_linney_road.jpg",
+        "sha256": "59bebf2fca20c1382278e4f88e9b83e4985dc5fa3b473e78103f949831b7f27d",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211213",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls21_site_old_gate.jpg?crc=211511377",
+        "archive_url": "https://web.archive.org/web/20220826211213id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls21_site_old_gate.jpg?crc=211511377",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls21_site_old_gate.jpg",
+        "sha256": "cbd41ad6d5fce3a683243fd41c1cc2733c29e8028a26d5cef9e5d21260f8c6a7",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211206",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls23_st_johns_road.jpg?crc=4211734283",
+        "archive_url": "https://web.archive.org/web/20220826211206id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls23_st_johns_road.jpg?crc=4211734283",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls23_st_johns_road.jpg",
+        "sha256": "facee24842e5020977d793045bbe352ea79f487c3f5a58f307dbd065d8b4bed0",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211213",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls24_st_johns_road.jpg?crc=416008135",
+        "archive_url": "https://web.archive.org/web/20220826211213id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls24_st_johns_road.jpg?crc=416008135",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls24_st_johns_road.jpg",
+        "sha256": "c29ee48d3c2e21220500555d2f4d393b430e27b6311139c6845bc7bbb4fdf031",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211203",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls25_st_johns_road.jpg?crc=125264485",
+        "archive_url": "https://web.archive.org/web/20220826211203id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls25_st_johns_road.jpg?crc=125264485",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls25_st_johns_road.jpg",
+        "sha256": "f9cc8c1f25749695b83e875fe4e4f313143524d58ff60f2c628847264e45bd63",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211214",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls26_st_johns_road.jpg?crc=269062247",
+        "archive_url": "https://web.archive.org/web/20220826211214id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls26_st_johns_road.jpg?crc=269062247",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls26_st_johns_road.jpg",
+        "sha256": "ec58e984c0a2ab3f8cc883b1c2e6bea7035b00c1626a344c75b2c1c0c11a49c6",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211207",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls27_st_johns_road.jpg?crc=4008212943",
+        "archive_url": "https://web.archive.org/web/20220826211207id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls27_st_johns_road.jpg?crc=4008212943",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls27_st_johns_road.jpg",
+        "sha256": "a1b394346e3198cb7a64c9b41fed2c6de16459a6fe2b42ffef64cca7c7f8403b",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211400",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls28_st_johns_road.jpg?crc=226664507",
+        "archive_url": "https://web.archive.org/web/20220826211400id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls28_st_johns_road.jpg?crc=226664507",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls28_st_johns_road.jpg",
+        "sha256": "ce153a6c0ac5476a76d374bcb099b3576b01187c59a500ee61d26bd83f2f0d0b",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211404",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls29_broad_gate.jpg?crc=4105617784",
+        "archive_url": "https://web.archive.org/web/20220826211404id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls29_broad_gate.jpg?crc=4105617784",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls29_broad_gate.jpg",
+        "sha256": "112eee0fb14767e9e9da311191af1e75fb8c64d1d5fa70c78d8891c0653a879e",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211207",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls30_broad_gate_rear.jpg?crc=284616066",
+        "archive_url": "https://web.archive.org/web/20220826211207id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls30_broad_gate_rear.jpg?crc=284616066",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls30_broad_gate_rear.jpg",
+        "sha256": "df379b4ae5f3b6e59c50543bd3f2469843a3adb119dce36487b5ce323286f0d1",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211205",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls32_ludlow_bridge.jpg?crc=136298313",
+        "archive_url": "https://web.archive.org/web/20220826211205id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls32_ludlow_bridge.jpg?crc=136298313",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls32_ludlow_bridge.jpg",
+        "sha256": "cb51bbb95197e500b20d87704be1553a975e1112d5e05152aa0f840ad5723dbc",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211215",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls39_river_teme.jpg?crc=4119658794",
+        "archive_url": "https://web.archive.org/web/20220826211215id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls39_river_teme.jpg?crc=4119658794",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls39_river_teme.jpg",
+        "sha256": "0f5811bc443a2da868549de545a75fef2464ea5ca45e438edd3ef0a1fa45c5b3",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211206",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls3_upper_linney_road.jpg?crc=4044348917",
+        "archive_url": "https://web.archive.org/web/20220826211206id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls3_upper_linney_road.jpg?crc=4044348917",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls3_upper_linney_road.jpg",
+        "sha256": "42b0fdfca7ad7d4492f852862b6bf8226519ee048bdf9a94c92af67d316f8b19",
+        "dimensions": [
+          500,
+          333
+        ]
+      },
+      {
+        "timestamp": "20220826211407",
+        "original": "http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls9.jpg?crc=35518548",
+        "archive_url": "https://web.archive.org/web/20220826211407id_/http://www.castlesfortsbattles.co.uk/midlands/images/ludlow_town_walls9.jpg?crc=35518548",
+        "http_status": 200,
+        "status": "recovered",
+        "file": "images/ludlow_town_walls9.jpg",
+        "sha256": "fbd750575cecec05f6513c9dce132ae8d4130b06777192d9dc118683fd89beb8",
+        "dimensions": [
+          500,
+          333
+        ]
+      }
+    ]
+  }
 }
