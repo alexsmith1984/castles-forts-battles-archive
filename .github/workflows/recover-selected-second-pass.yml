@@ -26,7 +26,7 @@ jobs:
           import requests
           from PIL import Image
 
-          slugs=['hopton-heath-1643','hopton-castle','ludlow-castle','montgomery-castle','moreton-corbet-castle','nantwich-1644','old-oswestry-hillfort','peveril-castle','seckington-castle','stokesay-castle']
+          slugs=['ludlow-castle']
           s=requests.Session(); s.headers['User-Agent']='Mozilla/5.0 (archival recovery)'
 
           def get(u,t=18):
