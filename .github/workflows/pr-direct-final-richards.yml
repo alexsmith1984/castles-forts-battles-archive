@@ -1,12 +1,15 @@
 name: Direct final Richard's Castle recovery
 on:
+  push:
+    paths:
+      - '.github/richards-direct-trigger.txt'
   pull_request:
     types: [opened, synchronize, reopened]
 permissions:
   contents: write
 jobs:
   direct-final:
-    if: contains(github.event.pull_request.title, '[richards-direct-final]')
+    if: github.event_name == 'push' || contains(github.event.pull_request.title, '[richards-direct-final]')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
