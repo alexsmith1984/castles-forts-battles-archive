@@ -1,0 +1,51 @@
+name: Direct final Richard's Castle recovery
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: write
+jobs:
+  direct-final:
+    if: contains(github.event.pull_request.title, '[richards-direct-final]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow ftfy
+      - name: Recover remaining Richard's Castle originals
+        run: python scripts/fast_recover_richards_missing.py
+      - name: Normalize report and repair encoding
+        run: python scripts/polish_richards_castle.py
+      - name: Verify all local assets, text and navigation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          root=Path('recovered/richards-castle'); report=json.loads((root/'recovery-report.json').read_text())
+          text=(root/'index.html').read_text(encoding='utf-8')
+          assert not any(x in text for x in ('â','Ã','�'))
+          soup=BeautifulSoup(text,'html.parser'); broken=[]
+          for im in soup.find_all('img',src=True):
+            p=root/im['src']
+            try:
+              with Image.open(p) as x:x.verify()
+            except Exception: broken.append(im['src'])
+          assert not broken,broken
+          assert report['original_image_positions_identified']==report['recovered_full_or_near_full']+report['recovered_thumbnail_or_lower_resolution']+report['still_missing']
+          assert 'recovered/richards-castle/' in Path('atoz-part4.html').read_text(encoding='utf-8')
+          assert '../../atoz-part4.html#r' in text
+          print(json.dumps({k:v for k,v in report.items() if k not in ('images','missing')},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit final result to main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/richards-castle
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m "Complete Richard's Castle recovery and verification" && git pull --rebase origin main && git push origin HEAD:main; fi
