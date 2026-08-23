@@ -1,0 +1,32 @@
+name: PR polish Richard's Castle after finalization
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  actions: write
+  contents: read
+jobs:
+  polish-after:
+    if: contains(github.event.pull_request.title, '[richards-polish]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Wait for current finalization if present
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RID=$(gh run list --repo "${{ github.repository }}" --workflow finalize-richards-castle.yml --limit 1 --json databaseId,status --jq '.[0].databaseId // empty')
+          if [ -n "$RID" ]; then gh run watch "$RID" --repo "${{ github.repository }}" --exit-status || true; fi
+      - name: Dispatch polish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run polish-richards-castle.yml --repo "${{ github.repository }}" --ref main
+          sleep 5
+      - name: Watch polish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RID=$(gh run list --repo "${{ github.repository }}" --workflow polish-richards-castle.yml --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId')
+          test -n "$RID"
+          gh run watch "$RID" --repo "${{ github.repository }}" --exit-status
