@@ -1,0 +1,19 @@
+name: Issue dispatch Richard's Castle recovery
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    if: contains(github.event.issue.title, '[richards-recovery]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch recovery workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run recover-richards-castle.yml --repo "${{ github.repository }}" --ref main
