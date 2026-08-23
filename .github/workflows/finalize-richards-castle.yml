@@ -1,0 +1,46 @@
+name: Finalize Richard's Castle recovery
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Audit desktop positions, deepen image recovery, normalize report
+        run: python scripts/finalize_richards_castle.py
+      - name: Verify generated page and every local image
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          root=Path('recovered/richards-castle');report=json.loads((root/'recovery-report.json').read_text())
+          page=root/'index.html';s=BeautifulSoup(page.read_text(encoding='utf-8'),'html.parser')
+          broken=[]
+          for im in s.find_all('img',src=True):
+            p=root/im['src']
+            try:
+              with Image.open(p) as x:x.verify()
+            except Exception:broken.append(im['src'])
+          assert not broken, broken
+          assert len(s.find_all('img'))==report['recovered_full_or_near_full']+report['recovered_thumbnail_or_lower_resolution']
+          assert report['original_image_positions_identified']==report['recovered_full_or_near_full']+report['recovered_thumbnail_or_lower_resolution']+report['still_missing']
+          print('Verified',len(s.find_all('img')),'rendered local images across',report['original_image_positions_identified'],'original positions')
+          PY
+      - name: Commit finalized reconstruction
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/richards-castle
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m "Finalize Richard's Castle image recovery and verification" && git pull --rebase origin main && git push origin HEAD:main; fi
