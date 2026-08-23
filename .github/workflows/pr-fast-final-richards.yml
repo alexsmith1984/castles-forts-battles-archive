@@ -1,0 +1,35 @@
+name: PR fast final Richard's Castle recovery
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  actions: write
+  contents: read
+jobs:
+  run-final:
+    if: contains(github.event.pull_request.title, '[richards-fast-final]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Cancel superseded deep/waiting runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for RID in $(gh run list --repo "${{ github.repository }}" --workflow finalize-richards-castle.yml --status in_progress --limit 10 --json databaseId --jq '.[].databaseId'); do gh run cancel "$RID" --repo "${{ github.repository }}" || true; done
+          gh run cancel 32671702899 --repo "${{ github.repository }}" || true
+          gh run cancel 32672198721 --repo "${{ github.repository }}" || true
+          sleep 5
+      - name: Dispatch fast final recovery
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run fast-final-richards-castle.yml --repo "${{ github.repository }}" --ref main
+          sleep 5
+      - name: Watch final recovery
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RID=$(gh run list --repo "${{ github.repository }}" --workflow fast-final-richards-castle.yml --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId')
+          test -n "$RID"
+          echo "Watching $RID"
+          gh run watch "$RID" --repo "${{ github.repository }}" --exit-status
