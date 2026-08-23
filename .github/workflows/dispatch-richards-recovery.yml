@@ -1,0 +1,19 @@
+name: Dispatch Richard's Castle recovery
+
+on:
+  push:
+    paths:
+      - '.github/richards-recovery-trigger.txt'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch installed recovery workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run recover-richards-castle.yml --repo "${{ github.repository }}" --ref main
