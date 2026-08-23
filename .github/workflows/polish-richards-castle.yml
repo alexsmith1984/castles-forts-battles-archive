@@ -1,0 +1,26 @@
+name: Polish Richard's Castle reconstruction
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install beautifulsoup4 pillow ftfy
+      - run: python scripts/polish_richards_castle.py
+      - name: Verify local A-Z and reconstructed links
+        run: |
+          grep -q 'href="recovered/richards-castle/">Richard' atoz-part4.html
+          grep -q '../../atoz-part4.html#r' recovered/richards-castle/index.html
+      - name: Commit final audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/richards-castle
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m "Polish and verify Richard's Castle reconstruction" && git pull --rebase origin main && git push origin HEAD:main; fi
