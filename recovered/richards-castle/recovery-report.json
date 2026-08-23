@@ -1,0 +1,521 @@
+{
+  "name": "Richard's Castle",
+  "original_url": "http://www.castlesfortsbattles.co.uk/midlands/richards_castle.html",
+  "supplied_captures": [
+    "20220826203519",
+    "20200728180812"
+  ],
+  "best_source_capture": "20220826203519",
+  "usable_html_captures_examined": [
+    "20220826203519",
+    "20200728180812"
+  ],
+  "original_image_positions_identified": 43,
+  "recovered_full_or_near_full": 19,
+  "recovered_thumbnail_or_lower_resolution": 1,
+  "still_missing": 23,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "logical": "richards_castle5",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle5.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle5.jpg?crc=4152417160"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle5.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle5.jpg?crc=4152417160",
+      "archive_timestamp": "20220826203524",
+      "quality": "full/near-full",
+      "bytes": 136828,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle7_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle7_motte.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle7_motte.jpg?crc=4224862456"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle7_motte.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle7_motte.jpg?crc=4224862456",
+      "archive_timestamp": "20220826203526",
+      "quality": "full/near-full",
+      "bytes": 138739,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle21",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle21.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle21333x222.jpg?crc=4154611207",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle21.jpg?crc=4068967772"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle21.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle21.jpg?crc=4068967772",
+      "archive_timestamp": "20220826203730",
+      "quality": "full/near-full",
+      "bytes": 70308,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle22",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle22.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle22333x222.jpg?crc=135441897",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle22.jpg?crc=116436968"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle22.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle22.jpg?crc=116436968",
+      "archive_timestamp": "20220826204822",
+      "quality": "full/near-full",
+      "bytes": 57177,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle14500x333",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle14500x333.jpg?crc=351280167"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle14500x333.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle14500x333.jpg?crc=351280167",
+      "archive_timestamp": "20220826204327",
+      "quality": "thumbnail/lower-resolution",
+      "bytes": 28960,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1.jpg?crc=4007777518"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle1.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1.jpg?crc=4007777518",
+      "archive_timestamp": "20220826204824",
+      "quality": "full/near-full",
+      "bytes": 97078,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle2",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle2.jpg?crc=4075811549"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle2.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle2.jpg?crc=4075811549",
+      "archive_timestamp": "20220826203729",
+      "quality": "full/near-full",
+      "bytes": 143107,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle3",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle3.jpg?crc=246358667"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle3.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle3.jpg?crc=246358667",
+      "archive_timestamp": "20220826203729",
+      "quality": "full/near-full",
+      "bytes": 141245,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle4_ditch",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle4_ditch.jpg?crc=215723208"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle4_ditch.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle4_ditch.jpg?crc=215723208",
+      "archive_timestamp": "20220826203729",
+      "quality": "full/near-full",
+      "bytes": 155631,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle6_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle6_motte.jpg?crc=3836352696"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle6_motte.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle6_motte.jpg?crc=3836352696",
+      "archive_timestamp": "20220826204330",
+      "quality": "full/near-full",
+      "bytes": 110949,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle8",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle8.jpg?crc=296374490"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle8.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle8.jpg?crc=296374490",
+      "archive_timestamp": "20220826203527",
+      "quality": "full/near-full",
+      "bytes": 155715,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle9.jpg?crc=475534812"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle9.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle9.jpg?crc=475534812",
+      "archive_timestamp": "20220826204332",
+      "quality": "full/near-full",
+      "bytes": 133990,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle10",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle10.jpg?crc=61538437"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle10.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle10.jpg?crc=61538437",
+      "archive_timestamp": "20220826203527",
+      "quality": "full/near-full",
+      "bytes": 118334,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle11",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle11.jpg?crc=3958238550"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle11.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle11.jpg?crc=3958238550",
+      "archive_timestamp": "20220826204329",
+      "quality": "full/near-full",
+      "bytes": 109720,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle12",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle12.jpg?crc=473436306"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle12.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle12.jpg?crc=473436306",
+      "archive_timestamp": "20220826203530",
+      "quality": "full/near-full",
+      "bytes": 131221,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle13",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle13.jpg?crc=453226369"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle13.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle13.jpg?crc=453226369",
+      "archive_timestamp": "20220826204334",
+      "quality": "full/near-full",
+      "bytes": 138928,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle16",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle16.jpg?crc=292791381"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle16.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle16.jpg?crc=292791381",
+      "archive_timestamp": "20220826203528",
+      "quality": "full/near-full",
+      "bytes": 141338,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle17",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle17.jpg?crc=3814225712"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle17.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle17.jpg?crc=3814225712",
+      "archive_timestamp": "20220826203528",
+      "quality": "full/near-full",
+      "bytes": 142263,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle18",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle18.jpg?crc=266890383"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle18.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle18.jpg?crc=266890383",
+      "archive_timestamp": "20220826203526",
+      "quality": "full/near-full",
+      "bytes": 30408,
+      "identification": "certain"
+    },
+    {
+      "logical": "richards_castle23",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle23.jpg?crc=432369860"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "recovered_file": "images/richards_castle23.jpg",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle23.jpg?crc=432369860",
+      "archive_timestamp": "20220826203525",
+      "quality": "full/near-full",
+      "bytes": 30413,
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "logical": "richards_castle",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle.jpg?crc=4096054467"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle14",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle14.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle14.jpg?crc=84843633"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle15",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle15.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle15.jpg?crc=487536760"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle_plan",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle_plan.png",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle_plan.jpg?crc=289327232"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle560x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle560x40.jpg?crc=4198673765"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1160x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1160x40.jpg?crc=4089519065"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle7_motte60x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle7_motte60x40.jpg?crc=3770177490"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1260x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1260x40.jpg?crc=510864567"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1460x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1460x40.jpg?crc=233833529"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1360x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1360x40.jpg?crc=194469515"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle2160x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle2160x40.jpg?crc=33910644"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1660x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1660x40.jpg?crc=4092735129"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle2260x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle2260x40.jpg?crc=4069481730"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1760x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1760x40.jpg?crc=4240196476"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle160x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle160x40.jpg?crc=320472308"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1860x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1860x40.jpg?crc=317752258"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle260x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle260x40.jpg?crc=368081182"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle360x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle360x40.jpg?crc=283589575"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle4_ditch60x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle4_ditch60x40.jpg?crc=3821631118"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle6_motte60x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle6_motte60x40.jpg?crc=244176151"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle860x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle860x40.jpg?crc=4204482835"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle960x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle960x40.jpg?crc=4168798304"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    },
+    {
+      "logical": "richards_castle1060x40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle1060x40.jpg?crc=293898715"
+      ],
+      "alt": "",
+      "first_seen": "20220826203519",
+      "status": "unrecovered"
+    }
+  ],
+  "text_nodes_preserved": 43,
+  "index_target": "../../atoz-part4.html#r"
+}
