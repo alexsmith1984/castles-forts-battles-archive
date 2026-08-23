@@ -1,0 +1,346 @@
+name: Recover Richard's Castle
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-richards-castle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 lxml
+      - name: Recover page, photographs and provenance
+        run: |
+          cat > /tmp/recover_richards.py <<'PY'
+          import os,re,json,time,hashlib,html
+          from pathlib import Path
+          from urllib.parse import urljoin,urlsplit,quote
+          import requests
+          from bs4 import BeautifulSoup, Tag
+
+          ORIG='http://www.castlesfortsbattles.co.uk/midlands/richards_castle.html'
+          SUPPLIED=['20220826203519','20200728180812']
+          OUT=Path('recovered/richards-castle'); IMG=OUT/'images'
+          OUT.mkdir(parents=True,exist_ok=True); IMG.mkdir(parents=True,exist_ok=True)
+          S=requests.Session(); S.headers.update({'User-Agent':'Mozilla/5.0 (compatible; CastlesFortsBattles archival recovery)'} )
+
+          def get(url, timeout=35, tries=3):
+              last=None
+              for n in range(tries):
+                  try:
+                      r=S.get(url,timeout=timeout,allow_redirects=True)
+                      if r.status_code==200:return r
+                      last=r
+                  except Exception as e:last=e
+                  time.sleep(1.5*(n+1))
+              return last
+
+          def cdx(url, wildcard=False, limit=5000):
+              target=url
+              q='https://web.archive.org/cdx/search/cdx?url='+quote(target,safe=':/_*')+'&output=json&fl=timestamp,original,statuscode,mimetype,digest,length&filter=statuscode:200&collapse=digest&limit='+str(limit)
+              r=get(q,timeout=50,tries=2)
+              if not hasattr(r,'status_code') or r.status_code!=200:return []
+              try:data=r.json()
+              except Exception:return []
+              if not data or len(data)<2:return []
+              return [dict(zip(data[0],row)) for row in data[1:] if len(row)==len(data[0])]
+
+          # Discover page captures, while always retaining the two supplied snapshots.
+          captures=[]
+          for ts in SUPPLIED: captures.append({'timestamp':ts,'original':ORIG})
+          for row in cdx(ORIG,limit=300):
+              if row.get('timestamp') and row.get('timestamp') not in [x['timestamp'] for x in captures]:captures.append(row)
+          captures=sorted(captures,key=lambda x:x['timestamp'],reverse=True)
+
+          html_versions=[]
+          for row in captures[:24]:
+              ts=row['timestamp']
+              r=get(f'https://web.archive.org/web/{ts}id_/{ORIG}',timeout=45,tries=2)
+              if hasattr(r,'status_code') and r.status_code==200 and len(r.text)>5000:
+                  soup=BeautifulSoup(r.text,'lxml')
+                  txt=' '.join(soup.stripped_strings)
+                  refs=[]
+                  for t in soup.find_all(['img','source']):
+                      for a in ('src','data-src','data-orig-src','data-muse-src','srcset'):
+                          v=t.get(a)
+                          if v and 'richards_castle' in str(v).lower():refs.append(str(v))
+                  score=len(txt)+1200*len(set(refs))
+                  html_versions.append({'ts':ts,'text':r.text,'score':score,'textlen':len(txt),'refs':len(set(refs))})
+          if not html_versions: raise RuntimeError('No usable archived HTML capture could be fetched')
+          html_versions.sort(key=lambda x:x['score'],reverse=True)
+          best=html_versions[0]
+          (OUT/'source.html').write_text(best['text'],encoding='utf-8')
+          # retain supplied source copies when available
+          for hv in html_versions:
+              if hv['ts'] in SUPPLIED:
+                  (OUT/f"source-{hv['ts']}.html").write_text(hv['text'],encoding='utf-8')
+
+          soups=[(v['ts'],BeautifulSoup(v['text'],'lxml')) for v in html_versions]
+          base_soup=BeautifulSoup(best['text'],'lxml')
+
+          # Gather image positions from the page. Parent links to full-size images take precedence.
+          positions=[]; seen_keys=set()
+          for ts,soup in soups:
+              for img in soup.find_all('img'):
+                  raw=[]
+                  par=img.find_parent('a',href=True)
+                  if par and 'richards_castle' in par.get('href','').lower(): raw.append(par['href'])
+                  for at in ('data-orig-src','data-muse-src','data-src','src'):
+                      v=(img.get(at) or '').strip()
+                      if v and 'richards_castle' in v.lower(): raw.append(v)
+                  ss=img.get('srcset') or ''
+                  for bit in ss.split(','):
+                      u=bit.strip().split(' ')[0] if bit.strip() else ''
+                      if u and 'richards_castle' in u.lower():raw.append(u)
+                  if not raw: continue
+                  urls=[]
+                  for x in raw:
+                      u=urljoin(ORIG,x)
+                      if u not in urls:urls.append(u)
+                  # logical identity is preferably the linked full-size basename; otherwise a normalized source basename.
+                  logical=os.path.basename(urlsplit(urls[0]).path).lower()
+                  stem=os.path.splitext(logical)[0]
+                  # conservative dimension stripping only when a non-dimensional sibling is visible elsewhere later.
+                  key=stem
+                  alt=(img.get('alt') or img.get('title') or '').strip()
+                  sig=(key,alt)
+                  if sig in seen_keys:continue
+                  seen_keys.add(sig)
+                  positions.append({'logical':key,'candidate_urls':urls,'alt':alt,'first_seen':ts})
+
+          # Add likely original/full-size paths and every Richards Castle asset indexed by CDX.
+          wildcard_targets=[
+              'http://www.castlesfortsbattles.co.uk/midlands/assets/richards_castle*',
+              'http://www.castlesfortsbattles.co.uk/midlands/images/richards_castle*',
+              'http://www.castlesfortsbattles.co.uk/richards_castle*',
+              'http://castlesfortsbattles.co.uk/midlands/assets/richards_castle*',
+              'http://castlesfortsbattles.co.uk/midlands/images/richards_castle*',
+          ]
+          indexed=[]
+          for target in wildcard_targets:
+              indexed.extend(cdx(target,limit=10000))
+          # de-duplicate by original+timestamp
+          uniq={}
+          for row in indexed:
+              k=(row.get('original',''),row.get('timestamp',''))
+              if k[0] and k[1]:uniq[k]=row
+          indexed=list(uniq.values())
+
+          def logical_base(url):
+              fn=os.path.basename(urlsplit(url).path).lower(); st=os.path.splitext(fn)[0]
+              # exact known forms first
+              if st=='richards_castle_plan':return st
+              m=re.match(r'^(richards_castle(?:\d+[a-z]?|\d+_[a-z_]+|_[a-z_]+)?)$',st)
+              if m:return st
+              # Muse-generated dimension variants: use filename stem before a dimension suffix when safely detectable.
+              m=re.match(r'^(richards_castle(?:\d+[a-z]?|\d+_[a-z_]+|_[a-z_]+)?)(\d{2,4}x\d{2,4})$',st)
+              return m.group(1) if m else st
+
+          # Attach CDX-discovered candidates to matching logical positions; create positions for credible standalone originals.
+          pos_by={p['logical']:p for p in positions}
+          for row in indexed:
+              u=row['original']; lb=logical_base(u)
+              if lb not in pos_by:
+                  # Only create a new logical position for a non-dimensional image-like Richards file.
+                  fn=os.path.basename(urlsplit(u).path)
+                  if re.search(r'\d{2,4}x\d{2,4}',fn):continue
+                  p={'logical':lb,'candidate_urls':[],'alt':'','first_seen':'CDX'};positions.append(p);pos_by[lb]=p
+              if u not in pos_by[lb]['candidate_urls']:pos_by[lb]['candidate_urls'].append(u)
+
+          # Snapshot rows indexed by URL for direct archive retrieval.
+          rows_by_url={}
+          for row in indexed:rows_by_url.setdefault(row['original'],[]).append(row)
+          for rows in rows_by_url.values():rows.sort(key=lambda r:(int(r.get('length') or 0),r['timestamp']),reverse=True)
+
+          def is_image_response(r):
+              if not hasattr(r,'status_code') or r.status_code!=200:return False
+              b=r.content; ct=(r.headers.get('content-type') or '').lower()
+              return len(b)>150 and ('image/' in ct or b[:2]==b'\xff\xd8' or b[:8]==b'\x89PNG\r\n\x1a\n' or b[:6] in (b'GIF87a',b'GIF89a'))
+
+          recovered=[]; missing=[]
+          for p in positions:
+              # prefer assets/full-size/non-dimensional candidates, then largest indexed captures
+              cand=[]
+              def score_url(u):
+                  path=urlsplit(u).path.lower(); fn=os.path.basename(path)
+                  dim=bool(re.search(r'\d{2,4}x\d{2,4}',fn))
+                  return (0 if '/assets/' in path else 1 if not dim else 2, len(fn))
+              for u in sorted(p['candidate_urls'],key=score_url):
+                  if u not in cand:cand.append(u)
+              # add same logical indexed URLs
+              for row in sorted(indexed,key=lambda r:int(r.get('length') or 0),reverse=True):
+                  if logical_base(row['original'])==p['logical'] and row['original'] not in cand:cand.append(row['original'])
+              success=None
+              for u in cand:
+                  attempts=[]
+                  for row in rows_by_url.get(u,[])[:8]:attempts.append(row['timestamp'])
+                  attempts += [best['ts']]+SUPPLIED
+                  attempts=list(dict.fromkeys(attempts))
+                  for ts in attempts:
+                      r=get(f'https://web.archive.org/web/{ts}id_/{u}',timeout=35,tries=2)
+                      if is_image_response(r):
+                          success=(u,ts,r);break
+                  if success:break
+              if success:
+                  u,ts,r=success; path=urlsplit(u).path; ext=os.path.splitext(path)[1].lower()
+                  if ext not in ('.jpg','.jpeg','.png','.gif','.webp'):ext='.jpg'
+                  safe=re.sub(r'[^a-z0-9_-]+','-',p['logical'].lower()).strip('-') or hashlib.sha1(u.encode()).hexdigest()[:10]
+                  fn=safe+ext
+                  # disambiguate only when truly necessary
+                  n=2
+                  while (IMG/fn).exists() and (IMG/fn).read_bytes()!=r.content:
+                      fn=f'{safe}-{n}{ext}';n+=1
+                  (IMG/fn).write_bytes(r.content)
+                  pathlow=urlsplit(u).path.lower(); basename=os.path.basename(pathlow)
+                  lower=bool(re.search(r'\d{2,4}x\d{2,4}',basename))
+                  quality='thumbnail/lower-resolution' if lower else 'full/near-full'
+                  recovered.append({**p,'recovered_file':'images/'+fn,'archive_original':u,'archive_timestamp':ts,'quality':quality,'bytes':len(r.content),'identification':'certain' if 'richards_castle' in u.lower() else 'inferred'})
+              else:
+                  missing.append({**p,'status':'unrecovered'})
+
+          # Build a readable static reconstruction from the best source, preserving wording/order of textual blocks.
+          src=BeautifulSoup(best['text'],'lxml')
+          body=src.body or src
+          nodes=[]; started=False; ended=False; text_seen=set(); img_idx=0
+          recovered_by_logical={r['logical']:r for r in recovered}
+          for el in body.descendants:
+              if not isinstance(el,Tag):continue
+              if el.name in ('script','style','noscript','svg','iframe','object','embed','form'):continue
+              if el.name=='img':
+                  raw=[]; par=el.find_parent('a',href=True)
+                  if par and 'richards_castle' in par.get('href','').lower():raw.append(urljoin(ORIG,par['href']))
+                  for at in ('data-orig-src','data-muse-src','data-src','src'):
+                      v=(el.get(at) or '').strip()
+                      if v and 'richards_castle' in v.lower():raw.append(urljoin(ORIG,v))
+                  if raw:
+                      lb=logical_base(raw[0]); rec=recovered_by_logical.get(lb)
+                      if started and rec:
+                          cap=(el.get('alt') or el.get('title') or '').strip()
+                          nodes.append(('img',rec['recovered_file'],cap or lb.replace('_',' ')))
+                  continue
+              if el.name not in ('h1','h2','h3','h4','p','li'):continue
+              # only take leaf-ish text containers to avoid duplication
+              if el.find(['h1','h2','h3','h4','p','li'],recursive=False):continue
+              t=' '.join(el.stripped_strings).strip()
+              if not t or len(t)>5000:continue
+              tl=t.lower()
+              if not started:
+                  if "richard's castle" in tl or 'richards castle' in tl or 'richard’s castle' in tl:started=True
+                  else:continue
+              if t in text_seen:continue
+              text_seen.add(t)
+              nodes.append(('text',el.name,t))
+              if 'copyright' in tl and 'castlesfortsbattles' in tl:ended=True;break
+
+          # fallback if source structure is pathological
+          if len([n for n in nodes if n[0]=='text'])<12:
+              nodes=[]; started=False
+              for s in body.stripped_strings:
+                  t=' '.join(str(s).split())
+                  if not started:
+                      if "richard's castle" in t.lower() or 'richards castle' in t.lower() or 'richard’s castle' in t.lower():started=True
+                      else:continue
+                  if not t or t in text_seen:continue
+                  nodes.append(('text','p',t))
+                  if 'copyright' in t.lower() and 'castlesfortsbattles' in t.lower():break
+
+          css='''*{box-sizing:border-box}body{margin:0;background:#f4f0e6;color:#222;font-family:Georgia,"Times New Roman",serif;line-height:1.55}header{background:#3d3528;color:#fff;padding:28px 18px;text-align:center}header h1{margin:0}main{max-width:920px;margin:auto;padding:24px 18px 50px}.note,article{background:#fff;border:1px solid #d7cebd;padding:18px 22px}.note{border-left:4px solid #8b7959;margin-bottom:20px}h2,h3{color:#493e2c;margin-top:1.35em}p,li{margin:.75em 0}figure{margin:24px auto;text-align:center}figure img{max-width:100%;height:auto;border:1px solid #d7cebd}figcaption{font-size:13px;color:#6b6255;margin-top:5px}a{color:#224d74}@media(max-width:600px){header{padding:20px 12px}main{padding:14px 10px 35px}.note,article{padding:14px}}'''
+          out=['<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Richard\'s Castle | Castles, Forts and Battles Archive</title><style>'+css+'</style></head><body>',"<header><h1>Richard's Castle</h1></header><main>",'<div class="note">Recovered from archived Castles, Forts and Battles captures. Original wording is retained. Only original page images successfully recovered from web archives are shown. <a href="../../atoz-part4.html#r">Return to the A–Z index</a>.</div><article>']
+          emitted_img=set()
+          for n in nodes:
+              if n[0]=='text':
+                  tag='h2' if n[1] in ('h1','h2','h3','h4') or (len(n[2])<80 and n[2].isupper()) else ('li' if n[1]=='li' else 'p')
+                  out.append(f'<{tag}>{html.escape(n[2])}</{tag}>')
+              else:
+                  _,f,cap=n
+                  if f in emitted_img:continue
+                  emitted_img.add(f);out.append(f'<figure><img src="{html.escape(f)}" alt="{html.escape(cap)}"><figcaption>{html.escape(cap)}</figcaption></figure>')
+          # Append any recovered originals not encountered in the cleaned flow, preserving access rather than losing them.
+          extra=[r for r in recovered if r['recovered_file'] not in emitted_img]
+          if extra:
+              out.append('<h2>Recovered original photographs, plans and images</h2>')
+              for r in extra:
+                  cap=r['alt'] or r['logical'].replace('_',' ')
+                  out.append(f'<figure><img src="{html.escape(r["recovered_file"])}" alt="{html.escape(cap)}"><figcaption>{html.escape(cap)}</figcaption></figure>')
+          out.append('</article></main></body></html>')
+          (OUT/'index.html').write_text(''.join(out),encoding='utf-8')
+
+          full=sum(1 for r in recovered if r['quality']=='full/near-full')
+          low=sum(1 for r in recovered if r['quality']=='thumbnail/lower-resolution')
+          report={
+              'name':"Richard's Castle",
+              'original_url':ORIG,
+              'supplied_captures':SUPPLIED,
+              'best_source_capture':best['ts'],
+              'usable_html_captures_examined':[v['ts'] for v in html_versions],
+              'original_image_positions_identified':len(positions),
+              'recovered_full_or_near_full':full,
+              'recovered_thumbnail_or_lower_resolution':low,
+              'still_missing':len(missing),
+              'uncertain_identifications':[r for r in recovered if r['identification']!='certain'],
+              'images':recovered,
+              'missing':missing,
+              'text_nodes_preserved':len([n for n in nodes if n[0]=='text']),
+              'index_target':'../../atoz-part4.html#r'
+          }
+          (OUT/'recovery-report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+          print(json.dumps({k:v for k,v in report.items() if k not in ('images','missing')},indent=2,ensure_ascii=False))
+          PY
+          python /tmp/recover_richards.py
+
+      - name: Point A-Z entry to reconstructed page
+        run: |
+          python - <<'PY'
+          from bs4 import BeautifulSoup
+          p='atoz-part4.html'
+          soup=BeautifulSoup(open(p,encoding='utf-8').read(),'html.parser')
+          changed=False
+          for a in soup.find_all('a',href=True):
+              t=' '.join(a.stripped_strings).replace('’',"'").strip().lower()
+              if t in ("richard's castle","richards castle"):
+                  a['href']='recovered/richards-castle/'
+                  changed=True
+          if changed:open(p,'w',encoding='utf-8').write(str(soup))
+          else:print('No exact A-Z anchor changed; reconstruction will still be published')
+          PY
+
+      - name: Verify local page and assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          p=Path('recovered/richards-castle/index.html'); assert p.exists() and p.stat().st_size>3000
+          s=BeautifulSoup(p.read_text(encoding='utf-8'),'html.parser')
+          broken=[]
+          for img in s.find_all('img',src=True):
+              q=p.parent/img['src']
+              if not q.exists() or q.stat().st_size<150:broken.append(img['src'])
+          assert not broken, broken
+          assert "Richard's Castle" in s.get_text(' ',strip=True)
+          print('Verified local HTML; images:',len(s.find_all('img')))
+          PY
+
+      - name: Commit reconstruction
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/richards-castle atoz-part4.html
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m "Publish Richard's Castle archival reconstruction"
+            git pull --rebase
+            git push
+          fi
