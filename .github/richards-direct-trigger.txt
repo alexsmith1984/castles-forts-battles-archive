@@ -1,1 +1,2 @@
 Run direct final Richard's Castle recovery.
+Retrigger after workflow repair on 2026-08-23.
