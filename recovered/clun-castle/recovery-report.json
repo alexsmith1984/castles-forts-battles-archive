@@ -1,0 +1,28 @@
+{
+  "page": "Clun Castle",
+  "public_path": "/recovered/clun-castle/",
+  "reconstructed_in_repository": true,
+  "original_reconstruction_commit": "e4a4b93",
+  "source": {
+    "timestamp": "20170208084339",
+    "url": "http://www.castlesfortsbattles.co.uk/midlands/clun_castle.html",
+    "wayback": "https://web.archive.org/web/20170208084339/http://www.castlesfortsbattles.co.uk/midlands/clun_castle.html",
+    "basis": "Repository source inventory identifies this as the best replay and records the archived HTML as successfully fetched."
+  },
+  "content_images": {
+    "identified": 2,
+    "recovered_display_copies": 2,
+    "broken_local_assets": 0,
+    "full_size_links_unrecovered": ["Clun_Castle2.JPG", "Clun_Castle6.JPG"],
+    "note": "Both original displayed photographs survive locally at 920x372 and 476x316. The two linked originals were not indexed; no modern substitutes were used."
+  },
+  "quality_fixes": [
+    "replaced conflicting fixed-position WebPlus layout with responsive semantic layout",
+    "restored visible reading order and removed the empty hidden gallery container",
+    "kept the two genuine archived content photographs and separated decorative assets",
+    "fixed UTF-8 BOM/mojibake and restored Owain Glyndŵr and the date en dash",
+    "replaced dead original-site navigation with local archive links",
+    "updated the official-site link to the current HTTPS English Heritage page",
+    "removed obsolete share, search, javascript and dead full-size links"
+  ]
+}
