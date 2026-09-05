@@ -1,3 +1,4 @@
+# Triggered 2026-09-05 for targeted Seckington recovery
 name: Targeted deep Seckington photo recovery
 
 on:
@@ -165,7 +166,6 @@ jobs:
               except Exception: pass
               return None
 
-          # Enumerate page capture times too, so we can try each image at the exact times the page itself was archived.
           page_times={'20210804093024'}
           for pageurl in [
               'http://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html',
@@ -177,22 +177,19 @@ jobs:
 
           results={}
           for label, basenames in groups.items():
-              best=None; attempts=[]; seen_archive=set(); cc_summary={'success':False,'hits':0,'errors':[]}
+              best=None; seen_archive=set(); cc_summary={'success':False,'hits':0,'errors':[]}
               urls=[]
               for b in basenames: urls.extend(url_variants(b))
               urls=list(dict.fromkeys(urls))
 
-              # 1. Try every known page-capture timestamp against every plausible exact image URL.
               for u in urls:
                   for ts in sorted(page_times, reverse=True):
                       got=wayback_try(ts,u)
-                      attempts.append({'service':'wayback-same-capture','timestamp':ts,'url':u,'found':bool(got)})
                       if got:
                           data,info=got
                           cand={'data':data,'info':info,'method':'wayback-same-capture','timestamp':ts,'original':u}
                           if best is None or info['area']>best['info']['area']: best=cand
 
-              # 2. Exhaustive Wayback CDX exact and filename/path search.
               rows=[]
               for u in urls: rows.extend(cdx_rows(u))
               for b in basenames: rows.extend(cdx_filename_rows(b))
@@ -211,7 +208,6 @@ jobs:
                       cand={'data':data,'info':info,'method':'wayback-cdx','timestamp':ts,'original':orig}
                       if best is None or info['area']>best['info']['area']: best=cand
 
-              # 3. Arquivo.pt exact variants.
               ar_searched=False
               for u in urls:
                   ars,searched=arquivo_rows(u); ar_searched = ar_searched or searched
@@ -222,7 +218,6 @@ jobs:
                           cand={'data':data,'info':info,'method':'arquivo','timestamp':ts,'original':orig}
                           if best is None or info['area']>best['info']['area']: best=cand
 
-              # 4. Common Crawl, including actual WARC-byte retrieval when indexed.
               for u in urls:
                   hits,ok,errs=commoncrawl_hits(u)
                   cc_summary['success']=cc_summary['success'] or ok
@@ -248,7 +243,6 @@ jobs:
 
           recovered=[(label,x) for label,x in results.items() if x['status']=='recovered']
 
-          # Replace only the synthetic recovery gallery on the local page; preserve all archived written content.
           if INDEX.exists():
               html=INDEX.read_text(encoding='utf-8')
               figs=''.join(f'<figure><img src="{x["file"]}" alt="{label}"><figcaption>{label}</figcaption></figure>' for label,x in recovered)
