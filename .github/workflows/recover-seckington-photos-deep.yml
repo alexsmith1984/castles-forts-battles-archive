@@ -1,0 +1,280 @@
+name: Targeted deep Seckington photo recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-seckington-photos-deep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow
+      - name: Deep recovery of genuine Seckington photographs
+        run: |
+          python - <<'PY'
+          import os, re, io, json, time, gzip, hashlib
+          from pathlib import Path
+          from urllib.parse import urlsplit, urlencode, quote
+          import requests
+          from PIL import Image
+
+          OUT = Path('recovered/seckington-castle')
+          IMG = OUT / 'images'
+          IMG.mkdir(parents=True, exist_ok=True)
+          REPORT = OUT / 'recovery-report.json'
+          INDEX = OUT / 'index.html'
+          AUDIT = Path('page-audit/seckington-deep-recovery.json')
+          AUDIT.parent.mkdir(exist_ok=True)
+
+          groups = {
+              'Seckington Castle 4A': ['Seckington_Castle4A.jpg', 'Seckington_Castle4A.JPG', 'wp88362264_05_06.jpg'],
+              'Seckington Castle 11 — Motte': ['Seckington_Castle11_Motte.JPG', 'Seckington_Castle11_Motte.jpg', 'wp7442ef30_05_06.jpg'],
+              'Seckington Castle 8': ['Seckington_Castle8.jpg', 'Seckington_Castle8.JPG', 'wp002bd462_05_06.jpg'],
+              'Seckington Castle 9': ['Seckington_Castle9.jpg', 'Seckington_Castle9.JPG', 'wp66001bee_05_06.jpg'],
+          }
+
+          s = requests.Session()
+          s.headers['User-Agent'] = 'Mozilla/5.0 (archival recovery; genuine historical images only)'
+
+          def get(url, timeout=18, headers=None):
+              for i in range(3):
+                  try:
+                      r = s.get(url, timeout=timeout, allow_redirects=True, headers=headers)
+                      if r.status_code in (429, 500, 502, 503, 504):
+                          time.sleep(1.5 * (i + 1)); continue
+                      return r
+                  except Exception:
+                      time.sleep(1.5 * (i + 1))
+              return None
+
+          def image_info(data):
+              if not data or len(data) < 700: return None
+              try:
+                  im = Image.open(io.BytesIO(data)); im.verify()
+                  im = Image.open(io.BytesIO(data))
+                  w, h = im.size
+                  if w < 80 or h < 60: return None
+                  return {'width': w, 'height': h, 'area': w*h, 'format': (im.format or 'JPEG').upper()}
+              except Exception:
+                  return None
+
+          def url_variants(basename):
+              hashed = basename.lower().startswith('wp')
+              paths = [f'/wpimages/{basename}'] if hashed else [f'/{basename}', f'/midlands/{basename}', f'/midlands/images/{basename}', f'/midlands/assets/{basename}']
+              if hashed: paths += [f'/midlands/wpimages/{basename}']
+              out=[]
+              for scheme in ('http','https'):
+                  for host in ('www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk'):
+                      for p in paths: out.append(f'{scheme}://{host}{p}')
+              return list(dict.fromkeys(out))
+
+          def cdx_rows(url):
+              rows=[]
+              params={'url':url,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length,digest','collapse':'digest'}
+              r=get('https://web.archive.org/cdx/search/cdx?' + urlencode(params), 20)
+              if r and r.status_code==200:
+                  try:
+                      d=r.json()
+                      if isinstance(d,list) and len(d)>1: rows.extend(d[1:])
+                  except Exception: pass
+              return rows
+
+          def cdx_filename_rows(basename):
+              rows=[]
+              for host in ('www.castlesfortsbattles.co.uk','castlesfortsbattles.co.uk'):
+                  for scheme in ('http','https'):
+                      q=f'{scheme}://{host}/*/{basename}'
+                      params={'url':q,'output':'json','filter':'statuscode:200','fl':'timestamp,original,mimetype,length,digest','collapse':'digest'}
+                      r=get('https://web.archive.org/cdx/search/cdx?' + urlencode(params), 20)
+                      if r and r.status_code==200:
+                          try:
+                              d=r.json()
+                              if isinstance(d,list) and len(d)>1: rows.extend(d[1:])
+                          except Exception: pass
+              return rows
+
+          def wayback_try(ts, orig):
+              r=get(f'https://web.archive.org/web/{ts}id_/{orig}', 16)
+              if r and r.status_code==200:
+                  info=image_info(r.content)
+                  if info: return r.content, info
+              return None
+
+          def arquivo_rows(url):
+              out=[]; searched=False
+              params={'url':url,'output':'json','filter':'status:200','fields':'timestamp,url,mime,status','limit':100}
+              r=get('https://arquivo.pt/wayback/cdx?' + urlencode(params), 16)
+              if r and r.status_code==200:
+                  searched=True
+                  try:
+                      d=r.json()
+                      if isinstance(d,list):
+                          for x in d:
+                              if isinstance(x,dict) and x.get('timestamp') and x.get('url'): out.append((x['timestamp'],x['url']))
+                  except Exception: pass
+              return out,searched
+
+          def arquivo_try(ts, orig):
+              r=get(f'https://arquivo.pt/noFrame/replay/{ts}id_/{orig}', 15)
+              if r and r.status_code==200:
+                  info=image_info(r.content)
+                  if info: return r.content, info
+              return None
+
+          cc_indexes=['CC-MAIN-2019-51','CC-MAIN-2020-05','CC-MAIN-2020-10','CC-MAIN-2020-16','CC-MAIN-2020-24','CC-MAIN-2020-29','CC-MAIN-2020-34','CC-MAIN-2020-40','CC-MAIN-2020-45','CC-MAIN-2020-50','CC-MAIN-2021-04','CC-MAIN-2021-10','CC-MAIN-2021-17','CC-MAIN-2021-21','CC-MAIN-2021-25','CC-MAIN-2021-31','CC-MAIN-2021-39','CC-MAIN-2021-43','CC-MAIN-2021-49','CC-MAIN-2022-05','CC-MAIN-2022-21','CC-MAIN-2022-27','CC-MAIN-2022-33','CC-MAIN-2022-40','CC-MAIN-2022-49']
+
+          def commoncrawl_hits(url):
+              hits=[]; any_success=False; errors=[]
+              for idx in cc_indexes:
+                  endpoint=f'https://index.commoncrawl.org/{idx}-index?url={quote(url,safe="")}&output=json'
+                  r=get(endpoint, 10)
+                  if r is None: errors.append([idx,'no-response']); continue
+                  if r.status_code==200:
+                      any_success=True
+                      for line in r.text.splitlines():
+                          try:
+                              j=json.loads(line)
+                              if j.get('filename') and j.get('offset') and j.get('length'): hits.append(j)
+                          except Exception: pass
+                  elif r.status_code not in (404,): errors.append([idx,r.status_code])
+              return hits, any_success, errors
+
+          def commoncrawl_try(hit):
+              try:
+                  off=int(hit['offset']); ln=int(hit['length'])
+                  r=get('https://data.commoncrawl.org/' + hit['filename'], 20, headers={'Range':f'bytes={off}-{off+ln-1}'})
+                  if not r or r.status_code not in (200,206): return None
+                  raw=gzip.decompress(r.content)
+                  parts=raw.split(b'\r\n\r\n',2)
+                  if len(parts)<3: return None
+                  body=parts[2]
+                  info=image_info(body)
+                  if info: return body, info
+              except Exception: pass
+              return None
+
+          # Enumerate page capture times too, so we can try each image at the exact times the page itself was archived.
+          page_times={'20210804093024'}
+          for pageurl in [
+              'http://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html',
+              'https://www.castlesfortsbattles.co.uk/midlands/seckington_castle.html',
+              'http://castlesfortsbattles.co.uk/midlands/seckington_castle.html',
+              'https://castlesfortsbattles.co.uk/midlands/seckington_castle.html']:
+              for row in cdx_rows(pageurl):
+                  if row and str(row[0]).isdigit(): page_times.add(str(row[0]))
+
+          results={}
+          for label, basenames in groups.items():
+              best=None; attempts=[]; seen_archive=set(); cc_summary={'success':False,'hits':0,'errors':[]}
+              urls=[]
+              for b in basenames: urls.extend(url_variants(b))
+              urls=list(dict.fromkeys(urls))
+
+              # 1. Try every known page-capture timestamp against every plausible exact image URL.
+              for u in urls:
+                  for ts in sorted(page_times, reverse=True):
+                      got=wayback_try(ts,u)
+                      attempts.append({'service':'wayback-same-capture','timestamp':ts,'url':u,'found':bool(got)})
+                      if got:
+                          data,info=got
+                          cand={'data':data,'info':info,'method':'wayback-same-capture','timestamp':ts,'original':u}
+                          if best is None or info['area']>best['info']['area']: best=cand
+
+              # 2. Exhaustive Wayback CDX exact and filename/path search.
+              rows=[]
+              for u in urls: rows.extend(cdx_rows(u))
+              for b in basenames: rows.extend(cdx_filename_rows(b))
+              uniq=[]
+              for row in rows:
+                  if len(row)<2: continue
+                  k=(str(row[0]),row[1])
+                  if k in seen_archive: continue
+                  seen_archive.add(k); uniq.append(row)
+              uniq.sort(key=lambda x:str(x[0]), reverse=True)
+              for row in uniq[:180]:
+                  ts,orig=str(row[0]),row[1]
+                  got=wayback_try(ts,orig)
+                  if got:
+                      data,info=got
+                      cand={'data':data,'info':info,'method':'wayback-cdx','timestamp':ts,'original':orig}
+                      if best is None or info['area']>best['info']['area']: best=cand
+
+              # 3. Arquivo.pt exact variants.
+              ar_searched=False
+              for u in urls:
+                  ars,searched=arquivo_rows(u); ar_searched = ar_searched or searched
+                  for ts,orig in reversed(ars):
+                      got=arquivo_try(ts,orig)
+                      if got:
+                          data,info=got
+                          cand={'data':data,'info':info,'method':'arquivo','timestamp':ts,'original':orig}
+                          if best is None or info['area']>best['info']['area']: best=cand
+
+              # 4. Common Crawl, including actual WARC-byte retrieval when indexed.
+              for u in urls:
+                  hits,ok,errs=commoncrawl_hits(u)
+                  cc_summary['success']=cc_summary['success'] or ok
+                  cc_summary['hits'] += len(hits)
+                  cc_summary['errors'].extend(errs[:2])
+                  for hit in hits[:8]:
+                      got=commoncrawl_try(hit)
+                      if got:
+                          data,info=got
+                          cand={'data':data,'info':info,'method':'commoncrawl-warc','timestamp':hit.get('timestamp'),'original':hit.get('url',u)}
+                          if best is None or info['area']>best['info']['area']: best=cand
+
+              if best:
+                  fmt=best['info']['format']
+                  ext={'JPEG':'.jpg','PNG':'.png','GIF':'.gif','WEBP':'.webp'}.get(fmt,'.jpg')
+                  stem=re.sub(r'[^a-z0-9]+','-',label.lower()).strip('-')
+                  fn=stem+ext
+                  (IMG/fn).write_bytes(best['data'])
+                  results[label]={'status':'recovered','file':'images/'+fn,'method':best['method'],'timestamp':best.get('timestamp'),'archived_original':best['original'],'dimensions':[best['info']['width'],best['info']['height']],'sha256':hashlib.sha256(best['data']).hexdigest(),'wayback_candidates':len(uniq),'arquivo_searched':ar_searched,'commoncrawl':cc_summary}
+              else:
+                  results[label]={'status':'unrecovered','wayback_candidates':len(uniq),'arquivo_searched':ar_searched,'commoncrawl':cc_summary}
+              print(label, results[label]['status'], results[label].get('dimensions'))
+
+          recovered=[(label,x) for label,x in results.items() if x['status']=='recovered']
+
+          # Replace only the synthetic recovery gallery on the local page; preserve all archived written content.
+          if INDEX.exists():
+              html=INDEX.read_text(encoding='utf-8')
+              figs=''.join(f'<figure><img src="{x["file"]}" alt="{label}"><figcaption>{label}</figcaption></figure>' for label,x in recovered)
+              replacement='<h2>Recovered original photographs, plans and images</h2>' + (figs if figs else '<p>No genuine Seckington photograph files have yet been recovered from the available archive copies.</p>')
+              pat=r'<h2>Recovered original photographs, plans and images</h2>.*?(?=</article>)'
+              if re.search(pat,html,re.S): html=re.sub(pat,replacement,html,count=1,flags=re.S)
+              else: html=html.replace('</article>',replacement+'</article>',1)
+              INDEX.write_text(html,encoding='utf-8')
+
+          rep={}
+          if REPORT.exists():
+              try: rep=json.loads(REPORT.read_text(encoding='utf-8'))
+              except Exception: rep={}
+          rep['targeted_deep_photo_pass']={'genuine_photo_groups':4,'recovered_groups':len(recovered),'unrecovered_groups':4-len(recovered),'page_capture_timestamps_checked':len(page_times),'results':results,'note':'Only genuine archived Seckington images or genuine archived derivatives were accepted; no substitutes were used.'}
+          REPORT.write_text(json.dumps(rep,indent=2,ensure_ascii=False),encoding='utf-8')
+          AUDIT.write_text(json.dumps(rep['targeted_deep_photo_pass'],indent=2,ensure_ascii=False),encoding='utf-8')
+          PY
+      - name: Commit recovered photographs and page update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/seckington-castle page-audit/seckington-deep-recovery.json
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Deep recover Seckington Castle photographs'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
