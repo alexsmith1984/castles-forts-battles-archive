@@ -13,7 +13,8 @@ jobs:
   cancel:
     runs-on: ubuntu-latest
     steps:
-      - name: Cancel stale run
+      - name: Cancel stale runs
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api --method POST repos/${{ github.repository }}/actions/runs/34785514897/cancel
+        run: |
+          gh api --method POST repos/${{ github.repository }}/actions/runs/34786140975/cancel || true
