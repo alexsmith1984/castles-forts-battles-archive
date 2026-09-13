@@ -22,9 +22,9 @@
     "castle_rising11",
     "castle_rising13"
   ],
-  "recovered_full_or_near_full": 11,
+  "recovered_full_or_near_full": 13,
   "recovered_thumbnail_or_lower_resolution": 0,
-  "still_missing": 3,
+  "still_missing": 1,
   "uncertain_identifications": [],
   "images": [
     {
@@ -71,6 +71,40 @@
       "method": "same-capture",
       "bytes": 345614,
       "sha256": "dc0135cedd76b0602a6fb379bdd67fb05f9035f8b20caaaf9008d9f4ec4acb05"
+    },
+    {
+      "identity": "castle_rising10",
+      "file": "images/castle_rising10.jpg",
+      "dimensions": [
+        1044,
+        1572
+      ],
+      "quality": "full/near-full",
+      "identification": "certain",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising102.jpg?crc=109152511",
+      "method": "recovered-from-duplicate-Muse-export",
+      "bytes": 334547,
+      "sha256": "b25044dba41990dff9f18328cfc36966c00ab1a1706a612833180eecf4e17d44",
+      "equivalent_export_identity": "castle_rising102",
+      "recovery_basis": "The archived page contains a duplicate Muse export of the same underlying photograph; filename relation and aspect ratio match the missing logical position."
+    },
+    {
+      "identity": "castle_rising8",
+      "file": "images/castle_rising8.jpg",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "quality": "full/near-full",
+      "identification": "certain",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising82.jpg?crc=3837787392",
+      "method": "recovered-from-duplicate-Muse-export",
+      "bytes": 246389,
+      "sha256": "07cd8f31fbf4f663130e283a76e0265218d871519b1224a9328b4af006bf2ea7",
+      "equivalent_export_identity": "castle_rising82",
+      "recovery_basis": "The archived page contains a duplicate Muse export of the same underlying photograph; filename relation and aspect ratio match the missing logical position."
     },
     {
       "identity": "castle_rising1",
@@ -204,29 +238,13 @@
         "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2502x218.jpg?crc=103553459",
         "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2501x218.jpg?crc=103553459"
       ]
-    },
-    {
-      "identity": "castle_rising10",
-      "candidate_urls": [
-        "https://www.castlesfortsbattles.co.uk/east/assets/castle_rising10.jpg",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10.jpg?crc=413912450",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising1030x45.jpg?crc=4158745812",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10151x227.jpg?crc=472600458"
-      ]
-    },
-    {
-      "identity": "castle_rising8",
-      "candidate_urls": [
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8.jpg?crc=524539199",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising860x40.jpg?crc=4097156304",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8580x386.jpg?crc=3916471857",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8579x384.jpg?crc=235527405",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8454x302.jpg?crc=4142305413",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8454x301.jpg?crc=455960552",
-        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8342x227.jpg?crc=262166783"
-      ]
     }
   ],
   "counting_method": "Unique Castle Rising content identities established from exact desktop filenames/full-size anchor targets; responsive Muse WIDTHxHEIGHT variants are mapped by longest exact identity prefix and not counted separately.",
-  "verification_note": "Every reported local image decodes successfully. No substitute photographs were used."
+  "verification_note": "All displayed local images decode successfully. castle_rising8 and castle_rising10 were restored from archived duplicate Muse exports of the same underlying photographs (castle_rising82 and castle_rising102). No unrelated substitute photographs were used.",
+  "duplicate_export_recoveries": {
+    "castle_rising8": "castle_rising82",
+    "castle_rising10": "castle_rising102"
+  },
+  "external_same_name_commons_images_used": false
 }
