@@ -9,10 +9,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: castle-rising-recovery
+  cancel-in-progress: true
+
 jobs:
   recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,6 +27,9 @@ jobs:
       - run: pip install requests beautifulsoup4 pillow ftfy
       - name: Recover and reconstruct Castle Rising
         run: python scripts/recover_castle_rising.py
+      - name: Verify reconstruction
+        run: |
+          python -c "import json; from pathlib import Path; from bs4 import BeautifulSoup; from PIL import Image; root=Path('recovered/castle-rising-castle'); rep=json.loads((root/'recovery-report.json').read_text(encoding='utf-8')); text=(root/'index.html').read_text(encoding='utf-8'); assert rep['original_image_positions_identified']==rep['images_recovered']+rep['still_missing']; assert 'recovered/castle-rising-castle/' in Path('atoz-part1.html').read_text(encoding='utf-8'); assert '../../atoz-part1.html#c' in text; assert not any(x in text for x in ('â','Ã','�')); soup=BeautifulSoup(text,'html.parser'); [Image.open(root/im['src']).verify() for im in soup.find_all('img',src=True)]; print(json.dumps({k:v for k,v in rep.items() if k not in ('images','missing')},indent=2,ensure_ascii=False))"
       - name: Commit recovered page
         run: |
           git config user.name 'github-actions[bot]'
