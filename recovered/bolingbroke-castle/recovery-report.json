@@ -1,0 +1,133 @@
+{
+  "name": "Bolingbroke Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/midlands/bolingbroke_castle.html",
+  "supplied_capture": "20220826203621",
+  "source_timestamp_used": "20220826203621",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/midlands/bolingbroke_castle.html",
+  "text_blocks_preserved": 23,
+  "original_image_positions_identified": 7,
+  "desktop_image_identities": [
+    "bolingbroke_castle12c",
+    "bolingbroke_castle_layout",
+    "bolingbroke_castle2d",
+    "bolingbroke_castle6d",
+    "bolingbroke_castle4a",
+    "bolingbroke_castle5",
+    "bolingbroke_castle1"
+  ],
+  "recovered_full_or_near_full": 7,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 0,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "bolingbroke_castle12c",
+      "file": "images/bolingbroke_castle12c.jpg",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle12C.JPG",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        532
+      ],
+      "bytes": 192869,
+      "sha256": "4a20cde04976efa252148e60bf3de92feb43b91ed05bbf702f7b49dae341571d",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "bolingbroke_castle_layout",
+      "file": "images/bolingbroke_castle_layout.png",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle_Layout.png",
+      "method": "same-capture",
+      "dimensions": [
+        799,
+        600
+      ],
+      "bytes": 50725,
+      "sha256": "862fd9d3ad4b2f7cf82dcb2e1d3a5d90dccd03610b0c6bbe05330c81eb915d57",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "bolingbroke_castle2d",
+      "file": "images/bolingbroke_castle2d.jpg",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle2D.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        340
+      ],
+      "bytes": 113181,
+      "sha256": "40cf8c4180a9ea14a5c75365f0254f0315508ce1944019ddde80fde73508cf86",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "bolingbroke_castle6d",
+      "file": "images/bolingbroke_castle6d.jpg",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle6D.JPG",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        532
+      ],
+      "bytes": 303865,
+      "sha256": "36023393fda162a9bf1af7df25905bbdc82635e7d16bdd59e5942e11c2f65a97",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "bolingbroke_castle4a",
+      "file": "images/bolingbroke_castle4a.jpg",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle4A.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        138
+      ],
+      "bytes": 59294,
+      "sha256": "ef36d09b52fdac0b0a0fa2ae8f282303ada4a077593ec2748b02789247dfcbd0",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "bolingbroke_castle5",
+      "file": "images/bolingbroke_castle5.jpg",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle5.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        198
+      ],
+      "bytes": 94059,
+      "sha256": "ebf6a8bf0cf9ca0b5e18da3291838e465aed61ac579d6059f7172f19597d28df",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "bolingbroke_castle1",
+      "file": "images/bolingbroke_castle1.jpg",
+      "archive_timestamp": "20220826203621",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Bolingbroke_Castle1.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        141
+      ],
+      "bytes": 65575,
+      "sha256": "92269a1ae8956c77e82937e8d70988f9ef9a40e6e418acf90a02317329388241",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

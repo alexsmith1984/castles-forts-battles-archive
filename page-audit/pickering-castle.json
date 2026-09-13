@@ -1,0 +1,29 @@
+{
+  "name": "Pickering Castle",
+  "slug": "pickering-castle",
+  "status": "built",
+  "source": "20220524225709",
+  "positions": 20,
+  "full": 3,
+  "lower": 0,
+  "missing": 17,
+  "missing_identities": [
+    "pickering_castle",
+    "pickering_castle_plan",
+    "pickering_castle13",
+    "pickering_castle16",
+    "pickering_castle3",
+    "pickering_castle2",
+    "pickering_castle10",
+    "pickering_castle14",
+    "pickering_castle4",
+    "pickering_castle7",
+    "pickering_castle6",
+    "pickering_castle9",
+    "pickering_castle11",
+    "pickering_castle12",
+    "pickering_castle15",
+    "pickering_castle17",
+    "pickering_castle20"
+  ]
+}

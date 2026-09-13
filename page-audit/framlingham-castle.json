@@ -1,0 +1,17 @@
+{
+  "name": "Framlingham Castle",
+  "slug": "framlingham-castle",
+  "status": "built",
+  "source": "20220826211200",
+  "positions": 5,
+  "full": 0,
+  "lower": 0,
+  "missing": 5,
+  "missing_identities": [
+    "framlingham_castle5",
+    "framlingham_castle32",
+    "framlingham_castle3",
+    "framlingham_layout",
+    "framlingham_castle29"
+  ]
+}

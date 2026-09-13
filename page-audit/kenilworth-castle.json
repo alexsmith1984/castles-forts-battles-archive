@@ -1,0 +1,15 @@
+{
+  "name": "Kenilworth Castle",
+  "slug": "kenilworth-castle",
+  "status": "built",
+  "source": "20220826212821",
+  "positions": 3,
+  "full": 0,
+  "lower": 0,
+  "missing": 3,
+  "missing_identities": [
+    "kenilworth_castle9",
+    "kenilworth_castle15",
+    "kenilworth_castle1"
+  ]
+}

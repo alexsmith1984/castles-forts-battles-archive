@@ -1,0 +1,35 @@
+{
+  "name": "Conisbrough Castle",
+  "status": "built",
+  "original_url": "https://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle.html",
+  "supplied_capture": "20210618022643",
+  "source_timestamp_used": "20210618022643",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle.html",
+  "text_blocks_preserved": 19,
+  "original_image_positions_identified": 2,
+  "desktop_image_identities": [
+    "conisbrough_castle4b",
+    "conisbrough_castle2"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 2,
+  "uncertain_identifications": [],
+  "images": [],
+  "missing": [
+    {
+      "identity": "conisbrough_castle4b",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle4B.JPG"
+      ]
+    },
+    {
+      "identity": "conisbrough_castle2",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle2.JPG"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

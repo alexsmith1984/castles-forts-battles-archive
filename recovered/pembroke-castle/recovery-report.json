@@ -1,0 +1,53 @@
+{
+  "name": "Pembroke Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/south_west_wales/pembroke_castle.html",
+  "supplied_capture": "20210918015020",
+  "source_timestamp_used": "20210918015020",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/south_west_wales/pembroke_castle.html",
+  "text_blocks_preserved": 18,
+  "original_image_positions_identified": 2,
+  "desktop_image_identities": [
+    "pembroke_castle",
+    "pembroke_castle6"
+  ],
+  "recovered_full_or_near_full": 2,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 0,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "pembroke_castle",
+      "file": "images/pembroke_castle.jpg",
+      "archive_timestamp": "20210918015020",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Pembroke_Castle.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        353
+      ],
+      "bytes": 136698,
+      "sha256": "064fa8ef43b58344eb2b6d591cb50e0a0af57a15cf6756121b415eb59d1b41e8",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "pembroke_castle6",
+      "file": "images/pembroke_castle6.jpg",
+      "archive_timestamp": "20210918015020",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Pembroke_Castle6.JPG",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        531
+      ],
+      "bytes": 191311,
+      "sha256": "8a178a2cdf5aa9001ade1000db6b18b621d667ccd59f6b77ca4ff5cb646871f6",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

@@ -1,0 +1,361 @@
+{
+  "name": "Goodrich Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/midlands/goodrich_castle.html",
+  "supplied_capture": "20220826203514",
+  "source_timestamp_used": "20220826203514",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/midlands/goodrich_castle.html",
+  "text_blocks_preserved": 56,
+  "original_image_positions_identified": 37,
+  "desktop_image_identities": [
+    "goodrich_castle",
+    "goodrich_castle10",
+    "goodrich_castle1",
+    "goodrich_castle1-crop-u139013",
+    "goodrich_castle48",
+    "goodrich_castle25",
+    "goodrich_castle24",
+    "goodrich_castle47",
+    "goodrich_castle30",
+    "goodrich_castle12",
+    "goodrich_castle21",
+    "goodrich_castle39",
+    "goodrich_castle28",
+    "goodrich_castle6",
+    "goodrich_castle8",
+    "goodrich_castle9",
+    "goodrich_castle11",
+    "goodrich_castle13",
+    "goodrich_castle14",
+    "goodrich_castle17",
+    "goodrich_castle18a",
+    "goodrich_castle18b",
+    "goodrich_castle19",
+    "goodrich_castle23b",
+    "goodrich_castle26",
+    "goodrich_castle27",
+    "goodrich_castle29",
+    "goodrich_castle32",
+    "goodrich_castle34",
+    "goodrich_castle35",
+    "goodrich_castle36",
+    "goodrich_castle38",
+    "goodrich_castle40",
+    "goodrich_castle42",
+    "goodrich_castle44",
+    "goodrich_castle45",
+    "goodrich_castle46"
+  ],
+  "recovered_full_or_near_full": 2,
+  "recovered_thumbnail_or_lower_resolution": 1,
+  "still_missing": 34,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "goodrich_castle10",
+      "file": "images/goodrich_castle10.jpg",
+      "archive_timestamp": "20220826203514",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle10502x333.jpg?crc=436083681",
+      "method": "same-capture",
+      "dimensions": [
+        501,
+        333
+      ],
+      "bytes": 66001,
+      "sha256": "fc602549de469b86da523994924fd1a4be845f59f85a40a2378fc50e06b40f91",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "goodrich_castle1",
+      "file": "images/goodrich_castle1.jpg",
+      "archive_timestamp": "20220826203514",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1.jpg?crc=476724089",
+      "method": "same-capture",
+      "dimensions": [
+        486,
+        364
+      ],
+      "bytes": 58850,
+      "sha256": "22cce3b3b2f9f87be34732aa9e87e10ce09cc55155fd6f74627e6b4bcfa38174",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "goodrich_castle48",
+      "file": "images/goodrich_castle48.jpg",
+      "archive_timestamp": "20220826203514",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle48.jpg?crc=4040809410",
+      "method": "same-capture",
+      "dimensions": [
+        490,
+        367
+      ],
+      "bytes": 89027,
+      "sha256": "faa7a50581cfd3f5dd5a69d34701a009d765727f3fd91a4a7785747953c13a93",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "goodrich_castle1-crop-u139013",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1-crop-u139013.jpg?crc=266192964"
+      ]
+    },
+    {
+      "identity": "goodrich_castle",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle.jpg?crc=178888147",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle501x271.jpg?crc=509874553",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle500x270.jpg?crc=267836236"
+      ]
+    },
+    {
+      "identity": "goodrich_castle25",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle25.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle25.jpg?crc=4067031189"
+      ]
+    },
+    {
+      "identity": "goodrich_castle24",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle24.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle24.jpg?crc=395684731"
+      ]
+    },
+    {
+      "identity": "goodrich_castle30",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle30.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle30.jpg?crc=453549820",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle30325x216.jpg?crc=8588304",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle30245x163.jpg?crc=4159640557",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle30244x163.jpg?crc=4159640557"
+      ]
+    },
+    {
+      "identity": "goodrich_castle47",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle47.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle47.jpg?crc=198483327",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle4760x45.jpg?crc=523104900",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle47322x241.jpg?crc=4217931245",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle47321x241.jpg?crc=4217931245",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle47243x182.jpg?crc=28652807",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle47242x181.jpg?crc=28652807"
+      ]
+    },
+    {
+      "identity": "goodrich_castle21",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle21.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle21.jpg?crc=186277857",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle21325x216.jpg?crc=306551550",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle21245x163.jpg?crc=401109058",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle21244x163.jpg?crc=401109058"
+      ]
+    },
+    {
+      "identity": "goodrich_castle28",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle28.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle28.jpg?crc=4093551221"
+      ]
+    },
+    {
+      "identity": "goodrich_castle12",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle12.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle12.jpg?crc=383846156",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1260x40.jpg?crc=4066727466",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle12325x216.jpg?crc=4170131339",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle12245x163.jpg?crc=161692188",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1243x184.jpg?crc=146738070",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle12244x163.jpg?crc=161692188"
+      ]
+    },
+    {
+      "identity": "goodrich_castle39",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/goodrich_castle39.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle39.jpg?crc=97520993",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle39325x216.jpg?crc=336642513",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle39324x216.jpg?crc=336642513",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle39245x163.jpg?crc=4084785917",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle39244x162.jpg?crc=4084785917"
+      ]
+    },
+    {
+      "identity": "goodrich_castle6",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle6.jpg?crc=3789646722",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle660x40.jpg?crc=326827275",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle665x359.jpg?crc=472785658"
+      ]
+    },
+    {
+      "identity": "goodrich_castle8",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle8.jpg?crc=3882201204",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle860x42.jpg?crc=3793200933"
+      ]
+    },
+    {
+      "identity": "goodrich_castle9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle9.jpg?crc=361696792",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle960x40.jpg?crc=474664028"
+      ]
+    },
+    {
+      "identity": "goodrich_castle11",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle11.jpg?crc=222342888",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1160x40.jpg?crc=191061819"
+      ]
+    },
+    {
+      "identity": "goodrich_castle13",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle13.jpg?crc=356630444",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1360x40.jpg?crc=3855372688"
+      ]
+    },
+    {
+      "identity": "goodrich_castle17",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle17.jpg?crc=4090322121",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1760x40.jpg?crc=3947379296"
+      ]
+    },
+    {
+      "identity": "goodrich_castle14",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle14.jpg?crc=69975909",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1460x40.jpg?crc=389581548"
+      ]
+    },
+    {
+      "identity": "goodrich_castle18a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle18a.jpg?crc=227803457",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle18a60x40.jpg?crc=292186781"
+      ]
+    },
+    {
+      "identity": "goodrich_castle18b",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle18b.jpg?crc=250624310"
+      ]
+    },
+    {
+      "identity": "goodrich_castle23b",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle23b.jpg?crc=252845250"
+      ]
+    },
+    {
+      "identity": "goodrich_castle19",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle19.jpg?crc=4261022955",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1960x40.jpg?crc=3925857769"
+      ]
+    },
+    {
+      "identity": "goodrich_castle26",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle26.jpg?crc=4210046680",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle2660x40.jpg?crc=3983341656"
+      ]
+    },
+    {
+      "identity": "goodrich_castle27",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle27.jpg?crc=129049679",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle2760x40.jpg?crc=535767531"
+      ]
+    },
+    {
+      "identity": "goodrich_castle29",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle29.jpg?crc=27019019",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle2960x40.jpg?crc=466736537"
+      ]
+    },
+    {
+      "identity": "goodrich_castle32",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle32.jpg?crc=339127335",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle3260x40.jpg?crc=4188472808"
+      ]
+    },
+    {
+      "identity": "goodrich_castle34",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle34.jpg?crc=437874197",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle3460x40.jpg?crc=254924611"
+      ]
+    },
+    {
+      "identity": "goodrich_castle35",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle35.jpg?crc=4184997412",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle3560x40.jpg?crc=44729442"
+      ]
+    },
+    {
+      "identity": "goodrich_castle36",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle36.jpg?crc=4099502216",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle3660x40.jpg?crc=3909726676"
+      ]
+    },
+    {
+      "identity": "goodrich_castle38",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle38.jpg?crc=4229717364"
+      ]
+    },
+    {
+      "identity": "goodrich_castle40",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle40.jpg?crc=179599526",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle4060x40.jpg?crc=132514811"
+      ]
+    },
+    {
+      "identity": "goodrich_castle42",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle42.jpg?crc=4130230365",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle4260x40.jpg?crc=85513323"
+      ]
+    },
+    {
+      "identity": "goodrich_castle44",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle44.jpg?crc=463281441",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle4460x45.jpg?crc=4070807574"
+      ]
+    },
+    {
+      "identity": "goodrich_castle45",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle45.jpg?crc=3863928622",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle4560x45.jpg?crc=4276631472"
+      ]
+    },
+    {
+      "identity": "goodrich_castle46",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle46.jpg?crc=3923227336",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle4660x45.jpg?crc=425822399"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

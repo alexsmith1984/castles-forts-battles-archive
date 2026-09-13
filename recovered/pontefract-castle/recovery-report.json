@@ -1,0 +1,28 @@
+{
+  "name": "Pontefract Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html",
+  "supplied_capture": "20210918010514",
+  "source_timestamp_used": "20210918010514",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html",
+  "text_blocks_preserved": 21,
+  "original_image_positions_identified": 1,
+  "desktop_image_identities": [
+    "pontefract_castle15"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 1,
+  "uncertain_identifications": [],
+  "images": [],
+  "missing": [
+    {
+      "identity": "pontefract_castle15",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Pontefract_Castle15.JPG"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

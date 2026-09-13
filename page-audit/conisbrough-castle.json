@@ -1,0 +1,14 @@
+{
+  "name": "Conisbrough Castle",
+  "slug": "conisbrough-castle",
+  "status": "built",
+  "source": "20210618022643",
+  "positions": 2,
+  "full": 0,
+  "lower": 0,
+  "missing": 2,
+  "missing_identities": [
+    "conisbrough_castle4b",
+    "conisbrough_castle2"
+  ]
+}

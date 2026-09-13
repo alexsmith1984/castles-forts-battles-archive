@@ -1,0 +1,386 @@
+{
+  "name": "Warkworth Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/north_east/warkworth_castle_bridge.html",
+  "supplied_capture": "20220826205457",
+  "source_timestamp_used": "20220826205457",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/north_east/warkworth_castle_bridge.html",
+  "text_blocks_preserved": 62,
+  "original_image_positions_identified": 38,
+  "desktop_image_identities": [
+    "warkworth_castle",
+    "warkworth_castle15",
+    "warkworth_castle17",
+    "warkworth_castle8",
+    "warkworth_castle12",
+    "warkworth_castle4",
+    "warkworth_castle20",
+    "warkworth_castle13",
+    "warkworth_castle19a",
+    "warkworth_castle26",
+    "warkworth_castle_town_plan",
+    "warkworth_castle1a",
+    "warkworth_castle25a",
+    "warkworth_bridge1a",
+    "warkworth_bridge8",
+    "warkworth_bridge9",
+    "warkworth_bridge4",
+    "warkworth_bridge1",
+    "warkworth_bridge2",
+    "warkworth_bridge5",
+    "warkworth_bridge7",
+    "warkworth_bridge10",
+    "warkworth_bridge11",
+    "warkworth_bridge13",
+    "warkworth_castle1",
+    "warkworth_castle3",
+    "warkworth_castle5",
+    "warkworth_castle7",
+    "warkworth_castle8a",
+    "warkworth_castle10",
+    "warkworth_castle11",
+    "warkworth_castle14",
+    "warkworth_castle18",
+    "warkworth_castle21a",
+    "warkworth_castle22",
+    "warkworth_castle24",
+    "warkworth_castle25",
+    "warkworth_castle25b"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 1,
+  "still_missing": 37,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "warkworth_castle15",
+      "file": "images/warkworth_castle15.jpg",
+      "archive_timestamp": "20220826205457",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle15444x333.jpg?crc=3765782944",
+      "method": "same-capture",
+      "dimensions": [
+        444,
+        333
+      ],
+      "bytes": 73910,
+      "sha256": "04b3fcb83e07a3582e95fc3e24a7b3d0f9d12e7f2f9d1a25a30507deb897bb3d",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "warkworth_castle",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle.jpg?crc=305559047",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle665x281.jpg?crc=3841416936"
+      ]
+    },
+    {
+      "identity": "warkworth_castle17",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle17.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle17.jpg?crc=241050931",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle17316x211.jpg?crc=4247374729",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle17312x208.jpg?crc=248840669"
+      ]
+    },
+    {
+      "identity": "warkworth_castle8",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle8.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle8.jpg?crc=4104875912",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle8316x210.jpg?crc=151153892",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle8312x208.jpg?crc=452403548",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle8312x207.jpg?crc=3875891259"
+      ]
+    },
+    {
+      "identity": "warkworth_castle13",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle13.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle13.jpg?crc=4145525791"
+      ]
+    },
+    {
+      "identity": "warkworth_castle12",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle12.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12.jpg?crc=126469289",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12658x207.jpg?crc=3903971158",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12657x207.jpg?crc=41278048",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12496x156.jpg?crc=414075989",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12495x156.jpg?crc=414075989"
+      ]
+    },
+    {
+      "identity": "warkworth_castle20",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle20.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20.jpg?crc=3997028650",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle2060x40.jpg?crc=3834410936",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20325x216.jpg?crc=3816665642",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20245x163.jpg?crc=113189223"
+      ]
+    },
+    {
+      "identity": "warkworth_castle4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle4.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle4.jpg?crc=524086482",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle4326x217.jpg?crc=4198956316",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle4326x216.jpg?crc=4050378962",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle4246x163.jpg?crc=4259710261",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle4245x163.jpg?crc=3996107196"
+      ]
+    },
+    {
+      "identity": "warkworth_castle1a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle1a.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1a.jpg?crc=3887179381",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1a327x190.jpg?crc=4098024422",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1a247x143.jpg?crc=4195412063",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1a246x143.jpg?crc=4195412063"
+      ]
+    },
+    {
+      "identity": "warkworth_castle26",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle26.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle26.jpg?crc=449239806",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle2660x40.jpg?crc=131104454",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle26335x223.jpg?crc=3826482760",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle26334x222.jpg?crc=3826482760",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle26262x174.jpg?crc=3969761949",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle26198x131.jpg?crc=455057787",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle26197x131.jpg?crc=455057787"
+      ]
+    },
+    {
+      "identity": "warkworth_castle19a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle19a.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a.jpg?crc=188833572",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a60x40.jpg?crc=493532562",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a336x223.jpg?crc=4219941472",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a335x222.jpg?crc=3943250277",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a263x175.jpg?crc=3978251577",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a262x174.jpg?crc=3978251577",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a198x132.jpg?crc=3785837901",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle19a198x131.jpg?crc=3826267606"
+      ]
+    },
+    {
+      "identity": "warkworth_castle_town_plan",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle_town_plan.png",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle_town_plan.jpg?crc=106298682",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle_town_plan326x414.jpg?crc=3938152206",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle_town_plan325x414.jpg?crc=4253178646",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle_town_plan246x312.jpg?crc=4022283169",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle_town_plan245x312.jpg?crc=524748083"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge8",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_bridge8.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge8.jpg?crc=3794695049"
+      ]
+    },
+    {
+      "identity": "warkworth_castle25a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle25a.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25a.jpg?crc=157923428",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25a327x218.jpg?crc=261301761",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25a327x217.jpg?crc=3954619938",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25a247x164.jpg?crc=448420888",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25a246x164.jpg?crc=448420888"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_bridge4.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge4.jpg?crc=25040282"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge1a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_bridge1a.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1a.jpg?crc=3955433769",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1a658x233.jpg?crc=195919101",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1a657x233.jpg?crc=4012030792",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1a496x176.jpg?crc=4010950817",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1a495x175.jpg?crc=4010950817"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1.jpg?crc=4018179762",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge160x40.jpg?crc=4034098848"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_bridge9.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge9324x215.jpg?crc=4127449859",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge9.jpg?crc=263879068",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge960x40.jpg?crc=536204237",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge9275x183.jpg?crc=520570833",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge9274x182.jpg?crc=338857715",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge9215x143.jpg?crc=139041098",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge9162x108.jpg?crc=3816925824"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge2",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge2.jpg?crc=435368009",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge260x40.jpg?crc=331777348"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge5",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge5.jpg?crc=153497588",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge560x40.jpg?crc=4142546518"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge7",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge7.jpg?crc=4139629441",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge760x40.jpg?crc=4193506855"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge10",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge10.jpg?crc=431682728",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1060x40.jpg?crc=4025184884"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge11",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge11.jpg?crc=4282482869",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1160x40.jpg?crc=380468359"
+      ]
+    },
+    {
+      "identity": "warkworth_bridge13",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge13.jpg?crc=3897673265",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_bridge1360x40.jpg?crc=520854264"
+      ]
+    },
+    {
+      "identity": "warkworth_castle1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1.jpg?crc=515300775",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle160x40.jpg?crc=489746747"
+      ]
+    },
+    {
+      "identity": "warkworth_castle3",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle3.jpg?crc=309665325",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle360x40.jpg?crc=3990355201"
+      ]
+    },
+    {
+      "identity": "warkworth_castle7",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle7.jpg?crc=4094975918",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle760x40.jpg?crc=3951540034"
+      ]
+    },
+    {
+      "identity": "warkworth_castle5",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle5.jpg?crc=4188220838",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle560x40.jpg?crc=4265091881",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle501x212.jpg?crc=316179916",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle500x212.jpg?crc=86302039"
+      ]
+    },
+    {
+      "identity": "warkworth_castle8a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle8a.jpg?crc=24237884",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle8a60x40.jpg?crc=51562964"
+      ]
+    },
+    {
+      "identity": "warkworth_castle10",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle10.jpg?crc=4211932693",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1060x40.jpg?crc=3763404078"
+      ]
+    },
+    {
+      "identity": "warkworth_castle11",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle11.jpg?crc=4198127407",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1160x45.jpg?crc=4094084280"
+      ]
+    },
+    {
+      "identity": "warkworth_castle14",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle14.jpg?crc=3866345133",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1460x45.jpg?crc=3769040479"
+      ]
+    },
+    {
+      "identity": "warkworth_castle18",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle18.jpg?crc=193149722",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle1860x40.jpg?crc=4139930170"
+      ]
+    },
+    {
+      "identity": "warkworth_castle21a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle21a.jpg?crc=412918085",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle21a60x40.jpg?crc=4113809735"
+      ]
+    },
+    {
+      "identity": "warkworth_castle22",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle22.jpg?crc=4154662755"
+      ]
+    },
+    {
+      "identity": "warkworth_castle24",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle24.jpg?crc=229003608",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle2460x40.jpg?crc=195095842"
+      ]
+    },
+    {
+      "identity": "warkworth_castle25",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25.jpg?crc=343555852",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle2536x45.jpg?crc=3968963335"
+      ]
+    },
+    {
+      "identity": "warkworth_castle25b",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25b.jpg?crc=4065977150",
+        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle25b60x40.jpg?crc=4200755009"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

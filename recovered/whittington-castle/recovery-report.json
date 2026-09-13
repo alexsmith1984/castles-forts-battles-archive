@@ -1,0 +1,138 @@
+{
+  "name": "Whittington Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/north_west/whittington_castle_lancashire.html",
+  "supplied_capture": "20210918013642",
+  "source_timestamp_used": "20210918013642",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/north_west/whittington_castle_lancashire.html",
+  "text_blocks_preserved": 27,
+  "original_image_positions_identified": 12,
+  "desktop_image_identities": [
+    "whittington_castle_lancashire",
+    "whittington_castle_lancashire4",
+    "whittington_castle_lancashire9",
+    "whittington_castle_lancashire8",
+    "norman_castle_lune_valley_map",
+    "whittington_castle_lancashire1",
+    "whittington_castle_lancashire2",
+    "whittington_castle_lancashire3",
+    "whittington_castle_lancashire5",
+    "whittington_castle_lancashire6",
+    "whittington_castle_lancashire7",
+    "whittington_castle_lancashire10"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 12,
+  "uncertain_identifications": [],
+  "images": [],
+  "missing": [
+    {
+      "identity": "whittington_castle_lancashire",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/assets/whittington_castle_lancashire.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire.jpg?crc=201265000"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/assets/whittington_castle_lancashire9.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire9.jpg?crc=4268879783",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire9659x326.jpg?crc=3862760349",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire9658x326.jpg?crc=3866385912",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire9496x246.jpg?crc=422584635",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire9495x245.jpg?crc=454258002"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire8",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/assets/whittington_castle_lancashire8.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire8.jpg?crc=4029939766",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire860x40.jpg?crc=234034019",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire8371x247.jpg?crc=3808412238",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire8370x246.jpg?crc=3808412238",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire8279x186.jpg?crc=4140750981",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire8279x185.jpg?crc=3839138257"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/assets/whittington_castle_lancashire4.jpg",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire4.jpg?crc=331873426",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire4485x322.jpg?crc=473494664",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire460x40.jpg?crc=349703904",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire4501x333.jpg?crc=303499787",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire4500x333.jpg?crc=4029233081",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire4378x251.jpg?crc=4256755691",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire4377x250.jpg?crc=4118406013"
+      ]
+    },
+    {
+      "identity": "norman_castle_lune_valley_map",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/assets/norman_castle_lune_valley_map.png",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/norman_castle_lune_valley_map.jpg?crc=216931713",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/norman_castle_lune_valley_map274x246.jpg?crc=4289703824",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/norman_castle_lune_valley_map207x186.jpg?crc=55991101",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/norman_castle_lune_valley_map206x185.jpg?crc=55991101"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire1.jpg?crc=4195729198",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire160x40.jpg?crc=257688966"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire2",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire2.jpg?crc=3986744349",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire260x40.jpg?crc=4282506885"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire3",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire3.jpg?crc=263990925",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire360x40.jpg?crc=460745165"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire7",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire7.jpg?crc=4171950989",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire760x40.jpg?crc=278911655"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire6",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire6.jpg?crc=232944533",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire660x40.jpg?crc=126602863",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire665x282.jpg?crc=254071007"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire10",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire10.jpg?crc=4110315644",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire1060x40.jpg?crc=3851487131"
+      ]
+    },
+    {
+      "identity": "whittington_castle_lancashire5",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire5.jpg?crc=68465745",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire560x40.jpg?crc=136485040",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire501x213.jpg?crc=4226253703",
+        "http://www.castlesfortsbattles.co.uk/north_west/images/whittington_castle_lancashire500x212.jpg?crc=4039911812"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

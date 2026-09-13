@@ -1,0 +1,69 @@
+{
+  "name": "Pevensey Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/south_east/pevensey_castle.html",
+  "supplied_capture": "20170913231910",
+  "source_timestamp_used": "20170913231910",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/south_east/pevensey_castle.html",
+  "text_blocks_preserved": 33,
+  "original_image_positions_identified": 3,
+  "desktop_image_identities": [
+    "pevensey_castle_layout",
+    "pevensey_castle6",
+    "pevensey_castle8a"
+  ],
+  "recovered_full_or_near_full": 3,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 0,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "pevensey_castle_layout",
+      "file": "images/pevensey_castle_layout.png",
+      "archive_timestamp": "20170913231910",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Pevensey_Castle_Layout.png",
+      "method": "same-capture",
+      "dimensions": [
+        799,
+        600
+      ],
+      "bytes": 66702,
+      "sha256": "9db8a715cdd706ec1457a254d155f606e0bb4f4e8d5bd6110704dac81ec7b3ac",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "pevensey_castle6",
+      "file": "images/pevensey_castle6.jpg",
+      "archive_timestamp": "20170913231910",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Pevensey_Castle6.JPG",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        342
+      ],
+      "bytes": 91812,
+      "sha256": "101ab88a87572399c0bd7f26da4ca2d242eca40d4aad9edd126d7e21ddf5d8e0",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "pevensey_castle8a",
+      "file": "images/pevensey_castle8a.jpg",
+      "archive_timestamp": "20170913231910",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Pevensey_Castle8A.JPG",
+      "method": "same-capture",
+      "dimensions": [
+        800,
+        531
+      ],
+      "bytes": 235260,
+      "sha256": "b6e71c8d271e1f90e403290e523a6708b42ab05adf1d3f85cdf84c148c9e9b79",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

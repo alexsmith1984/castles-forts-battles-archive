@@ -1,0 +1,31 @@
+{
+  "name": "Fotheringhay Castle",
+  "slug": "fotheringhay-castle",
+  "status": "built",
+  "source": "20210918020043",
+  "positions": 23,
+  "full": 4,
+  "lower": 0,
+  "missing": 19,
+  "missing_identities": [
+    "fotheringhay_castle11_bailey",
+    "fotheringhay_castle9_motte",
+    "fotheringhay_castle6_motte",
+    "fotheringhay_castle13_keep_fragment",
+    "fotheringhay_castle20_garden_farm",
+    "fotheringhay_castle22_st_marys",
+    "fotheringhay_castle18_castle_farm_guesthouse",
+    "fotheringhay_castle21_garden_farm_entrance",
+    "fotheringhay_castle19_garden_farm",
+    "fotheringhay_castle0",
+    "fotheringhay_castle4",
+    "fotheringhay_castle8_motte",
+    "fotheringhay_castle7_motte",
+    "fotheringhay_castle10_motte",
+    "fotheringhay_castle14_keep_fragment",
+    "fotheringhay_castle12_ditch",
+    "fotheringhay_castle16_keep_plaque",
+    "fotheringhay_castle17_river_nene",
+    "fotheringhay_castle23_st_marys"
+  ]
+}

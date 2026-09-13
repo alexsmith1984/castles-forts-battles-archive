@@ -1,0 +1,56 @@
+{
+  "name": "Framlingham Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/east/framlingham_castle.html",
+  "supplied_capture": "20220826211200",
+  "source_timestamp_used": "20220826211200",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/east/framlingham_castle.html",
+  "text_blocks_preserved": 27,
+  "original_image_positions_identified": 5,
+  "desktop_image_identities": [
+    "framlingham_castle3",
+    "framlingham_castle32",
+    "framlingham_layout",
+    "framlingham_castle5",
+    "framlingham_castle29"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 5,
+  "uncertain_identifications": [],
+  "images": [],
+  "missing": [
+    {
+      "identity": "framlingham_castle5",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Framlingham_Castle5.JPG"
+      ]
+    },
+    {
+      "identity": "framlingham_castle32",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Framlingham_Castle32.JPG"
+      ]
+    },
+    {
+      "identity": "framlingham_castle3",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Framlingham_Castle3.JPG"
+      ]
+    },
+    {
+      "identity": "framlingham_layout",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Framlingham_Layout.png"
+      ]
+    },
+    {
+      "identity": "framlingham_castle29",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Framlingham_Castle29.jpg"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

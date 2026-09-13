@@ -1,0 +1,42 @@
+{
+  "name": "Kenilworth Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
+  "supplied_capture": "20220826212821",
+  "source_timestamp_used": "20220826212821",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
+  "text_blocks_preserved": 20,
+  "original_image_positions_identified": 3,
+  "desktop_image_identities": [
+    "kenilworth_castle1",
+    "kenilworth_castle9",
+    "kenilworth_castle15"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 3,
+  "uncertain_identifications": [],
+  "images": [],
+  "missing": [
+    {
+      "identity": "kenilworth_castle9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG"
+      ]
+    },
+    {
+      "identity": "kenilworth_castle15",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg"
+      ]
+    },
+    {
+      "identity": "kenilworth_castle1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

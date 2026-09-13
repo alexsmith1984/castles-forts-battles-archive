@@ -1,0 +1,13 @@
+{
+  "name": "Pontefract Castle",
+  "slug": "pontefract-castle",
+  "status": "built",
+  "source": "20210918010514",
+  "positions": 1,
+  "full": 0,
+  "lower": 0,
+  "missing": 1,
+  "missing_identities": [
+    "pontefract_castle15"
+  ]
+}

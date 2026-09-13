@@ -1,0 +1,274 @@
+{
+  "name": "Fotheringhay Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/midlands/fotheringhay_castle.html",
+  "supplied_capture": "20210918020043",
+  "source_timestamp_used": "20210918020043",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/midlands/fotheringhay_castle.html",
+  "text_blocks_preserved": 43,
+  "original_image_positions_identified": 23,
+  "desktop_image_identities": [
+    "fotheringhay_castle",
+    "fotheringhay_castle15_keep_fragment",
+    "fotheringhay_castle_plan",
+    "fotheringhay_castle3",
+    "fotheringhay_castle6_motte",
+    "fotheringhay_castle9_motte",
+    "fotheringhay_castle13_keep_fragment",
+    "fotheringhay_castle11_bailey",
+    "fotheringhay_castle18_castle_farm_guesthouse",
+    "fotheringhay_castle22_st_marys",
+    "fotheringhay_castle19_garden_farm",
+    "fotheringhay_castle20_garden_farm",
+    "fotheringhay_castle21_garden_farm_entrance",
+    "fotheringhay_castle0",
+    "fotheringhay_castle4",
+    "fotheringhay_castle7_motte",
+    "fotheringhay_castle8_motte",
+    "fotheringhay_castle10_motte",
+    "fotheringhay_castle12_ditch",
+    "fotheringhay_castle14_keep_fragment",
+    "fotheringhay_castle16_keep_plaque",
+    "fotheringhay_castle17_river_nene",
+    "fotheringhay_castle23_st_marys"
+  ],
+  "recovered_full_or_near_full": 4,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 19,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "fotheringhay_castle",
+      "file": "images/fotheringhay_castle.jpg",
+      "archive_timestamp": "20210918020043",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        1965,
+        834
+      ],
+      "bytes": 245281,
+      "sha256": "bd8b89b192bd783aaaef8518c6180f2347492703f3ab7b7806257af5a23548ec",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "fotheringhay_castle15_keep_fragment",
+      "file": "images/fotheringhay_castle15_keep_fragment.jpg",
+      "archive_timestamp": "20210918020043",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle15_keep_fragment.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        6000,
+        4000
+      ],
+      "bytes": 3629884,
+      "sha256": "0f8401272e3a387551d5357e47a389456818fe2a9f8951476eb6a4077264a7e8",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "fotheringhay_castle_plan",
+      "file": "images/fotheringhay_castle_plan.png",
+      "archive_timestamp": "20210918020043",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle_plan.png",
+      "method": "same-capture",
+      "dimensions": [
+        1339,
+        1037
+      ],
+      "bytes": 106880,
+      "sha256": "623317114839054bfcd55401328f39c8666f4cbfdf7fc431a55a5f98e19bf2c1",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "fotheringhay_castle3",
+      "file": "images/fotheringhay_castle3.jpg",
+      "archive_timestamp": "20210918020043",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle3.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        4912,
+        3264
+      ],
+      "bytes": 744157,
+      "sha256": "171f31308db4b5c00ab3dd3f9490fe2749cd9605c338b53976c992cf334cbb4f",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "fotheringhay_castle11_bailey",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle11_bailey.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle11_bailey.jpg?crc=333683851",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle11_bailey658x229.jpg?crc=269975341",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle11_bailey657x229.jpg?crc=3761510799",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle11_bailey495x173.jpg?crc=4122093890"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle9_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle9_motte.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte323x215.jpg?crc=251673152",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte.jpg?crc=3987754966",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte60x40.jpg?crc=4107650234",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte275x183.jpg?crc=242298935",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte274x183.jpg?crc=4252178016",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte215x143.jpg?crc=4027305406",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle9_motte162x108.jpg?crc=304898140"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle6_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle6_motte.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte323x215.jpg?crc=4056201545",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte.jpg?crc=389675314",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte60x40.jpg?crc=401944312",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte274x183.jpg?crc=4275829269",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte273x182.jpg?crc=3936399287",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte215x143.jpg?crc=4234755422",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte214x143.jpg?crc=4047174311",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle6_motte162x108.jpg?crc=4294312650"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle13_keep_fragment",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle13_keep_fragment.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment324x216.jpg?crc=3953284334",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment.jpg?crc=236693186",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment60x40.jpg?crc=304956549",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment276x184.jpg?crc=4091117216",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment275x183.jpg?crc=3877005318",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment216x144.jpg?crc=4114317146",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment163x109.jpg?crc=57517327",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle13_keep_fragment162x108.jpg?crc=57517327"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle20_garden_farm",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle20_garden_farm.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle20_garden_farm.jpg?crc=9362864"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle22_st_marys",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle22_st_marys.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle22_st_marys.jpg?crc=4261570711",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle22_st_marys326x217.jpg?crc=419538955",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle22_st_marys325x217.jpg?crc=419538955",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle22_st_marys245x164.jpg?crc=35170418",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle22_st_marys245x163.jpg?crc=35170418"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle18_castle_farm_guesthouse",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle18_castle_farm_guesthouse.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle18_castle_farm_guesthouse.jpg?crc=4192917452",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle18_castle_farm_guesthouse60x40.jpg?crc=251359080",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle18_castle_farm_guesthouse326x217.jpg?crc=4075312524",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle18_castle_farm_guesthouse325x217.jpg?crc=3774523308",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle18_castle_farm_guesthouse245x164.jpg?crc=4170329206",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle18_castle_farm_guesthouse245x163.jpg?crc=4170329206"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle21_garden_farm_entrance",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle21_garden_farm_entrance.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle21_garden_farm_entrance.jpg?crc=100912184"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle19_garden_farm",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/assets/fotheringhay_castle19_garden_farm.jpg",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle19_garden_farm323x215.jpg?crc=4182613231",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle19_garden_farm.jpg?crc=4031286088",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle19_garden_farm60x40.jpg?crc=296386482",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle19_garden_farm274x183.jpg?crc=498074108",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle19_garden_farm215x143.jpg?crc=4182587330",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle19_garden_farm162x108.jpg?crc=517137871"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle0",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle0.jpg?crc=4219264523",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle060x40.jpg?crc=4076106224"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle4.jpg?crc=4074953680",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle460x40.jpg?crc=3783163752"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle8_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle8_motte.jpg?crc=255224370",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle8_motte60x40.jpg?crc=4197642560"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle7_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle7_motte.jpg?crc=49503210",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle7_motte60x40.jpg?crc=4204153815"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle10_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle10_motte.jpg?crc=3838416597",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle10_motte60x40.jpg?crc=300294943"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle14_keep_fragment",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle14_keep_fragment.jpg?crc=3838714354"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle12_ditch",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle12_ditch.jpg?crc=130472153",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle12_ditch60x40.jpg?crc=200026105"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle16_keep_plaque",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle16_keep_plaque.jpg?crc=3961928045",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle16_keep_plaque60x40.jpg?crc=482959624"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle17_river_nene",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle17_river_nene.jpg?crc=3935574178",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle17_river_nene60x40.jpg?crc=291545358"
+      ]
+    },
+    {
+      "identity": "fotheringhay_castle23_st_marys",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle23_st_marys.jpg?crc=3937249373",
+        "http://www.castlesfortsbattles.co.uk/midlands/images/fotheringhay_castle23_st_marys60x40.jpg?crc=88388914"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}

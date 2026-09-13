@@ -1,0 +1,234 @@
+{
+  "name": "Pickering Castle",
+  "status": "built",
+  "original_url": "http://www.castlesfortsbattles.co.uk/yorkshire/pickering_castle.html",
+  "supplied_capture": "20220524225709",
+  "source_timestamp_used": "20220524225709",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/yorkshire/pickering_castle.html",
+  "text_blocks_preserved": 48,
+  "original_image_positions_identified": 20,
+  "desktop_image_identities": [
+    "pickering_castle",
+    "pickering_castle5",
+    "pickering_castle_plan",
+    "pickering_castle8",
+    "pickering_castle18",
+    "pickering_castle13",
+    "pickering_castle16",
+    "pickering_castle3",
+    "pickering_castle10",
+    "pickering_castle14",
+    "pickering_castle2",
+    "pickering_castle4",
+    "pickering_castle6",
+    "pickering_castle7",
+    "pickering_castle9",
+    "pickering_castle11",
+    "pickering_castle12",
+    "pickering_castle15",
+    "pickering_castle17",
+    "pickering_castle20"
+  ],
+  "recovered_full_or_near_full": 3,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 17,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "pickering_castle5",
+      "file": "images/pickering_castle5.jpg",
+      "archive_timestamp": "20220524225709",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle5.jpg?crc=3933272567",
+      "method": "same-capture",
+      "dimensions": [
+        606,
+        403
+      ],
+      "bytes": 110796,
+      "sha256": "836664fbe169f60f67c83ff363e33bc3875f83000a48852680f9698aee0230ee",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "pickering_castle8",
+      "file": "images/pickering_castle8.jpg",
+      "archive_timestamp": "20220524225709",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle8.jpg?crc=3803543951",
+      "method": "same-capture",
+      "dimensions": [
+        538,
+        358
+      ],
+      "bytes": 73399,
+      "sha256": "b4662b360b4b860b89b98147a9160f1aa1e5175c6d3c134d6e1c70e114abb619",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "pickering_castle18",
+      "file": "images/pickering_castle18.jpg",
+      "archive_timestamp": "20220524225709",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle18.jpg?crc=341156976",
+      "method": "same-capture",
+      "dimensions": [
+        500,
+        333
+      ],
+      "bytes": 71655,
+      "sha256": "b01e59010f31f4858c3a0876ab27d20a3820f341d5a134d2582313c55d68c557",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "pickering_castle",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle.jpg?crc=4274706814"
+      ]
+    },
+    {
+      "identity": "pickering_castle_plan",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle_plan.png",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan.jpg?crc=190427521",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan293x239.jpg?crc=331150912",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan293x238.jpg?crc=331150912",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan221x180.jpg?crc=3936252001"
+      ]
+    },
+    {
+      "identity": "pickering_castle13",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle13.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle13.jpg?crc=4176137660",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1360x40.jpg?crc=4069706479",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle13326x217.jpg?crc=300150176",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle13246x164.jpg?crc=3839107002",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle13245x164.jpg?crc=3839107002"
+      ]
+    },
+    {
+      "identity": "pickering_castle16",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle16.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle16323x215.jpg?crc=76127657",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle16.jpg?crc=3975983524",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1660x40.jpg?crc=4179323403",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle16274x183.jpg?crc=56985860",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle16274x182.jpg?crc=4267196833",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle16215x143.jpg?crc=20200806",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle16162x108.jpg?crc=4009571022"
+      ]
+    },
+    {
+      "identity": "pickering_castle3",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle3.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle3323x215.jpg?crc=525026919",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle3.jpg?crc=3786498615",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle360x40.jpg?crc=223866221",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle3274x183.jpg?crc=3834192125",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle3274x182.jpg?crc=4126370125",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle3215x143.jpg?crc=428766546",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle3162x108.jpg?crc=436887401"
+      ]
+    },
+    {
+      "identity": "pickering_castle2",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle2.jpg?crc=3931623313",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle260x40.jpg?crc=4038395591"
+      ]
+    },
+    {
+      "identity": "pickering_castle10",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle10.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle10.jpg?crc=203663770",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1060x40.jpg?crc=444459738",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle10325x217.jpg?crc=3816768321",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle10325x216.jpg?crc=343436213",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle10245x163.jpg?crc=4206740366"
+      ]
+    },
+    {
+      "identity": "pickering_castle14",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle14.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle14.jpg?crc=38960800",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1460x40.jpg?crc=4201253567",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle14327x218.jpg?crc=3933864444",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle14247x164.jpg?crc=4248482028",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle14246x164.jpg?crc=4248482028"
+      ]
+    },
+    {
+      "identity": "pickering_castle4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle4.jpg?crc=4051702329",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle460x40.jpg?crc=3834281713"
+      ]
+    },
+    {
+      "identity": "pickering_castle7",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle7.jpg?crc=4240436617",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle760x40.jpg?crc=226105308"
+      ]
+    },
+    {
+      "identity": "pickering_castle6",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle6.jpg?crc=3965531278",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle660x40.jpg?crc=3882829355",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle665x302.jpg?crc=145707898"
+      ]
+    },
+    {
+      "identity": "pickering_castle9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle9.jpg?crc=4104225569",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle960x40.jpg?crc=4091187221"
+      ]
+    },
+    {
+      "identity": "pickering_castle11",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle11.jpg?crc=288402611",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1160x40.jpg?crc=474623270"
+      ]
+    },
+    {
+      "identity": "pickering_castle12",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle12.jpg?crc=3917490297",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1260x40.jpg?crc=4117036891"
+      ]
+    },
+    {
+      "identity": "pickering_castle15",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle15.jpg?crc=123100513",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1560x40.jpg?crc=3920488361"
+      ]
+    },
+    {
+      "identity": "pickering_castle17",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle17.jpg?crc=397701462",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle1760x40.jpg?crc=115260714"
+      ]
+    },
+    {
+      "identity": "pickering_castle20",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle20.jpg?crc=261876041",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle2060x40.jpg?crc=355203796"
+      ]
+    }
+  ],
+  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+}
