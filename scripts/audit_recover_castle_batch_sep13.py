@@ -87,15 +87,16 @@ def refs_from(e):
     return vals
 
 def source_page(p):
-    candidates=[(p["ts"],p["orig"])]
+    r=get(raw(p["ts"],p["orig"]),20)
+    if good_html(r):
+      return p["ts"],p["orig"],r.text
+    candidates=[]
     for x in cdx(p["orig"],20):
       if x.get("timestamp") and x.get("original"):candidates.append((x["timestamp"],x["original"]))
-    # supplied first; then closest timestamps to supplied
     target=int(p["ts"])
-    supplied=candidates[:1]
-    rest=sorted(candidates[1:],key=lambda x:abs(int(x[0])-target))
+    candidates=sorted(candidates,key=lambda x:abs(int(x[0])-target))
     seen=set()
-    for ts,u in supplied+rest[:12]:
+    for ts,u in candidates[:12]:
       if (ts,u) in seen:continue
       seen.add((ts,u));r=get(raw(ts,u),20)
       if good_html(r):return ts,u,r.text
@@ -139,26 +140,19 @@ def recover_identity(ident,refs,source_ts,corig):
     attempts=[]
     for u in refs:attempts.append((source_ts,u,"same-capture"))
     sp=urlsplit(corig)
-    # Conventional exact full-size locations.
     exts=[]
     for u in refs:
       ex=os.path.splitext(urlsplit(u).path)[1].lower()
       if ex and ex not in exts:exts.append(ex)
     if not exts:exts=[".jpg",".png"]
     for directory in ("images","assets"):
-      for ex in exts[:3]:
+      for ex in exts[:2]:
         attempts.append((source_ts,urlunsplit((sp.scheme,sp.netloc,os.path.dirname(sp.path)+f"/{directory}/{ident}{ex}","","")),"same-capture-conventional"))
-    seen={(ts,u) for ts,u,_ in attempts}
-    # CDX exact for every known candidate and conventional URL, in parallel-ish bounded form.
-    baseurls=[u for _,u,_ in attempts]
-    for u in baseurls[:14]:
-      for x in cdx(u,8):
-        key=(x.get("timestamp"),x.get("original"))
-        if key[0] and key[1] and key not in seen:
-          attempts.append((key[0],key[1],"cdx-exact"));seen.add(key)
-    best=None
+    best=None;seen=set()
     for ts,u,method in attempts:
-      r=get(raw(ts,u),9)
+      if (ts,u) in seen:continue
+      seen.add((ts,u))
+      r=get(raw(ts,u),7)
       if not good_img(r):continue
       z=iminfo_bytes(r.content);st=stem(u)
       exactfile=(st==ident)
