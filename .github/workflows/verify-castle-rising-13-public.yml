@@ -1,0 +1,48 @@
+name: Verify updated Castle Rising public page
+
+on:
+  push:
+    paths:
+      - '.github/workflows/verify-castle-rising-13-public.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - name: Verify deployed page
+        run: |
+          python - <<'PY'
+          import json,time,requests
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          root=Path('recovered/castle-rising-castle')
+          rep=json.loads((root/'recovery-report.json').read_text(encoding='utf-8'))
+          base='https://alexsmith1984.github.io/castles-forts-battles-archive/'
+          url=base+'recovered/castle-rising-castle/'
+          expected=f"{rep['recovered_full_or_near_full']+rep['recovered_thumbnail_or_lower_resolution']} of {rep['original_image_positions_identified']} identified content-image positions"
+          html=None
+          for _ in range(20):
+              r=requests.get(url,timeout=20,headers={'Cache-Control':'no-cache'})
+              if r.status_code==200 and expected in r.text and 'castle_rising8.jpg' in r.text and 'castle_rising10.jpg' in r.text:
+                  html=r.text;break
+              time.sleep(8)
+          assert html is not None,'updated Castle Rising deployment not visible'
+          soup=BeautifulSoup(html,'html.parser')
+          imgs=[i['src'] for i in soup.find_all('img',src=True)]
+          assert len(imgs)==13,len(imgs)
+          bad=[]
+          for rel in imgs:
+              rr=requests.get(url+rel,timeout=20)
+              if rr.status_code!=200 or len(rr.content)<500:bad.append((rel,rr.status_code,len(rr.content)))
+          assert not bad,bad
+          print(json.dumps({'public_url':url,'marker':expected,'images_verified':len(imgs),'missing':[x['identity'] for x in rep['missing']]},indent=2))
+          PY
