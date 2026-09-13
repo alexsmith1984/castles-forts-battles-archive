@@ -1,0 +1,61 @@
+name: Deepen Castle Rising image recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/deepen-castle-rising.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deepen-castle-rising
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow warcio
+      - name: Deep recovery and duplicate-export reconstruction
+        run: python scripts/deepen_castle_rising_recovery.py
+      - name: Verify report and image files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('recovered/castle-rising-castle')
+          rep=json.loads((root/'recovery-report.json').read_text(encoding='utf-8'))
+          recovered=rep['recovered_full_or_near_full']+rep['recovered_thumbnail_or_lower_resolution']
+          assert rep['original_image_positions_identified']==recovered+rep['still_missing']
+          html=(root/'index.html').read_text(encoding='utf-8')
+          for x in rep['images']:
+              p=root/x['file']
+              with Image.open(p) as im: im.verify()
+              assert x['file'] in html
+          assert rep['duplicate_export_recoveries']['castle_rising8']=='castle_rising82'
+          assert rep['duplicate_export_recoveries']['castle_rising10']=='castle_rising102'
+          print(json.dumps({k:v for k,v in rep.items() if k not in ('images','missing')},indent=2,ensure_ascii=False))
+          print('missing', [x['identity'] for x in rep['missing']])
+          PY
+      - name: Commit improved recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-rising-castle
+          if git diff --cached --quiet; then
+            echo "No page changes"
+          else
+            git commit -m "Deepen Castle Rising image recovery"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
