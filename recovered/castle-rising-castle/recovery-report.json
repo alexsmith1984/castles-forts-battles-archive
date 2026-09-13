@@ -1,0 +1,246 @@
+{
+  "name": "Castle Rising Castle",
+  "original_url": "https://www.castlesfortsbattles.co.uk/east/castle_rising_castle.html",
+  "supplied_capture": "20210625101257",
+  "source_timestamp_used": "20210625101257",
+  "source_original_used": "https://www.castlesfortsbattles.co.uk/east/castle_rising_castle.html",
+  "text_blocks_preserved": 29,
+  "original_image_positions_identified": 15,
+  "desktop_image_identities": [
+    "castle_rising2",
+    "castle_rising6",
+    "castle_rising",
+    "castle_rising7",
+    "castle_rising10",
+    "castle_rising8",
+    "castle_rising1",
+    "castle_rising3",
+    "castle_rising4",
+    "castle_rising5",
+    "castle_rising82",
+    "castle_rising9",
+    "castle_rising102",
+    "castle_rising11",
+    "castle_rising13"
+  ],
+  "images_recovered": 10,
+  "still_missing": 5,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "castle_rising6",
+      "file": "images/castle_rising6.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising6.jpg?crc=294519657",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 203034,
+      "sha256": "12062b2f10462462aebf30351692ea85f914c828edd91543fefa363dfbb9db1e",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising7",
+      "file": "images/castle_rising7.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7.jpg?crc=4037780433",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 231686,
+      "sha256": "0d2db7bac30c6b37489361ee4ecd675f8dc42c6ae2924c70777f83e85cfcbc65",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising1",
+      "file": "images/castle_rising1.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising1.jpg?crc=3813604528",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 121348,
+      "sha256": "ad5f6209013fed5d77f149c22f1ab1637480e46fc0393d7f3d7c1dfb792e20c1",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising3",
+      "file": "images/castle_rising3.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3.jpg?crc=453475980",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 345614,
+      "sha256": "dc0135cedd76b0602a6fb379bdd67fb05f9035f8b20caaaf9008d9f4ec4acb05",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising4",
+      "file": "images/castle_rising4.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising4.jpg?crc=4003355720",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 263135,
+      "sha256": "48f9c1f50afefb4b4696c08d28ec563962303d1aef33255989966ef3047b5986",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising5",
+      "file": "images/castle_rising5.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising5.jpg?crc=3770882614",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 257798,
+      "sha256": "eea11c28624646438a7689dd6bafb36f9ca86b5653830858dafce3cc4ce31428",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising9",
+      "file": "images/castle_rising9.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising9.jpg?crc=271478414",
+      "method": "same-capture",
+      "dimensions": [
+        1572,
+        1044
+      ],
+      "bytes": 273063,
+      "sha256": "6a3a43baaf3a2db6bbddfe1a7c6fded0e80219ea74af05ba2956c825f891d82a",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising102",
+      "file": "images/castle_rising102.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising102.jpg?crc=109152511",
+      "method": "same-capture",
+      "dimensions": [
+        1044,
+        1572
+      ],
+      "bytes": 334547,
+      "sha256": "b25044dba41990dff9f18328cfc36966c00ab1a1706a612833180eecf4e17d44",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising11",
+      "file": "images/castle_rising11.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising11.jpg?crc=110413760",
+      "method": "same-capture",
+      "dimensions": [
+        2325,
+        1550
+      ],
+      "bytes": 348810,
+      "sha256": "a2291ef2498b5e438611b2db6a1c3064dc48b5f80138c9624617d0caf2956d02",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_rising13",
+      "file": "images/castle_rising13.jpg",
+      "archive_timestamp": "20210625101257",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/east/images/castle_rising13.jpg?crc=3879035472",
+      "method": "same-capture",
+      "dimensions": [
+        1044,
+        1572
+      ],
+      "bytes": 237327,
+      "sha256": "d649c36edc46f20d6eeef6d7ca306deb78a01a65c9c3aea2c747ef350681d39d",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "castle_rising2",
+      "candidate_urls": [
+        "https://www.castlesfortsbattles.co.uk/east/assets/castle_rising2.jpg",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2.jpg?crc=4061376320",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2666x289.jpg?crc=120411712",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2665x289.jpg?crc=355696879",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2502x218.jpg?crc=103553459",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising2501x218.jpg?crc=103553459"
+      ]
+    },
+    {
+      "identity": "castle_rising",
+      "candidate_urls": [
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising6685x455.jpg?crc=64369833",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7494x329.jpg?crc=3850928101",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3494x329.jpg?crc=3851161215",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising160x40.jpg?crc=163446987",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising360x40.jpg?crc=4261608542",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising460x40.jpg?crc=4146010449",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising560x40.jpg?crc=3799961641",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising660x40.jpg?crc=4289128553",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising760x40.jpg?crc=4143917144",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising860x40.jpg?crc=4097156304",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising960x40.jpg?crc=4200080425",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising1030x45.jpg?crc=4158745812",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising1160x40.jpg?crc=536397369",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising1330x45.jpg?crc=460459011",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7420x279.jpg?crc=4156558586",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3420x279.jpg?crc=333179015",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8580x386.jpg?crc=3916471857",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7419x279.jpg?crc=3772754156",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3419x279.jpg?crc=234475521",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8579x384.jpg?crc=235527405",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7329x219.jpg?crc=477326791",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3329x219.jpg?crc=4273203736",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8454x302.jpg?crc=4142305413",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7329x218.jpg?crc=35402011",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3329x218.jpg?crc=463236931",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8454x301.jpg?crc=455960552",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7248x165.jpg?crc=349688714",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3248x165.jpg?crc=4106660176",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8342x227.jpg?crc=262166783",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising7247x165.jpg?crc=349688714",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising3247x165.jpg?crc=4106660176"
+      ]
+    },
+    {
+      "identity": "castle_rising10",
+      "candidate_urls": [
+        "https://www.castlesfortsbattles.co.uk/east/assets/castle_rising10.jpg",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10.jpg?crc=413912450",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10256x386.jpg?crc=3787584122",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10256x385.jpg?crc=107847245",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10201x302.jpg?crc=4208117197",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10200x302.jpg?crc=4208117197",
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising10151x227.jpg?crc=472600458"
+      ]
+    },
+    {
+      "identity": "castle_rising8",
+      "candidate_urls": [
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising8.jpg?crc=524539199"
+      ]
+    },
+    {
+      "identity": "castle_rising82",
+      "candidate_urls": [
+        "https://www.castlesfortsbattles.co.uk/east/images/castle_rising82.jpg?crc=3837787392"
+      ]
+    }
+  ],
+  "counting_method": "Unique Castle Rising content-image identities in the desktop source; Muse responsive resize variants are not counted separately.",
+  "verification_note": "Every displayed image is an archived original from the defunct site. No substitute photographs were used."
+}
