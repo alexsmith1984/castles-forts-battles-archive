@@ -1,0 +1,19 @@
+name: Cancel stale Castle Rising recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cancel-stale-castle-rising.yml'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel stale run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/actions/runs/34785514897/cancel
