@@ -1,5 +1,5 @@
 name: Audit and recover incomplete castle pages
-# parallelized final pass
+# hardened final pass
 
 on:
   push:
