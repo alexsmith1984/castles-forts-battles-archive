@@ -340,20 +340,29 @@ def update_indexes():
       path.write_text(s,encoding="utf-8")
     return replacements
 
-results=[]
 def run_one(p):
     print("AUDITING",p["name"],flush=True)
     try:r=recover_page(p)
     except Exception as e:r={"name":p["name"],"slug":p["slug"],"status":"error","error":repr(e)}
     print(json.dumps(r,ensure_ascii=False),flush=True)
     return r
-with cf.ThreadPoolExecutor(max_workers=2) as ex:
-    futs={ex.submit(run_one,p):p for p in PAGES}
-    byslug={}
-    for fut in cf.as_completed(futs):
-        r=fut.result();byslug[r["slug"]]=r
-results=[byslug[p["slug"]] for p in PAGES]
-repl=update_indexes()
-summary={"pages":results,"index_links_replaced":repl}
-(AUD/"castle-image-audit-batch-2026-09-13.json").write_text(json.dumps(summary,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-print(json.dumps(summary,indent=2,ensure_ascii=False))
+
+only=os.environ.get("ONLY_SLUG")
+if only:
+    p=next(x for x in PAGES if x["slug"]==only)
+    r=run_one(p)
+    (AUD/f"{only}.json").write_text(json.dumps(r,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    if r["status"]!="built":
+        raise SystemExit(f"{p['name']} recovery failed: {r}")
+else:
+    results=[]
+    with cf.ThreadPoolExecutor(max_workers=2) as ex:
+        futs={ex.submit(run_one,p):p for p in PAGES}
+        byslug={}
+        for fut in cf.as_completed(futs):
+            r=fut.result();byslug[r["slug"]]=r
+    results=[byslug[p["slug"]] for p in PAGES]
+    repl=update_indexes()
+    summary={"pages":results,"index_links_replaced":repl}
+    (AUD/"castle-image-audit-batch-2026-09-13.json").write_text(json.dumps(summary,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    print(json.dumps(summary,indent=2,ensure_ascii=False))
