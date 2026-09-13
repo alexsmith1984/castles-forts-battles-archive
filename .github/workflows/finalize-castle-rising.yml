@@ -1,5 +1,5 @@
 name: Finalize Castle Rising recovery
-# optimized deep-audit rerun
+# final verified rerun
 
 on:
   push:
