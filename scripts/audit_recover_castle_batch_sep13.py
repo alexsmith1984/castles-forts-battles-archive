@@ -35,8 +35,16 @@ IMGEXT=re.compile(r"\.(?:jpe?g|png|gif|webp)(?:[?#].*)?$",re.I)
 DIMSUF=re.compile(r"\d{2,4}x\d{2,4}$")
 
 def get(u,t=12):
-    try:return S.get(u,timeout=t,allow_redirects=True)
-    except Exception:return None
+    headers={"User-Agent":"Mozilla/5.0 (CastlesFortsBattles archival recovery audit)"}
+    for attempt in range(3):
+      try:
+        r=requests.get(u,timeout=t,allow_redirects=True,headers=headers)
+        if r.status_code not in (429,500,502,503,504):
+          return r
+      except Exception:
+        r=None
+      time.sleep(0.45*(attempt+1))
+    return r
 
 def good_html(r):
     return bool(r and r.status_code==200 and len(r.content)>1000 and "<html" in r.text.lower())
@@ -87,18 +95,27 @@ def refs_from(e):
     return vals
 
 def source_page(p):
-    r=get(raw(p["ts"],p["orig"]),20)
-    if good_html(r):
-      return p["ts"],p["orig"],r.text
+    sp=urlsplit(p["orig"])
+    hosts=[sp.netloc,sp.netloc[4:] if sp.netloc.startswith("www.") else "www."+sp.netloc]
+    direct=[]
+    for scheme in ("http","https"):
+      for host in dict.fromkeys(hosts):
+        direct.append(urlunsplit((scheme,host,sp.path,"","")))
+    # Known supplied timestamp first, trying protocol/host variants before CDX.
+    for u in direct:
+      r=get(raw(p["ts"],u),18)
+      if good_html(r):
+        return p["ts"],u,r.text
     candidates=[]
-    for x in cdx(p["orig"],20):
-      if x.get("timestamp") and x.get("original"):candidates.append((x["timestamp"],x["original"]))
+    for u in direct:
+      for x in cdx(u,20):
+        if x.get("timestamp") and x.get("original"):candidates.append((x["timestamp"],x["original"]))
     target=int(p["ts"])
-    candidates=sorted(candidates,key=lambda x:abs(int(x[0])-target))
+    candidates=sorted(set(candidates),key=lambda x:abs(int(x[0])-target))
     seen=set()
-    for ts,u in candidates[:12]:
+    for ts,u in candidates[:18]:
       if (ts,u) in seen:continue
-      seen.add((ts,u));r=get(raw(ts,u),20)
+      seen.add((ts,u));r=get(raw(ts,u),18)
       if good_html(r):return ts,u,r.text
     return None,None,None
 
@@ -112,13 +129,23 @@ def canonical_identities(soup,corig):
         if not b or DECO.search(b):continue
         st=stem(u)
         if not st:continue
+        # WebPlus hashed UI/navigation resources are global chrome, not site photographs.
+        if re.fullmatch(r"wp[0-9a-f]+(?:_[0-9]+)+",st,re.I):
+          continue
         is_asset="/assets/" in urlsplit(u).path.lower()
         has_dims=bool(DIMSUF.search(st))
         if is_asset or not has_dims:
           if st not in exact:exact.append(st)
-    # Remove obvious generic layout leftovers.
+    # Remove obvious generic layout leftovers and collapse Muse crop-export names onto a base image where possible.
     exact=[x for x in exact if x not in ("spacer","header","footer","background","menu")]
-    return desktop,exact
+    bases=set(exact)
+    cleaned=[]
+    for x in exact:
+      m=re.match(r"^(.*)-crop-u\\d+$",x,re.I)
+      if m and m.group(1) in bases:
+        x=m.group(1)
+      if x not in cleaned:cleaned.append(x)
+    return desktop,cleaned
 
 def map_identity(st,exact):
     if st in exact:return st
@@ -228,7 +255,7 @@ def recover_page(p):
     groups=all_groups(soup,corig,exact)
     recovered={};missing=[]
     # Recover identities concurrently.
-    with cf.ThreadPoolExecutor(max_workers=8) as ex:
+    with cf.ThreadPoolExecutor(max_workers=4) as ex:
       fut={ex.submit(recover_identity,i,groups[i],source_ts,corig):i for i in exact}
       for f in cf.as_completed(fut):
         ident=fut[f]
@@ -320,7 +347,7 @@ def run_one(p):
     except Exception as e:r={"name":p["name"],"slug":p["slug"],"status":"error","error":repr(e)}
     print(json.dumps(r,ensure_ascii=False),flush=True)
     return r
-with cf.ThreadPoolExecutor(max_workers=5) as ex:
+with cf.ThreadPoolExecutor(max_workers=2) as ex:
     futs={ex.submit(run_one,p):p for p in PAGES}
     byslug={}
     for fut in cf.as_completed(futs):
