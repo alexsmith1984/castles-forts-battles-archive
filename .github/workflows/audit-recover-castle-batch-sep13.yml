@@ -1,0 +1,72 @@
+name: Audit and recover incomplete castle pages
+
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-recover-castle-batch-sep13.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: castle-batch-sep13
+  cancel-in-progress: true
+
+jobs:
+  audit-recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow ftfy
+      - name: Audit source pages and recover images
+        run: python scripts/audit_recover_castle_batch_sep13.py
+      - name: Verify generated pages and reports
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          data=json.loads(Path('page-audit/castle-image-audit-batch-2026-09-13.json').read_text(encoding='utf-8'))
+          assert len(data['pages'])==14
+          bad=[]
+          for row in data['pages']:
+              if row['status']!='built':
+                  bad.append((row['name'],row['status']))
+                  continue
+              root=Path('recovered')/row['slug']
+              rep=json.loads((root/'recovery-report.json').read_text(encoding='utf-8'))
+              recovered=rep['recovered_full_or_near_full']+rep['recovered_thumbnail_or_lower_resolution']
+              assert rep['original_image_positions_identified']==recovered+rep['still_missing'], row['name']
+              html=(root/'index.html').read_text(encoding='utf-8')
+              assert not any(x in html for x in ('â','Ã','�')), row['name']
+              soup=BeautifulSoup(html,'html.parser')
+              imgs=[x['src'] for x in soup.find_all('img',src=True)]
+              assert len(imgs)==recovered,(row['name'],len(imgs),recovered)
+              for rel in imgs:
+                  with Image.open(root/rel) as im: im.verify()
+          assert not bad,bad
+          allidx=''.join(Path(f'atoz-part{i}.html').read_text(encoding='utf-8') for i in range(1,6))
+          for row in data['pages']:
+              assert f'recovered/{row["slug"]}/' in allidx,row['name']
+          print(json.dumps(data,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit recovered pages
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered page-audit/castle-image-audit-batch-2026-09-13.json atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Audit and recover incomplete castle pages"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
