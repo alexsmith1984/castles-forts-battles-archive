@@ -1,0 +1,59 @@
+name: Deep complete castle image recovery one by one
+
+on:
+  push:
+    paths:
+      - ".github/workflows/deep-complete-castle-one-by-one.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deep-castle-one-by-one
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Deep recover each page sequentially
+        run: python scripts/deep_complete_castle_batch_one_by_one.py
+      - name: Verify reports and image files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          rows=json.loads(Path("page-audit/deep-complete/castle-deep-recovery-one-by-one.json").read_text(encoding="utf-8"))
+          assert len(rows)==14, len(rows)
+          assert not [x for x in rows if x.get("status")=="error"], rows
+          for row in rows:
+              root=Path("recovered")/row["slug"]
+              rep=json.loads((root/"recovery-report.json").read_text(encoding="utf-8"))
+              recovered=rep["recovered_full_or_near_full"]+rep["recovered_thumbnail_or_lower_resolution"]
+              assert rep["original_image_positions_identified"]==recovered+rep["still_missing"], row["name"]
+              for x in rep["images"]:
+                  with Image.open(root/x["file"]) as im: im.verify()
+          print(json.dumps(rows,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit deep recoveries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recovered page-audit/deep-complete
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Deep recover castle images one by one"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
