@@ -1,0 +1,57 @@
+name: Recover Castle Rising Castle
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-castle-rising.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow ftfy
+      - name: Recover and reconstruct Castle Rising
+        run: python scripts/recover_castle_rising.py
+      - name: Verify reconstruction
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          root=Path('recovered/castle-rising-castle')
+          rep=json.loads((root/'recovery-report.json').read_text(encoding='utf-8'))
+          text=(root/'index.html').read_text(encoding='utf-8')
+          assert rep['original_image_positions_identified']==rep['images_recovered']+rep['still_missing']
+          assert not any(x in text for x in ('â','Ã','�'))
+          soup=BeautifulSoup(text,'html.parser')
+          broken=[]
+          for im in soup.find_all('img',src=True):
+            p=root/im['src']
+            try:
+              with Image.open(p) as x: x.verify()
+            except Exception:
+              broken.append(im['src'])
+          assert not broken, broken
+          assert 'recovered/castle-rising-castle/' in Path('atoz-part1.html').read_text(encoding='utf-8')
+          assert '../../atoz-part1.html#c' in text
+          print(json.dumps({k:v for k,v in rep.items() if k not in ('images','missing')},indent=2,ensure_ascii=False))
+          PY
+      - name: Commit recovered page
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-rising-castle atoz-part1.html
+          if git diff --cached --quiet; then
+            echo "No page changes"
+          else
+            git commit -m "Publish recovered Castle Rising Castle page"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
