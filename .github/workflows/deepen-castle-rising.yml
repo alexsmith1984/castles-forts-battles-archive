@@ -1,4 +1,5 @@
 name: Deepen Castle Rising image recovery
+# optimized rerun
 
 on:
   push:
