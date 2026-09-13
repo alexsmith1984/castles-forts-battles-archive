@@ -314,11 +314,18 @@ def update_indexes():
     return replacements
 
 results=[]
-for p in PAGES:
+def run_one(p):
     print("AUDITING",p["name"],flush=True)
     try:r=recover_page(p)
     except Exception as e:r={"name":p["name"],"slug":p["slug"],"status":"error","error":repr(e)}
-    results.append(r);print(json.dumps(r,ensure_ascii=False),flush=True)
+    print(json.dumps(r,ensure_ascii=False),flush=True)
+    return r
+with cf.ThreadPoolExecutor(max_workers=5) as ex:
+    futs={ex.submit(run_one,p):p for p in PAGES}
+    byslug={}
+    for fut in cf.as_completed(futs):
+        r=fut.result();byslug[r["slug"]]=r
+results=[byslug[p["slug"]] for p in PAGES]
 repl=update_indexes()
 summary={"pages":results,"index_links_replaced":repl}
 (AUD/"castle-image-audit-batch-2026-09-13.json").write_text(json.dumps(summary,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
