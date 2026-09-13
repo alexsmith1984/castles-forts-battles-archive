@@ -1,0 +1,43 @@
+name: Finalize Castle Rising recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-castle-rising.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: castle-rising-finalize
+  cancel-in-progress: true
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Correct identity count and deep-recover missing originals
+        run: python scripts/finalize_castle_rising.py
+      - name: Verify final page and report
+        run: python scripts/verify_castle_rising.py
+      - name: Commit final audit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-rising-castle atoz-part1.html
+          if git diff --cached --quiet; then
+            echo "No page changes"
+          else
+            git commit -m "Finalize Castle Rising Castle recovery audit"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
