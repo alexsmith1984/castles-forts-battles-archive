@@ -1,0 +1,90 @@
+name: Parallel castle image audit and recovery
+
+on:
+  push:
+    paths:
+      - ".github/workflows/audit-recover-castle-matrix-sep13.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: castle-batch-sep13
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    strategy:
+      fail-fast: false
+      max-parallel: 14
+      matrix:
+        slug:
+          - bolingbroke-castle
+          - conisbrough-castle
+          - pembroke-castle
+          - kenilworth-castle
+          - goodrich-castle
+          - fotheringhay-castle
+          - framlingham-castle
+          - pevensey-castle
+          - pickering-castle
+          - pontefract-castle
+          - richmond-castle
+          - sandal-castle
+          - warkworth-castle
+          - whittington-castle
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4 pillow ftfy
+      - name: Recover one castle page
+        env:
+          ONLY_SLUG: ${{ matrix.slug }}
+        run: python scripts/audit_recover_castle_batch_sep13.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: castle-${{ matrix.slug }}
+          path: |
+            recovered/${{ matrix.slug }}
+            page-audit/${{ matrix.slug }}.json
+          if-no-files-found: error
+          retention-days: 2
+
+  finalize:
+    needs: recover
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install beautifulsoup4 pillow
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: castle-*
+          path: .
+          merge-multiple: true
+      - name: Finalize and verify all pages
+        run: python scripts/finalize_castle_batch_sep13.py
+      - name: Commit recovered pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recovered page-audit atoz-part1.html atoz-part2.html atoz-part3.html atoz-part4.html atoz-part5.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Recover and audit selected castle pages"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
