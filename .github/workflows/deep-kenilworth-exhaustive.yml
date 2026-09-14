@@ -20,63 +20,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4 pillow
-      - name: Build Kenilworth recovery engine from proven WebPlus engine
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          p=Path("scripts/deep_framlingham_recovery.py")
-          s=p.read_text()
-          s=s.replace('recovered/framlingham-castle','recovered/kenilworth-castle')
-          s=s.replace('FramlinghamArchiveRecovery','KenilworthArchiveRecovery')
-          s=s.replace('TS="20220826211200"','TS="20220826212821"')
-          s=re.sub(
-              r'NAMED=\{.*?\}\nGALLERY=\[.*?\]\nORDER=list\(NAMED\)\+\["gallery_"\+x for x in GALLERY\]',
-              '''NAMED={
- "kenilworth_castle1":"http://www.castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG",
- "kenilworth_castle9":"http://www.castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG",
- "kenilworth_castle15":"http://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg",
-}
-GALLERY=[
- "dc20d5b234f9","267af4eccf9b","7cd4ac90e6b4","cfda0b0df50a","79ec23415d55",
- "c092400f91eb","88e2a1bbb494","4e73e53f9d96","6a16fdfe86c4","eb2e38e12c08",
- "9e9bfb929265","ff7a7893da34","28181a0a6a1c"
-]
-ORDER=list(NAMED)+["gallery_"+x for x in GALLERY]''',
-              s,flags=re.S)
-          s=s.replace('Framlingham Castle archived original image','Kenilworth Castle archived original image')
-          s=s.replace('page-audit/framlingham-castle.json','page-audit/kenilworth-castle.json')
-          s=s.replace('"name":"Framlingham Castle"','"name":"Kenilworth Castle"')
-          s=s.replace('"slug":"framlingham-castle"','"slug":"kenilworth-castle"')
-          Path("/tmp/deep_kenilworth.py").write_text(s)
-          PY
-      - name: Run exhaustive Kenilworth recovery
-        run: python /tmp/deep_kenilworth.py
-      - name: Verify and commit
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          from PIL import Image
-          p=Path("recovered/kenilworth-castle/recovery-report.json")
-          r=json.loads(p.read_text())
-          assert r["original_image_positions_identified"]==16
-          for x in r["images"]:
-              f=Path("recovered/kenilworth-castle")/x["file"]
-              with Image.open(f) as im:
-                  assert [im.width,im.height]==x["dimensions"]
-                  im.verify()
-          print(json.dumps({
-              "positions":r["original_image_positions_identified"],
-              "full":r["recovered_full_or_near_full"],
-              "lower":r["recovered_thumbnail_or_lower_resolution"],
-              "missing":r["still_missing"],
-              "missing_ids":[x["identity"] for x in r["missing"]]
-          },indent=2))
-          PY
+      - run: python scripts/prepare_kenilworth_engine.py
+      - run: python /tmp/deep_kenilworth.py
+      - run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add recovered/kenilworth-castle page-audit/kenilworth-castle.json
-          git commit -m 'Complete exhaustive Kenilworth image recovery' || exit 0
-          git pull --rebase origin main
-          git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo 'No Kenilworth recovery changes'
+          else
+            git commit -m 'Complete exhaustive Kenilworth image recovery'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
