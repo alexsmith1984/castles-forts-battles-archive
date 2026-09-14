@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: barnard-castle-recovery
+  cancel-in-progress: true
+
 jobs:
   recover:
     runs-on: ubuntu-latest
