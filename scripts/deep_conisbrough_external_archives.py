@@ -145,7 +145,15 @@ def cc_query(iid,u):
     return out
 
 def commoncrawl(identity,fn):
-    tasks=[(iid,u) for iid in INDEXES for u in urls(fn)]
+    cc_urls=list(dict.fromkeys([
+      "http://www.castlesfortsbattles.co.uk/"+fn,
+      "https://www.castlesfortsbattles.co.uk/"+fn,
+      "http://castlesfortsbattles.co.uk/"+fn,
+      "https://castlesfortsbattles.co.uk/"+fn,
+      "http://www.castlesfortsbattles.co.uk/"+fn.lower(),
+      "https://www.castlesfortsbattles.co.uk/"+fn.lower(),
+    ]))
+    tasks=[(iid,u) for iid in INDEXES for u in cc_urls]
     recs=[]
     with cf.ThreadPoolExecutor(max_workers=16) as ex:
         futs=[ex.submit(cc_query,iid,u) for iid,u in tasks]
