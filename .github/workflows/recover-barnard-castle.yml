@@ -1,11 +1,14 @@
 name: Recover Barnard Castle
+
 on:
   push:
     paths:
-      - ".github/workflows/recover-barnard-castle.yml"
-  workflow_dispatch: {}
+      - '.github/workflows/recover-barnard-castle.yml'
+  workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   recover:
     runs-on: ubuntu-latest
@@ -16,32 +19,14 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
       - run: pip install requests beautifulsoup4 pillow ftfy
       - run: python scripts/recover_barnard_castle.py
-      - name: Verify
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          from PIL import Image
-          root=Path("recovered/barnard-castle")
-          rep=json.loads((root/"recovery-report.json").read_text(encoding="utf-8"))
-          recovered=rep["recovered_full_or_near_full"]+rep["recovered_thumbnail_or_lower_resolution"]
-          assert rep["original_image_positions_identified"]==recovered+rep["still_missing"]
-          html=(root/"index.html").read_text(encoding="utf-8")
-          assert not any(x in html for x in ("â","Ã","�"))
-          for x in rep["images"]:
-              with Image.open(root/x["file"]) as im:im.verify()
-              assert x["file"] in html
-          assert 'recovered/barnard-castle/' in Path("atoz-part1.html").read_text(encoding="utf-8")
-          print(json.dumps(rep,indent=2,ensure_ascii=False))
-          PY
-      - name: Commit reconstruction
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - run: python scripts/verify_barnard_castle.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add recovered/barnard-castle atoz-part1.html
-          git commit -m "Publish recovered Barnard Castle page"
+          git commit -m 'Publish recovered Barnard Castle page'
           git pull --rebase origin main
           git push origin HEAD:main
