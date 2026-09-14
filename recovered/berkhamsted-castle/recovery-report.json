@@ -1,0 +1,220 @@
+{
+  "name": "Berkhamsted Castle",
+  "status": "COMPLETE",
+  "original_url": "http://www.castlesfortsbattles.co.uk/east/berkhamsted_castle.html",
+  "supplied_capture": "20220826203529",
+  "original_image_positions_identified": 12,
+  "recovered_full_or_near_full": 10,
+  "recovered_thumbnail_or_lower_resolution": 2,
+  "still_missing": 0,
+  "images": [
+    {
+      "identity": "berkhamsted_castle5",
+      "file": "images/berkhamsted_castle5.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg",
+      "method": "same-capture-display-fallback",
+      "dimensions": [
+        920,
+        372
+      ],
+      "format": "JPEG",
+      "bytes": 229175,
+      "sha256": "3b9b5676445b291f2aebd789ec3598590f3c60efb45cb06dd035e7247ac55f5d",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "berkhamsted_castle3",
+      "file": "images/berkhamsted_castle3.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG",
+      "method": "same-capture-full",
+      "dimensions": [
+        800,
+        532
+      ],
+      "format": "JPEG",
+      "bytes": 227430,
+      "sha256": "6f780eeb60b7dfc28c664f9503768662b97aa3ecea0bd303d94b51fcc1671a73",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "berkhamsted_castle14",
+      "file": "images/berkhamsted_castle14.jpg",
+      "archive_timestamp": "20160328010202",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg",
+      "method": "cdx-display-fallback",
+      "dimensions": [
+        916,
+        259
+      ],
+      "format": "JPEG",
+      "bytes": 103805,
+      "sha256": "c86dbda6817468db45c1ff1a57fa294f7d91571936e8f160c319317b8e311cfb",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "berkhamsted_castle6",
+      "file": "images/berkhamsted_castle6.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG",
+      "method": "same-capture-full",
+      "dimensions": [
+        800,
+        289
+      ],
+      "format": "JPEG",
+      "bytes": 110472,
+      "sha256": "56ce154e93fb0869d5d3b337547b6e0e94689b5d0156afb0b1b6d01e2979ba97",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_1c563b6235e0",
+      "file": "images/gallery_1c563b6235e0.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 42155,
+      "sha256": "a2d5bbcd62b58f81f5e37dff1a08a8df11f70fe29c7844466401e7c3930d0a68",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_5697528b7cfc",
+      "file": "images/gallery_5697528b7cfc.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfc.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 41670,
+      "sha256": "e76dd08025baee2242aca07899f7b67de72c769e37d961b12dda0cd1ac6eaa34",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_232291f8a2ce",
+      "file": "images/gallery_232291f8a2ce.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2ce.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 29678,
+      "sha256": "97633724f0351fa03b444039f6089b678cdc570762e2add8bb669647d689024c",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_ee9d87824b02",
+      "file": "images/gallery_ee9d87824b02.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 35417,
+      "sha256": "ae529144eaf4f1a1e1aabcb51a9714e1e84648e7b35ab02d7dd26b45686a9523",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_71d26cb4d558",
+      "file": "images/gallery_71d26cb4d558.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 48044,
+      "sha256": "a59f0d87c0ad1448631309874fafdc912147c048772c410a7daadcd522e2c5ba",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_b3c35290128f",
+      "file": "images/gallery_b3c35290128f.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128f.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 51830,
+      "sha256": "f89d38cc0499ec586e4b2b1fde997051961dff7dad66487e86c2c8a69861af6a",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_ebf86048229c",
+      "file": "images/gallery_ebf86048229c.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229c.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 40300,
+      "sha256": "65d04e4631e7e21978bc4621427ea0e44945eec39bab840423730c61d1347492",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "gallery_bbb915593e82",
+      "file": "images/gallery_bbb915593e82.jpg",
+      "archive_timestamp": "20220826203529",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82.jpg",
+      "method": "same-capture-full",
+      "dimensions": [
+        471,
+        313
+      ],
+      "format": "JPEG",
+      "bytes": 51868,
+      "sha256": "8fee2daa4e8e154ef38a01843f5da93b71e93639981bbdb71cd026b565cc32e8",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [],
+  "full_size_source_unrecovered_but_position_represented": [
+    "berkhamsted_castle5",
+    "berkhamsted_castle14"
+  ],
+  "image_identity_basis": "Four principal photographs explicitly linked from the page plus eight full-size WebPlus gallery photographs declared in wp_imgArray_pg_6. Their eight 100x100 thumbnails, WebPlus gallery controls, navigation/header graphics and share icons are not counted as separate content images.",
+  "searches_attempted": [
+    "supplied Wayback capture",
+    "exact full-size image URL",
+    "HTTP/HTTPS variants",
+    "www/non-www variants",
+    "filename case/extension variants for principal originals",
+    "exact Wayback CDX history",
+    "same-image archived display/thumbnail fallback"
+  ],
+  "verification_note": "Every displayed image is an archived original from the defunct site or an archived display export of the same underlying original photograph. No unrelated substitute photographs were used."
+}
