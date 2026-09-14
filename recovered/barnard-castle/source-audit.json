@@ -1,0 +1,146 @@
+{
+  "source_replay": "https://web.archive.org/web/20170208220118id_/http://www.castlesfortsbattles.co.uk/north_east/barnard_castle.html",
+  "html_bytes": 28881,
+  "image_refs": [
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "stem": "wpddd38efb_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "stem": "wp10fbd999_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "stem": "wp9aa59e65_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "stem": "wp44b55e7c_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "stem": "wpca77dd45_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "stem": "wp1b666a96_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "stem": "wp038b170e_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "stem": "wpc00107b6_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+      "stem": "wp9361f621_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "stem": "wp62e94555_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpeb721e49_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wpeb721e49_06.png",
+      "stem": "wpeb721e49_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpd6ce47c0_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wpd6ce47c0_06.png",
+      "stem": "wpd6ce47c0_06"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Barnard_Castle1.jpg",
+      "resolved": "http://www.castlesfortsbattles.co.uk/Barnard_Castle1.jpg",
+      "stem": "Barnard_Castle1"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp4b7673d8_05_06.jpg",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp4b7673d8_05_06.jpg",
+      "stem": "wp4b7673d8_05_06"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "stem": "wp840a2574_06"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Barnard_Castle4.jpg",
+      "resolved": "http://www.castlesfortsbattles.co.uk/Barnard_Castle4.jpg",
+      "stem": "Barnard_Castle4"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp844ca2d6_05_06.jpg",
+      "resolved": "http://www.castlesfortsbattles.co.uk/wpimages/wp844ca2d6_05_06.jpg",
+      "stem": "wp844ca2d6_05_06"
+    }
+  ],
+  "image_ref_count": 17,
+  "text_block_count": 17,
+  "text_sample": [
+    "BARNARD CASTLE, DL12 8PR",
+    "GETTING THERE",
+    "Postcode: DL12 8PR",
+    "Lat/Long: 54.5434N 1.9265W",
+    "Notes:  Castle is situated in the town of the same name.  Ample parking in the town (pay and display) with just a short walk to the castle.",
+    "WHAT IS THERE TO SEE?",
+    "Extensive, albeit ruinous, remains of a a medieval castle. The Outer Ward is in private ownership under St Margretâs chapel and Castle Farm. The Inner, Middle and Town Wards are all assessable.",
+    "VISIT OFFICIAL SITE (Opens in new window)",
+    "Castle is owned and managed by English Heritage .",
+    "ADDITIONAL NOTES",
+    "1. Barnard Castle came into the ownership of Richard, Duke of Gloucester, (later Richard III) in 1471. Completely disregarding the rights of the real heir, Anne de Beauchamp, Richard took the castle on the grounds of being her son-in-law.",
+    "On land hotly contested between Church and Crown, Barnardâs Castle successfully withstood several sieges from regional rebels.  It was also home to John Baliol, one time king of Scotland and the man whose rebellion against Edward I commenced the Wars of Independence with England.",
+    "HISTORY OF BARNARD CASTLE",
+    "The land on which Barnard Castle now stands was a political flashpoint in early medieval England. The land had been granted to the church in the ninth century but, following the Norman conquest, had been annexed by the Earls of Northumberland. Following a rebellion the land was confiscated by the Crown and then handed onto the Baliol family; it was from one member of this family, Bernard de Baliol, that the castle and associated town acquired their name.",
+    "In 1216, during the troubled reign of King John, the castle played an important part in the civil war with the barons. The then owner, Hugh de Baliol, was an ally of King John and held it against the Northumbrian barons. The castle was besieged but was not taken. It remained with the family and in 1278 John de Baliol inherited the property. John was chosen by Edward I to succeed to the Scottish throne but his rejection of his oath of loyalty to the English King led to the Wars of Scottish Independence. By 1296 he was a prisoner in the Tower of London and the church took the opportunity to re-take Barnardâs Castle citing their ninth century claim. By 1306 though the castle was back in the hands of the Crown.",
+    "In December 1569 the castle was besieged by rebels partaking in the âRising of the Northâ; a rebellion centred around the Earls of Northumberland and Westmorland planning to restore the Catholic faith and overthrow Elizabeth I in favour of Mary, Queen of Scots. Barnardâs Castle was stormed forcing the defenders into the inner ward which, although secure, lacked a reliable water source forcing the surrender. The victory was short lived though; having had time to muster troops, the Earl of Sussex arrived with an army and ended the rebellion.",
+    "Â© Copyright 2016 | Terms and Conditions (inc Cookie Policy) | Contact Us"
+  ]
+}
