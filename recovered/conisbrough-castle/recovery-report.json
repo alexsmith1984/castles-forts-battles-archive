@@ -20,13 +20,47 @@
     {
       "identity": "conisbrough_castle4b",
       "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle4B.JPG"
+        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle4B.JPG",
+        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle4B.jpg",
+        "http://www.castlesfortsbattles.co.uk/conisbrough_castle4b.jpg",
+        "https://www.castlesfortsbattles.co.uk/Conisbrough_Castle4B.JPG",
+        "https://www.castlesfortsbattles.co.uk/Conisbrough_Castle4B.jpg",
+        "https://www.castlesfortsbattles.co.uk/conisbrough_castle4b.jpg",
+        "http://castlesfortsbattles.co.uk/Conisbrough_Castle4B.JPG",
+        "http://castlesfortsbattles.co.uk/Conisbrough_Castle4B.jpg",
+        "http://castlesfortsbattles.co.uk/conisbrough_castle4b.jpg",
+        "https://castlesfortsbattles.co.uk/Conisbrough_Castle4B.JPG",
+        "https://castlesfortsbattles.co.uk/Conisbrough_Castle4B.jpg",
+        "https://castlesfortsbattles.co.uk/conisbrough_castle4b.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle4B.JPG",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle4B.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle4b.jpg",
+        "https://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle4B.JPG",
+        "https://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle4B.jpg",
+        "https://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle4b.jpg"
       ]
     },
     {
       "identity": "conisbrough_castle2",
       "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle2.JPG"
+        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle2.JPG",
+        "http://www.castlesfortsbattles.co.uk/Conisbrough_Castle2.jpg",
+        "http://www.castlesfortsbattles.co.uk/conisbrough_castle2.jpg",
+        "https://www.castlesfortsbattles.co.uk/Conisbrough_Castle2.JPG",
+        "https://www.castlesfortsbattles.co.uk/Conisbrough_Castle2.jpg",
+        "https://www.castlesfortsbattles.co.uk/conisbrough_castle2.jpg",
+        "http://castlesfortsbattles.co.uk/Conisbrough_Castle2.JPG",
+        "http://castlesfortsbattles.co.uk/Conisbrough_Castle2.jpg",
+        "http://castlesfortsbattles.co.uk/conisbrough_castle2.jpg",
+        "https://castlesfortsbattles.co.uk/Conisbrough_Castle2.JPG",
+        "https://castlesfortsbattles.co.uk/Conisbrough_Castle2.jpg",
+        "https://castlesfortsbattles.co.uk/conisbrough_castle2.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle2.JPG",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle2.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle2.jpg",
+        "https://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle2.JPG",
+        "https://www.castlesfortsbattles.co.uk/yorkshire/Conisbrough_Castle2.jpg",
+        "https://www.castlesfortsbattles.co.uk/yorkshire/conisbrough_castle2.jpg"
       ]
     }
   ],
@@ -41,5 +75,22 @@
         "conisbrough_castle2"
       ]
     }
-  ]
+  ],
+  "fresh_deep_search_2026_09_14": {
+    "completed": true,
+    "methods": [
+      "Wayback CDX exact root/Yorkshire filename and case variants",
+      "Arquivo.pt exact root/Yorkshire filename and case variants",
+      "Common Crawl representative 2017-2022 indexes"
+    ],
+    "found": [],
+    "commoncrawl_indexes_checked": [
+      "CC-MAIN-2017-51",
+      "CC-MAIN-2018-51",
+      "CC-MAIN-2019-51",
+      "CC-MAIN-2020-50",
+      "CC-MAIN-2021-49",
+      "CC-MAIN-2022-49"
+    ]
+  }
 }
