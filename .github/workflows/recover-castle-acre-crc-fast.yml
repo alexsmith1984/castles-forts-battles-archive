@@ -1,0 +1,35 @@
+name: Recover Castle Acre CRC Fast
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-castle-acre-crc-fast.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/recover_castle_acre_crc_fast.py
+      - run: python scripts/verify_castle_acre.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-acre page-audit/castle-acre/exact-crc-results.json
+          if git diff --cached --quiet; then
+            echo 'No Castle Acre CRC changes'
+          else
+            git commit -m 'Recover Castle Acre Muse images'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
