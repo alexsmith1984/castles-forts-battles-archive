@@ -216,5 +216,11 @@
     "exact Wayback CDX history",
     "same-image archived display/thumbnail fallback"
   ],
-  "verification_note": "Every displayed image is an archived original from the defunct site or an archived display export of the same underlying original photograph. No unrelated substitute photographs were used."
+  "verification_note": "Every displayed image is an archived original from the defunct site or an archived display export of the same underlying original photograph. No unrelated substitute photographs were used.",
+  "external_archive_search_completed": true,
+  "external_archive_methods": [
+    "Arquivo.pt exact-filename search",
+    "Common Crawl exact-filename search"
+  ],
+  "external_archive_fullsize_found": []
 }
