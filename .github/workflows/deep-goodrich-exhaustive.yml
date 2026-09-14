@@ -1,0 +1,84 @@
+name: Goodrich exhaustive external archive search
+
+on:
+  push:
+    paths:
+      - '.github/workflows/deep-goodrich-exhaustive.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Add legacy Goodrich filename families
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("recovered/goodrich-castle/recovery-report.json")
+          r=json.loads(p.read_text())
+          for m in r.get("missing",[]):
+              ident=m["identity"]
+              suffix=ident[len("goodrich_castle"):] if ident.startswith("goodrich_castle") else ""
+              stem="Goodrich_Castle"+suffix
+              extra=[
+                  f"http://www.castlesfortsbattles.co.uk/{stem}.JPG",
+                  f"http://www.castlesfortsbattles.co.uk/{stem}.jpg",
+                  f"http://www.castlesfortsbattles.co.uk/midlands/{stem}.JPG",
+                  f"http://www.castlesfortsbattles.co.uk/midlands/{stem}.jpg",
+              ]
+              m["candidate_urls"]=list(dict.fromkeys(m.get("candidate_urls",[])+extra))
+          p.write_text(json.dumps(r,indent=2)+"\n")
+          PY
+      - name: Run exhaustive archive engine
+        run: |
+          sed             -e 's#recovered/fotheringhay-castle#recovered/goodrich-castle#g'             -e 's/FotheringhayArchiveRecovery/GoodrichArchiveRecovery/g'             -e 's/Fotheringhay Castle/Goodrich Castle/g'             -e 's/fresh_deep_search_2026_09_14/exhaustive_deep_search_2026_09_14/g'             -e 's/2018<=int(m.group(1))<=2023/2014<=int(m.group(1))<=2023/g'             -e 's/Common Crawl representative 2018-2023 indexes/Common Crawl representative 2014-2023 indexes/g'             scripts/deep_fotheringhay_external_archives.py > /tmp/deep_goodrich.py
+          python /tmp/deep_goodrich.py
+      - name: Normalize Goodrich quality and audit
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          p=Path("recovered/goodrich-castle/recovery-report.json")
+          r=json.loads(p.read_text())
+          for x in r.get("images",[]):
+              u=x.get("archive_original") or x.get("commoncrawl_url") or ""
+              leaf=u.split("/")[-1].split("?")[0]
+              if "-crop-u" in leaf.lower() or re.search(r"\d{2,4}x\d{2,4}\.(?:jpg|png)$",leaf,re.I) or re.search(r"60x\d+\.",leaf,re.I):
+                  x["quality"]="thumbnail/lower-resolution"
+              elif u:
+                  x["quality"]="full/near-full"
+          r["recovered_full_or_near_full"]=sum(x.get("quality")=="full/near-full" for x in r.get("images",[]))
+          r["recovered_thumbnail_or_lower_resolution"]=sum(x.get("quality")!="full/near-full" for x in r.get("images",[]))
+          r["still_missing"]=r["original_image_positions_identified"]-len(r.get("images",[]))
+          r["status"]="COMPLETE" if r["still_missing"]==0 else "PARTIAL"
+          p.write_text(json.dumps(r,indent=2)+"\n")
+          a={
+            "name":"Goodrich Castle","slug":"goodrich-castle","status":r["status"],
+            "source":r.get("source_timestamp_used"),"positions":r["original_image_positions_identified"],
+            "full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],
+            "missing":r["still_missing"],"missing_identities":[x["identity"] for x in r.get("missing",[])]
+          }
+          Path("page-audit/goodrich-castle.json").write_text(json.dumps(a,indent=2)+"\n")
+          PY
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/goodrich-castle page-audit/goodrich-castle.json
+          if git diff --cached --quiet; then
+            echo 'No Goodrich archive changes'
+          else
+            git commit -m 'Complete exhaustive Goodrich image recovery'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
