@@ -1,0 +1,35 @@
+name: Castle Acre external archive search
+
+on:
+  push:
+    paths:
+      - '.github/workflows/deep-castle-acre-external.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/deep_castle_acre_external_archives.py
+      - run: python scripts/verify_castle_acre.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-acre
+          if git diff --cached --quiet; then
+            echo 'No Castle Acre external archive changes'
+          else
+            git commit -m 'Complete Castle Acre external archive search'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
