@@ -1,0 +1,40 @@
+name: Deep recover Barnard Castle gallery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/deep-barnard-castle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: barnard-castle-deep
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow
+      - run: python scripts/deep_barnard_castle_images.py
+      - run: python scripts/verify_barnard_castle.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/barnard-castle
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Deep recover Barnard Castle gallery images'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
