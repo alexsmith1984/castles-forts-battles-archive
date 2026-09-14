@@ -1,17 +1,26 @@
 {
   "name": "Framlingham Castle",
   "slug": "framlingham-castle",
-  "status": "built",
+  "status": "PARTIAL",
   "source": "20220826211200",
-  "positions": 5,
+  "positions": 19,
   "full": 0,
-  "lower": 0,
-  "missing": 5,
+  "lower": 5,
+  "missing": 14,
   "missing_identities": [
-    "framlingham_castle5",
-    "framlingham_castle32",
-    "framlingham_castle3",
-    "framlingham_layout",
-    "framlingham_castle29"
+    "gallery_fb0085ed27b5",
+    "gallery_46620e058757",
+    "gallery_8dbc3bb267bf",
+    "gallery_f683b7e82778",
+    "gallery_c5c218958b8b",
+    "gallery_39d041d44c73",
+    "gallery_d0545ccc19c9",
+    "gallery_1e98c6c07de9",
+    "gallery_ba54b5bdbc44",
+    "gallery_d291e75811da",
+    "gallery_d51b9b6c98c",
+    "gallery_53f44a5cd527",
+    "gallery_51487b2a281",
+    "gallery_42238eb8e26"
   ]
 }
