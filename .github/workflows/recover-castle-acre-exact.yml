@@ -1,0 +1,35 @@
+name: Recover Castle Acre Exact
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-castle-acre-exact.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow ftfy
+      - run: python scripts/recover_castle_acre.py
+      - run: python scripts/verify_castle_acre.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-acre atoz-part1.html
+          if git diff --cached --quiet; then
+            echo 'No Castle Acre changes'
+          else
+            git commit -m 'Improve recovered Castle Acre page'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
