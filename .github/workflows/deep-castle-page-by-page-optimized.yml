@@ -3,7 +3,7 @@ name: Optimized deep castle image recovery page by page
 on:
   push:
     paths:
-      - ".github/workflows/deep-castle-page-by-page.yml"
+      - ".github/workflows/deep-castle-page-by-page-optimized.yml"
   workflow_dispatch: {}
 
 permissions:
