@@ -187,50 +187,69 @@ def recover_one(identity,base_urls,historical,wildrows,source_ts):
     return best
 
 def commoncrawl_for_remaining(rep,missing):
-    # Conservative fallback: exact known original URLs across a small historical spread.
+    # Page-level Common Crawl fallback. Query a few historical indexes by filename-family prefix,
+    # map the returned captures back to the still-missing identities, then fetch only the best candidates.
     if not missing:return {}
-    r=req("https://index.commoncrawl.org/collinfo.json",15)
+    r=req("https://index.commoncrawl.org/collinfo.json",12)
     if not r or r.status_code!=200:return {}
     try:indexes=r.json()
     except:return {}
-    chosen=[]
     peryear={}
     for x in indexes:
       iid=x.get("id","");m=re.search(r"CC-MAIN-(\d{4})-",iid)
-      if m and 2015<=int(m.group(1))<=2022:peryear.setdefault(int(m.group(1)),[]).append(iid)
-    for y in sorted(peryear,reverse=True):chosen.extend(sorted(peryear[y],reverse=True)[:1])
+      if m and 2016<=int(m.group(1))<=2022:peryear.setdefault(int(m.group(1)),[]).append(iid)
+    chosen=[sorted(peryear[y],reverse=True)[0] for y in sorted(peryear,reverse=True) if peryear[y]]
     orig=rep["original_url"];sp=urlsplit(orig)
-    out={}
-    for ident in missing:
-      urls=[]
-      for directory in ("images","assets"):
-        for ext in (".jpg",".jpeg",".png"):
-          urls.append(urlunsplit((sp.scheme,sp.netloc,os.path.dirname(sp.path)+f"/{directory}/{ident}{ext}","","")))
-      records=[]
-      for iid in chosen:
-        for u in urls:
-          q=f"https://index.commoncrawl.org/{iid}-index?url="+quote(u,safe=":/")+"&output=json"
-          rr=req(q,6)
-          if not rr or rr.status_code!=200:continue
-          for line in rr.text.splitlines():
-            try:
-              x=json.loads(line)
-              if str(x.get("status"))=="200" and x.get("filename") and x.get("offset") and x.get("length"):records.append(x)
-            except:pass
-      records=sorted(records,key=lambda x:int(x.get("length") or 0),reverse=True)[:12]
-      for x in records:
-        st=int(x["offset"]);ln=int(x["length"])
-        rr=req("https://data.commoncrawl.org/"+x["filename"],14,headers={"Range":f"bytes={st}-{st+ln-1}"})
-        if not rr or rr.status_code not in (200,206):continue
-        payloads=[]
+    def prefix_for(i):
+      # e.g. goodrich_castle24 -> goodrich_castle; warkworth_bridge13 -> warkworth_bridge
+      m=re.match(r"^(.*?)(?:\d|$)",i)
+      p=(m.group(1) if m else i).rstrip("_-")
+      return p or i
+    families=sorted(set(prefix_for(i) for i in missing))
+    tasks=[]
+    for iid in chosen:
+      for fam in families:
+        for directory in ("images","assets"):
+          base=urlunsplit((sp.scheme,sp.netloc,os.path.dirname(sp.path)+f"/{directory}/{fam}","",""))
+          q=f"https://index.commoncrawl.org/{iid}-index?url="+quote(base,safe=":/")+"&matchType=prefix&output=json"
+          tasks.append(q)
+    def qone(q):
+      rr=req(q,7);rows=[]
+      if not rr or rr.status_code!=200:return rows
+      for line in rr.text.splitlines():
         try:
-          rawb=gzip.decompress(rr.content);payloads=[rawb.split(b"\r\n\r\n")[-1]]
-        except:pass
-        for b in payloads:
-          z=info(b)
-          if z and z[0]>=80 and z[1]>=60:
-            out[ident]=(b,z,x);break
-        if ident in out:break
+          x=json.loads(line)
+          if str(x.get("status"))=="200" and x.get("filename") and x.get("offset") and x.get("length"):
+            rows.append(x)
+        except Exception:pass
+      return rows
+    records=[]
+    with cf.ThreadPoolExecutor(max_workers=16) as ex:
+      for rows in ex.map(qone,tasks):
+        records.extend(rows)
+    mapped={i:[] for i in missing}
+    for x in records:
+      ident=map_to_identity(stem(x.get("url","")),missing)
+      if ident:mapped[ident].append(x)
+    out={}
+    def fetch_ident(item):
+      ident,rows=item
+      uniq={}
+      for x in rows:uniq[(x["filename"],x["offset"],x["length"])]=x
+      cand=sorted(uniq.values(),key=lambda x:int(x.get("length") or 0),reverse=True)[:8]
+      for x in cand:
+        st=int(x["offset"]);ln=int(x["length"])
+        rr=req("https://data.commoncrawl.org/"+x["filename"],12,headers={"Range":f"bytes={st}-{st+ln-1}"})
+        if not rr or rr.status_code not in (200,206):continue
+        try:
+          rawb=gzip.decompress(rr.content);payload=rawb.split(b"\r\n\r\n")[-1]
+        except Exception:continue
+        z=info(payload)
+        if z and z[0]>=80 and z[1]>=60:return ident,(payload,z,x)
+      return ident,None
+    with cf.ThreadPoolExecutor(max_workers=8) as ex:
+      for ident,val in ex.map(fetch_ident,mapped.items()):
+        if val:out[ident]=val
     return out
 
 def rebuild_gallery(root,rep):
