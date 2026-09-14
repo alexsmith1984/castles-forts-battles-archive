@@ -304,5 +304,11 @@
     "same-image Muse display/crop fallback",
     "exact supplied-capture Muse URLs including original CRC query strings"
   ],
-  "verification_note": "Every displayed image is an archived original from the defunct site or an archived Muse export of the same underlying original. No unrelated substitute images were used."
+  "verification_note": "Every displayed image is an archived original from the defunct site or an archived Muse export of the same underlying original. No unrelated substitute images were used.",
+  "external_archive_search_completed": true,
+  "external_archive_methods": [
+    "Arquivo.pt exact-filename search",
+    "Common Crawl exact-filename search (2018-2023 representative indexes)"
+  ],
+  "external_archive_fullsize_found": []
 }
