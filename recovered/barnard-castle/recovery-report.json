@@ -67,5 +67,7 @@
   ],
   "image_identity_basis": "Two full-size image links embedded in the page plus five WebPlus gallery originals declared in wp_imgArray_pg_39. WebPlus navigation/UI PNGs and gallery thumbnails are not counted as separate content images.",
   "verification_note": "Every displayed image is an archived original from the defunct site. No unrelated substitute photographs were used.",
-  "deep_wayback_search_completed": true
+  "deep_wayback_search_completed": true,
+  "focused_third_search_completed": true,
+  "barnard_page_captures_with_gallery_examined": 0
 }
