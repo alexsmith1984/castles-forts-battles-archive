@@ -45,8 +45,8 @@ def raw(ts,u):
     return f"https://web.archive.org/web/{ts}id_/{u}"
 
 def cdx(pattern,limit=2000):
-    url="https://web.archive.org/cdx/search/cdx?url="+quote(pattern,safe=":/_*")+
-        f"&output=json&fl=timestamp,original,length,mimetype,statuscode&filter=statuscode:200&collapse=digest&limit={limit}"
+    url=("https://web.archive.org/cdx/search/cdx?url="+quote(pattern,safe=":/_*")+
+         f"&output=json&fl=timestamp,original,length,mimetype,statuscode&filter=statuscode:200&collapse=digest&limit={limit}")
     r=req(url,10)
     if not r or r.status_code!=200: return []
     try: d=r.json()
