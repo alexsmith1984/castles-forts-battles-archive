@@ -33,7 +33,7 @@ def variants(u):
     out=[]
     for scheme in ("http","https"):
         for host in dict.fromkeys(hosts):
-            out.append(urlunsplit((scheme,host,sp.path,"","","")))
+            out.append(urlunsplit((scheme,host,sp.path,"","")))
     return out
 
 def good_html(r):
