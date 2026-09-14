@@ -6,12 +6,11 @@
   "source_timestamp_used": "20220826203514",
   "source_original_used": "http://www.castlesfortsbattles.co.uk/midlands/goodrich_castle.html",
   "text_blocks_preserved": 56,
-  "original_image_positions_identified": 37,
+  "original_image_positions_identified": 36,
   "desktop_image_identities": [
     "goodrich_castle",
     "goodrich_castle10",
     "goodrich_castle1",
-    "goodrich_castle1-crop-u139013",
     "goodrich_castle48",
     "goodrich_castle25",
     "goodrich_castle24",
@@ -48,7 +47,7 @@
   ],
   "recovered_full_or_near_full": 2,
   "recovered_thumbnail_or_lower_resolution": 1,
-  "still_missing": 34,
+  "still_missing": 33,
   "uncertain_identifications": [],
   "images": [
     {
@@ -98,12 +97,6 @@
     }
   ],
   "missing": [
-    {
-      "identity": "goodrich_castle1-crop-u139013",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/midlands/images/goodrich_castle1-crop-u139013.jpg?crc=266192964"
-      ]
-    },
     {
       "identity": "goodrich_castle",
       "candidate_urls": [
@@ -356,7 +349,7 @@
       ]
     }
   ],
-  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "counting_method": "36 unique underlying content-image identities. The earlier 37 count incorrectly treated the Muse crop goodrich_castle1-crop-u139013 as a separate photograph; it is a responsive crop of goodrich_castle1. Other responsive WIDTHxHEIGHT variants and thumbnails are likewise not counted separately.",
   "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
   "deep_recovery_history": [
     {
