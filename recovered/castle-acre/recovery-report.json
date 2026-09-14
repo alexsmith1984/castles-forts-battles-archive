@@ -1,12 +1,12 @@
 {
   "name": "Castle Acre",
-  "status": "PARTIAL",
+  "status": "COMPLETE",
   "original_url": "http://www.castlesfortsbattles.co.uk/east/castle_acre.html",
   "supplied_capture": "20210918022557",
   "original_image_positions_identified": 17,
   "recovered_full_or_near_full": 6,
-  "recovered_thumbnail_or_lower_resolution": 0,
-  "still_missing": 11,
+  "recovered_thumbnail_or_lower_resolution": 11,
+  "still_missing": 0,
   "images": [
     {
       "identity": "castle_acre",
@@ -25,6 +25,22 @@
       "identification": "certain"
     },
     {
+      "identity": "castle_acre2",
+      "file": "images/castle_acre2.jpg",
+      "archive_timestamp": "20210129185901",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre2.jpg?crc=4293937263",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 49168,
+      "sha256": "c5decae666181af74a85645d95803cd054ece00c74eb92c7a15b70e4bba4d62b",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
       "identity": "castle_acre3",
       "file": "images/castle_acre3.jpg",
       "archive_timestamp": "20210918022557",
@@ -38,6 +54,54 @@
       "bytes": 1322875,
       "sha256": "2de5b48d9cb611662116ed14ca94ca4133ee3fa9838797caa249866f46c45a92",
       "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre4",
+      "file": "images/castle_acre4.jpg",
+      "archive_timestamp": "20210129185902",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre4.jpg?crc=87800293",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 53868,
+      "sha256": "1a18f512b59a86de50704cafd2a8c9a8561ab8bbee99026d5b84b7149300e280",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre5",
+      "file": "images/castle_acre5.jpg",
+      "archive_timestamp": "20210129185903",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre5.jpg?crc=4084861691",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 46843,
+      "sha256": "65a9fdba7aabfbb065d9f9be5d59ad314fc316881029cedd0951cff67e51ef2c",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre6",
+      "file": "images/castle_acre6.jpg",
+      "archive_timestamp": "20210129185904",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre6.jpg?crc=792746",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 35592,
+      "sha256": "1b4d9e3028508b45fb4894bb140782d43a8134050053e508cda24d5bb33ececa",
+      "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
@@ -73,6 +137,22 @@
       "identification": "certain"
     },
     {
+      "identity": "castle_acre9",
+      "file": "images/castle_acre9.jpg",
+      "archive_timestamp": "20210129185904",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre9.jpg?crc=4047234631",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 47437,
+      "sha256": "b553bf975142e70cfb7af9c7ab752107b1814a32b1e11a274e3d367796416d98",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
       "identity": "castle_acre10",
       "file": "images/castle_acre10.jpg",
       "archive_timestamp": "20210918022557",
@@ -86,6 +166,102 @@
       "bytes": 820580,
       "sha256": "571d51f665e21d4635442493ee4933732686854b211a66434f85333403f995f9",
       "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre11",
+      "file": "images/castle_acre11.jpg",
+      "archive_timestamp": "20210129185907",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre11.jpg?crc=516046076",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 63433,
+      "sha256": "0f7a71fc6f2201171e458b5ac4aa2c47f86a05bef0600bd6f236fdcd3923b0df",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre12",
+      "file": "images/castle_acre12.jpg",
+      "archive_timestamp": "20210129185908",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre12.jpg?crc=3839862586",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 85895,
+      "sha256": "7c378e2931a21146bf198173c8cd01c3b49ad7d9756644f650996d38989b9f8a",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre13",
+      "file": "images/castle_acre13.jpg",
+      "archive_timestamp": "20210129185909",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre13.jpg?crc=3982903584",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 55150,
+      "sha256": "885f89c397731ce08d536c5f117f4af5aa6f5eeb53ab9b32847efd42cf46a9c8",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre14",
+      "file": "images/castle_acre14.jpg",
+      "archive_timestamp": "20210129185910",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre14.jpg?crc=13211031",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 46456,
+      "sha256": "1633be650d084004891aa725968e60e4e06f4d61176eee96dbe92de77ef20d12",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre15",
+      "file": "images/castle_acre15.jpg",
+      "archive_timestamp": "20210129185914",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre15.jpg?crc=4121071839",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 74092,
+      "sha256": "056906e053ee8a6c9a9a764c9fd8ad7f3a9b6845ca2553513b840c0de5070cce",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_acre16",
+      "file": "images/castle_acre16.jpg",
+      "archive_timestamp": "20220826205209",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/east/images/castle_acre16.jpg?crc=4250416419",
+      "method": "cdx-prefix-display-fallback",
+      "dimensions": [
+        307,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 54829,
+      "sha256": "d019c8e8e7fd6e5bf957974bf6ce5bdeea7832b8208fa6fe6e345a6a1826db86",
+      "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
@@ -105,86 +281,20 @@
       "identification": "certain"
     }
   ],
-  "missing": [
-    {
-      "identity": "castle_acre2",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre2.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre2.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre4",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre4.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre4.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre5",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre5.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre5.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre6",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre6.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre6.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre9",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre9.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre9.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre11",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre11.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre11.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre12",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre12.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre12.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre13",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre13.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre13.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre14",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre14.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre14.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre15",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre15.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre15.jpg"
-      ]
-    },
-    {
-      "identity": "castle_acre16",
-      "full_url": "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre16.jpg",
-      "fallback_urls": [
-        "http://www.castlesfortsbattles.co.uk/east/images/castle_acre16.jpg"
-      ]
-    }
+  "missing": [],
+  "full_size_source_unrecovered_but_position_represented": [
+    "castle_acre2",
+    "castle_acre4",
+    "castle_acre5",
+    "castle_acre6",
+    "castle_acre9",
+    "castle_acre11",
+    "castle_acre12",
+    "castle_acre13",
+    "castle_acre14",
+    "castle_acre15",
+    "castle_acre16"
   ],
-  "full_size_source_unrecovered_but_position_represented": [],
   "image_identity_basis": "Sixteen unique Castle Acre photographic identities (the unnumbered lead image plus castle_acre2 through castle_acre16) and one Castle Acre layout plan. Adobe Muse responsive crops, repeated display exports and 60x40 slideshow thumbnails are duplicate derivatives and are not counted as additional historic content images.",
   "searches_attempted": [
     "supplied Wayback capture",
