@@ -11,7 +11,7 @@ permissions:
 jobs:
   recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,16 +20,31 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4 pillow
-      - run: python scripts/prepare_kenilworth_engine.py
-      - run: python /tmp/deep_kenilworth.py
+      - run: python scripts/mine_kenilworth_history.py
+      - name: Final bounded history and rebuild pass
+        env:
+          ONLY_SLUG: kenilworth-castle
+        run: python scripts/bounded_deep_castle_recovery.py
+      - name: Sync Kenilworth audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("recovered/kenilworth-castle/recovery-report.json").read_text())
+          a={"name":"Kenilworth Castle","slug":"kenilworth-castle","status":r["status"],"source":r["source_timestamp_used"],
+             "positions":r["original_image_positions_identified"],"full":r["recovered_full_or_near_full"],
+             "lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],
+             "missing_identities":[x["identity"] for x in r["missing"]]}
+          Path("page-audit/kenilworth-castle.json").write_text(json.dumps(a,indent=2)+"\n")
+          PY
       - run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add recovered/kenilworth-castle page-audit/kenilworth-castle.json
+          git add recovered/kenilworth-castle page-audit/kenilworth-castle.json page-audit/bounded-deep/kenilworth-castle.json
           if git diff --cached --quiet; then
-            echo 'No Kenilworth recovery changes'
+            echo 'No additional Kenilworth recoveries'
           else
-            git commit -m 'Complete exhaustive Kenilworth image recovery'
+            git commit -m 'Complete Kenilworth historical image recovery'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
