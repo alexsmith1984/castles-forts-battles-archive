@@ -1,0 +1,70 @@
+{
+  "name": "Barnard Castle",
+  "original_url": "http://www.castlesfortsbattles.co.uk/north_east/barnard_castle.html",
+  "supplied_capture": "20170208220118",
+  "original_image_positions_identified": 7,
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 2,
+  "still_missing": 5,
+  "images": [
+    {
+      "identity": "barnard_castle1",
+      "file": "images/barnard_castle1.jpg",
+      "archive_timestamp": "20170208220118",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp4b7673d8_05_06.jpg",
+      "method": "same-capture-thumbnail",
+      "dimensions": [
+        920,
+        372
+      ],
+      "bytes": 141776,
+      "sha256": "6321038f628a1c67862c667b0cb75f49f7d798dccc681a80f35bda7f7be78ed2",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "barnard_castle4",
+      "file": "images/barnard_castle4.jpg",
+      "archive_timestamp": "20170208220118",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp844ca2d6_05_06.jpg",
+      "method": "same-capture-thumbnail",
+      "dimensions": [
+        476,
+        316
+      ],
+      "bytes": 82304,
+      "sha256": "671b2269a2d8aece363d7a2f5ead8fa485197fbbecdfb50ebb1435176d3f8ae4",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "gallery_160c94cfc368",
+      "original_url": "http://www.castlesfortsbattles.co.uk/wpimages/160c94cfc368.jpg",
+      "thumbnail_url": "http://www.castlesfortsbattles.co.uk/wpimages/160c94cfc368t.jpg"
+    },
+    {
+      "identity": "gallery_63b957bcfce4",
+      "original_url": "http://www.castlesfortsbattles.co.uk/wpimages/63b957bcfce4.jpg",
+      "thumbnail_url": "http://www.castlesfortsbattles.co.uk/wpimages/63b957bcfce4t.jpg"
+    },
+    {
+      "identity": "gallery_19f116199cea",
+      "original_url": "http://www.castlesfortsbattles.co.uk/wpimages/19f116199cea.jpg",
+      "thumbnail_url": "http://www.castlesfortsbattles.co.uk/wpimages/19f116199ceat.jpg"
+    },
+    {
+      "identity": "gallery_444adbef8dfa",
+      "original_url": "http://www.castlesfortsbattles.co.uk/wpimages/444adbef8dfa.jpg",
+      "thumbnail_url": "http://www.castlesfortsbattles.co.uk/wpimages/444adbef8dfat.jpg"
+    },
+    {
+      "identity": "gallery_437bac9c274a",
+      "original_url": "http://www.castlesfortsbattles.co.uk/wpimages/437bac9c274a.jpg",
+      "thumbnail_url": "http://www.castlesfortsbattles.co.uk/wpimages/437bac9c274at.jpg"
+    }
+  ],
+  "image_identity_basis": "Two full-size image links embedded in the page plus five WebPlus gallery originals declared in wp_imgArray_pg_39. WebPlus navigation/UI PNGs and gallery thumbnails are not counted as separate content images.",
+  "verification_note": "Every displayed image is an archived original from the defunct site. No unrelated substitute photographs were used."
+}
