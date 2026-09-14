@@ -308,12 +308,22 @@ def deep_page(name,slug):
             "status":"complete" if rep["still_missing"]==0 else ("improved" if len(got)>0 else "no-further-recovery"),
             "recovered_now":got,"still_missing":[x["identity"] for x in rep["missing"]]}
 
-results=[]
-for name,slug in PAGES:
+only=os.environ.get("ONLY_SLUG")
+if only:
+    name,slug=next((n,s) for n,s in PAGES if s==only)
     print("\n===== DEEP RECOVERY:",name,"=====",flush=True)
     try:r=deep_page(name,slug)
     except Exception as e:r={"name":name,"slug":slug,"status":"error","error":repr(e)}
-    results.append(r);print(json.dumps(r,indent=2,ensure_ascii=False),flush=True)
-Path("page-audit/deep-complete/castle-deep-recovery-one-by-one.json").write_text(json.dumps(results,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-print("\nFINAL SUMMARY")
-print(json.dumps(results,indent=2,ensure_ascii=False))
+    print(json.dumps(r,indent=2,ensure_ascii=False),flush=True)
+    Path(f"page-audit/deep-complete/{slug}.json").write_text(json.dumps(r,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    if r.get("status")=="error":raise SystemExit(1)
+else:
+    results=[]
+    for name,slug in PAGES:
+        print("\n===== DEEP RECOVERY:",name,"=====",flush=True)
+        try:r=deep_page(name,slug)
+        except Exception as e:r={"name":name,"slug":slug,"status":"error","error":repr(e)}
+        results.append(r);print(json.dumps(r,indent=2,ensure_ascii=False),flush=True)
+    Path("page-audit/deep-complete/castle-deep-recovery-one-by-one.json").write_text(json.dumps(results,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    print("\nFINAL SUMMARY")
+    print(json.dumps(results,indent=2,ensure_ascii=False))
