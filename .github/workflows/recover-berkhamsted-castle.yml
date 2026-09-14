@@ -1,0 +1,40 @@
+name: Recover Berkhamsted Castle
+
+on:
+  push:
+    paths:
+      - '.github/workflows/recover-berkhamsted-castle.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: berkhamsted-castle-recovery
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow ftfy
+      - run: python scripts/recover_berkhamsted_castle.py
+      - run: python scripts/verify_berkhamsted_castle.py
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/berkhamsted-castle atoz-part1.html
+          if git diff --cached --quiet; then
+            echo 'No Berkhamsted changes'
+          else
+            git commit -m 'Publish recovered Berkhamsted Castle page'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
