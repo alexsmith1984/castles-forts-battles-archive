@@ -1,0 +1,117 @@
+name: Deep recover castle images page by page
+
+on:
+  push:
+    paths:
+      - ".github/workflows/deep-castle-page-by-page.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: deep-castle-one-by-one
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        slug:
+          - bolingbroke-castle
+          - conisbrough-castle
+          - pembroke-castle
+          - kenilworth-castle
+          - goodrich-castle
+          - fotheringhay-castle
+          - framlingham-castle
+          - pevensey-castle
+          - pickering-castle
+          - pontefract-castle
+          - richmond-castle
+          - sandal-castle
+          - warkworth-castle
+          - whittington-castle
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Deep recover one page
+        env:
+          ONLY_SLUG: ${{ matrix.slug }}
+        run: python scripts/deep_complete_castle_batch_one_by_one.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deep-${{ matrix.slug }}
+          path: |
+            recovered/${{ matrix.slug }}
+            page-audit/deep-complete/${{ matrix.slug }}.json
+          if-no-files-found: error
+          retention-days: 2
+
+  finalize:
+    needs: recover
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: deep-*
+          path: .
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Verify and combine reports
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          slugs=[
+            "bolingbroke-castle","conisbrough-castle","pembroke-castle","kenilworth-castle",
+            "goodrich-castle","fotheringhay-castle","framlingham-castle","pevensey-castle",
+            "pickering-castle","pontefract-castle","richmond-castle","sandal-castle",
+            "warkworth-castle","whittington-castle"
+          ]
+          rows=[];missing_reports=[]
+          for slug in slugs:
+              p=Path("page-audit/deep-complete")/f"{slug}.json"
+              if not p.exists():
+                  missing_reports.append(slug);continue
+              row=json.loads(p.read_text(encoding="utf-8"));rows.append(row)
+              root=Path("recovered")/slug
+              rep=json.loads((root/"recovery-report.json").read_text(encoding="utf-8"))
+              recovered=rep["recovered_full_or_near_full"]+rep["recovered_thumbnail_or_lower_resolution"]
+              assert rep["original_image_positions_identified"]==recovered+rep["still_missing"],slug
+              for x in rep["images"]:
+                  with Image.open(root/x["file"]) as im:im.verify()
+          assert not missing_reports,missing_reports
+          assert len(rows)==14,len(rows)
+          Path("page-audit/deep-complete/castle-deep-recovery-one-by-one.json").write_text(json.dumps(rows,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          print(json.dumps(rows,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit deep recoveries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recovered page-audit/deep-complete
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Deep recover castle images page by page"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
