@@ -301,7 +301,8 @@
     "exact assets full-size URL variants",
     "focused Wayback CDX filename-family inventory for east/assets/castle_acre*",
     "focused Wayback CDX filename-family inventory for east/images/castle_acre*",
-    "same-image Muse display/crop fallback"
+    "same-image Muse display/crop fallback",
+    "exact supplied-capture Muse URLs including original CRC query strings"
   ],
   "verification_note": "Every displayed image is an archived original from the defunct site or an archived Muse export of the same underlying original. No unrelated substitute images were used."
 }
