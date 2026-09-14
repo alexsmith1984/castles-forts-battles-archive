@@ -1,0 +1,28 @@
+{
+  "name": "Pickering Castle",
+  "slug": "pickering-castle",
+  "before_missing": 17,
+  "after_missing": 16,
+  "status": "improved",
+  "recovered_now": [
+    "pickering_castle13"
+  ],
+  "still_missing": [
+    "pickering_castle",
+    "pickering_castle_plan",
+    "pickering_castle16",
+    "pickering_castle3",
+    "pickering_castle2",
+    "pickering_castle10",
+    "pickering_castle14",
+    "pickering_castle4",
+    "pickering_castle7",
+    "pickering_castle6",
+    "pickering_castle9",
+    "pickering_castle11",
+    "pickering_castle12",
+    "pickering_castle15",
+    "pickering_castle17",
+    "pickering_castle20"
+  ]
+}

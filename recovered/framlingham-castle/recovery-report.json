@@ -52,5 +52,18 @@
     }
   ],
   "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
-  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
+  "deep_recovery_history": [
+    {
+      "method": "bounded historical captures + Wayback family/exact CDX",
+      "recovered": [],
+      "remaining": [
+        "framlingham_castle5",
+        "framlingham_castle32",
+        "framlingham_castle3",
+        "framlingham_layout",
+        "framlingham_castle29"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,15 @@
+{
+  "name": "Framlingham Castle",
+  "slug": "framlingham-castle",
+  "before_missing": 5,
+  "after_missing": 5,
+  "status": "no-further-recovery",
+  "recovered_now": [],
+  "still_missing": [
+    "framlingham_castle5",
+    "framlingham_castle32",
+    "framlingham_castle3",
+    "framlingham_layout",
+    "framlingham_castle29"
+  ]
+}

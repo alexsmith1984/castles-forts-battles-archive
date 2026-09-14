@@ -1,0 +1,13 @@
+{
+  "name": "Kenilworth Castle",
+  "slug": "kenilworth-castle",
+  "before_missing": 3,
+  "after_missing": 3,
+  "status": "no-further-recovery",
+  "recovered_now": [],
+  "still_missing": [
+    "kenilworth_castle9",
+    "kenilworth_castle15",
+    "kenilworth_castle1"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Sandal Castle",
+  "slug": "sandal-castle",
+  "before_missing": 24,
+  "after_missing": 23,
+  "status": "improved",
+  "recovered_now": [
+    "wakefield_1460_2"
+  ],
+  "still_missing": [
+    "sandal_castle17",
+    "sandal_castle",
+    "sandal_castle_plan",
+    "sandal_castle20",
+    "sandal_castle1",
+    "sandal_castle5",
+    "wakefield_1460_6",
+    "sandal_castle13",
+    "sandal_castle3",
+    "sandal_castle4",
+    "wakefield_castles_context2",
+    "sandal_castle8",
+    "sandal_castle6",
+    "sandal_castle9",
+    "sandal_castle10",
+    "sandal_castle11",
+    "sandal_castle15",
+    "sandal_castle14",
+    "sandal_castle12",
+    "sandal_castle16",
+    "sandal_castle18",
+    "sandal_castle21",
+    "sandal_castle23"
+  ]
+}

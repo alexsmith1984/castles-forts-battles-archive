@@ -1,0 +1,12 @@
+{
+  "name": "Conisbrough Castle",
+  "slug": "conisbrough-castle",
+  "before_missing": 2,
+  "after_missing": 2,
+  "status": "no-further-recovery",
+  "recovered_now": [],
+  "still_missing": [
+    "conisbrough_castle4b",
+    "conisbrough_castle2"
+  ]
+}

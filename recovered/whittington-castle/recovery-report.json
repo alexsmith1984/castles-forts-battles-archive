@@ -134,5 +134,25 @@
     }
   ],
   "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
-  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
+  "deep_recovery_history": [
+    {
+      "method": "bounded historical captures + Wayback family/exact CDX",
+      "recovered": [],
+      "remaining": [
+        "whittington_castle_lancashire",
+        "whittington_castle_lancashire9",
+        "whittington_castle_lancashire8",
+        "whittington_castle_lancashire4",
+        "norman_castle_lune_valley_map",
+        "whittington_castle_lancashire1",
+        "whittington_castle_lancashire2",
+        "whittington_castle_lancashire3",
+        "whittington_castle_lancashire7",
+        "whittington_castle_lancashire6",
+        "whittington_castle_lancashire10",
+        "whittington_castle_lancashire5"
+      ]
+    }
+  ]
 }

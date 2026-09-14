@@ -47,9 +47,9 @@
     "warkworth_castle25",
     "warkworth_castle25b"
   ],
-  "recovered_full_or_near_full": 0,
+  "recovered_full_or_near_full": 2,
   "recovered_thumbnail_or_lower_resolution": 1,
-  "still_missing": 37,
+  "still_missing": 35,
   "uncertain_identifications": [],
   "images": [
     {
@@ -65,6 +65,36 @@
       "bytes": 73910,
       "sha256": "04b3fcb83e07a3582e95fc3e24a7b3d0f9d12e7f2f9d1a25a30507deb897bb3d",
       "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "warkworth_castle20",
+      "file": "images/warkworth_castle20.jpg",
+      "archive_timestamp": "20220826205457",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20.jpg?crc=3997028650",
+      "method": "source-capture",
+      "dimensions": [
+        501,
+        333
+      ],
+      "bytes": 46149,
+      "sha256": "543bf3c5d2a0e04e137436878d5ca52d89648b728d35ca8b64ac99a8308c44e1",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "warkworth_castle22",
+      "file": "images/warkworth_castle22.jpg",
+      "archive_timestamp": "20220826205457",
+      "archive_original": "https://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle22.jpg?crc=4154662755",
+      "method": "source-capture",
+      "dimensions": [
+        255,
+        333
+      ],
+      "bytes": 32854,
+      "sha256": "6d7a5c92cacd43d49d13731920ac4cd091c2aaf820e163dbf1c031309df9df2e",
+      "quality": "full/near-full",
       "identification": "certain"
     }
   ],
@@ -112,16 +142,6 @@
         "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12657x207.jpg?crc=41278048",
         "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12496x156.jpg?crc=414075989",
         "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle12495x156.jpg?crc=414075989"
-      ]
-    },
-    {
-      "identity": "warkworth_castle20",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/north_east/assets/warkworth_castle20.jpg",
-        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20.jpg?crc=3997028650",
-        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle2060x40.jpg?crc=3834410936",
-        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20325x216.jpg?crc=3816665642",
-        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle20245x163.jpg?crc=113189223"
       ]
     },
     {
@@ -354,12 +374,6 @@
       ]
     },
     {
-      "identity": "warkworth_castle22",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle22.jpg?crc=4154662755"
-      ]
-    },
-    {
       "identity": "warkworth_castle24",
       "candidate_urls": [
         "http://www.castlesfortsbattles.co.uk/north_east/images/warkworth_castle24.jpg?crc=229003608",
@@ -382,5 +396,51 @@
     }
   ],
   "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
-  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
+  "deep_recovery_history": [
+    {
+      "method": "bounded historical captures + Wayback family/exact CDX",
+      "recovered": [
+        "warkworth_castle20",
+        "warkworth_castle22"
+      ],
+      "remaining": [
+        "warkworth_castle",
+        "warkworth_castle17",
+        "warkworth_castle8",
+        "warkworth_castle13",
+        "warkworth_castle12",
+        "warkworth_castle4",
+        "warkworth_castle1a",
+        "warkworth_castle26",
+        "warkworth_castle19a",
+        "warkworth_castle_town_plan",
+        "warkworth_bridge8",
+        "warkworth_castle25a",
+        "warkworth_bridge4",
+        "warkworth_bridge1a",
+        "warkworth_bridge1",
+        "warkworth_bridge9",
+        "warkworth_bridge2",
+        "warkworth_bridge5",
+        "warkworth_bridge7",
+        "warkworth_bridge10",
+        "warkworth_bridge11",
+        "warkworth_bridge13",
+        "warkworth_castle1",
+        "warkworth_castle3",
+        "warkworth_castle7",
+        "warkworth_castle5",
+        "warkworth_castle8a",
+        "warkworth_castle10",
+        "warkworth_castle11",
+        "warkworth_castle14",
+        "warkworth_castle18",
+        "warkworth_castle21a",
+        "warkworth_castle24",
+        "warkworth_castle25",
+        "warkworth_castle25b"
+      ]
+    }
+  ]
 }

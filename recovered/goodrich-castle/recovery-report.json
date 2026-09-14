@@ -357,5 +357,47 @@
     }
   ],
   "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
-  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
+  "deep_recovery_history": [
+    {
+      "method": "bounded historical captures + Wayback family/exact CDX",
+      "recovered": [],
+      "remaining": [
+        "goodrich_castle1-crop-u139013",
+        "goodrich_castle",
+        "goodrich_castle25",
+        "goodrich_castle24",
+        "goodrich_castle30",
+        "goodrich_castle47",
+        "goodrich_castle21",
+        "goodrich_castle28",
+        "goodrich_castle12",
+        "goodrich_castle39",
+        "goodrich_castle6",
+        "goodrich_castle8",
+        "goodrich_castle9",
+        "goodrich_castle11",
+        "goodrich_castle13",
+        "goodrich_castle17",
+        "goodrich_castle14",
+        "goodrich_castle18a",
+        "goodrich_castle18b",
+        "goodrich_castle23b",
+        "goodrich_castle19",
+        "goodrich_castle26",
+        "goodrich_castle27",
+        "goodrich_castle29",
+        "goodrich_castle32",
+        "goodrich_castle34",
+        "goodrich_castle35",
+        "goodrich_castle36",
+        "goodrich_castle38",
+        "goodrich_castle40",
+        "goodrich_castle42",
+        "goodrich_castle44",
+        "goodrich_castle45",
+        "goodrich_castle46"
+      ]
+    }
+  ]
 }

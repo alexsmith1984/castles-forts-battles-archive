@@ -1,0 +1,11 @@
+{
+  "name": "Pontefract Castle",
+  "slug": "pontefract-castle",
+  "before_missing": 1,
+  "after_missing": 1,
+  "status": "no-further-recovery",
+  "recovered_now": [],
+  "still_missing": [
+    "pontefract_castle15"
+  ]
+}

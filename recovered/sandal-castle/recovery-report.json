@@ -35,9 +35,9 @@
     "sandal_castle21",
     "sandal_castle23"
   ],
-  "recovered_full_or_near_full": 2,
+  "recovered_full_or_near_full": 3,
   "recovered_thumbnail_or_lower_resolution": 0,
-  "still_missing": 24,
+  "still_missing": 23,
   "uncertain_identifications": [],
   "images": [
     {
@@ -67,6 +67,21 @@
       ],
       "bytes": 78210,
       "sha256": "bf5e8f92a8c6075314aacb4e15936f2c6173fd9a5a33101e6f60187f2a47a062",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "wakefield_1460_2",
+      "file": "images/wakefield_1460_2.jpg",
+      "archive_timestamp": "20210918024941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2.jpg?crc=3886709033",
+      "method": "source-capture",
+      "dimensions": [
+        500,
+        333
+      ],
+      "bytes": 119970,
+      "sha256": "b89b1244d438cadffd8ffc78af41b6ccb4fc4f95888ba0d87ad6b289ce1bc57d",
       "quality": "full/near-full",
       "identification": "certain"
     }
@@ -105,21 +120,6 @@
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle20327x245.jpg?crc=4015267516",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle20247x185.jpg?crc=3963499685",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle20246x185.jpg?crc=4239984153"
-      ]
-    },
-    {
-      "identity": "wakefield_1460_2",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/wakefield_1460_2.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2.jpg?crc=3886709033",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2270x180.jpg?crc=3928985708",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_260x40.jpg?crc=3920782336",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2229x153.jpg?crc=4244562686",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2228x153.jpg?crc=3926337049",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2348x232.jpg?crc=4285604513",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2179x120.jpg?crc=4201644173",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2318x212.jpg?crc=4026748671",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_2135x90.jpg?crc=23825001"
       ]
     },
     {
@@ -277,5 +277,38 @@
     }
   ],
   "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
-  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used."
+  "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
+  "deep_recovery_history": [
+    {
+      "method": "bounded historical captures + Wayback family/exact CDX",
+      "recovered": [
+        "wakefield_1460_2"
+      ],
+      "remaining": [
+        "sandal_castle17",
+        "sandal_castle",
+        "sandal_castle_plan",
+        "sandal_castle20",
+        "sandal_castle1",
+        "sandal_castle5",
+        "wakefield_1460_6",
+        "sandal_castle13",
+        "sandal_castle3",
+        "sandal_castle4",
+        "wakefield_castles_context2",
+        "sandal_castle8",
+        "sandal_castle6",
+        "sandal_castle9",
+        "sandal_castle10",
+        "sandal_castle11",
+        "sandal_castle15",
+        "sandal_castle14",
+        "sandal_castle12",
+        "sandal_castle16",
+        "sandal_castle18",
+        "sandal_castle21",
+        "sandal_castle23"
+      ]
+    }
+  ]
 }

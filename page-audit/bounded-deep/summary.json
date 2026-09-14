@@ -1,1 +1,231 @@
-[]
+[
+  {
+    "name": "Conisbrough Castle",
+    "slug": "conisbrough-castle",
+    "before_missing": 2,
+    "after_missing": 2,
+    "status": "no-further-recovery",
+    "recovered_now": [],
+    "still_missing": [
+      "conisbrough_castle4b",
+      "conisbrough_castle2"
+    ]
+  },
+  {
+    "name": "Framlingham Castle",
+    "slug": "framlingham-castle",
+    "before_missing": 5,
+    "after_missing": 5,
+    "status": "no-further-recovery",
+    "recovered_now": [],
+    "still_missing": [
+      "framlingham_castle5",
+      "framlingham_castle32",
+      "framlingham_castle3",
+      "framlingham_layout",
+      "framlingham_castle29"
+    ]
+  },
+  {
+    "name": "Goodrich Castle",
+    "slug": "goodrich-castle",
+    "before_missing": 34,
+    "after_missing": 34,
+    "status": "no-further-recovery",
+    "recovered_now": [],
+    "still_missing": [
+      "goodrich_castle1-crop-u139013",
+      "goodrich_castle",
+      "goodrich_castle25",
+      "goodrich_castle24",
+      "goodrich_castle30",
+      "goodrich_castle47",
+      "goodrich_castle21",
+      "goodrich_castle28",
+      "goodrich_castle12",
+      "goodrich_castle39",
+      "goodrich_castle6",
+      "goodrich_castle8",
+      "goodrich_castle9",
+      "goodrich_castle11",
+      "goodrich_castle13",
+      "goodrich_castle17",
+      "goodrich_castle14",
+      "goodrich_castle18a",
+      "goodrich_castle18b",
+      "goodrich_castle23b",
+      "goodrich_castle19",
+      "goodrich_castle26",
+      "goodrich_castle27",
+      "goodrich_castle29",
+      "goodrich_castle32",
+      "goodrich_castle34",
+      "goodrich_castle35",
+      "goodrich_castle36",
+      "goodrich_castle38",
+      "goodrich_castle40",
+      "goodrich_castle42",
+      "goodrich_castle44",
+      "goodrich_castle45",
+      "goodrich_castle46"
+    ]
+  },
+  {
+    "name": "Kenilworth Castle",
+    "slug": "kenilworth-castle",
+    "before_missing": 3,
+    "after_missing": 3,
+    "status": "no-further-recovery",
+    "recovered_now": [],
+    "still_missing": [
+      "kenilworth_castle9",
+      "kenilworth_castle15",
+      "kenilworth_castle1"
+    ]
+  },
+  {
+    "name": "Pickering Castle",
+    "slug": "pickering-castle",
+    "before_missing": 17,
+    "after_missing": 16,
+    "status": "improved",
+    "recovered_now": [
+      "pickering_castle13"
+    ],
+    "still_missing": [
+      "pickering_castle",
+      "pickering_castle_plan",
+      "pickering_castle16",
+      "pickering_castle3",
+      "pickering_castle2",
+      "pickering_castle10",
+      "pickering_castle14",
+      "pickering_castle4",
+      "pickering_castle7",
+      "pickering_castle6",
+      "pickering_castle9",
+      "pickering_castle11",
+      "pickering_castle12",
+      "pickering_castle15",
+      "pickering_castle17",
+      "pickering_castle20"
+    ]
+  },
+  {
+    "name": "Pontefract Castle",
+    "slug": "pontefract-castle",
+    "before_missing": 1,
+    "after_missing": 1,
+    "status": "no-further-recovery",
+    "recovered_now": [],
+    "still_missing": [
+      "pontefract_castle15"
+    ]
+  },
+  {
+    "name": "Sandal Castle",
+    "slug": "sandal-castle",
+    "before_missing": 24,
+    "after_missing": 23,
+    "status": "improved",
+    "recovered_now": [
+      "wakefield_1460_2"
+    ],
+    "still_missing": [
+      "sandal_castle17",
+      "sandal_castle",
+      "sandal_castle_plan",
+      "sandal_castle20",
+      "sandal_castle1",
+      "sandal_castle5",
+      "wakefield_1460_6",
+      "sandal_castle13",
+      "sandal_castle3",
+      "sandal_castle4",
+      "wakefield_castles_context2",
+      "sandal_castle8",
+      "sandal_castle6",
+      "sandal_castle9",
+      "sandal_castle10",
+      "sandal_castle11",
+      "sandal_castle15",
+      "sandal_castle14",
+      "sandal_castle12",
+      "sandal_castle16",
+      "sandal_castle18",
+      "sandal_castle21",
+      "sandal_castle23"
+    ]
+  },
+  [],
+  {
+    "name": "Warkworth Castle",
+    "slug": "warkworth-castle",
+    "before_missing": 37,
+    "after_missing": 35,
+    "status": "improved",
+    "recovered_now": [
+      "warkworth_castle20",
+      "warkworth_castle22"
+    ],
+    "still_missing": [
+      "warkworth_castle",
+      "warkworth_castle17",
+      "warkworth_castle8",
+      "warkworth_castle13",
+      "warkworth_castle12",
+      "warkworth_castle4",
+      "warkworth_castle1a",
+      "warkworth_castle26",
+      "warkworth_castle19a",
+      "warkworth_castle_town_plan",
+      "warkworth_bridge8",
+      "warkworth_castle25a",
+      "warkworth_bridge4",
+      "warkworth_bridge1a",
+      "warkworth_bridge1",
+      "warkworth_bridge9",
+      "warkworth_bridge2",
+      "warkworth_bridge5",
+      "warkworth_bridge7",
+      "warkworth_bridge10",
+      "warkworth_bridge11",
+      "warkworth_bridge13",
+      "warkworth_castle1",
+      "warkworth_castle3",
+      "warkworth_castle7",
+      "warkworth_castle5",
+      "warkworth_castle8a",
+      "warkworth_castle10",
+      "warkworth_castle11",
+      "warkworth_castle14",
+      "warkworth_castle18",
+      "warkworth_castle21a",
+      "warkworth_castle24",
+      "warkworth_castle25",
+      "warkworth_castle25b"
+    ]
+  },
+  {
+    "name": "Whittington Castle",
+    "slug": "whittington-castle",
+    "before_missing": 12,
+    "after_missing": 12,
+    "status": "no-further-recovery",
+    "recovered_now": [],
+    "still_missing": [
+      "whittington_castle_lancashire",
+      "whittington_castle_lancashire9",
+      "whittington_castle_lancashire8",
+      "whittington_castle_lancashire4",
+      "norman_castle_lune_valley_map",
+      "whittington_castle_lancashire1",
+      "whittington_castle_lancashire2",
+      "whittington_castle_lancashire3",
+      "whittington_castle_lancashire7",
+      "whittington_castle_lancashire6",
+      "whittington_castle_lancashire10",
+      "whittington_castle_lancashire5"
+    ]
+  }
+]
