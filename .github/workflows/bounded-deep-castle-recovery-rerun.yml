@@ -1,0 +1,94 @@
+name: Bounded deep castle recovery rerun
+
+on:
+  push:
+    paths:
+      - ".github/workflows/bounded-deep-castle-recovery-rerun.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: bounded-deep-castles
+  cancel-in-progress: true
+
+jobs:
+  recover:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        slug:
+          - goodrich-castle
+          - fotheringhay-castle
+          - pickering-castle
+          - richmond-castle
+          - sandal-castle
+          - warkworth-castle
+          - conisbrough-castle
+          - kenilworth-castle
+          - framlingham-castle
+          - pontefract-castle
+          - whittington-castle
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Bounded deep recovery
+        env:
+          ONLY_SLUG: ${{ matrix.slug }}
+        run: python scripts/bounded_deep_castle_recovery.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bounded-${{ matrix.slug }}
+          path: |
+            recovered/${{ matrix.slug }}
+            page-audit/bounded-deep/${{ matrix.slug }}.json
+          if-no-files-found: error
+          retention-days: 2
+
+  finalize:
+    needs: recover
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: bounded-*
+          path: .
+          merge-multiple: true
+      - name: Build bounded-pass summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=Path("page-audit/bounded-deep")
+          rows=[]
+          for p in sorted(d.glob("*.json")):
+              rows.append(json.loads(p.read_text(encoding="utf-8")))
+          d.mkdir(parents=True,exist_ok=True)
+          (d/"summary.json").write_text(json.dumps(rows,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          print(json.dumps(rows,indent=2,ensure_ascii=False))
+          PY
+      - name: Commit all successful bounded recoveries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recovered page-audit/bounded-deep
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Deep recover remaining castle images in bounded passes"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
