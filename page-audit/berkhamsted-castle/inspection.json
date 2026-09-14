@@ -1,0 +1,1712 @@
+{
+  "name": "Berkhamsted Castle",
+  "slug": "berkhamsted-castle",
+  "supplied_capture": "20220826203529",
+  "source_timestamp_used": "20220826203529",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/east/berkhamsted_castle.html",
+  "source_sha256": "e9f5c6e5b3b98c042ad1ec2ea8a35ad28f20ae1610c9368ebbe7469644b647f5",
+  "image_reference_count_raw_unique": 53,
+  "image_references": [
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"Share on Facebook\" height=\"32\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png\" style=\"position:absolute;top:4px;left:16px;\" title=\"Share on Facebook\" width=\"32\"/>",
+        "eight:40px;\"> <a href=\"http://www.facebook.com/sharer.php?u=http://www.castlesfortsbattles.co.uk/berkhamsted_castle.html\"><img src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png\" width=\"32\" height=\"32\" alt=\"Share on Facebook\" title=\"Share on "
+      ],
+      "basename": "wpddd38efb_06.png",
+      "path": "/wpimages/wpddd38efb_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+        "bytes": 1057,
+        "sha256": "b38fa2269c3776366ced9270d3c265dbd089b102ad43c32f71cb3a058a5bf431",
+        "width": 32,
+        "height": 32,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+          "status": 200,
+          "bytes": 1057
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"Share on Twitter\" height=\"32\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png\" style=\"position:absolute;top:4px;left:64px;\" title=\"Share on Twitter\" width=\"32\"/>",
+        "4px;left:16px;\"></a> <a href=\"https://twitter.com/share?url=http://www.castlesfortsbattles.co.uk/berkhamsted_castle.html\"><img src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png\" width=\"32\" height=\"32\" alt=\"Share on Twitter\" title=\"Share on T"
+      ],
+      "basename": "wp10fbd999_06.png",
+      "path": "/wpimages/wp10fbd999_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+        "bytes": 526,
+        "sha256": "2c7d843b7f6a3cfd52a3d552e70c9ede9edda7262981d7e27058bad647701417",
+        "width": 32,
+        "height": 32,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+          "status": 200,
+          "bytes": 526
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"Share on Google Bookmarks\" height=\"32\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png\" style=\"position:absolute;top:4px;left:112px;\" title=\"Share on Google Bookmarks\" width=\"32\"/>",
+        "<a href=\"http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=http://www.castlesfortsbattles.co.uk/berkhamsted_castle.html\"><img src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png\" width=\"32\" height=\"32\" alt=\"Share on Google Bookmarks\" title"
+      ],
+      "basename": "wp9aa59e65_06.png",
+      "path": "/wpimages/wp9aa59e65_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+        "bytes": 2068,
+        "sha256": "27dfd3f6c0a033edee3cc30e8d06439c66ffa759853ad97ea664711365166c60",
+        "width": 32,
+        "height": 32,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+          "status": 200,
+          "bytes": 2068
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"Share via e-mail\" height=\"32\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png\" style=\"position:absolute;top:4px;left:160px;\" title=\"Share via e-mail\" width=\"32\"/>",
+        "on:absolute;top:4px;left:112px;\"></a> <a href=\"mailto:?body=http://www.castlesfortsbattles.co.uk/berkhamsted_castle.html\"><img src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png\" width=\"32\" height=\"32\" alt=\"Share via e-mail\" title=\"Share via "
+      ],
+      "basename": "wp44b55e7c_06.png",
+      "path": "/wpimages/wp44b55e7c_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+        "bytes": 1801,
+        "sha256": "724f89047ad368a0b3afaf191cea01a4964ae5a63f6159620185ad5c55c9bb95",
+        "width": 32,
+        "height": 32,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+          "status": 200,
+          "bytes": 1801
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"Print\" height=\"32\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png\" style=\"position:absolute;top:4px;left:208px;\" title=\"Print\" width=\"32\"/>",
+        "e-mail\" title=\"Share via e-mail\" style=\"position:absolute;top:4px;left:160px;\"></a> <a href=\"javascript:window.print();\"><img src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png\" width=\"32\" height=\"32\" alt=\"Print\" title=\"Print\" style=\"position"
+      ],
+      "basename": "wpca77dd45_06.png",
+      "path": "/wpimages/wpca77dd45_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+        "bytes": 2171,
+        "sha256": "197d6ea8b81a442b2810134dd9b266423c6176d634401c8900244996950b7ac2",
+        "width": 32,
+        "height": 32,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+          "status": 200,
+          "bytes": 2171
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png\" style=\"position:absolute;left:653px;top:64px;width:74px;height:56px;\" usemap=\"#map1\"/>",
+        "0,1,2,1,55,2,56,74,56\" href=\"http://www.castlesfortsbattles.co.uk/castles_england.html\" alt=\"\"></map> <img alt=\"\" usemap=\"#map1\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png\" style=\"position:absolute;left:653px;top:64px;width:74px;heigh"
+      ],
+      "basename": "wp1b666a96_06.png",
+      "path": "/wpimages/wp1b666a96_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+        "bytes": 1327,
+        "sha256": "f576612a2210eefb2dd89a7f215202c8c7fb0b06be4a97d7b6088c08f6ab14fd",
+        "width": 74,
+        "height": 56,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+          "status": 200,
+          "bytes": 1327
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png\" style=\"position:absolute;left:759px;top:64px;width:74px;height:56px;\" usemap=\"#map2\"/>",
+        ",74,0,1,0,1,53,73,53\" href=\"http://www.castlesfortsbattles.co.uk/castles_scotland.html\" alt=\"\"></map> <img alt=\"\" usemap=\"#map2\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png\" style=\"position:absolute;left:759px;top:64px;width:74px;heigh"
+      ],
+      "basename": "wp038b170e_06.png",
+      "path": "/wpimages/wp038b170e_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+        "bytes": 6606,
+        "sha256": "8cd2a96578e008e954dc26d6c890a06f9eb0506ee01a1080cf712e57040212bf",
+        "width": 74,
+        "height": 56,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+          "status": 200,
+          "bytes": 6606
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png\" style=\"position:absolute;left:867px;top:64px;width:74px;height:56px;\" usemap=\"#map3\"/>",
+        ",0,0,28,1,53,1,54,73,54\" href=\"http://www.castlesfortsbattles.co.uk/castles_wales.html\" alt=\"\"></map> <img alt=\"\" usemap=\"#map3\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png\" style=\"position:absolute;left:867px;top:64px;width:74px;heigh"
+      ],
+      "basename": "wpc00107b6_06.png",
+      "path": "/wpimages/wpc00107b6_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+        "bytes": 7118,
+        "sha256": "3ff84fe835a422c832dcc83015fdbd8178bada88f30cab684c604ab8ecede142",
+        "width": 74,
+        "height": 56,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+          "status": 200,
+          "bytes": 7118
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png\" style=\"position:absolute;left:13px;top:37px;width:614px;height:83px;\"/>",
+        "te;left:867px;top:64px;width:74px;height:56px;\"> <a href=\"http://www.castlesfortsbattles.co.uk/index.html\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png\" style=\"position:absolute;left:13px;top:37px;width:614px;height:83px;\">"
+      ],
+      "basename": "wp9361f621_06.png",
+      "path": "/wpimages/wp9361f621_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+        "bytes": 19832,
+        "sha256": "ae828a2f9b2759cf81645d63f7cec7248e7e2a6fb97f097e26891d986c21d653",
+        "width": 614,
+        "height": 83,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+          "status": 200,
+          "bytes": 19832
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:41px;width:383px;height:4px;\"/>",
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:114px;width:383px;height:4px;\"/>",
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:246px;width:383px;height:4px;\"/>",
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:766px;width:383px;height:4px;\"/>",
+        "tte, the summit can be accessed and gives good views of Berkhamsted. &nbsp;&nbsp;&nbsp;</span></p> </div> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:41px;width:383px;height:4px;\"> <i",
+        "rtsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:41px;width:383px;height:4px;\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:114px;width:383px;height",
+        "ysout/properties/berkhamsted-castle/\" target=\"_blank\" class=\"C-6\">English Heritage</a>.</span></p> </div> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:246px;width:383px;height:4px;\"> <",
+        "\"><span class=\"C-7\"><br></span></p> <p class=\"Normal\"><span class=\"C-3\"><br></span></p> </div> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png\" style=\"position:absolute;left:28px;top:766px;width:383px;height:4px;\"> <div style=\""
+      ],
+      "basename": "wp62e94555_06.png",
+      "path": "/wpimages/wp62e94555_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+        "bytes": 159,
+        "sha256": "ee0e6971c8ec769f36fc208a25f3466b21d37fb485b2b95229561c15decd48c3",
+        "width": 383,
+        "height": 4,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+          "status": 200,
+          "bytes": 159
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp7c2e66cd_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"England &gt; Eastern England\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp7c2e66cd_06.png\" style=\"position:absolute;left:20px;top:220px;width:229px;height:23px;\" usemap=\"#map4\"/>",
+        "://www.castlesfortsbattles.co.uk/castles_england.html\" alt=\"\"> </map> <img alt=\"England > Eastern England\" usemap=\"#map4\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp7c2e66cd_06.png\" style=\"position:absolute;left:20px;top:220px;width:229px;height:23px"
+      ],
+      "basename": "wp7c2e66cd_06.png",
+      "path": "/wpimages/wp7c2e66cd_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp7c2e66cd_06.png",
+        "bytes": 1871,
+        "sha256": "1f8dfae9fe7ac72bb9d8e8b36154cafa84b134728785cf7bb17b41d7ec9b6d91",
+        "width": 229,
+        "height": 23,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp7c2e66cd_06.png",
+          "status": 200,
+          "bytes": 1871
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpd6a503f0_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"BERKHAMSTED CASTLE\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpd6a503f0_06.png\" style=\"position:absolute;left:20px;top:252px;width:586px;height:59px;\"/>",
+        "pimages/wp7c2e66cd_06.png\" style=\"position:absolute;left:20px;top:220px;width:229px;height:23px;\"> <img alt=\"BERKHAMSTED CASTLE\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpd6a503f0_06.png\" style=\"position:absolute;left:20px;top:252px;width:586px;heig"
+      ],
+      "basename": "wpd6a503f0_06.png",
+      "path": "/wpimages/wpd6a503f0_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpd6a503f0_06.png",
+        "bytes": 5821,
+        "sha256": "366b58ca02727e310310ea2df2d0fa107e5aada7c4fd8664319354e33eea2279",
+        "width": 586,
+        "height": 59,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpd6a503f0_06.png",
+          "status": 200,
+          "bytes": 5821
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG",
+      "where": [
+        "a[href]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg\" style=\"position:absolute;left:20px;top:320px;width:920px;height:372px;\"/> </a>",
+        "astlesfortsbattles.co.uk/wpimages/wpd6a503f0_06.png\" style=\"position:absolute;left:20px;top:252px;width:586px;height:59px;\"> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/"
+      ],
+      "basename": "Berkhamsted_Castle5.JPG",
+      "path": "/Berkhamsted_Castle5.JPG",
+      "name_decorative_hint": false,
+      "same_capture": null,
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "http://castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "https://www.castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "https://castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG",
+          "status": 404,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg\" style=\"position:absolute;left:20px;top:320px;width:920px;height:372px;\"/>",
+        "op:252px;width:586px;height:59px;\"> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle5.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg\" style=\"position:absolute;left:20px;top:320px;width:920px;height:372"
+      ],
+      "basename": "wp734492f9_05_06.jpg",
+      "path": "/wpimages/wp734492f9_05_06.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg",
+        "bytes": 229175,
+        "sha256": "3b9b5676445b291f2aebd789ec3598590f3c60efb45cb06dd035e7247ac55f5d",
+        "width": 920,
+        "height": 372,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp734492f9_05_06.jpg",
+          "status": 200,
+          "bytes": 229175
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png\" style=\"position:absolute;left:503px;top:779px;width:437px;height:4px;\"/>",
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png\" style=\"position:absolute;left:503px;top:2230px;width:437px;height:4px;\"/>",
+        "e Elizabethan period it was indefensible by the Civil War and played no part in the action.</span></p> </div> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png\" style=\"position:absolute;left:503px;top:779px;width:437px;height:4px",
+        "rtsbattles.co.uk/wpimages/wp840a2574_06.png\" style=\"position:absolute;left:503px;top:779px;width:437px;height:4px;\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png\" style=\"position:absolute;left:503px;top:2230px;width:437px;he"
+      ],
+      "basename": "wp840a2574_06.png",
+      "path": "/wpimages/wp840a2574_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+        "bytes": 159,
+        "sha256": "0751b163c7a8cb8b352108d22cd0733966559acb4284acc39d4d6ab48d867a9e",
+        "width": 437,
+        "height": 4,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+          "status": 200,
+          "bytes": 159
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG",
+      "where": [
+        "a[href]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp83d787a1_05_06.jpg\" style=\"position:absolute;left:20px;top:779px;width:476px;height:316px;\"/> </a>",
+        "stlesfortsbattles.co.uk/wpimages/wp840a2574_06.png\" style=\"position:absolute;left:503px;top:2230px;width:437px;height:4px;\"> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/"
+      ],
+      "basename": "Berkhamsted_Castle3.JPG",
+      "path": "/Berkhamsted_Castle3.JPG",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG",
+        "bytes": 227430,
+        "sha256": "6f780eeb60b7dfc28c664f9503768662b97aa3ecea0bd303d94b51fcc1671a73",
+        "width": 800,
+        "height": 532,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG",
+          "status": 200,
+          "bytes": 227430
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp83d787a1_05_06.jpg",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp83d787a1_05_06.jpg\" style=\"position:absolute;left:20px;top:779px;width:476px;height:316px;\"/>",
+        "op:2230px;width:437px;height:4px;\"> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle3.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp83d787a1_05_06.jpg\" style=\"position:absolute;left:20px;top:779px;width:476px;height:316"
+      ],
+      "basename": "wp83d787a1_05_06.jpg",
+      "path": "/wpimages/wp83d787a1_05_06.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp83d787a1_05_06.jpg",
+        "bytes": 86478,
+        "sha256": "c28c95f92f5d745283bb26d296c019de2f71e4550575db6983fa035e028714c7",
+        "width": 476,
+        "height": 316,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp83d787a1_05_06.jpg",
+          "status": 200,
+          "bytes": 86478
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG",
+      "where": [
+        "a[href]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg\" style=\"position:absolute;left:23px;top:2258px;width:916px;height:259px;\"/> </a>",
+        "es.co.uk/wpimages/wp83d787a1_05_06.jpg\" style=\"position:absolute;left:20px;top:779px;width:476px;height:316px;\"> </a> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9e5d"
+      ],
+      "basename": "Berkhamsted_Castle14.JPG",
+      "path": "/Berkhamsted_Castle14.JPG",
+      "name_decorative_hint": false,
+      "same_capture": null,
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "http://castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "https://www.castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG",
+          "status": 404,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "https://castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG",
+          "status": 404,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg\" style=\"position:absolute;left:23px;top:2258px;width:916px;height:259px;\"/>",
+        ":476px;height:316px;\"> </a> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle14.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg\" style=\"position:absolute;left:23px;top:2258px;width:916px;height:259px;\"> "
+      ],
+      "basename": "wp9e5df471_05_06.jpg",
+      "path": "/wpimages/wp9e5df471_05_06.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg",
+        "bytes": 103805,
+        "sha256": "c86dbda6817468db45c1ff1a57fa294f7d91571936e8f160c319317b8e311cfb",
+        "width": 916,
+        "height": 259,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg",
+          "status": null,
+          "bytes": 0
+        },
+        {
+          "timestamp": "20220826203529",
+          "url": "http://castlesfortsbattles.co.uk/wpimages/wp9e5df471_05_06.jpg",
+          "status": 200,
+          "bytes": 103805
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG",
+      "where": [
+        "a[href]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee51a_05_06.jpg\" style=\"position:absolute;left:23px;top:2534px;width:918px;height:332px;\"/> </a>",
+        "s.co.uk/wpimages/wp9e5df471_05_06.jpg\" style=\"position:absolute;left:23px;top:2258px;width:916px;height:259px;\"> </a> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee"
+      ],
+      "basename": "Berkhamsted_Castle6.JPG",
+      "path": "/Berkhamsted_Castle6.JPG",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG",
+        "bytes": 110472,
+        "sha256": "56ce154e93fb0869d5d3b337547b6e0e94689b5d0156afb0b1b6d01e2979ba97",
+        "width": 800,
+        "height": 289,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG",
+          "status": 200,
+          "bytes": 110472
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee51a_05_06.jpg",
+      "where": [
+        "img[src]",
+        "raw-html"
+      ],
+      "contexts": [
+        "<img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee51a_05_06.jpg\" style=\"position:absolute;left:23px;top:2534px;width:918px;height:332px;\"/>",
+        "h:916px;height:259px;\"> </a> <a href=\"http://www.castlesfortsbattles.co.uk/Berkhamsted_Castle6.JPG\"> <img alt=\"\" src=\"http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee51a_05_06.jpg\" style=\"position:absolute;left:23px;top:2534px;width:918px;height:332px;\"> "
+      ],
+      "basename": "wpf5aee51a_05_06.jpg",
+      "path": "/wpimages/wpf5aee51a_05_06.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee51a_05_06.jpg",
+        "bytes": 151850,
+        "sha256": "4b0b1c29600d47bca0e64510e435135479fc4d6482ea05effd82cc78442fde57",
+        "width": 918,
+        "height": 332,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpf5aee51a_05_06.jpg",
+          "status": 200,
+          "bytes": 151850
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp0d2836ef_06.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "ink rel=\"stylesheet\" type=\"text/css\" href=\"wpscripts/wpstyles.css\"> <style type=\"text/css\"> .OBJ-1 { background:transparent url('http://www.castlesfortsbattles.co.uk/wpimages/wp0d2836ef_06.png') no-repeat 0px 0px; } .OBJ-2,.OBJ-2:link,.OBJ-2:visited { backgrou"
+      ],
+      "basename": "wp0d2836ef_06.png",
+      "path": "/wpimages/wp0d2836ef_06.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp0d2836ef_06.png",
+        "bytes": 1168,
+        "sha256": "f63f89b01d6f43ec09c914962c14bc55a35cc67303b2f5de219acd7a35f2e9ee",
+        "width": 960,
+        "height": 43,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp0d2836ef_06.png",
+          "status": 200,
+          "bytes": 1168
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp51df86fb.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        ":hover, a:hover .C-10, a.C-10:active, a:active .C-10 { color:inherit;text-decoration:inherit; } .OBJ-10 { background:transparent url('http://www.castlesfortsbattles.co.uk/wpimages/wp51df86fb.png') no-repeat left top; } </style> <script type=\"text/javascript\" s"
+      ],
+      "basename": "wp51df86fb.png",
+      "path": "/wpimages/wp51df86fb.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp51df86fb.png",
+        "bytes": 433,
+        "sha256": "10307726a03664d9590a2330fa7b09c6507f9a807b95b5003e811f6e4ca2192d",
+        "width": 960,
+        "height": 49,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp51df86fb.png",
+          "status": 200,
+          "bytes": 433
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_loading_0.gif",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "false, loadingButtonSize: 38, bPageCentred: true, nPageWidth: 960, nZIndex: 100, loadingButtonSrc: 'wpimages/wpgallery_loading_0.gif', blankSrc: 'wpscripts/blank.gif', rewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', prevButtonSrc: 'wpimages/wpga"
+      ],
+      "basename": "wpgallery_loading_0.gif",
+      "path": "/east/wpimages/wpgallery_loading_0.gif",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_loading_0.gif",
+        "bytes": 15320,
+        "sha256": "d22c91b023618db385a62bdf01e9b824c5930003c18096b344dde661ffe5d5de",
+        "width": 50,
+        "height": 50,
+        "format": "GIF"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_loading_0.gif",
+          "status": 200,
+          "bytes": 15320
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpscripts/blank.gif",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "ntred: true, nPageWidth: 960, nZIndex: 100, loadingButtonSrc: 'wpimages/wpgallery_loading_0.gif', blankSrc: 'wpscripts/blank.gif', rewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', prevButtonSrc: 'wpimages/wpgallery_previous_6.png', playButton"
+      ],
+      "basename": "blank.gif",
+      "path": "/east/wpscripts/blank.gif",
+      "name_decorative_hint": true,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpscripts/blank.gif",
+        "bytes": 49,
+        "sha256": "2f561b02a49376e3679acd5975e3790abdff09ecbadfa1e1858c7ba26e3ffcef",
+        "width": 1,
+        "height": 1,
+        "format": "GIF"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpscripts/blank.gif",
+          "status": 200,
+          "bytes": 49
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_rewind_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "Index: 100, loadingButtonSrc: 'wpimages/wpgallery_loading_0.gif', blankSrc: 'wpscripts/blank.gif', rewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', prevButtonSrc: 'wpimages/wpgallery_previous_6.png', playButtonSrc: 'wpimages/wpgallery_play_6.png', pauseButt",
+        "nextButtonSrc: 'wpimages/wpgallery_next_6.png', forwardButtonSrc: 'wpimages/wpgallery_forward_6.png', thumbRewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', thumbForwardButtonSrc: 'wpimages/wpgallery_forward_6.png', rewindoverButtonSrc: 'wpimages/wpgallery_r"
+      ],
+      "basename": "wpgallery_rewind_6.png",
+      "path": "/east/wpimages/wpgallery_rewind_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_rewind_6.png",
+        "bytes": 1067,
+        "sha256": "11c9378d35a79c8377f1f1db5ae3eb207ae8836c8b4c87d8978865c299632f8a",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_rewind_6.png",
+          "status": 200,
+          "bytes": 1067
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_previous_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "loading_0.gif', blankSrc: 'wpscripts/blank.gif', rewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', prevButtonSrc: 'wpimages/wpgallery_previous_6.png', playButtonSrc: 'wpimages/wpgallery_play_6.png', pauseButtonSrc: 'wpimages/wpgallery_pause_6.png', nextButto"
+      ],
+      "basename": "wpgallery_previous_6.png",
+      "path": "/east/wpimages/wpgallery_previous_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_previous_6.png",
+        "bytes": 813,
+        "sha256": "9ad8c8c2b19bdc44c2c3a606fbfab74de372fcfca53d3d9c0eb77ae536479159",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_previous_6.png",
+          "status": 200,
+          "bytes": 813
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_play_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "rewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', prevButtonSrc: 'wpimages/wpgallery_previous_6.png', playButtonSrc: 'wpimages/wpgallery_play_6.png', pauseButtonSrc: 'wpimages/wpgallery_pause_6.png', nextButtonSrc: 'wpimages/wpgallery_next_6.png', forwardBut"
+      ],
+      "basename": "wpgallery_play_6.png",
+      "path": "/east/wpimages/wpgallery_play_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_play_6.png",
+        "bytes": 1012,
+        "sha256": "efec97832cb39af45c029370f3eea920ab63c266200322dd95e480748e1b0d5d",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_play_6.png",
+          "status": 200,
+          "bytes": 1012
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_pause_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "prevButtonSrc: 'wpimages/wpgallery_previous_6.png', playButtonSrc: 'wpimages/wpgallery_play_6.png', pauseButtonSrc: 'wpimages/wpgallery_pause_6.png', nextButtonSrc: 'wpimages/wpgallery_next_6.png', forwardButtonSrc: 'wpimages/wpgallery_forward_6.png', thumbRew"
+      ],
+      "basename": "wpgallery_pause_6.png",
+      "path": "/east/wpimages/wpgallery_pause_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_pause_6.png",
+        "bytes": 1012,
+        "sha256": "d6a6d2cd74460b97b69e14ec4f3955cc7da64112199016cc7a18540f189e9bd3",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_pause_6.png",
+          "status": 200,
+          "bytes": 1012
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_next_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "', playButtonSrc: 'wpimages/wpgallery_play_6.png', pauseButtonSrc: 'wpimages/wpgallery_pause_6.png', nextButtonSrc: 'wpimages/wpgallery_next_6.png', forwardButtonSrc: 'wpimages/wpgallery_forward_6.png', thumbRewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', "
+      ],
+      "basename": "wpgallery_next_6.png",
+      "path": "/east/wpimages/wpgallery_next_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_next_6.png",
+        "bytes": 1022,
+        "sha256": "9102f5fe29e282e1795efa1dcf11bd5b2c595852932622e07d199cb14a69cf73",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_next_6.png",
+          "status": 200,
+          "bytes": 1022
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_forward_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "pauseButtonSrc: 'wpimages/wpgallery_pause_6.png', nextButtonSrc: 'wpimages/wpgallery_next_6.png', forwardButtonSrc: 'wpimages/wpgallery_forward_6.png', thumbRewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', thumbForwardButtonSrc: 'wpimages/wpgallery_forward_",
+        "tonSrc: 'wpimages/wpgallery_forward_6.png', thumbRewindButtonSrc: 'wpimages/wpgallery_rewind_6.png', thumbForwardButtonSrc: 'wpimages/wpgallery_forward_6.png', rewindoverButtonSrc: 'wpimages/wpgallery_rewind_over_6.png', prevoverButtonSrc: 'wpimages/wpgallery_"
+      ],
+      "basename": "wpgallery_forward_6.png",
+      "path": "/east/wpimages/wpgallery_forward_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_forward_6.png",
+        "bytes": 1072,
+        "sha256": "d2813abb7cf164ed8dcf8b2518a66e67cbb1fc0112e308c7af81e80aade61865",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_forward_6.png",
+          "status": 200,
+          "bytes": 1072
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_rewind_over_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "ttonSrc: 'wpimages/wpgallery_rewind_6.png', thumbForwardButtonSrc: 'wpimages/wpgallery_forward_6.png', rewindoverButtonSrc: 'wpimages/wpgallery_rewind_over_6.png', prevoverButtonSrc: 'wpimages/wpgallery_previous_over_6.png', playoverButtonSrc: 'wpimages/wpgall",
+        "images/wpgallery_next_over_6.png', forwardoverButtonSrc: 'wpimages/wpgallery_forward_over_6.png', thumboverRewindButtonSrc: 'wpimages/wpgallery_rewind_over_6.png', thumboverForwardButtonSrc: 'wpimages/wpgallery_forward_over_6.png', strRewindToolTip: 'Reverse',"
+      ],
+      "basename": "wpgallery_rewind_over_6.png",
+      "path": "/east/wpimages/wpgallery_rewind_over_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_rewind_over_6.png",
+        "bytes": 1009,
+        "sha256": "c3d6177071395ae7731a70e58fdceb540967b0b95b3e5b01a28a319bfe5332f9",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_rewind_over_6.png",
+          "status": 200,
+          "bytes": 1009
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_previous_over_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "tonSrc: 'wpimages/wpgallery_forward_6.png', rewindoverButtonSrc: 'wpimages/wpgallery_rewind_over_6.png', prevoverButtonSrc: 'wpimages/wpgallery_previous_over_6.png', playoverButtonSrc: 'wpimages/wpgallery_play_over_6.png', pauseoverButtonSrc: 'wpimages/wpgalle"
+      ],
+      "basename": "wpgallery_previous_over_6.png",
+      "path": "/east/wpimages/wpgallery_previous_over_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_previous_over_6.png",
+        "bytes": 777,
+        "sha256": "7f502f4e05720155e7e76e0f3c2f861b3796536772353e4b01d7a2fbee5f9bac",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_previous_over_6.png",
+          "status": 200,
+          "bytes": 777
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_play_over_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "rc: 'wpimages/wpgallery_rewind_over_6.png', prevoverButtonSrc: 'wpimages/wpgallery_previous_over_6.png', playoverButtonSrc: 'wpimages/wpgallery_play_over_6.png', pauseoverButtonSrc: 'wpimages/wpgallery_pause_over_6.png', nextoverButtonSrc: 'wpimages/wpgallery_"
+      ],
+      "basename": "wpgallery_play_over_6.png",
+      "path": "/east/wpimages/wpgallery_play_over_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_play_over_6.png",
+        "bytes": 971,
+        "sha256": "1fbb3216e143cc721b67e8f7080405711ff0e1dfb34d884084cb0f1a32e2eb3e",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_play_over_6.png",
+          "status": 200,
+          "bytes": 971
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_pause_over_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "Src: 'wpimages/wpgallery_previous_over_6.png', playoverButtonSrc: 'wpimages/wpgallery_play_over_6.png', pauseoverButtonSrc: 'wpimages/wpgallery_pause_over_6.png', nextoverButtonSrc: 'wpimages/wpgallery_next_over_6.png', forwardoverButtonSrc: 'wpimages/wpgaller"
+      ],
+      "basename": "wpgallery_pause_over_6.png",
+      "path": "/east/wpimages/wpgallery_pause_over_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_pause_over_6.png",
+        "bytes": 995,
+        "sha256": "5c541dee8c48a1b5474c525ff9d24aecbce2d96d0ed6e635bc67717e2308247d",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_pause_over_6.png",
+          "status": 200,
+          "bytes": 995
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_next_over_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "tonSrc: 'wpimages/wpgallery_play_over_6.png', pauseoverButtonSrc: 'wpimages/wpgallery_pause_over_6.png', nextoverButtonSrc: 'wpimages/wpgallery_next_over_6.png', forwardoverButtonSrc: 'wpimages/wpgallery_forward_over_6.png', thumboverRewindButtonSrc: 'wpimages"
+      ],
+      "basename": "wpgallery_next_over_6.png",
+      "path": "/east/wpimages/wpgallery_next_over_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_next_over_6.png",
+        "bytes": 965,
+        "sha256": "781ccdeebe8bc54f62146decce7917b75b8c23f4a12da90c81dcbeb66b30a8c8",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_next_over_6.png",
+          "status": 200,
+          "bytes": 965
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_forward_over_6.png",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "nSrc: 'wpimages/wpgallery_pause_over_6.png', nextoverButtonSrc: 'wpimages/wpgallery_next_over_6.png', forwardoverButtonSrc: 'wpimages/wpgallery_forward_over_6.png', thumboverRewindButtonSrc: 'wpimages/wpgallery_rewind_over_6.png', thumboverForwardButtonSrc: 'w",
+        "wpgallery_forward_over_6.png', thumboverRewindButtonSrc: 'wpimages/wpgallery_rewind_over_6.png', thumboverForwardButtonSrc: 'wpimages/wpgallery_forward_over_6.png', strRewindToolTip: 'Reverse', strPreviousToolTip: 'Previous', strPlayToolTip: 'Play', strPauseTo"
+      ],
+      "basename": "wpgallery_forward_over_6.png",
+      "path": "/east/wpimages/wpgallery_forward_over_6.png",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_forward_over_6.png",
+        "bytes": 1019,
+        "sha256": "bcfccf9b9bbe5b70072bf551b443112cb7d7bfef935b96d3f168ebf90dd68413",
+        "width": 24,
+        "height": 24,
+        "format": "PNG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/wpgallery_forward_over_6.png",
+          "status": 200,
+          "bytes": 1019
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "}); var nImgNum_pg_6 = 0; wp_imgArray_pg_6 = new Array(); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/1c563b6235e0.jpg\", 471, 313, \"wpimages/1c563b6235e0t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/5697528b"
+      ],
+      "basename": "1c563b6235e0.jpg",
+      "path": "/east/wpimages/1c563b6235e0.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0.jpg",
+        "bytes": 42155,
+        "sha256": "a2d5bbcd62b58f81f5e37dff1a08a8df11f70fe29c7844466401e7c3930d0a68",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0.jpg",
+          "status": 200,
+          "bytes": 42155
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0t.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "wp_imgArray_pg_6 = new Array(); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/1c563b6235e0.jpg\", 471, 313, \"wpimages/1c563b6235e0t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/5697528b7cfc.jpg\", 471, 313, \"wpim"
+      ],
+      "basename": "1c563b6235e0t.jpg",
+      "path": "/east/wpimages/1c563b6235e0t.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0t.jpg",
+        "bytes": 3840,
+        "sha256": "808f8a7441bbb7f596e3a370a0285d209594421fe027f496b14e6c185b54b5f8",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/1c563b6235e0t.jpg",
+          "status": 200,
+          "bytes": 3840
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfc.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/1c563b6235e0.jpg\", 471, 313, \"wpimages/1c563b6235e0t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/5697528b7cfc.jpg\", 471, 313, \"wpimages/5697528b7cfct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimag"
+      ],
+      "basename": "5697528b7cfc.jpg",
+      "path": "/east/wpimages/5697528b7cfc.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfc.jpg",
+        "bytes": 41670,
+        "sha256": "e76dd08025baee2242aca07899f7b67de72c769e37d961b12dda0cd1ac6eaa34",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfc.jpg",
+          "status": 200,
+          "bytes": 41670
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfct.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/1c563b6235e0t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/5697528b7cfc.jpg\", 471, 313, \"wpimages/5697528b7cfct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/232291f8a2ce.jpg\", 471, 313"
+      ],
+      "basename": "5697528b7cfct.jpg",
+      "path": "/east/wpimages/5697528b7cfct.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfct.jpg",
+        "bytes": 3962,
+        "sha256": "980c0ef86a1dca2c8fe7a275daf7b1c41ea2d33c3d42260f2ab193113ce68463",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/5697528b7cfct.jpg",
+          "status": 200,
+          "bytes": 3962
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2ce.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/5697528b7cfc.jpg\", 471, 313, \"wpimages/5697528b7cfct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/232291f8a2ce.jpg\", 471, 313, \"wpimages/232291f8a2cet.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimag"
+      ],
+      "basename": "232291f8a2ce.jpg",
+      "path": "/east/wpimages/232291f8a2ce.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2ce.jpg",
+        "bytes": 29678,
+        "sha256": "97633724f0351fa03b444039f6089b678cdc570762e2add8bb669647d689024c",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2ce.jpg",
+          "status": 200,
+          "bytes": 29678
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2cet.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/5697528b7cfct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/232291f8a2ce.jpg\", 471, 313, \"wpimages/232291f8a2cet.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/ee9d87824b02.jpg\", 471, 313"
+      ],
+      "basename": "232291f8a2cet.jpg",
+      "path": "/east/wpimages/232291f8a2cet.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2cet.jpg",
+        "bytes": 3260,
+        "sha256": "4999d0e38cb9ac8cc3f9d6ce41045741740a3bf67e6503be84e9c6dd52275e97",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/232291f8a2cet.jpg",
+          "status": 200,
+          "bytes": 3260
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/232291f8a2ce.jpg\", 471, 313, \"wpimages/232291f8a2cet.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/ee9d87824b02.jpg\", 471, 313, \"wpimages/ee9d87824b02t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimag"
+      ],
+      "basename": "ee9d87824b02.jpg",
+      "path": "/east/wpimages/ee9d87824b02.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02.jpg",
+        "bytes": 35417,
+        "sha256": "ae529144eaf4f1a1e1aabcb51a9714e1e84648e7b35ab02d7dd26b45686a9523",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02.jpg",
+          "status": 200,
+          "bytes": 35417
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02t.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/232291f8a2cet.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/ee9d87824b02.jpg\", 471, 313, \"wpimages/ee9d87824b02t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/71d26cb4d558.jpg\", 471, 313"
+      ],
+      "basename": "ee9d87824b02t.jpg",
+      "path": "/east/wpimages/ee9d87824b02t.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02t.jpg",
+        "bytes": 3566,
+        "sha256": "d4f7dba8526f913aa5fb8851660c17b8b9ac829cb9dd67c89a4de92679cd1992",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ee9d87824b02t.jpg",
+          "status": 200,
+          "bytes": 3566
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/ee9d87824b02.jpg\", 471, 313, \"wpimages/ee9d87824b02t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/71d26cb4d558.jpg\", 471, 313, \"wpimages/71d26cb4d558t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimag"
+      ],
+      "basename": "71d26cb4d558.jpg",
+      "path": "/east/wpimages/71d26cb4d558.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558.jpg",
+        "bytes": 48044,
+        "sha256": "a59f0d87c0ad1448631309874fafdc912147c048772c410a7daadcd522e2c5ba",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558.jpg",
+          "status": 200,
+          "bytes": 48044
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558t.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/ee9d87824b02t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/71d26cb4d558.jpg\", 471, 313, \"wpimages/71d26cb4d558t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/b3c35290128f.jpg\", 471, 313"
+      ],
+      "basename": "71d26cb4d558t.jpg",
+      "path": "/east/wpimages/71d26cb4d558t.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558t.jpg",
+        "bytes": 4627,
+        "sha256": "a219f94e77bca863fc21c021247a6c3a84ff6a9455f8ef11b68b6c7706f4ada0",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/71d26cb4d558t.jpg",
+          "status": 200,
+          "bytes": 4627
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128f.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/71d26cb4d558.jpg\", 471, 313, \"wpimages/71d26cb4d558t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/b3c35290128f.jpg\", 471, 313, \"wpimages/b3c35290128ft.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimag"
+      ],
+      "basename": "b3c35290128f.jpg",
+      "path": "/east/wpimages/b3c35290128f.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128f.jpg",
+        "bytes": 51830,
+        "sha256": "f89d38cc0499ec586e4b2b1fde997051961dff7dad66487e86c2c8a69861af6a",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128f.jpg",
+          "status": 200,
+          "bytes": 51830
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128ft.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/71d26cb4d558t.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/b3c35290128f.jpg\", 471, 313, \"wpimages/b3c35290128ft.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/ebf86048229c.jpg\", 471, 313"
+      ],
+      "basename": "b3c35290128ft.jpg",
+      "path": "/east/wpimages/b3c35290128ft.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128ft.jpg",
+        "bytes": 4804,
+        "sha256": "1f4353a7766bc74b7cb8ca8e6cead4e9f1ca5ffe5be7638e57b471a98431a561",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/b3c35290128ft.jpg",
+          "status": 200,
+          "bytes": 4804
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229c.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/b3c35290128f.jpg\", 471, 313, \"wpimages/b3c35290128ft.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/ebf86048229c.jpg\", 471, 313, \"wpimages/ebf86048229ct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimag"
+      ],
+      "basename": "ebf86048229c.jpg",
+      "path": "/east/wpimages/ebf86048229c.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229c.jpg",
+        "bytes": 40300,
+        "sha256": "65d04e4631e7e21978bc4621427ea0e44945eec39bab840423730c61d1347492",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229c.jpg",
+          "status": 200,
+          "bytes": 40300
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229ct.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/b3c35290128ft.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/ebf86048229c.jpg\", 471, 313, \"wpimages/ebf86048229ct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/bbb915593e82.jpg\", 471, 313"
+      ],
+      "basename": "ebf86048229ct.jpg",
+      "path": "/east/wpimages/ebf86048229ct.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229ct.jpg",
+        "bytes": 3982,
+        "sha256": "6c4ed743b59d931dac11c7ce4c42f4a023612e1794160dc6cf7b9a2eb66d3681",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/ebf86048229ct.jpg",
+          "status": 200,
+          "bytes": 3982
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "age(\"wpimages/ebf86048229c.jpg\", 471, 313, \"wpimages/ebf86048229ct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/bbb915593e82.jpg\", 471, 313, \"wpimages/bbb915593e82t.jpg\", \"\"); </script> </head> <body style=\"height:2981px;backgrou"
+      ],
+      "basename": "bbb915593e82.jpg",
+      "path": "/east/wpimages/bbb915593e82.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82.jpg",
+        "bytes": 51868,
+        "sha256": "8fee2daa4e8e154ef38a01843f5da93b71e93639981bbdb71cd026b565cc32e8",
+        "width": 471,
+        "height": 313,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82.jpg",
+          "status": 200,
+          "bytes": 51868
+        }
+      ]
+    },
+    {
+      "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82t.jpg",
+      "where": [
+        "raw-html"
+      ],
+      "contexts": [
+        "13, \"wpimages/ebf86048229ct.jpg\", \"\"); wp_imgArray_pg_6[nImgNum_pg_6++] = new wp_galleryimage(\"wpimages/bbb915593e82.jpg\", 471, 313, \"wpimages/bbb915593e82t.jpg\", \"\"); </script> </head> <body style=\"height:2981px;background:#ffffff;\"> <div id=\"divMain\" style=\""
+      ],
+      "basename": "bbb915593e82t.jpg",
+      "path": "/east/wpimages/bbb915593e82t.jpg",
+      "name_decorative_hint": false,
+      "same_capture": {
+        "timestamp": "20220826203529",
+        "archive_original": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82t.jpg",
+        "bytes": 4681,
+        "sha256": "4ec54dc0ae18a1a932aa3bf9f50ddcbf5d1752f341e5e699c5f9eb7cda3dce59",
+        "width": 100,
+        "height": 100,
+        "format": "JPEG"
+      },
+      "attempts": [
+        {
+          "timestamp": "20220826203529",
+          "url": "http://www.castlesfortsbattles.co.uk/east/wpimages/bbb915593e82t.jpg",
+          "status": 200,
+          "bytes": 4681
+        }
+      ]
+    }
+  ],
+  "gallery_declarations": [],
+  "text_blocks": [
+    {
+      "tag": "p",
+      "text": "BERKHAMSTED CASTLE, HP4 1HD"
+    },
+    {
+      "tag": "p",
+      "text": "GETTING THERE"
+    },
+    {
+      "tag": "p",
+      "text": "Postcode: HP4 1HD"
+    },
+    {
+      "tag": "p",
+      "text": "Lat/Long: 51.7638N 0.5593W"
+    },
+    {
+      "tag": "p",
+      "text": "Notes:  Castle is in Berkhamsted in vicinity of the Railway Station. Sign posts point to castle. Car parking is available on Whitehill road directly outside castle or at railway station (pay and display)."
+    },
+    {
+      "tag": "p",
+      "text": "WHAT IS THERE TO SEE?"
+    },
+    {
+      "tag": "p",
+      "text": "A ruined, but nonetheless, impressive motte and bailey castle. Although not much remains of the structure on top of the motte, the summit can be accessed and gives good views of Berkhamsted."
+    },
+    {
+      "tag": "p",
+      "text": "VISIT OFFICIAL SITE (Opens in new window)"
+    },
+    {
+      "tag": "p",
+      "text": "Castle is managed by English Heritage ."
+    },
+    {
+      "tag": "p",
+      "text": "ADDITIONAL NOTES"
+    },
+    {
+      "tag": "p",
+      "text": "1. The castle had a lucky escape - Victorian railway designers sought to build the London to Birmingham Railway directly through the site of Berkhamsted Castle (Berwick-upon-Tweed Castle met a similar fate) but was saved by local opposition. The Act of Parliament that authorised the construction of the railway also protected the castle making it the first such property to be protected by law."
+    },
+    {
+      "tag": "p",
+      "text": "2. When Cecily Neville died she described herself as mother to the late King Edward IV. She made no mention in her will of her other Royal son, Richard III. Perhaps an indication of estrangement between the two?"
+    },
+    {
+      "tag": "p",
+      "text": "Situated near Watling Road and only fifteen miles from London, Berkhamsted Castle was a popular home for the medieval aristocracy. Thomas Ã  Becket, Richard Earl of Cornwall and Edward Black Prince of Wales all lived here and King John II of France, after his catastrophic defeat at Poiters, was held prisoner in the castle."
+    },
+    {
+      "tag": "p",
+      "text": "HISTORY OF BERKHAMSTED CASTLE"
+    },
+    {
+      "tag": "p",
+      "text": "Berkhamsted Castle was built in the very early days of the Norman Conquest; William I, having landed near Pevensey and defeating Harold at the Battle of Hastings , proceeded north towards Hertfordshire before entering London. Given the strategic location, situated near Watling Road, William built an earth and timber motte-and-bailey at Berkhamsted to control the area. Concurrently it was here that he met Ealdred, Archbishop of York and other key Anglo-Saxon aristocrats who swore fealty to him and offered him the Crown. William was crowned in London on Christmas Day 1066."
+    },
+    {
+      "tag": "p",
+      "text": "By 1086 the castle was in the hands of Robert of Mortain, half-brother to William but was seemingly destroyed when his son rebelled against Henry I. With the lands confiscated it was then granted to Randulph, Lord Chancellor who constructed a new castle albeit another timber framed building. In 1155 Thomas Ã  Becket, then Lord Chancellor, was granted the honour of Berkhamsted by King Henry II and spent significant sums rebuilding much of the castle in stone. After being promoted to Archbishop of Canterbury, Thomas famously fell from favour and Berkhamsted was confiscated in 1164. Henry II retained the castle in Royal ownership and recognised the associated settlement as a town."
+    },
+    {
+      "tag": "p",
+      "text": "During the reign of King John (1199 to 1216) tensions between the monarchy and his Barons erupted into the First Barons War. Berkhamsted was caught up in the fight with John ordering the defences to be significantly upgraded in 1215. This proved timely as, to aid their cause, the Barons had invited Prince Louis of France to invade England and seize the throne. Although John died in October 1216 (at Newark Castle), the war raged on and Berkhamsted was besieged in December 1216. After a siege of twenty days, including extensive bombardment, the castle was surrendered. Louis' campaign however came to nothing; defeated just five months later at the Battle of Lincoln (1217) coupled with the accession of young King Henry III, hostilities between the Crown and the Barons came to an end. The castle was returned to Royal ownership the same year."
+    },
+    {
+      "tag": "p",
+      "text": "John had passed Berkhamsted Castle to his wife and through her it passed to Richard, Earl of Cornwall. He used it as his primary residence ultimately dying there in 1272. The castle then passed with the Earl of Cornwall title to Piers Gaveston, unpopular favourite of Edward II, before ending up with Edward, Prince of Wales (the Black Prince). He spent much time in the castle, including his honeymoon, and after his great victory at the Battle of Poitiers (1356) he held his prisoner, King John II of France, here. Edward died at Berkhamsted in 1376."
+    },
+    {
+      "tag": "p",
+      "text": "The castle played no active part in the Wars of the Roses but did act as a home to Cecily Neville, mother of Edward IV, during both her son's reign. She died in 1495 and the castle was thereafter neglected. Quarried for stone throughout the Elizabethan period it was indefensible by the Civil War and played no part in the action."
+    },
+    {
+      "tag": "p",
+      "text": "Â© Copyright 2016 | Terms and Conditions (inc Cookie Policy) | Contact Us"
+    }
+  ],
+  "note": "Inspection only. Raw image-reference count is NOT the historic content-image count; responsive variants, thumbnails and interface graphics must be reconciled manually."
+}
