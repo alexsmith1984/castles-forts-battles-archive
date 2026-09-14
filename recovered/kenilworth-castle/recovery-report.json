@@ -1,43 +1,160 @@
 {
   "name": "Kenilworth Castle",
-  "status": "built",
+  "status": "PARTIAL",
   "original_url": "http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
   "supplied_capture": "20220826212821",
   "source_timestamp_used": "20220826212821",
   "source_original_used": "http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
   "text_blocks_preserved": 20,
-  "original_image_positions_identified": 3,
+  "original_image_positions_identified": 16,
   "desktop_image_identities": [
     "kenilworth_castle1",
     "kenilworth_castle9",
+    "gallery_dc20d5b234f9",
+    "gallery_267af4eccf9b",
+    "gallery_7cd4ac90e6b4",
+    "gallery_cfda0b0df50a",
+    "gallery_79ec23415d55",
+    "gallery_c092400f91eb",
+    "gallery_88e2a1bbb494",
+    "gallery_4e73e53f9d96",
+    "gallery_6a16fdfe86c4",
+    "gallery_eb2e38e12c08",
+    "gallery_9e9bfb929265",
+    "gallery_ff7a7893da34",
+    "gallery_28181a0a6a1c",
     "kenilworth_castle15"
   ],
   "recovered_full_or_near_full": 0,
   "recovered_thumbnail_or_lower_resolution": 0,
-  "still_missing": 3,
+  "still_missing": 16,
   "uncertain_identifications": [],
   "images": [],
   "missing": [
     {
+      "identity": "kenilworth_castle1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG",
+        "https://www.castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG",
+        "http://castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG",
+        "https://castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG"
+      ]
+    },
+    {
       "identity": "kenilworth_castle9",
       "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG"
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG",
+        "https://www.castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG",
+        "http://castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG",
+        "https://castlesfortsbattles.co.uk/Kenilworth_Castle9.JPG"
+      ]
+    },
+    {
+      "identity": "gallery_dc20d5b234f9",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/dc20d5b234f9.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/dc20d5b234f9t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_267af4eccf9b",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/267af4eccf9b.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/267af4eccf9bt.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_7cd4ac90e6b4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/7cd4ac90e6b4.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/7cd4ac90e6b4t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_cfda0b0df50a",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/cfda0b0df50a.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/cfda0b0df50at.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_79ec23415d55",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/79ec23415d55.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/79ec23415d55t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_c092400f91eb",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/c092400f91eb.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/c092400f91ebt.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_88e2a1bbb494",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/88e2a1bbb494.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/88e2a1bbb494t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_4e73e53f9d96",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/4e73e53f9d96.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/4e73e53f9d96t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_6a16fdfe86c4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/6a16fdfe86c4.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/6a16fdfe86c4t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_eb2e38e12c08",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/eb2e38e12c08.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/eb2e38e12c08t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_9e9bfb929265",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/9e9bfb929265.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/9e9bfb929265t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_ff7a7893da34",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/ff7a7893da34.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/ff7a7893da34t.jpg"
+      ]
+    },
+    {
+      "identity": "gallery_28181a0a6a1c",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/wpimages/28181a0a6a1c.jpg",
+        "http://www.castlesfortsbattles.co.uk/wpimages/28181a0a6a1ct.jpg"
       ]
     },
     {
       "identity": "kenilworth_castle15",
       "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg"
-      ]
-    },
-    {
-      "identity": "kenilworth_castle1",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle1.JPG"
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg",
+        "https://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg",
+        "http://castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg",
+        "https://castlesfortsbattles.co.uk/Kenilworth_Castle15.jpg",
+        "http://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.JPG",
+        "https://www.castlesfortsbattles.co.uk/Kenilworth_Castle15.JPG",
+        "http://castlesfortsbattles.co.uk/Kenilworth_Castle15.JPG",
+        "https://castlesfortsbattles.co.uk/Kenilworth_Castle15.JPG"
       ]
     }
   ],
-  "counting_method": "Unique non-decorative content-image identities from the desktop source. Adobe Muse WIDTHxHEIGHT responsive variants are mapped to the underlying identity and not counted separately.",
+  "counting_method": "Five standalone content-image positions plus fourteen genuine WebPlus gallery photographs declared in wp_imgArray_pg_7. Navigation/UI/social graphics and gallery thumbnails are not counted separately.",
   "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
   "deep_recovery_history": [
     {
@@ -48,6 +165,36 @@
         "kenilworth_castle15",
         "kenilworth_castle1"
       ]
+    },
+    {
+      "date": "2026-09-14",
+      "method": "same capture + Wayback history + Arquivo.pt + Common Crawl + authenticated WebPlus display fallbacks",
+      "recovered": [],
+      "remaining": [
+        "kenilworth_castle1",
+        "kenilworth_castle9",
+        "gallery_dc20d5b234f9",
+        "gallery_267af4eccf9b",
+        "gallery_7cd4ac90e6b4",
+        "gallery_cfda0b0df50a",
+        "gallery_79ec23415d55",
+        "gallery_c092400f91eb",
+        "gallery_88e2a1bbb494",
+        "gallery_4e73e53f9d96",
+        "gallery_6a16fdfe86c4",
+        "gallery_eb2e38e12c08",
+        "gallery_9e9bfb929265",
+        "gallery_ff7a7893da34",
+        "gallery_28181a0a6a1c",
+        "kenilworth_castle15"
+      ]
     }
+  ],
+  "external_archive_search_completed": true,
+  "external_archive_methods": [
+    "Wayback supplied capture",
+    "Wayback exact-history CDX",
+    "Arquivo.pt exact filename",
+    "Common Crawl representative 2016-2023 indexes"
   ]
 }
