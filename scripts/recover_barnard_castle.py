@@ -71,35 +71,52 @@ def cdx(u):
     return list(uniq.values())
 
 def recover(ident,full,thumb):
-    attempts=[]
-    for u in variants(full):attempts.append((TS,u,"same-capture",True))
+    # Fast path: try the supplied page timestamp first.
+    same=[]
+    for u in variants(full):
+      r=get(raw(TS,u),8);z=good(r)
+      if z:same.append((z[0]*z[1],u,r.content,z))
+    if same:
+      same.sort(key=lambda x:(x[0],len(x[2])),reverse=True)
+      _,u,b,z=same[0]
+      ext=os.path.splitext(urlsplit(u).path)[1].lower()
+      if ext not in (".jpg",".jpeg",".png",".gif",".webp"):ext=".jpg"
+      p=IMG/(ident+ext);p.write_bytes(b)
+      return {"identity":ident,"file":"images/"+p.name,"archive_timestamp":TS,"archive_original":u,
+              "method":"same-capture","dimensions":[z[0],z[1]],"bytes":len(b),
+              "sha256":hashlib.sha256(b).hexdigest(),"quality":"full/near-full","identification":"certain"}
+
+    # Slow path only for a genuinely missing full-size original.
     rows=cdx(full)
     rows.sort(key=lambda x:(int(x.get("length") or 0),x.get("timestamp","")),reverse=True)
-    for x in rows:attempts.append((x["timestamp"],x["original"],"cdx-exact",True))
+    best=None
+    for x in rows:
+      r=get(raw(x["timestamp"],x["original"]),8);z=good(r)
+      if not z:continue
+      rank=(z[0]*z[1],len(r.content))
+      if best is None or rank>best[0]:best=(rank,x,r.content,z)
+    if best:
+      _,x,b,z=best
+      ext=os.path.splitext(urlsplit(x["original"]).path)[1].lower()
+      if ext not in (".jpg",".jpeg",".png",".gif",".webp"):ext=".jpg"
+      p=IMG/(ident+ext);p.write_bytes(b)
+      return {"identity":ident,"file":"images/"+p.name,"archive_timestamp":x["timestamp"],"archive_original":x["original"],
+              "method":"cdx-exact","dimensions":[z[0],z[1]],"bytes":len(b),
+              "sha256":hashlib.sha256(b).hexdigest(),"quality":"full/near-full","identification":"certain"}
+
+    # Last resort: an archived on-page thumbnail of the same photograph.
     fallback=thumb or THUMB_FALLBACK.get(ident)
     if fallback:
-      for u in variants(fallback):attempts.append((TS,u,"same-capture-thumbnail",False))
-      rows=cdx(fallback)
-      rows.sort(key=lambda x:(int(x.get("length") or 0),x.get("timestamp","")),reverse=True)
-      for x in rows:attempts.append((x["timestamp"],x["original"],"cdx-thumbnail",False))
-    seen=set();best=None
-    for ts,u,method,isfull in attempts:
-      if (ts,u) in seen:continue
-      seen.add((ts,u))
-      r=get(raw(ts,u),10);z=good(r)
-      if not z:continue
-      rank=(1 if isfull else 0,z[0]*z[1],len(r.content))
-      if best is None or rank>best[0]:best=(rank,ts,u,method,isfull,r.content,z)
-    if not best:return None
-    _,ts,u,method,isfull,b,z=best
-    ext=os.path.splitext(urlsplit(u).path)[1].lower()
-    if ext not in (".jpg",".jpeg",".png",".gif",".webp"):ext=".jpg"
-    p=IMG/(ident+ext);p.write_bytes(b)
-    return {"identity":ident,"file":"images/"+p.name,"archive_timestamp":ts,"archive_original":u,
-            "method":method,"dimensions":[z[0],z[1]],"bytes":len(b),
-            "sha256":hashlib.sha256(b).hexdigest(),
-            "quality":"full/near-full" if isfull else "thumbnail/lower-resolution",
-            "identification":"certain"}
+      for u in variants(fallback):
+        r=get(raw(TS,u),8);z=good(r)
+        if z:
+          ext=os.path.splitext(urlsplit(u).path)[1].lower()
+          if ext not in (".jpg",".jpeg",".png",".gif",".webp"):ext=".jpg"
+          p=IMG/(ident+ext);p.write_bytes(r.content)
+          return {"identity":ident,"file":"images/"+p.name,"archive_timestamp":TS,"archive_original":u,
+                  "method":"same-capture-thumbnail","dimensions":[z[0],z[1]],"bytes":len(r.content),
+                  "sha256":hashlib.sha256(r.content).hexdigest(),"quality":"thumbnail/lower-resolution","identification":"certain"}
+    return None
 
 images=[];missing=[]
 for ident,full,thumb in CONTENT:
