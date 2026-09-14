@@ -122,7 +122,7 @@ def page_capture_rows(rep):
     for x in chosen:
         k=(x["timestamp"],x["original"])
         if k not in seen:seen.add(k);out.append(x)
-    return out[:18]
+    return out[:10]
 
 def historical_source_candidates(rep,missing):
     mapped={i:[] for i in missing}
@@ -157,24 +157,22 @@ def wildcard_rows(rep,missing):
 
 def recover_identity(ident,baseurls,histurls,wrows,source_ts):
     attempts=[]
-    for u in list(dict.fromkeys(baseurls+histurls))[:16]:
+    # Known source refs at the supplied capture.
+    for u in list(dict.fromkeys(baseurls+histurls))[:12]:
         attempts.append((source_ts,u,"source-capture"))
-    # Wildcard rows already represent historical CDX captures; largest first, bounded.
-    wr=sorted(wrows,key=lambda x:int(x.get("length") or 0),reverse=True)[:16]
+    # Historical family-index captures, largest first. No per-image CDX in this pass.
+    wr=sorted(wrows,key=lambda x:int(x.get("length") or 0),reverse=True)[:12]
     attempts += [(x["timestamp"],x["original"],"wayback-family") for x in wr]
-    # Exact CDX only for at most four known URLs, bounded.
-    for u in list(dict.fromkeys(baseurls+histurls))[:4]:
-        for x in cdx(u,20)[:8]:
-            attempts.append((x["timestamp"],x["original"],"wayback-exact"))
     seen=set();best=None
     for ts,u,method in attempts:
         if not ts or not u or (ts,u) in seen:continue
         seen.add((ts,u))
-        r=req(raw(ts,u),7); z=good(r)
+        r=req(raw(ts,u),6); z=good(r)
         if not z:continue
         st=stem(u)
         if not matches(st,ident):continue
-        exact=(st==ident) or bool(re.match(r"^(.*)-crop-u\d+$",ident,re.I) and st==re.sub(r"-crop-u\d+$","",ident,flags=re.I))
+        m=re.match(r"^(.*)-crop-u\\d+$",ident,re.I)
+        exact=(st==ident) or bool(m and st==m.group(1))
         rank=(1 if exact else 0,z[0]*z[1],len(r.content))
         if best is None or rank>best[0]:
             best=(rank,ts,u,method,r.content,z,exact)
