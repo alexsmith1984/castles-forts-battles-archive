@@ -33,7 +33,7 @@ CONTENT=[
     item("castle_acre5", BASE+"assets/castle_acre5.jpg", [BASE+"images/castle_acre5.jpg"]),
     item("castle_acre6", BASE+"assets/castle_acre6.jpg", [BASE+"images/castle_acre6.jpg"]),
     item("castle_acre7", BASE+"assets/castle_acre7.jpg", [BASE+"images/castle_acre7.jpg"]),
-    item("castle_acre8", BASE+"assets/castle_acre8.jpg", [BASE+"images/castle_acre8.jpg", BASE+"images/castle_acre8502x333.jpg"]),
+    item("castle_acre8", BASE+"assets/castle_acre8.jpg", [BASE+"images/castle_acre8.jpg",BASE+"images/castle_acre8502x333.jpg"]),
     item("castle_acre9", BASE+"assets/castle_acre9.jpg", [BASE+"images/castle_acre9.jpg"]),
     item("castle_acre10", BASE+"assets/castle_acre10.jpg", [BASE+"images/castle_acre10.jpg"]),
     item("castle_acre11", BASE+"assets/castle_acre11.jpg", [BASE+"images/castle_acre11.jpg"]),
@@ -45,25 +45,19 @@ CONTENT=[
     item("castle_acre_layout", BASE+"assets/castle_acre_layout.png", [BASE+"images/castle_acre_layout.jpg"], "plan"),
 ]
 
-def get(u,t=12):
+def get(u,t=8):
     try:return S.get(u,timeout=t,allow_redirects=True)
     except Exception:return None
 
 def raw(ts,u): return f"https://web.archive.org/web/{ts}id_/{u}"
 
-def variants(u):
+def basic_variants(u):
     sp=urlsplit(u)
     hosts=[sp.netloc,sp.netloc[4:] if sp.netloc.startswith("www.") else "www."+sp.netloc]
-    paths=[sp.path]
-    ext=os.path.splitext(sp.path)[1]
-    if ext.lower() in (".jpg",".jpeg"):
-        root=sp.path[:-len(ext)]
-        paths += [root+".jpg",root+".JPG",root+".jpeg",root+".JPEG"]
     out=[]
     for scheme in ("http","https"):
         for host in dict.fromkeys(hosts):
-            for path in dict.fromkeys(paths):
-                out.append(urlunsplit((scheme,host,path,"","")))
+            out.append(urlunsplit((scheme,host,sp.path,"","")))
     return list(dict.fromkeys(out))
 
 def iminfo(b):
@@ -76,27 +70,6 @@ def good(r):
     if not r or r.status_code!=200 or len(r.content)<300:return None
     z=iminfo(r.content)
     return z if z and z[0]>=40 and z[1]>=40 else None
-
-def cdx_exact(u):
-    rows=[]
-    for v in variants(u):
-        try:
-            q=S.get("https://web.archive.org/cdx/search/cdx",params={
-                "url":v,"output":"json","filter":"statuscode:200",
-                "fl":"timestamp,original,length,mimetype,digest",
-                "collapse":"digest","limit":100
-            },timeout=12)
-            if q.status_code==200:
-                d=q.json()
-                if isinstance(d,list) and len(d)>1:
-                    hdr=d[0]
-                    rows += [dict(zip(hdr,x)) for x in d[1:] if len(x)==len(hdr)]
-        except Exception:pass
-    uniq={}
-    for x in rows:
-        if x.get("timestamp") and x.get("original"):
-            uniq[(x["timestamp"],x["original"])]=x
-    return list(uniq.values())
 
 def save_image(ident,u,b,z,ts,method,quality):
     ext=os.path.splitext(urlsplit(u).path)[1].lower()
@@ -112,47 +85,110 @@ def save_image(ident,u,b,z,ts,method,quality):
         "quality":quality,"identification":"certain"
     }
 
-def best_from_rows(rows, limit=50):
-    rows.sort(key=lambda x:(int(x.get("length") or 0),x.get("timestamp","")),reverse=True)
-    best=None
-    for x in rows[:limit]:
-        r=get(raw(x["timestamp"],x["original"]),8); z=good(r)
-        if not z:continue
-        rank=(z[0]*z[1],len(r.content))
-        if best is None or rank>best[0]:best=(rank,x,r.content,z)
-    return best
-
-def recover(item):
-    ident=item["identity"]; full=item["full"]
-    for u in variants(full):
-        r=get(raw(TS,u),8); z=good(r)
-        if z:return save_image(ident,u,r.content,z,TS,"same-capture-full","full/near-full")
-    best=best_from_rows(cdx_exact(full),50)
-    if best:
-        _,x,b,z=best
-        return save_image(ident,x["original"],b,z,x["timestamp"],"cdx-exact-full","full/near-full")
+# Fast first pass: exact supplied-capture URLs only, in parallel.
+def same_capture(item):
+    for u in basic_variants(item["full"]):
+        r=get(raw(TS,u),5); z=good(r)
+        if z:return save_image(item["identity"],u,r.content,z,TS,"same-capture-full","full/near-full")
     for fallback in item["fallbacks"]:
-        for u in variants(fallback):
-            r=get(raw(TS,u),8); z=good(r)
-            if z:return save_image(ident,u,r.content,z,TS,"same-capture-display-fallback","thumbnail/lower-resolution")
-        best=best_from_rows(cdx_exact(fallback),30)
-        if best:
-            _,x,b,z=best
-            return save_image(ident,x["original"],b,z,x["timestamp"],"cdx-display-fallback","thumbnail/lower-resolution")
+        for u in basic_variants(fallback):
+            r=get(raw(TS,u),5); z=good(r)
+            if z:return save_image(item["identity"],u,r.content,z,TS,"same-capture-display-fallback","thumbnail/lower-resolution")
+    return None
+
+# One focused CDX prefix inventory replaces hundreds of exact-history calls.
+def cdx_prefix(prefix):
+    try:
+        q=S.get("https://web.archive.org/cdx/search/cdx",params={
+            "url":prefix,"matchType":"prefix","output":"json",
+            "filter":"statuscode:200",
+            "fl":"timestamp,original,length,mimetype,digest",
+            "collapse":"digest","limit":5000
+        },timeout=30)
+        if q.status_code!=200:return []
+        d=q.json()
+        if not isinstance(d,list) or len(d)<2:return []
+        hdr=d[0]
+        return [dict(zip(hdr,row)) for row in d[1:] if len(row)==len(hdr)]
+    except Exception:
+        return []
+
+prefixes=[
+    "http://www.castlesfortsbattles.co.uk/east/assets/castle_acre",
+    "https://www.castlesfortsbattles.co.uk/east/assets/castle_acre",
+    "http://castlesfortsbattles.co.uk/east/assets/castle_acre",
+    "https://castlesfortsbattles.co.uk/east/assets/castle_acre",
+    "http://www.castlesfortsbattles.co.uk/east/images/castle_acre",
+    "https://www.castlesfortsbattles.co.uk/east/images/castle_acre",
+    "http://castlesfortsbattles.co.uk/east/images/castle_acre",
+    "https://castlesfortsbattles.co.uk/east/images/castle_acre",
+]
+rows=[]
+with cf.ThreadPoolExecutor(max_workers=8) as ex:
+    for part in ex.map(cdx_prefix,prefixes):
+        rows.extend(part)
+uniq={}
+for x in rows:
+    if x.get("timestamp") and x.get("original"):
+        uniq[(x["timestamp"],x["original"],x.get("digest",""))]=x
+rows=list(uniq.values())
+
+def basename(row):
+    return os.path.basename(urlsplit(row.get("original","")).path).lower()
+
+def exact_asset_match(identity,row):
+    b=basename(row)
+    if identity=="castle_acre_layout":
+        return b in ("castle_acre_layout.png","castle_acre_layout.jpg","castle_acre_layout.jpeg")
+    return b in (identity.lower()+".jpg",identity.lower()+".jpeg",identity.lower()+".png")
+
+def derivative_match(identity,row):
+    b=basename(row)
+    if identity=="castle_acre_layout":
+        return bool(re.match(r"^castle_acre_layout(?:\d+x\d+)?\.(?:jpe?g|png)$",b,re.I))
+    if identity=="castle_acre":
+        return bool(re.match(r"^castle_acre(?:\d+x\d+)?\.(?:jpe?g|png)$",b,re.I))
+    return bool(re.match(r"^"+re.escape(identity)+r"(?:\d+x\d+)?\.(?:jpe?g|png)$",b,re.I))
+
+def row_rank(x):
+    try:n=int(x.get("length") or 0)
+    except:n=0
+    return (n,x.get("timestamp",""))
+
+def fetch_best(identity,candidates,quality,method,max_try=8):
+    for x in sorted(candidates,key=row_rank,reverse=True)[:max_try]:
+        r=get(raw(x["timestamp"],x["original"]),8); z=good(r)
+        if z:
+            return save_image(identity,x["original"],r.content,z,x["timestamp"],method,quality)
     return None
 
 recovered={}
-missing=[]
-with cf.ThreadPoolExecutor(max_workers=4) as ex:
-    futs={ex.submit(recover,x):x for x in CONTENT}
+with cf.ThreadPoolExecutor(max_workers=8) as ex:
+    futs={ex.submit(same_capture,item_):item_ for item_ in CONTENT}
     for fut in cf.as_completed(futs):
         item_=futs[fut]
         try:x=fut.result()
         except Exception:x=None
         if x:recovered[item_["identity"]]=x
-        else:missing.append({"identity":item_["identity"],"full_url":item_["full"],"fallback_urls":item_["fallbacks"]})
+
+# Use the compact filename-family CDX inventory only for identities not found above.
+for item_ in CONTENT:
+    ident=item_["identity"]
+    if ident in recovered:continue
+    asset=[x for x in rows if "/assets/" in urlsplit(x.get("original","")).path.lower() and exact_asset_match(ident,x)]
+    x=fetch_best(ident,asset,"full/near-full","cdx-prefix-exact-full")
+    if x:
+        recovered[ident]=x
+        continue
+    disp=[x for x in rows if "/images/" in urlsplit(x.get("original","")).path.lower() and derivative_match(ident,x)]
+    x=fetch_best(ident,disp,"thumbnail/lower-resolution","cdx-prefix-display-fallback")
+    if x:recovered[ident]=x
 
 images=[recovered[x["identity"]] for x in CONTENT if x["identity"] in recovered]
+missing=[
+    {"identity":x["identity"],"full_url":x["full"],"fallback_urls":x["fallbacks"]}
+    for x in CONTENT if x["identity"] not in recovered
+]
 
 if not SOURCE.exists():
     raise RuntimeError("Castle Acre inspection source.html is missing")
@@ -173,20 +209,17 @@ for e in soup.find_all(["p","h1","h2","h3","h4","li"]):
     if tx in headings or tx=="CASTLE ACRE":blocks.append(("h2",tx))
     elif e.name=="li":blocks.append(("p","• "+tx))
     else:blocks.append(("p",tx))
-
 body=[f"<{tag}>{H.escape(tx)}</{tag}>" for tag,tx in blocks]
+
 figs=[]
 for x in images:
     ident=x["identity"]
-    if ident=="castle_acre":
-        cap="Castle Acre — lead photograph"
-    elif ident=="castle_acre_layout":
-        cap="Castle Acre — layout plan"
+    if ident=="castle_acre":cap="Castle Acre — lead photograph"
+    elif ident=="castle_acre_layout":cap="Castle Acre — layout plan"
     else:
         m=re.search(r"(\d+)$",ident)
         cap=f"Castle Acre {m.group(1)}" if m else "Castle Acre"
-    if x["quality"]!="full/near-full":
-        cap += " — lower-resolution archived recovery"
+    if x["quality"]!="full/near-full":cap += " — lower-resolution archived recovery"
     figs.append(
         f'<figure><a href="{H.escape(x["file"],quote=True)}"><img src="{H.escape(x["file"],quote=True)}" '
         f'alt="Castle Acre archived original image"></a><figcaption>{H.escape(cap)}</figcaption></figure>'
@@ -210,11 +243,10 @@ report={
  "recovered_full_or_near_full":full_count,
  "recovered_thumbnail_or_lower_resolution":low_count,
  "still_missing":len(missing),
- "images":images,
- "missing":sorted(missing,key=lambda x:x["identity"]),
+ "images":images,"missing":missing,
  "full_size_source_unrecovered_but_position_represented":[x["identity"] for x in images if x["quality"]!="full/near-full"],
  "image_identity_basis":"Sixteen unique Castle Acre photographic identities (the unnumbered lead image plus castle_acre2 through castle_acre16) and one Castle Acre layout plan. Adobe Muse responsive crops, repeated display exports and 60x40 slideshow thumbnails are duplicate derivatives and are not counted as additional historic content images.",
- "searches_attempted":["supplied Wayback capture","exact assets full-size image URL","HTTP/HTTPS variants","www/non-www variants","filename extension/case variants","exact Wayback CDX history","same-image Muse display/crop fallback","exact CDX history for Muse display/crop fallback"],
+ "searches_attempted":["supplied Wayback capture","exact assets full-size URL variants","focused Wayback CDX filename-family inventory for east/assets/castle_acre*","focused Wayback CDX filename-family inventory for east/images/castle_acre*","same-image Muse display/crop fallback"],
  "verification_note":"Every displayed image is an archived original from the defunct site or an archived Muse export of the same underlying original. No unrelated substitute images were used."
 }
 (ROOT/"recovery-report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
