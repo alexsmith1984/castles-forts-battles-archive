@@ -69,5 +69,10 @@
   "verification_note": "Every displayed image is an archived original from the defunct site. No unrelated substitute photographs were used.",
   "deep_wayback_search_completed": true,
   "focused_third_search_completed": true,
-  "barnard_page_captures_with_gallery_examined": 0
+  "barnard_page_captures_with_gallery_examined": 0,
+  "external_archive_search_completed": true,
+  "external_archive_methods": [
+    "Arquivo.pt exact-hash search",
+    "Common Crawl exact-hash search"
+  ]
 }
