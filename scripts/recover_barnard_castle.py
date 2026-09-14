@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import hashlib, html as H, io, json, os, re
+import concurrent.futures as cf, hashlib, html as H, io, json, os, re
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 import requests
@@ -119,10 +119,16 @@ def recover(ident,full,thumb):
     return None
 
 images=[];missing=[]
-for ident,full,thumb in CONTENT:
-    x=recover(ident,full,thumb)
-    if x:images.append(x)
-    else:missing.append({"identity":ident,"original_url":full,"thumbnail_url":thumb or THUMB_FALLBACK.get(ident)})
+with cf.ThreadPoolExecutor(max_workers=7) as ex:
+    futs={ex.submit(recover,ident,full,thumb):(ident,full,thumb) for ident,full,thumb in CONTENT}
+    recovered={}
+    for fut in cf.as_completed(futs):
+        ident,full,thumb=futs[fut]
+        try:x=fut.result()
+        except Exception:x=None
+        if x:recovered[ident]=x
+        else:missing.append({"identity":ident,"original_url":full,"thumbnail_url":thumb or THUMB_FALLBACK.get(ident)})
+images=[recovered[i] for i,_,_ in CONTENT if i in recovered]
 
 html=SOURCE.read_text(encoding="utf-8",errors="replace")
 soup=BeautifulSoup(html,"html.parser")
