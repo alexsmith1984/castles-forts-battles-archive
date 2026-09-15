@@ -3,7 +3,7 @@ name: Pontefract fresh historical recovery
 on:
   workflow_run:
     workflows:
-      - 'pages build and deployment'
+      - '.github/workflows/fast-final-richards-castle.yml'
     types:
       - completed
 
