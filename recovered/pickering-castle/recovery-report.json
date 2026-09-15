@@ -324,7 +324,11 @@
       "identity": "pickering_castle",
       "candidate_urls": [
         "http://www.castlesfortsbattles.co.uk/yorkshire/assets/pickering_castle.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle.jpg?crc=4274706814"
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle.jpg?crc=4274706814",
+        "http://www.castlesfortsbattles.co.uk/Pickering_Castle.JPG",
+        "http://www.castlesfortsbattles.co.uk/Pickering_Castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle.JPG",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle.jpg"
       ]
     },
     {
@@ -334,7 +338,11 @@
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan.jpg?crc=190427521",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan293x239.jpg?crc=331150912",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan293x238.jpg?crc=331150912",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan221x180.jpg?crc=3936252001"
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/pickering_castle_plan221x180.jpg?crc=3936252001",
+        "http://www.castlesfortsbattles.co.uk/Pickering_Castle_Plan.png",
+        "http://www.castlesfortsbattles.co.uk/Pickering_Castle_Plan.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle_Plan.png",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle_Plan.jpg"
       ]
     }
   ],
@@ -391,5 +399,26 @@
     "captures_found": 22,
     "captures_checked": 22,
     "recovered": []
+  },
+  "final_external_search_2026_09_15": {
+    "completed": true,
+    "methods": [
+      "Wayback CDX exact URL/query/case/protocol variants",
+      "Arquivo.pt exact URL/query/case/protocol variants",
+      "Common Crawl representative 2014-2023 indexes"
+    ],
+    "found": [],
+    "commoncrawl_indexes_checked": [
+      "CC-MAIN-2014-52",
+      "CC-MAIN-2015-48",
+      "CC-MAIN-2016-50",
+      "CC-MAIN-2017-51",
+      "CC-MAIN-2018-51",
+      "CC-MAIN-2019-51",
+      "CC-MAIN-2020-50",
+      "CC-MAIN-2021-49",
+      "CC-MAIN-2022-49",
+      "CC-MAIN-2023-50"
+    ]
   }
 }
