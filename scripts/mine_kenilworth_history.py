@@ -5,7 +5,7 @@ from urllib.parse import quote,urljoin
 import requests
 from PIL import Image
 
-ROOT=Path("recovered/kenilworth-castle"); REP=ROOT/"recovery-report.json"; IMG=ROOT/"images"
+ROOT=Path("recovered/kenilworth-castle"); REP=ROOT/"recovery-report.json"; IMG=ROOT/"images"; IMG.mkdir(parents=True,exist_ok=True)
 S=requests.Session(); S.headers["User-Agent"]="Mozilla/5.0 KenilworthHistoricalRecovery"
 PAGE="http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html"
 
