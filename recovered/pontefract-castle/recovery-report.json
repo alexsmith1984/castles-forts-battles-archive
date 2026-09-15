@@ -1,6 +1,6 @@
 {
   "name": "Pontefract Castle",
-  "status": "PARTIAL",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
   "original_url": "http://www.castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html",
   "supplied_capture": "20210918010514",
   "source_timestamp_used": "20210918010514",
@@ -32,10 +32,7 @@
       "archive_timestamp": "20210918010514",
       "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpfeb63d59_05_06.jpg",
       "method": "direct-supplied-capture-replay",
-      "dimensions": [
-        920,
-        372
-      ],
+      "dimensions": [920, 372],
       "format": "JPEG",
       "bytes": 139799,
       "sha256": "9a2a7a148f05d363a643f2427f2ee6b77dd8cb16d477e52a8cf8ea7bd9fc5e78",
@@ -48,10 +45,7 @@
       "archive_timestamp": "20210918010514",
       "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp8cc8f355_05_06.jpg",
       "method": "direct-supplied-capture-replay",
-      "dimensions": [
-        476,
-        316
-      ],
+      "dimensions": [476, 316],
       "format": "JPEG",
       "bytes": 66319,
       "sha256": "3505f91bc3a7484dfb4007348e0903e2f6db02c2969806232c873dc8ce6af0f6",
@@ -60,96 +54,16 @@
     }
   ],
   "missing": [
-    {
-      "identity": "gallery_9e7ec107fa61",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/9e7ec107fa61.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/9e7ec107fa61.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/9e7ec107fa61t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/9e7ec107fa61t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_872a049986f9",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/872a049986f9.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/872a049986f9.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/872a049986f9t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/872a049986f9t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_a03129057658",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/a03129057658.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/a03129057658.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/a03129057658t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/a03129057658t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_b5372267c64",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/b5372267c64.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/b5372267c64.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/b5372267c64t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/b5372267c64t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_8bfa199a7cb7",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8bfa199a7cb7.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/8bfa199a7cb7.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8bfa199a7cb7t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/8bfa199a7cb7t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_d015f224e174",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/d015f224e174.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/d015f224e174.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/d015f224e174t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/d015f224e174t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_8009ef2e4c9e",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8009ef2e4c9e.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/8009ef2e4c9e.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8009ef2e4c9et.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/8009ef2e4c9et.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_56fa23144c23",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/56fa23144c23.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/56fa23144c23.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/56fa23144c23t.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/56fa23144c23t.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_beb2f8b4116d",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/beb2f8b4116d.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/beb2f8b4116d.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/beb2f8b4116dt.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/beb2f8b4116dt.jpg"
-      ]
-    },
-    {
-      "identity": "gallery_aa0e1909193b",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/aa0e1909193b.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/aa0e1909193b.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/aa0e1909193bt.jpg",
-        "http://www.castlesfortsbattles.co.uk/wpimages/aa0e1909193bt.jpg"
-      ]
-    }
+    {"identity":"gallery_9e7ec107fa61","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/9e7ec107fa61.jpg","http://www.castlesfortsbattles.co.uk/wpimages/9e7ec107fa61.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/9e7ec107fa61t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/9e7ec107fa61t.jpg"]},
+    {"identity":"gallery_872a049986f9","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/872a049986f9.jpg","http://www.castlesfortsbattles.co.uk/wpimages/872a049986f9.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/872a049986f9t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/872a049986f9t.jpg"]},
+    {"identity":"gallery_a03129057658","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/a03129057658.jpg","http://www.castlesfortsbattles.co.uk/wpimages/a03129057658.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/a03129057658t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/a03129057658t.jpg"]},
+    {"identity":"gallery_b5372267c64","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/b5372267c64.jpg","http://www.castlesfortsbattles.co.uk/wpimages/b5372267c64.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/b5372267c64t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/b5372267c64t.jpg"]},
+    {"identity":"gallery_8bfa199a7cb7","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8bfa199a7cb7.jpg","http://www.castlesfortsbattles.co.uk/wpimages/8bfa199a7cb7.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8bfa199a7cb7t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/8bfa199a7cb7t.jpg"]},
+    {"identity":"gallery_d015f224e174","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/d015f224e174.jpg","http://www.castlesfortsbattles.co.uk/wpimages/d015f224e174.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/d015f224e174t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/d015f224e174t.jpg"]},
+    {"identity":"gallery_8009ef2e4c9e","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8009ef2e4c9e.jpg","http://www.castlesfortsbattles.co.uk/wpimages/8009ef2e4c9e.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/8009ef2e4c9et.jpg","http://www.castlesfortsbattles.co.uk/wpimages/8009ef2e4c9et.jpg"]},
+    {"identity":"gallery_56fa23144c23","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/56fa23144c23.jpg","http://www.castlesfortsbattles.co.uk/wpimages/56fa23144c23.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/56fa23144c23t.jpg","http://www.castlesfortsbattles.co.uk/wpimages/56fa23144c23t.jpg"]},
+    {"identity":"gallery_beb2f8b4116d","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/beb2f8b4116d.jpg","http://www.castlesfortsbattles.co.uk/wpimages/beb2f8b4116d.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/beb2f8b4116dt.jpg","http://www.castlesfortsbattles.co.uk/wpimages/beb2f8b4116dt.jpg"]},
+    {"identity":"gallery_aa0e1909193b","candidate_urls":["http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/aa0e1909193b.jpg","http://www.castlesfortsbattles.co.uk/wpimages/aa0e1909193b.jpg","http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/aa0e1909193bt.jpg","http://www.castlesfortsbattles.co.uk/wpimages/aa0e1909193bt.jpg"]}
   ],
   "counting_method": "One principal castle photograph, one separate historical painting explicitly captioned in the article, and ten genuine WebPlus gallery photographs declared in wp_imgArray_pg_4. Navigation, social, decorative and gallery-thumbnail graphics are not counted separately.",
   "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
@@ -157,28 +71,20 @@
     {
       "method": "bounded historical captures + Wayback family/exact CDX",
       "recovered": [],
-      "remaining": [
-        "pontefract_castle15"
-      ]
+      "remaining": ["pontefract_castle15"]
     }
   ],
   "audit_correction_2026_09_15": "Earlier 1-image audit missed the historical painting and 10-image WebPlus gallery.",
   "direct_supplied_capture_search_2026_09_15": {
     "completed": true,
     "capture": "20210918010514",
-    "found": [
-      "pontefract_castle15",
-      "pontefract_painting_alex_kierincx"
-    ]
+    "found": ["pontefract_castle15","pontefract_painting_alex_kierincx"]
   },
   "historical_timemap_mining_2026_09_15": {
     "completed": true,
     "captures_found": 28,
     "captures_checked": 27,
-    "recovered": [
-      "pontefract_castle15",
-      "pontefract_painting_alex_kierincx"
-    ]
+    "recovered": ["pontefract_castle15","pontefract_painting_alex_kierincx"]
   },
   "final_external_search_2026_09_15": {
     "completed": true,
@@ -189,16 +95,8 @@
     ],
     "found": [],
     "commoncrawl_indexes_checked": [
-      "CC-MAIN-2014-52",
-      "CC-MAIN-2015-48",
-      "CC-MAIN-2016-50",
-      "CC-MAIN-2017-51",
-      "CC-MAIN-2018-51",
-      "CC-MAIN-2019-51",
-      "CC-MAIN-2020-50",
-      "CC-MAIN-2021-49",
-      "CC-MAIN-2022-49",
-      "CC-MAIN-2023-50"
+      "CC-MAIN-2014-52","CC-MAIN-2015-48","CC-MAIN-2016-50","CC-MAIN-2017-51","CC-MAIN-2018-51",
+      "CC-MAIN-2019-51","CC-MAIN-2020-50","CC-MAIN-2021-49","CC-MAIN-2022-49","CC-MAIN-2023-50"
     ]
   },
   "fresh_historical_position_retry_2026_09_15": {
@@ -212,36 +110,8 @@
     "historical_page_captures_found": 54,
     "historical_page_captures_checked": 52,
     "hashes_by_gallery_position": {
-      "0": [
-        "9e7ec107fa61"
-      ],
-      "1": [
-        "872a049986f9"
-      ],
-      "2": [
-        "a03129057658"
-      ],
-      "3": [
-        "b5372267c64"
-      ],
-      "4": [
-        "8bfa199a7cb7"
-      ],
-      "5": [
-        "d015f224e174"
-      ],
-      "6": [
-        "8009ef2e4c9e"
-      ],
-      "7": [
-        "56fa23144c23"
-      ],
-      "8": [
-        "beb2f8b4116d"
-      ],
-      "9": [
-        "aa0e1909193b"
-      ]
+      "0":["9e7ec107fa61"],"1":["872a049986f9"],"2":["a03129057658"],"3":["b5372267c64"],"4":["8bfa199a7cb7"],
+      "5":["d015f224e174"],"6":["8009ef2e4c9e"],"7":["56fa23144c23"],"8":["beb2f8b4116d"],"9":["aa0e1909193b"]
     },
     "recovered_now": []
   },
@@ -257,15 +127,31 @@
       "archive_timestamp": "20210918010514",
       "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpfeb63d59_05_06.jpg",
       "method": "direct-supplied-capture-replay",
-      "dimensions": [
-        920,
-        372
-      ],
+      "dimensions": [920,372],
       "format": "JPEG",
       "bytes": 139799,
       "sha256": "9a2a7a148f05d363a643f2427f2ee6b77dd8cb16d477e52a8cf8ea7bd9fc5e78",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     }
+  },
+  "search_exhausted_2026_09_15": {
+    "completed": true,
+    "final_recovered": 2,
+    "final_full_or_near_full": 1,
+    "final_authenticated_lower_resolution": 1,
+    "final_missing": 10,
+    "uncertain_identifications": [],
+    "methods_exhausted": [
+      "direct replay of supplied Wayback capture",
+      "Wayback Memento TimeMap historical page mining",
+      "historical WebPlus gallery-position mapping across desktop, root and mobile page variants",
+      "cross-timestamp Wayback replay of historical gallery hashes using root /wpimages/, /yorkshire/wpimages/ and /m/wpimages/, HTTP/HTTPS, www/non-www, full and thumbnail variants",
+      "Wayback CDX exact URL/query/case/protocol variants",
+      "Arquivo.pt exact historic URL/hash/filename searches",
+      "Common Crawl representative 2014-2023 indexes",
+      "cross-timestamp replay of the principal original href Pontefract_Castle15.JPG and case/path/protocol variants"
+    ],
+    "conclusion": "No additional authenticated Pontefract Castle images were recovered after all materially distinct archive methods were exhausted."
   }
 }
