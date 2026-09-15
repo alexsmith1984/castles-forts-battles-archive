@@ -164,7 +164,7 @@ for source,ts,pageurl in captures:
 
     soup=BeautifulSoup(h,"html.parser")
     for identity in ("kenilworth_castle1","kenilworth_castle9","kenilworth_castle15"):
-        if identity in existing:
+        if identity in existing and existing[identity].get("quality")=="full/near-full":
             continue
         num=identity.replace("kenilworth_castle","")
         target=None
