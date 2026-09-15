@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import io,json,re,hashlib
+import io,json,re,hashlib,time
 from pathlib import Path
 from urllib.parse import quote,urljoin
 import requests
@@ -7,54 +7,107 @@ from PIL import Image
 
 ROOT=Path("recovered/kenilworth-castle"); REP=ROOT/"recovery-report.json"; IMG=ROOT/"images"; IMG.mkdir(parents=True,exist_ok=True)
 S=requests.Session(); S.headers["User-Agent"]="Mozilla/5.0 KenilworthHistoricalRecovery"
-PAGE="http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html"
-
-def get(u,t=8):
-    try:return S.get(u,timeout=t,allow_redirects=True)
-    except Exception:return None
+PAGES=[
+ "http://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
+ "https://www.castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
+ "http://castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
+ "https://castlesfortsbattles.co.uk/midlands/kenilworth_castle.html",
+]
+def get(u,t=10):
+    for n in range(3):
+        try:
+            r=S.get(u,timeout=t,allow_redirects=True)
+            if r.status_code not in (429,500,502,503,504): return r
+        except Exception:r=None
+        time.sleep(0.8*(n+1))
+    return r
 def info(b):
     try:
         im=Image.open(io.BytesIO(b)); z=(im.width,im.height,im.format); im.verify(); return z
     except Exception:return None
-def replay(ts,u):
+def wb_replay(ts,u):
     for mod in ("id_","im_"):
-        r=get(f"https://web.archive.org/web/{ts}{mod}/{u}")
+        r=get(f"https://web.archive.org/web/{ts}{mod}/{u}",8)
         if r and r.status_code==200 and info(r.content):return r.content
+def arq_replay(ts,u):
+    r=get(f"https://arquivo.pt/wayback/{ts}id_/{u}",8)
+    if r and r.status_code==200 and info(r.content):return r.content
 def save(i,b,ts,u,method,q):
     z=info(b); ext=".png" if z[2]=="PNG" else ".jpg"; p=IMG/(i+ext); p.write_bytes(b)
     return {"identity":i,"file":"images/"+p.name,"archive_timestamp":ts,"archive_original":u,
       "method":method,"dimensions":[z[0],z[1]],"format":z[2],"bytes":len(b),
       "sha256":hashlib.sha256(b).hexdigest(),"quality":q,"identification":"certain"}
 
+def wayback_rows():
+    rows=[]
+    for page in PAGES:
+        for attempt in range(4):
+            q="https://web.archive.org/cdx/search/cdx?url="+quote(page,safe=":/")+"&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&collapse=digest&from=2015&to=2022"
+            x=get(q,12)
+            if x and x.status_code==200:
+                try:d=x.json()[1:]
+                except Exception:d=[]
+                if d:
+                    rows.extend(d); break
+            time.sleep(1.5*(attempt+1))
+    out=[];seen=set()
+    for row in rows:
+        if len(row)<2:continue
+        k=(str(row[0]),str(row[1]))
+        if k not in seen:seen.add(k);out.append(k)
+    return out
+
+def arquivo_rows():
+    rows=[]
+    for page in PAGES:
+        q="https://arquivo.pt/wayback/cdx?url="+quote(page,safe=":/")+"&output=json"
+        x=get(q,12)
+        if not x or x.status_code!=200:continue
+        try:d=x.json()
+        except Exception:continue
+        if isinstance(d,list) and d and isinstance(d[0],list):d=d[1:]
+        if not isinstance(d,list):continue
+        for row in d:
+            if isinstance(row,list) and len(row)>=2:
+                rows.append((str(row[0]),str(row[1])))
+            elif isinstance(row,dict):
+                ts=str(row.get("timestamp") or "")
+                u=str(row.get("url") or row.get("original") or "")
+                if ts and u:rows.append((ts,u))
+    out=[];seen=set()
+    for k in rows:
+        if k not in seen:seen.add(k);out.append(k)
+    return out
+
 r=json.loads(REP.read_text()); order=r["desktop_image_identities"]
 gids=[x for x in order if x.startswith("gallery_")]
 existing={x["identity"]:x for x in r.get("images",[])}
-q="https://web.archive.org/cdx/search/cdx?url="+quote(PAGE,safe=":/")+"&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&collapse=digest"
-x=get(q,10); rows=[]
-if x and x.status_code==200:
-    try:rows=x.json()[1:]
-    except Exception:pass
-# Sample the archive history rather than replaying every capture.
-if rows:
-    chosen=[]
-    chosen += rows[:4]
-    chosen += rows[-4:]
-    mid=len(rows)//2
-    chosen += rows[max(0,mid-2):mid+2]
-    seen=set(); rows=[x for x in chosen if tuple(x[:2]) not in seen and not seen.add(tuple(x[:2]))]
-for row in rows:
-    if len(row)<2:continue
-    ts,pu=row[0],row[1]; pr=get(f"https://web.archive.org/web/{ts}id_/{pu}",10)
-    if not pr or pr.status_code!=200:continue
-    h=pr.text
+wb=wayback_rows(); arq=arquivo_rows()
+captures=[("wayback",ts,u) for ts,u in wb]+[("arquivo",ts,u) for ts,u in arq]
+# Diverse sampling, but preserve chronological range and cap work.
+if len(captures)>24:
+    captures=captures[:6]+captures[len(captures)//2-6:len(captures)//2+6]+captures[-6:]
+seen=set(); captures=[x for x in captures if (x[0],x[1],x[2]) not in seen and not seen.add((x[0],x[1],x[2]))]
+print(json.dumps({"wayback_page_captures":len(wb),"arquivo_page_captures":len(arq),"sampled":len(captures)}),flush=True)
+
+checked=0
+for source,ts,pu in captures:
+    if source=="wayback":
+        pr=get(f"https://web.archive.org/web/{ts}id_/{pu}",10)
+    else:
+        pr=get(f"https://arquivo.pt/wayback/{ts}id_/{pu}",10)
+    if not pr or pr.status_code!=200 or "<html" not in pr.text.lower():continue
+    checked+=1; h=pr.text
     hashes=re.findall(r'new wp_galleryimage\("wpimages/([0-9a-f]+)\.jpg"',h,re.I)
     for n,ident in enumerate(gids):
         if ident in existing or n>=len(hashes):continue
         hh=hashes[n]
-        for u,qv in ((urljoin(pu,"wpimages/"+hh+".jpg"),"full/near-full"),(urljoin(pu,"wpimages/"+hh+"t.jpg"),"thumbnail/lower-resolution")):
-            b=replay(ts,u)
+        candidates=[(urljoin(pu,"wpimages/"+hh+".jpg"),"full/near-full"),(urljoin(pu,"wpimages/"+hh+"t.jpg"),"thumbnail/lower-resolution")]
+        for u,qv in candidates:
+            b=wb_replay(ts,u) if source=="wayback" else arq_replay(ts,u)
             if b:
-                existing[ident]=save(ident,b,ts,u,"historical-gallery-position",qv);break
+                existing[ident]=save(ident,b,ts,u,source+"-historical-gallery-position",qv)
+                print("RECOVERED",ident,source,ts,u,flush=True);break
     for ident in ("kenilworth_castle1","kenilworth_castle9","kenilworth_castle15"):
         if ident in existing:continue
         num=ident.replace("kenilworth_castle","")
@@ -62,9 +115,10 @@ for row in rows:
         if not m:continue
         orig=urljoin(pu,m.group(1)); disp=urljoin(pu,m.group(2))
         for u,qv,method in ((orig,"full/near-full","historical-original"),(disp,"thumbnail/lower-resolution","historical-display-export")):
-            b=replay(ts,u)
+            b=wb_replay(ts,u) if source=="wayback" else arq_replay(ts,u)
             if b:
-                existing[ident]=save(ident,b,ts,u,method,qv);break
+                existing[ident]=save(ident,b,ts,u,source+"-"+method,qv)
+                print("RECOVERED",ident,source,ts,u,flush=True);break
 
 r["images"]=[existing[i] for i in order if i in existing]
 old={x["identity"]:x for x in r.get("missing",[])}
@@ -72,6 +126,6 @@ r["missing"]=[old[i] for i in order if i not in existing and i in old]
 r["recovered_full_or_near_full"]=sum(x["quality"]=="full/near-full" for x in r["images"])
 r["recovered_thumbnail_or_lower_resolution"]=sum(x["quality"]!="full/near-full" for x in r["images"])
 r["still_missing"]=len(order)-len(r["images"]); r["status"]="COMPLETE" if r["still_missing"]==0 else "PARTIAL"
-r["historical_page_mining_2026_09_14"]={"completed":True,"page_captures_checked":len(rows),"recovered":[i for i in order if i in existing]}
+r["historical_page_mining_2026_09_14"]={"completed":True,"wayback_page_captures_found":len(wb),"arquivo_page_captures_found":len(arq),"page_captures_checked":checked,"recovered":[i for i in order if i in existing]}
 REP.write_text(json.dumps(r,indent=2)+"\n")
-print(json.dumps({"captures":len(rows),"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"]},indent=2))
+print(json.dumps({"checked":checked,"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],"recovered":[i for i in order if i in existing]},indent=2))
