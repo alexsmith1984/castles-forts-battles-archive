@@ -7,6 +7,7 @@ from PIL import Image
 
 ROOT=Path('recovered/pontefract-castle')
 REP=ROOT/'recovery-report.json'
+SRC=ROOT/'source.html'
 IMG=ROOT/'images'; IMG.mkdir(exist_ok=True)
 PAGES=[
  'http://www.castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html',
@@ -14,7 +15,7 @@ PAGES=[
  'http://castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html',
  'https://castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html',
 ]
-S=requests.Session(); S.headers['User-Agent']='Mozilla/5.0 PontefractHistoricalRetry'
+S=requests.Session(); S.headers['User-Agent']='Mozilla/5.0 PontefractExactGalleryArrayRetry'
 
 def get(u,t=12):
     r=None
@@ -60,6 +61,29 @@ def timemap(source,pageurl):
         if len(ts)==14 and ts.isdigit() and orig.startswith(('http://','https://')):out.append((source,ts,orig))
     return out
 
+def gallery_hashes(html):
+    # Isolate the WebPlus pg_4 image-array declaration itself. This deliberately
+    # ignores navigation graphics, gallery controls and thumbnail-only references.
+    blocks=[]
+    patterns=[
+      r'wp_imgArray_pg_4\s*=\s*\[(.*?)\]\s*;',
+      r'wp_imgArray_pg_4\s*=\s*new\s+Array\s*\((.*?)\)\s*;',
+    ]
+    for pat in patterns:
+        blocks += re.findall(pat,html,re.I|re.S)
+    if not blocks:
+        p=html.find('wp_imgArray_pg_4')
+        if p>=0:
+            # WebPlus pages normally declare nImgNum_pg_4 immediately after the array.
+            q=html.find('nImgNum_pg_4',p)
+            if q<0:q=min(len(html),p+12000)
+            blocks=[html[p:q]]
+    out=[]
+    for block in blocks:
+        for hh in re.findall(r'wpimages/([0-9a-f]{12})\.jpg',block,re.I):
+            if hh not in out:out.append(hh)
+    return out
+
 def save(identity,b,source,ts,u,quality,method):
     z=info(b); ext='.png' if z[2]=='PNG' else '.jpg'; p=IMG/(identity+ext); p.write_bytes(b)
     return {'identity':identity,'file':'images/'+p.name,'archive_timestamp':ts,'archive_original':u,
@@ -69,51 +93,63 @@ def save(identity,b,source,ts,u,quality,method):
 r=json.loads(REP.read_text())
 order=r['desktop_image_identities']
 gids=[x for x in order if x.startswith('gallery_')]
+expected=[x.replace('gallery_','') for x in gids]
+current=gallery_hashes(SRC.read_text(errors='replace'))
+print(json.dumps({'current_array_hashes':current,'expected_hashes':expected,'parser_valid':current[:len(expected)]==expected},indent=2),flush=True)
+if current[:len(expected)]!=expected:
+    raise SystemExit('ABORT: exact pg_4 parser did not reproduce the known current Pontefract gallery order')
+
 existing={x['identity']:x for x in r.get('images',[])}
 missing_gallery=[g for g in gids if g not in existing]
-
 caps=[]
 for p in PAGES:
     caps += timemap('wayback',p)
     caps += timemap('arquivo',p)
 seen=set(); caps=[x for x in caps if x not in seen and not seen.add(x)]
 caps.sort(key=lambda x:x[1])
-# Keep broad chronology, but bounded.
-if len(caps)>36:
+if len(caps)>40:
     idx={0,len(caps)-1}
-    for n in range(1,35): idx.add(round(n*(len(caps)-1)/35))
+    for n in range(1,39): idx.add(round(n*(len(caps)-1)/39))
     caps=[caps[i] for i in sorted(idx)]
-print(json.dumps({'captures_found':len(caps),'missing_gallery':missing_gallery}),flush=True)
-checked=0
+
+checked=0; arrays_seen=[]; distinct=[]
 for source,ts,pageurl in caps:
     if not missing_gallery:break
     pr=page(source,ts,pageurl)
     if not pr or pr.status_code!=200 or '<html' not in pr.text.lower():continue
-    checked+=1; h=pr.text
-    # WebPlus gallery order. Accept classic constructor syntax and plain wpimages hash refs.
-    hashes=[]
-    for pat in [r'new wp_galleryimage\\?\(["\\\']wpimages/([0-9a-f]+)\\.jpg', r'wpimages/([0-9a-f]{12})\\.jpg']:
-        for hh in re.findall(pat,h,re.I):
-            if hh not in hashes: hashes.append(hh)
-    if len(hashes)<len(gids):
-        continue
-    # Map by gallery position, not by hash: old pages may use different hash filenames.
+    checked+=1
+    hashes=gallery_hashes(pr.text)
+    if hashes:
+        rec={'source':source,'timestamp':ts,'count':len(hashes),'hashes':hashes[:len(gids)]}
+        arrays_seen.append(rec)
+        key=tuple(hashes[:len(gids)])
+        if key not in [tuple(x) for x in distinct]:distinct.append(list(key))
+        print('ARRAY',source,ts,len(hashes),hashes[:len(gids)],flush=True)
+    if len(hashes)<len(gids):continue
     for pos,identity in enumerate(gids):
-        if identity in existing or pos>=len(hashes):continue
+        if identity in existing:continue
         hh=hashes[pos]
         candidates=[]
-        bases=[pageurl, 'http://www.castlesfortsbattles.co.uk/', 'http://www.castlesfortsbattles.co.uk/yorkshire/']
-        for b in bases:
-            candidates += [(urljoin(b,'wpimages/'+hh+'.jpg'),'full/near-full'),(urljoin(b,'wpimages/'+hh+'t.jpg'),'thumbnail/lower-resolution')]
+        bases=[
+          pageurl,
+          'http://www.castlesfortsbattles.co.uk/',
+          'https://www.castlesfortsbattles.co.uk/',
+          'http://www.castlesfortsbattles.co.uk/yorkshire/',
+          'https://www.castlesfortsbattles.co.uk/yorkshire/',
+          'http://castlesfortsbattles.co.uk/',
+          'https://castlesfortsbattles.co.uk/',
+        ]
+        for base in bases:
+            candidates += [(urljoin(base,'wpimages/'+hh+'.jpg'),'full/near-full'),(urljoin(base,'wpimages/'+hh+'t.jpg'),'thumbnail/lower-resolution')]
         best=None
-        for u,q in candidates:
+        for u,q in dict.fromkeys(candidates):
             b=replay(source,ts,u)
             if not b:continue
             z=info(b); score=(2 if q=='full/near-full' else 1,z[0]*z[1])
-            if best is None or score>best[0]: best=(score,b,u,q)
+            if best is None or score>best[0]:best=(score,b,u,q)
         if best:
             _,b,u,q=best
-            existing[identity]=save(identity,b,source,ts,u,q,'historical-gallery-position')
+            existing[identity]=save(identity,b,source,ts,u,q,'validated-historical-gallery-position')
             print('RECOVERED',identity,source,ts,u,info(b),q,flush=True)
     missing_gallery=[g for g in gids if g not in existing]
 
@@ -123,6 +159,11 @@ r['missing']=[old[i] for i in order if i not in existing and i in old]
 r['recovered_full_or_near_full']=sum(x.get('quality')=='full/near-full' for x in r['images'])
 r['recovered_thumbnail_or_lower_resolution']=sum(x.get('quality')!='full/near-full' for x in r['images'])
 r['still_missing']=len(order)-len(r['images']); r['status']='COMPLETE' if r['still_missing']==0 else 'PARTIAL'
-r['fresh_historical_position_retry_2026_09_15']={'completed':True,'captures_found':len(caps),'captures_checked':checked,'recovered':[g for g in gids if g in existing]}
+r['validated_gallery_array_retry_2026_09_15']={
+  'completed':True,'parser_validated_against_current_source':True,
+  'current_array_hashes':current[:len(gids)],'captures_found':len(caps),'captures_checked':checked,
+  'captures_with_valid_gallery_array':len(arrays_seen),'distinct_gallery_sequences_seen':distinct,
+  'arrays_seen':arrays_seen,'recovered':[g for g in gids if g in existing]
+}
 REP.write_text(json.dumps(r,indent=2)+'\n')
-print(json.dumps({'checked':checked,'full':r['recovered_full_or_near_full'],'lower':r['recovered_thumbnail_or_lower_resolution'],'missing':r['still_missing'],'remaining':[x['identity'] for x in r['missing']]},indent=2))
+print(json.dumps({'checked':checked,'arrays_seen':len(arrays_seen),'distinct_sequences':len(distinct),'full':r['recovered_full_or_near_full'],'lower':r['recovered_thumbnail_or_lower_resolution'],'missing':r['still_missing'],'remaining':[x['identity'] for x in r['missing']]},indent=2))
