@@ -1,28 +1,11 @@
 {
   "name": "Kenilworth Castle",
   "slug": "kenilworth-castle",
-  "status": "PARTIAL",
+  "status": "COMPLETE",
   "source": "20220826212821",
   "positions": 16,
-  "full": 0,
-  "lower": 0,
-  "missing": 16,
-  "missing_identities": [
-    "kenilworth_castle1",
-    "kenilworth_castle9",
-    "gallery_dc20d5b234f9",
-    "gallery_267af4eccf9b",
-    "gallery_7cd4ac90e6b4",
-    "gallery_cfda0b0df50a",
-    "gallery_79ec23415d55",
-    "gallery_c092400f91eb",
-    "gallery_88e2a1bbb494",
-    "gallery_4e73e53f9d96",
-    "gallery_6a16fdfe86c4",
-    "gallery_eb2e38e12c08",
-    "gallery_9e9bfb929265",
-    "gallery_ff7a7893da34",
-    "gallery_28181a0a6a1c",
-    "kenilworth_castle15"
-  ]
+  "full": 13,
+  "lower": 3,
+  "missing": 0,
+  "missing_identities": []
 }
