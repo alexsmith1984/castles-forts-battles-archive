@@ -1,0 +1,148 @@
+name: Pontefract direct recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pontefract-direct-recovery.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover Pontefract from supplied capture
+        run: |
+          python - <<'PY'
+          import concurrent.futures as cf, hashlib, io, json, re
+          from pathlib import Path
+          import requests
+          from PIL import Image
+          from bs4 import BeautifulSoup
+
+          ROOT=Path("recovered/pontefract-castle"); IMG=ROOT/"images"; IMG.mkdir(exist_ok=True)
+          REP=ROOT/"recovery-report.json"; SRC=ROOT/"source.html"; TS="20210918010514"
+          S=requests.Session(); S.headers["User-Agent"]="Mozilla/5.0 PontefractRecovery"
+
+          def get(u):
+              try:return S.get(u,timeout=8,allow_redirects=True)
+              except Exception:return None
+          def info(b):
+              try:
+                  im=Image.open(io.BytesIO(b)); z=(im.width,im.height,im.format); im.verify(); return z
+              except Exception:return None
+          def replay(url):
+              vars=[url,url.replace("http://","https://",1)]
+              if "://www." in url:
+                  vars += [x.replace("://www.","://",1) for x in list(vars)]
+              for v in dict.fromkeys(vars):
+                  for mod in ("id_","im_",""):
+                      r=get(f"https://web.archive.org/web/{TS}{mod}/{v}")
+                      if r and r.status_code==200 and info(r.content):return r.content,v
+              return None,None
+          def save(identity,b,u,quality,method):
+              z=info(b); ext=".png" if z[2]=="PNG" else ".jpg"; p=IMG/(identity+ext); p.write_bytes(b)
+              return {"identity":identity,"file":"images/"+p.name,"archive_timestamp":TS,"archive_original":u,
+                      "method":method,"dimensions":[z[0],z[1]],"format":z[2],"bytes":len(b),
+                      "sha256":hashlib.sha256(b).hexdigest(),"quality":quality,"identification":"certain"}
+
+          html=SRC.read_text(encoding="utf-8",errors="ignore")
+          hashes=re.findall(r'new wp_galleryimage\("wpimages/([0-9a-f]+)\.jpg"',html,re.I)
+          ORDER=["pontefract_castle15","pontefract_painting_alex_kierincx"]+["gallery_"+h for h in hashes]
+
+          candidates={
+            "pontefract_castle15":[
+              "http://www.castlesfortsbattles.co.uk/Pontefract_Castle15.JPG",
+              "http://www.castlesfortsbattles.co.uk/wpimages/wpfeb63d59_05_06.jpg"
+            ],
+            "pontefract_painting_alex_kierincx":[
+              "http://www.castlesfortsbattles.co.uk/wpimages/wp8cc8f355_05_06.jpg"
+            ]
+          }
+          for h in hashes:
+              candidates["gallery_"+h]=[
+                f"http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/{h}.jpg",
+                f"http://www.castlesfortsbattles.co.uk/wpimages/{h}.jpg",
+                f"http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/{h}t.jpg",
+                f"http://www.castlesfortsbattles.co.uk/wpimages/{h}t.jpg"
+              ]
+
+          def recover(identity):
+              best=None
+              for u in candidates[identity]:
+                  b,v=replay(u)
+                  if not b:continue
+                  z=info(b)
+                  if identity.startswith("gallery_"):
+                      q="thumbnail/lower-resolution" if u.lower().endswith("t.jpg") else "full/near-full"
+                  elif identity=="pontefract_castle15":
+                      q="thumbnail/lower-resolution" if "wpimages/" in u.lower() else "full/near-full"
+                  else:
+                      q="full/near-full"
+                  score=(2 if q=="full/near-full" else 1,z[0]*z[1])
+                  if best is None or score>best[0]:
+                      best=(score,save(identity,b,v,q,"direct-supplied-capture-replay"))
+              return identity,(best[1] if best else None)
+
+          found={}
+          with cf.ThreadPoolExecutor(max_workers=6) as ex:
+              for ident,x in ex.map(recover,ORDER):
+                  if x:found[ident]=x
+
+          r=json.loads(REP.read_text())
+          r["status"]="COMPLETE" if len(found)==len(ORDER) else "PARTIAL"
+          r["original_image_positions_identified"]=len(ORDER)
+          r["desktop_image_identities"]=ORDER
+          r["images"]=[found[i] for i in ORDER if i in found]
+          r["recovered_full_or_near_full"]=sum(x["quality"]=="full/near-full" for x in r["images"])
+          r["recovered_thumbnail_or_lower_resolution"]=sum(x["quality"]!="full/near-full" for x in r["images"])
+          r["still_missing"]=len(ORDER)-len(r["images"])
+          r["missing"]=[{"identity":i,"candidate_urls":candidates[i]} for i in ORDER if i not in found]
+          r["counting_method"]="One principal castle photograph, one separate historical painting explicitly captioned in the article, and ten genuine WebPlus gallery photographs declared in wp_imgArray_pg_4. Navigation, social, decorative and gallery-thumbnail graphics are not counted separately."
+          r["audit_correction_2026_09_15"]="Earlier 1-image audit missed the historical painting and 10-image WebPlus gallery."
+          r["direct_supplied_capture_search_2026_09_15"]={"completed":True,"capture":TS,"found":sorted(found)}
+          REP.write_text(json.dumps(r,indent=2)+"\n")
+
+          p=ROOT/"index.html"; soup=BeautifulSoup(p.read_text(),"html.parser")
+          h=soup.find("h2",string=lambda x:x and "Recovered original photographs" in x)
+          if h:
+              for fig in list(h.find_all_next("figure")):fig.decompose()
+              anchor=h
+              for ident in ORDER:
+                  if ident not in found:continue
+                  x=found[ident]; fig=soup.new_tag("figure"); a=soup.new_tag("a",href=x["file"])
+                  im=soup.new_tag("img",src=x["file"],alt="Pontefract Castle archived original image")
+                  a.append(im); fig.append(a); cap=soup.new_tag("figcaption")
+                  cap.string=ident.replace("_"," ")+(" — lower-resolution archived recovery" if x["quality"]!="full/near-full" else "")
+                  fig.append(cap); anchor.insert_after(fig); anchor=fig
+          note=soup.find("div",class_="note")
+          if note:note.string=f"Recovered from the archived CastlesFortsBattles page. The archived written content is preserved. {len(r['images'])} of {len(ORDER)} identified original content-image positions have been recovered; {r['still_missing']} remain unavailable. No unrelated substitute photographs have been introduced."
+          p.write_text(str(soup))
+
+          Path("page-audit/pontefract-castle.json").write_text(json.dumps({
+            "name":"Pontefract Castle","slug":"pontefract-castle","status":r["status"],"source":TS,
+            "positions":len(ORDER),"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],
+            "missing":r["still_missing"],"missing_identities":[x["identity"] for x in r["missing"]]
+          },indent=2)+"\n")
+          print(json.dumps({"positions":len(ORDER),"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],"found":sorted(found)},indent=2))
+          PY
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/pontefract-castle page-audit/pontefract-castle.json
+          if git diff --cached --quiet; then
+            echo 'No Pontefract direct changes'
+          else
+            git commit -m 'Recover Pontefract supplied-capture images'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
