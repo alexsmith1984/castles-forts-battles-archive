@@ -1,13 +1,22 @@
 {
   "name": "Pontefract Castle",
   "slug": "pontefract-castle",
-  "status": "built",
+  "status": "PARTIAL",
   "source": "20210918010514",
-  "positions": 1,
-  "full": 0,
-  "lower": 0,
-  "missing": 1,
+  "positions": 12,
+  "full": 1,
+  "lower": 1,
+  "missing": 10,
   "missing_identities": [
-    "pontefract_castle15"
+    "gallery_9e7ec107fa61",
+    "gallery_872a049986f9",
+    "gallery_a03129057658",
+    "gallery_b5372267c64",
+    "gallery_8bfa199a7cb7",
+    "gallery_d015f224e174",
+    "gallery_8009ef2e4c9e",
+    "gallery_56fa23144c23",
+    "gallery_beb2f8b4116d",
+    "gallery_aa0e1909193b"
   ]
 }
