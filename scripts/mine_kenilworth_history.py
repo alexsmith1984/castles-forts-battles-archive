@@ -79,6 +79,127 @@ def arquivo_rows():
         if k not in seen:seen.add(k);out.append(k)
     return out
 
+
+def timemap_rows():
+    out=[]
+    endpoints=[]
+    for page in PAGES:
+        endpoints.append(("wayback","https://web.archive.org/web/timemap/link/"+page))
+        endpoints.append(("arquivo","https://arquivo.pt/wayback/timemap/link/"+page))
+    for source,ep in endpoints:
+        x=get(ep,15)
+        if not x or x.status_code!=200:continue
+        for uri in re.findall(r'<([^>]+)>;\\s*rel="(?:first |last )?memento"',x.text,re.I):
+            if source=="wayback":
+                m=re.search(r'/web/(\\d{14})/(https?://.*)
+gids=[x for x in order if x.startswith("gallery_")]
+existing={x["identity"]:x for x in r.get("images",[])}
+wb=wayback_rows(); arq=arquivo_rows()
+captures=[("wayback",ts,u) for ts,u in wb]+[("arquivo",ts,u) for ts,u in arq]+timemap_rows()
+# Diverse sampling, but preserve chronological range and cap work.
+if len(captures)>24:
+    captures=captures[:6]+captures[len(captures)//2-6:len(captures)//2+6]+captures[-6:]
+seen=set(); captures=[x for x in captures if (x[0],x[1],x[2]) not in seen and not seen.add((x[0],x[1],x[2]))]
+tm=timemap_rows(); print(json.dumps({"wayback_page_captures":len(wb),"arquivo_page_captures":len(arq),"timemap_captures":len(tm),"sampled":len(captures)}),flush=True)
+
+checked=0
+for source,ts,pu in captures:
+    if source=="wayback":
+        pr=get(f"https://web.archive.org/web/{ts}id_/{pu}",10)
+    else:
+        pr=get(f"https://arquivo.pt/wayback/{ts}id_/{pu}",10)
+    if not pr or pr.status_code!=200 or "<html" not in pr.text.lower():continue
+    checked+=1; h=pr.text
+    hashes=re.findall(r'new wp_galleryimage\("wpimages/([0-9a-f]+)\.jpg"',h,re.I)
+    for n,ident in enumerate(gids):
+        if ident in existing or n>=len(hashes):continue
+        hh=hashes[n]
+        candidates=[(urljoin(pu,"wpimages/"+hh+".jpg"),"full/near-full"),(urljoin(pu,"wpimages/"+hh+"t.jpg"),"thumbnail/lower-resolution")]
+        for u,qv in candidates:
+            b=wb_replay(ts,u) if source=="wayback" else arq_replay(ts,u)
+            if b:
+                existing[ident]=save(ident,b,ts,u,source+"-historical-gallery-position",qv)
+                print("RECOVERED",ident,source,ts,u,flush=True);break
+    for ident in ("kenilworth_castle1","kenilworth_castle9","kenilworth_castle15"):
+        if ident in existing:continue
+        num=ident.replace("kenilworth_castle","")
+        m=re.search(r'<a[^>]+href="([^"]*Kenilworth_Castle'+re.escape(num)+r'\.(?:JPG|jpg))"[^>]*>\s*<img[^>]+src="([^"]+)"',h,re.I)
+        if not m:continue
+        orig=urljoin(pu,m.group(1)); disp=urljoin(pu,m.group(2))
+        for u,qv,method in ((orig,"full/near-full","historical-original"),(disp,"thumbnail/lower-resolution","historical-display-export")):
+            b=wb_replay(ts,u) if source=="wayback" else arq_replay(ts,u)
+            if b:
+                existing[ident]=save(ident,b,ts,u,source+"-"+method,qv)
+                print("RECOVERED",ident,source,ts,u,flush=True);break
+
+r["images"]=[existing[i] for i in order if i in existing]
+old={x["identity"]:x for x in r.get("missing",[])}
+r["missing"]=[old[i] for i in order if i not in existing and i in old]
+r["recovered_full_or_near_full"]=sum(x["quality"]=="full/near-full" for x in r["images"])
+r["recovered_thumbnail_or_lower_resolution"]=sum(x["quality"]!="full/near-full" for x in r["images"])
+r["still_missing"]=len(order)-len(r["images"]); r["status"]="COMPLETE" if r["still_missing"]==0 else "PARTIAL"
+r["historical_page_mining_2026_09_14"]={"completed":True,"wayback_page_captures_found":len(wb),"arquivo_page_captures_found":len(arq),"timemap_captures_found":len(tm),"page_captures_checked":checked,"recovered":[i for i in order if i in existing]}
+REP.write_text(json.dumps(r,indent=2)+"\n")
+print(json.dumps({"checked":checked,"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],"recovered":[i for i in order if i in existing]},indent=2))
+,uri)
+            else:
+                m=re.search(r'/wayback/(\\d{14})/(https?://.*)
+gids=[x for x in order if x.startswith("gallery_")]
+existing={x["identity"]:x for x in r.get("images",[])}
+wb=wayback_rows(); arq=arquivo_rows()
+captures=[("wayback",ts,u) for ts,u in wb]+[("arquivo",ts,u) for ts,u in arq]
+# Diverse sampling, but preserve chronological range and cap work.
+if len(captures)>24:
+    captures=captures[:6]+captures[len(captures)//2-6:len(captures)//2+6]+captures[-6:]
+seen=set(); captures=[x for x in captures if (x[0],x[1],x[2]) not in seen and not seen.add((x[0],x[1],x[2]))]
+print(json.dumps({"wayback_page_captures":len(wb),"arquivo_page_captures":len(arq),"sampled":len(captures)}),flush=True)
+
+checked=0
+for source,ts,pu in captures:
+    if source=="wayback":
+        pr=get(f"https://web.archive.org/web/{ts}id_/{pu}",10)
+    else:
+        pr=get(f"https://arquivo.pt/wayback/{ts}id_/{pu}",10)
+    if not pr or pr.status_code!=200 or "<html" not in pr.text.lower():continue
+    checked+=1; h=pr.text
+    hashes=re.findall(r'new wp_galleryimage\("wpimages/([0-9a-f]+)\.jpg"',h,re.I)
+    for n,ident in enumerate(gids):
+        if ident in existing or n>=len(hashes):continue
+        hh=hashes[n]
+        candidates=[(urljoin(pu,"wpimages/"+hh+".jpg"),"full/near-full"),(urljoin(pu,"wpimages/"+hh+"t.jpg"),"thumbnail/lower-resolution")]
+        for u,qv in candidates:
+            b=wb_replay(ts,u) if source=="wayback" else arq_replay(ts,u)
+            if b:
+                existing[ident]=save(ident,b,ts,u,source+"-historical-gallery-position",qv)
+                print("RECOVERED",ident,source,ts,u,flush=True);break
+    for ident in ("kenilworth_castle1","kenilworth_castle9","kenilworth_castle15"):
+        if ident in existing:continue
+        num=ident.replace("kenilworth_castle","")
+        m=re.search(r'<a[^>]+href="([^"]*Kenilworth_Castle'+re.escape(num)+r'\.(?:JPG|jpg))"[^>]*>\s*<img[^>]+src="([^"]+)"',h,re.I)
+        if not m:continue
+        orig=urljoin(pu,m.group(1)); disp=urljoin(pu,m.group(2))
+        for u,qv,method in ((orig,"full/near-full","historical-original"),(disp,"thumbnail/lower-resolution","historical-display-export")):
+            b=wb_replay(ts,u) if source=="wayback" else arq_replay(ts,u)
+            if b:
+                existing[ident]=save(ident,b,ts,u,source+"-"+method,qv)
+                print("RECOVERED",ident,source,ts,u,flush=True);break
+
+r["images"]=[existing[i] for i in order if i in existing]
+old={x["identity"]:x for x in r.get("missing",[])}
+r["missing"]=[old[i] for i in order if i not in existing and i in old]
+r["recovered_full_or_near_full"]=sum(x["quality"]=="full/near-full" for x in r["images"])
+r["recovered_thumbnail_or_lower_resolution"]=sum(x["quality"]!="full/near-full" for x in r["images"])
+r["still_missing"]=len(order)-len(r["images"]); r["status"]="COMPLETE" if r["still_missing"]==0 else "PARTIAL"
+r["historical_page_mining_2026_09_14"]={"completed":True,"wayback_page_captures_found":len(wb),"arquivo_page_captures_found":len(arq),"page_captures_checked":checked,"recovered":[i for i in order if i in existing]}
+REP.write_text(json.dumps(r,indent=2)+"\n")
+print(json.dumps({"checked":checked,"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],"recovered":[i for i in order if i in existing]},indent=2))
+,uri)
+            if m:out.append((source,m.group(1),m.group(2)))
+    seen=set();res=[]
+    for x in out:
+        if x not in seen:seen.add(x);res.append(x)
+    return res
+
 r=json.loads(REP.read_text()); order=r["desktop_image_identities"]
 gids=[x for x in order if x.startswith("gallery_")]
 existing={x["identity"]:x for x in r.get("images",[])}
