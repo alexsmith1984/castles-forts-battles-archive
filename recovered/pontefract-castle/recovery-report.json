@@ -206,5 +206,43 @@
     "captures_found": 36,
     "captures_checked": 35,
     "recovered": []
+  },
+  "timeless_asset_recovery_2026_09_15": {
+    "completed": true,
+    "historical_page_captures_found": 54,
+    "historical_page_captures_checked": 52,
+    "hashes_by_gallery_position": {
+      "0": [
+        "9e7ec107fa61"
+      ],
+      "1": [
+        "872a049986f9"
+      ],
+      "2": [
+        "a03129057658"
+      ],
+      "3": [
+        "b5372267c64"
+      ],
+      "4": [
+        "8bfa199a7cb7"
+      ],
+      "5": [
+        "d015f224e174"
+      ],
+      "6": [
+        "8009ef2e4c9e"
+      ],
+      "7": [
+        "56fa23144c23"
+      ],
+      "8": [
+        "beb2f8b4116d"
+      ],
+      "9": [
+        "aa0e1909193b"
+      ]
+    },
+    "recovered_now": []
   }
 }
