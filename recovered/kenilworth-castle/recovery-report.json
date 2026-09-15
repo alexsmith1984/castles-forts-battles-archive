@@ -288,7 +288,7 @@
     }
   ],
   "missing": [],
-  "counting_method": "Five standalone content-image positions plus fourteen genuine WebPlus gallery photographs declared in wp_imgArray_pg_7. Navigation/UI/social graphics and gallery thumbnails are not counted separately.",
+  "counting_method": "Three standalone content-image positions plus thirteen genuine WebPlus gallery photographs declared in wp_imgArray_pg_6. Navigation/UI/social graphics and gallery thumbnails are not counted separately.",
   "verification_note": "Every displayed image was recovered from CastlesFortsBattles archive captures. No unrelated substitute photographs were used.",
   "deep_recovery_history": [
     {
@@ -360,5 +360,6 @@
       "gallery_28181a0a6a1c",
       "kenilworth_castle15"
     ]
-  }
+  },
+  "audit_correction_2026_09_14": "Earlier 3-image audit missed the 13 genuine WebPlus gallery photographs."
 }
