@@ -4,8 +4,8 @@
   "status": "PARTIAL",
   "source": "20211208101939",
   "positions": 27,
-  "full": 0,
-  "lower": 25,
+  "full": 23,
+  "lower": 2,
   "missing": 2,
   "missing_identities": [
     "richmond_castle",

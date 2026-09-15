@@ -36,8 +36,8 @@
     "richmond_castle17",
     "richmond_castle18"
   ],
-  "recovered_full_or_near_full": 0,
-  "recovered_thumbnail_or_lower_resolution": 25,
+  "recovered_full_or_near_full": 23,
+  "recovered_thumbnail_or_lower_resolution": 2,
   "still_missing": 2,
   "uncertain_identifications": [],
   "images": [
@@ -55,7 +55,7 @@
       "format": "JPEG",
       "bytes": 1110667,
       "sha256": "ea179cac7c56bca96041974e7109bdb2bba618ada2410107f053f36221875c60",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -72,7 +72,7 @@
       "format": "JPEG",
       "bytes": 749284,
       "sha256": "ed0064913d2c2401c1c615fa8a7028f5ff526517ceef906ecfb70de7b333a167",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -123,7 +123,7 @@
       "format": "JPEG",
       "bytes": 266004,
       "sha256": "20c36547fd8c625da074f48fa2d327926bfe96f5479c5fd0dcc9122c386dd489",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -140,7 +140,7 @@
       "format": "JPEG",
       "bytes": 720500,
       "sha256": "446c6b0d98324617c05e7974a52c735b81488850f972dad892544ff86f919f52",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -157,7 +157,7 @@
       "format": "JPEG",
       "bytes": 758292,
       "sha256": "275da967488f4fea795db02b53fdd378aa2af6452671b8e0dc1ff866900620d9",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -174,7 +174,7 @@
       "format": "JPEG",
       "bytes": 904135,
       "sha256": "0de3d3a26493ed90e46c285b8ed13254c985e217e733b7dc6e1b7c294605e7f3",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -191,7 +191,7 @@
       "format": "JPEG",
       "bytes": 1026437,
       "sha256": "8f9f5c31f15f978077c11f01be3578ceb7bfbb657216b2697db8da68871fe81a",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -208,7 +208,7 @@
       "format": "JPEG",
       "bytes": 726067,
       "sha256": "7206f85e04ee9ba8bff0a3d3ac250cbeb8402fb7492594dc86156a07b35c943f",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -225,7 +225,7 @@
       "format": "JPEG",
       "bytes": 1096834,
       "sha256": "ad4eeb19c19278a0483740d7b852ceebb6643e9ac1038834cbdea4d7a7c4c1cb",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -242,7 +242,7 @@
       "format": "JPEG",
       "bytes": 1011085,
       "sha256": "2e6f10febbc61d740d1889f40c862af24c2882bcdf2561c6fa5b5eceb1817d73",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -259,7 +259,7 @@
       "format": "JPEG",
       "bytes": 789784,
       "sha256": "143303f825ca4b8ff19adadf6efaff7d3c0c86e06efcfc25b10a03d137773d83",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -276,7 +276,7 @@
       "format": "JPEG",
       "bytes": 942645,
       "sha256": "cc1907078140f74f662a7f011348b7764d23f1728423716a1289f49d94e168a3",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -293,7 +293,7 @@
       "format": "JPEG",
       "bytes": 1027096,
       "sha256": "23839907fc35fc232872e2572893552fed65ecff5f8f560ee2e26b20b67209c2",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -310,7 +310,7 @@
       "format": "JPEG",
       "bytes": 707462,
       "sha256": "b56942dca2d43e7b673b1a208b749e2b0df5dfdddb82e1386b220a043037ca2d",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -327,7 +327,7 @@
       "format": "JPEG",
       "bytes": 1116179,
       "sha256": "b3952dc52495ad58b8660735d4b83eda36085f00901847c175731b6e8347d925",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -344,7 +344,7 @@
       "format": "JPEG",
       "bytes": 649985,
       "sha256": "7ec5c0322da68b336afdcc0dca7a8b12a8192a2f972ba98a09773e518793f21d",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -361,7 +361,7 @@
       "format": "JPEG",
       "bytes": 1293174,
       "sha256": "b8d8343b2e3ab3f08ab84430ab8d52e05a63ebb56f2026c543ae8b2b0ef97c12",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -378,7 +378,7 @@
       "format": "JPEG",
       "bytes": 234425,
       "sha256": "a1f0013a65bea1271dacd690b3d2edda576b01dee65579f2866517d3b44165ff",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -395,7 +395,7 @@
       "format": "JPEG",
       "bytes": 865582,
       "sha256": "acdba1aa878f73d0cdcac671f6fd0fab14af52b64f2a357450ef182519fe65d0",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -412,7 +412,7 @@
       "format": "JPEG",
       "bytes": 861161,
       "sha256": "87f9e5a8dc41bf2bd99ff63dd30d3d4de3c1120c34ea7e089ad002caedcb9be9",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -429,7 +429,7 @@
       "format": "JPEG",
       "bytes": 1018497,
       "sha256": "4d07335cb01c9f51d859f4cb48b1daa2d69fcde79e1c49946f336c847a8ffbfd",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -446,7 +446,7 @@
       "format": "JPEG",
       "bytes": 1212033,
       "sha256": "aa3889f4f9da743f39b15f0d9823e91aaa505a33167e5f87ce3d2f36ab1a0090",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     },
     {
@@ -463,7 +463,7 @@
       "format": "JPEG",
       "bytes": 148192,
       "sha256": "dfb8746a0fd94f6b810443949261b28cdc7a93b9460e086042c298614e1a226f",
-      "quality": "thumbnail/lower-resolution",
+      "quality": "full/near-full",
       "identification": "certain"
     }
   ],
@@ -679,5 +679,69 @@
       "richmond_castle17",
       "richmond_castle18"
     ]
+  },
+  "targeted_two_missing_recovery_2026_09_15": {
+    "completed": true,
+    "page_captures_found": 5,
+    "page_captures_checked": 5,
+    "historical_asset_position_records": [
+      {
+        "source": "wayback",
+        "timestamp": "20160814094248",
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/assets/richmond_castle14b.jpg"
+        ]
+      },
+      {
+        "source": "wayback",
+        "timestamp": "20211208101939",
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle14b.jpg"
+        ]
+      },
+      {
+        "source": "wayback",
+        "timestamp": "20220120234531",
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle14b.jpg"
+        ]
+      },
+      {
+        "source": "wayback",
+        "timestamp": "20220826212659",
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle14b.jpg"
+        ]
+      }
+    ],
+    "candidate_counts": {
+      "richmond_castle": 198,
+      "richmond_castle_plan": 200
+    },
+    "recovered_now": []
   }
 }
