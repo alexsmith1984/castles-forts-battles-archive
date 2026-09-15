@@ -25,7 +25,7 @@ def info(b):
     except Exception:return None
 
 def hashes(html):
-    pat=r'wp_imgArray_pg_4\s*\[\s*nImgNum_pg_4\+\+\s*\]\s*=\s*new\s+wp_galleryimage\s*\(\s*["\']wpimages/([0-9a-f]{12})\.jpg'
+    pat=r'wp_imgArray_pg_4\s*\[\s*nImgNum_pg_4\+\+\s*\]\s*=\s*new\s+wp_galleryimage\s*\(\s*["\']wpimages/([0-9a-f]{10,14})\.jpg'
     return re.findall(pat,html,re.I)
 
 def timemap(source,u):
