@@ -244,5 +244,28 @@
       ]
     },
     "recovered_now": []
+  },
+  "cross_timestamp_hero_upgrade_2026_09_15": {
+    "completed": true,
+    "source_original_href": "http://www.castlesfortsbattles.co.uk/Pontefract_Castle15.JPG",
+    "candidate_original_urls_checked": 48,
+    "probe_count": 384,
+    "upgraded": false,
+    "best_surviving_version": {
+      "identity": "pontefract_castle15",
+      "file": "images/pontefract_castle15.jpg",
+      "archive_timestamp": "20210918010514",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpfeb63d59_05_06.jpg",
+      "method": "direct-supplied-capture-replay",
+      "dimensions": [
+        920,
+        372
+      ],
+      "format": "JPEG",
+      "bytes": 139799,
+      "sha256": "9a2a7a148f05d363a643f2427f2ee6b77dd8cb16d477e52a8cf8ea7bd9fc5e78",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    }
   }
 }
