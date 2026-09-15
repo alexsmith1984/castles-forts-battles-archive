@@ -179,5 +179,26 @@
       "pontefract_castle15",
       "pontefract_painting_alex_kierincx"
     ]
+  },
+  "final_external_search_2026_09_15": {
+    "completed": true,
+    "methods": [
+      "Wayback CDX exact URL/query/case/protocol variants",
+      "Arquivo.pt exact URL/query/case/protocol variants",
+      "Common Crawl representative 2014-2023 indexes"
+    ],
+    "found": [],
+    "commoncrawl_indexes_checked": [
+      "CC-MAIN-2014-52",
+      "CC-MAIN-2015-48",
+      "CC-MAIN-2016-50",
+      "CC-MAIN-2017-51",
+      "CC-MAIN-2018-51",
+      "CC-MAIN-2019-51",
+      "CC-MAIN-2020-50",
+      "CC-MAIN-2021-49",
+      "CC-MAIN-2022-49",
+      "CC-MAIN-2023-50"
+    ]
   }
 }
