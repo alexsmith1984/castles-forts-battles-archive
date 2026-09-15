@@ -199,6 +199,8 @@
   ],
   "historical_page_mining_2026_09_14": {
     "completed": true,
+    "wayback_page_captures_found": 0,
+    "arquivo_page_captures_found": 0,
     "page_captures_checked": 0,
     "recovered": []
   }
