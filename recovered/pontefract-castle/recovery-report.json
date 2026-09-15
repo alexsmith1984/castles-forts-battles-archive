@@ -170,5 +170,14 @@
       "pontefract_castle15",
       "pontefract_painting_alex_kierincx"
     ]
+  },
+  "historical_timemap_mining_2026_09_15": {
+    "completed": true,
+    "captures_found": 28,
+    "captures_checked": 27,
+    "recovered": [
+      "pontefract_castle15",
+      "pontefract_painting_alex_kierincx"
+    ]
   }
 }
