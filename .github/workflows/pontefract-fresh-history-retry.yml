@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4 pillow
-      - run: python scripts/deep_pontefract_history_retry.py
+      - run: python scripts/deep_pontefract_array_retry_v2.py
       - name: Rebuild Pontefract page and audit
         run: |
           python - <<'PY'
