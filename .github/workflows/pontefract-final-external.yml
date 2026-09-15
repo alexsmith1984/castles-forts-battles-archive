@@ -1,0 +1,137 @@
+name: Pontefract final external archive search
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pontefract-final-external.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Add Pontefract legacy candidates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("recovered/pontefract-castle/recovery-report.json")
+          r=json.loads(p.read_text())
+          # Ensure both Yorkshire-relative and root WebPlus paths are searched.
+          for m in r.get("missing",[]):
+              ident=m["identity"]
+              if ident.startswith("gallery_"):
+                  h=ident.replace("gallery_","")
+                  extra=[
+                    f"http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/{h}.jpg",
+                    f"http://www.castlesfortsbattles.co.uk/wpimages/{h}.jpg",
+                    f"http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/{h}t.jpg",
+                    f"http://www.castlesfortsbattles.co.uk/wpimages/{h}t.jpg"
+                  ]
+                  m["candidate_urls"]=list(dict.fromkeys(m.get("candidate_urls",[])+extra))
+          p.write_text(json.dumps(r,indent=2)+"\n")
+          PY
+      - name: Run external archive engine
+        run: |
+          sed             -e 's#recovered/fotheringhay-castle#recovered/pontefract-castle#g'             -e 's/FotheringhayArchiveRecovery/PontefractArchiveRecovery/g'             -e 's/Fotheringhay Castle/Pontefract Castle/g'             -e 's/fresh_deep_search_2026_09_14/final_external_search_2026_09_15/g'             -e 's/2018<=int(m.group(1))<=2023/2014<=int(m.group(1))<=2023/g'             -e 's/Common Crawl representative 2018-2023 indexes/Common Crawl representative 2014-2023 indexes/g'             scripts/deep_fotheringhay_external_archives.py > /tmp/deep_pontefract.py
+          python /tmp/deep_pontefract.py
+      - name: Search full hero original exactly
+        run: |
+          python - <<'PY'
+          import io,json,hashlib
+          from pathlib import Path
+          from urllib.parse import quote
+          import requests
+          from PIL import Image
+          p=Path("recovered/pontefract-castle/recovery-report.json")
+          r=json.loads(p.read_text()); root=p.parent; imgdir=root/"images"
+          S=requests.Session(); S.headers["User-Agent"]="Mozilla/5.0 PontefractHeroRecovery"
+          urls=[
+            "http://www.castlesfortsbattles.co.uk/Pontefract_Castle15.JPG",
+            "https://www.castlesfortsbattles.co.uk/Pontefract_Castle15.JPG",
+            "http://castlesfortsbattles.co.uk/Pontefract_Castle15.JPG",
+            "https://castlesfortsbattles.co.uk/Pontefract_Castle15.JPG",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/Pontefract_Castle15.JPG"
+          ]
+          def info(b):
+              try:
+                  im=Image.open(io.BytesIO(b)); z=(im.width,im.height,im.format); im.verify(); return z
+              except Exception:return None
+          best=None
+          for u in urls:
+              ep="https://web.archive.org/cdx/search/cdx?url="+quote(u,safe=":/")+"&output=json&fl=timestamp,original,statuscode&filter=statuscode:200&collapse=digest"
+              try:x=S.get(ep,timeout=10)
+              except Exception:continue
+              if x.status_code!=200:continue
+              try:rows=x.json()[1:]
+              except Exception:continue
+              for row in reversed(rows):
+                  ts,orig=row[0],row[1]
+                  try:z=S.get(f"https://web.archive.org/web/{ts}id_/{orig}",timeout=10)
+                  except Exception:continue
+                  inf=info(z.content) if z.status_code==200 else None
+                  if not inf:continue
+                  score=inf[0]*inf[1]
+                  if best is None or score>best[0]:best=(score,ts,orig,z.content,inf)
+          if best:
+              _,ts,orig,b,inf=best
+              cur=next((x for x in r["images"] if x["identity"]=="pontefract_castle15"),None)
+              if not cur or inf[0]*inf[1] > cur["dimensions"][0]*cur["dimensions"][1]:
+                  ext=".png" if inf[2]=="PNG" else ".jpg"; out=imgdir/("pontefract_castle15"+ext);out.write_bytes(b)
+                  fresh={"identity":"pontefract_castle15","file":"images/"+out.name,"archive_timestamp":ts,"archive_original":orig,
+                    "method":"wayback-exact-history-full-original","dimensions":[inf[0],inf[1]],"format":inf[2],"bytes":len(b),
+                    "sha256":hashlib.sha256(b).hexdigest(),"quality":"full/near-full","identification":"certain"}
+                  r["images"]=[fresh if x["identity"]=="pontefract_castle15" else x for x in r["images"]]
+          r["recovered_full_or_near_full"]=sum(x.get("quality")=="full/near-full" for x in r["images"])
+          r["recovered_thumbnail_or_lower_resolution"]=sum(x.get("quality")!="full/near-full" for x in r["images"])
+          p.write_text(json.dumps(r,indent=2)+"\n")
+          PY
+      - name: Sync page and audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          root=Path("recovered/pontefract-castle"); r=json.loads((root/"recovery-report.json").read_text())
+          p=root/"index.html"; soup=BeautifulSoup(p.read_text(),"html.parser")
+          h=soup.find("h2",string=lambda x:x and "Recovered original photographs" in x)
+          if h:
+              for fig in list(h.find_all_next("figure")):fig.decompose()
+              anchor=h
+              for x in r["images"]:
+                  fig=soup.new_tag("figure");a=soup.new_tag("a",href=x["file"])
+                  im=soup.new_tag("img",src=x["file"],alt="Pontefract Castle archived original image")
+                  a.append(im);fig.append(a);cap=soup.new_tag("figcaption")
+                  cap.string=x["identity"].replace("_"," ")+(" — lower-resolution archived recovery" if x.get("quality")!="full/near-full" else "")
+                  fig.append(cap);anchor.insert_after(fig);anchor=fig
+          note=soup.find("div",class_="note")
+          if note:note.string=f"Recovered from the archived CastlesFortsBattles page. The archived written content is preserved. {len(r['images'])} of {r['original_image_positions_identified']} identified original content-image positions have been recovered; {r['still_missing']} remain unavailable. No unrelated substitute photographs have been introduced."
+          p.write_text(str(soup))
+          Path("page-audit/pontefract-castle.json").write_text(json.dumps({
+            "name":"Pontefract Castle","slug":"pontefract-castle","status":r["status"],"source":r["source_timestamp_used"],
+            "positions":r["original_image_positions_identified"],"full":r["recovered_full_or_near_full"],
+            "lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],
+            "missing_identities":[x["identity"] for x in r["missing"]]
+          },indent=2)+"\n")
+          PY
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/pontefract-castle page-audit/pontefract-castle.json
+          if git diff --cached --quiet; then
+            echo 'No final Pontefract changes'
+          else
+            git commit -m 'Complete final Pontefract archive search'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
