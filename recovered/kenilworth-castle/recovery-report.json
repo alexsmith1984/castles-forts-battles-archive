@@ -196,5 +196,10 @@
     "Wayback exact-history CDX",
     "Arquivo.pt exact filename",
     "Common Crawl representative 2016-2023 indexes"
-  ]
+  ],
+  "historical_page_mining_2026_09_14": {
+    "completed": true,
+    "page_captures_checked": 0,
+    "recovered": []
+  }
 }
