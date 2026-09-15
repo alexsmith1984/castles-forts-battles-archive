@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Trigger validated Pontefract recovery after workflow_run installation.
 import io,json,re,hashlib,time
 from pathlib import Path
 from urllib.parse import urljoin
