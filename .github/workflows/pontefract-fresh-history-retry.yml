@@ -1,0 +1,64 @@
+name: Pontefract fresh historical recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pontefract-fresh-history-retry.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/deep_pontefract_history_retry.py
+      - name: Rebuild Pontefract page and audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          root=Path('recovered/pontefract-castle')
+          r=json.loads((root/'recovery-report.json').read_text())
+          p=root/'index.html'; soup=BeautifulSoup(p.read_text(),'html.parser')
+          h=soup.find('h2',string=lambda x:x and 'Recovered original photographs' in x)
+          if h:
+              for fig in list(h.find_all_next('figure')): fig.decompose()
+              anchor=h
+              for x in r['images']:
+                  fig=soup.new_tag('figure'); a=soup.new_tag('a',href=x['file'])
+                  im=soup.new_tag('img',src=x['file'],alt='Pontefract Castle archived original image')
+                  a.append(im); fig.append(a)
+                  cap=soup.new_tag('figcaption')
+                  cap.string=x['identity'].replace('_',' ')+(' — lower-resolution archived recovery' if x.get('quality')!='full/near-full' else '')
+                  fig.append(cap); anchor.insert_after(fig); anchor=fig
+          note=soup.find('div',class_='note')
+          if note: note.string=f"Recovered from the archived CastlesFortsBattles page. The archived written content is preserved. {len(r['images'])} of {r['original_image_positions_identified']} identified original content-image positions have been recovered; {r['still_missing']} remain unavailable. No unrelated substitute photographs have been introduced."
+          p.write_text(str(soup))
+          Path('page-audit/pontefract-castle.json').write_text(json.dumps({
+            'name':'Pontefract Castle','slug':'pontefract-castle','status':r['status'],'source':r['source_timestamp_used'],
+            'positions':r['original_image_positions_identified'],'full':r['recovered_full_or_near_full'],
+            'lower':r['recovered_thumbnail_or_lower_resolution'],'missing':r['still_missing'],
+            'missing_identities':[x['identity'] for x in r['missing']]
+          },indent=2)+'\n')
+          PY
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/pontefract-castle page-audit/pontefract-castle.json
+          if git diff --cached --quiet; then
+            echo 'No fresh Pontefract changes'
+          else
+            git commit -m 'Retry Pontefract historical gallery recovery'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
