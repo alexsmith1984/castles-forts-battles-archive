@@ -1,0 +1,117 @@
+name: Pickering direct supplied-capture recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pickering-direct-recovery.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Recover Pickering directly from supplied capture
+        run: |
+          python - <<'PY'
+          import io,json,re,hashlib
+          from pathlib import Path
+          import requests
+          from PIL import Image
+          from bs4 import BeautifulSoup
+
+          root=Path("recovered/pickering-castle"); imgdir=root/"images"; imgdir.mkdir(exist_ok=True)
+          report=root/"recovery-report.json"; ts="20220524225709"
+          r=json.loads(report.read_text())
+          s=requests.Session(); s.headers["User-Agent"]="Mozilla/5.0 Pickering supplied-capture recovery"
+
+          def info(b):
+              try:
+                  im=Image.open(io.BytesIO(b)); z=(im.width,im.height,im.format); im.verify(); return z
+              except Exception:return None
+
+          def quality(u):
+              leaf=u.split("/")[-1].split("?")[0]
+              if re.search(r"\d{2,4}x\d{2,4}\.(?:jpg|png)$",leaf,re.I) or re.search(r"60x\d+\.",leaf,re.I):
+                  return "thumbnail/lower-resolution"
+              return "full/near-full"
+
+          found={x["identity"]:x for x in r.get("images",[])}
+          old={x["identity"]:x for x in r.get("missing",[])}
+          newly={}
+
+          for m in r.get("missing",[]):
+              ident=m["identity"]; best=None
+              urls=[]
+              for u in m.get("candidate_urls",[]):
+                  urls += [u,u.replace("http://","https://",1)]
+              for u in dict.fromkeys(urls):
+                  for mod in ("id_","im_",""):
+                      replay=f"https://web.archive.org/web/{ts}{mod}/{u}"
+                      try:resp=s.get(replay,timeout=8,allow_redirects=True)
+                      except Exception:continue
+                      z=info(resp.content) if resp.status_code==200 else None
+                      if not z:continue
+                      q=quality(u)
+                      score=(2 if q=="full/near-full" else 1,z[0]*z[1])
+                      cand=(score,u,resp.content,z,q)
+                      if best is None or cand[0]>best[0]:best=cand
+              if best:
+                  _,u,b,z,q=best; ext=".png" if z[2]=="PNG" else ".jpg"; p=imgdir/(ident+ext); p.write_bytes(b)
+                  x={"identity":ident,"file":"images/"+p.name,"archive_timestamp":ts,"archive_original":u,
+                     "method":"direct-supplied-capture-replay","dimensions":[z[0],z[1]],"format":z[2],"bytes":len(b),
+                     "sha256":hashlib.sha256(b).hexdigest(),"quality":q,"identification":"certain"}
+                  found[ident]=x; newly[ident]=x
+
+          order=r["desktop_image_identities"]
+          r["images"]=[found[i] for i in order if i in found]
+          r["recovered_full_or_near_full"]=sum(x.get("quality")=="full/near-full" for x in r["images"])
+          r["recovered_thumbnail_or_lower_resolution"]=sum(x.get("quality")!="full/near-full" for x in r["images"])
+          r["still_missing"]=len(order)-len(r["images"])
+          r["missing"]=[old[i] for i in order if i not in found and i in old]
+          r["status"]="COMPLETE" if r["still_missing"]==0 else "PARTIAL"
+          r["direct_supplied_capture_search_2026_09_15"]={"completed":True,"capture":ts,"found":sorted(newly)}
+          report.write_text(json.dumps(r,indent=2)+"\n")
+
+          p=root/"index.html"; soup=BeautifulSoup(p.read_text(),"html.parser")
+          h=soup.find("h2",string=lambda x:x and "Recovered original photographs" in x)
+          if h:
+              for fig in list(h.find_all_next("figure")):fig.decompose()
+              anchor=h
+              for ident in order:
+                  if ident not in found:continue
+                  x=found[ident]; fig=soup.new_tag("figure"); a=soup.new_tag("a",href=x["file"])
+                  im=soup.new_tag("img",src=x["file"],alt="Pickering Castle archived original image"); a.append(im); fig.append(a)
+                  cap=soup.new_tag("figcaption"); cap.string=ident.replace("_"," ")+(" — lower-resolution archived recovery" if x.get("quality")!="full/near-full" else "")
+                  fig.append(cap); anchor.insert_after(fig); anchor=fig
+          note=soup.find("div",class_="note")
+          if note:note.string=f"Recovered from the archived CastlesFortsBattles page. The archived written content is preserved. {len(r['images'])} of {len(order)} identified original content-image positions have been recovered; {r['still_missing']} remain unavailable. No unrelated substitute photographs have been introduced."
+          p.write_text(str(soup))
+
+          Path("page-audit/pickering-castle.json").write_text(json.dumps({
+              "name":"Pickering Castle","slug":"pickering-castle","status":r["status"],"source":ts,
+              "positions":len(order),"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],
+              "missing":r["still_missing"],"missing_identities":[x["identity"] for x in r["missing"]]
+          },indent=2)+"\n")
+          print(json.dumps({"new":sorted(newly),"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"]},indent=2))
+          PY
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/pickering-castle page-audit/pickering-castle.json
+          if git diff --cached --quiet; then
+            echo 'No supplied-capture recoveries'
+          else
+            git commit -m 'Recover Pickering supplied-capture images'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
