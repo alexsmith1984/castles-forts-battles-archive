@@ -1,0 +1,75 @@
+name: Pickering final external archive search
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pickering-final-external.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Add Pickering legacy filename families
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("recovered/pickering-castle/recovery-report.json")
+          r=json.loads(p.read_text())
+          extra={
+            "pickering_castle":[
+              "http://www.castlesfortsbattles.co.uk/Pickering_Castle.JPG",
+              "http://www.castlesfortsbattles.co.uk/Pickering_Castle.jpg",
+              "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle.JPG",
+              "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle.jpg"
+            ],
+            "pickering_castle_plan":[
+              "http://www.castlesfortsbattles.co.uk/Pickering_Castle_Plan.png",
+              "http://www.castlesfortsbattles.co.uk/Pickering_Castle_Plan.jpg",
+              "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle_Plan.png",
+              "http://www.castlesfortsbattles.co.uk/yorkshire/Pickering_Castle_Plan.jpg"
+            ]
+          }
+          for m in r.get("missing",[]):
+              m["candidate_urls"]=list(dict.fromkeys(m.get("candidate_urls",[])+extra.get(m["identity"],[])))
+          p.write_text(json.dumps(r,indent=2)+"\n")
+          PY
+      - name: Run external archive engine
+        run: |
+          sed             -e 's#recovered/fotheringhay-castle#recovered/pickering-castle#g'             -e 's/FotheringhayArchiveRecovery/PickeringArchiveRecovery/g'             -e 's/Fotheringhay Castle/Pickering Castle/g'             -e 's/fresh_deep_search_2026_09_14/final_external_search_2026_09_15/g'             -e 's/2018<=int(m.group(1))<=2023/2014<=int(m.group(1))<=2023/g'             -e 's/Common Crawl representative 2018-2023 indexes/Common Crawl representative 2014-2023 indexes/g'             scripts/deep_fotheringhay_external_archives.py > /tmp/deep_pickering.py
+          python /tmp/deep_pickering.py
+      - name: Sync Pickering audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("recovered/pickering-castle/recovery-report.json").read_text())
+          Path("page-audit/pickering-castle.json").write_text(json.dumps({
+            "name":"Pickering Castle","slug":"pickering-castle","status":r["status"],"source":r["source_timestamp_used"],
+            "positions":r["original_image_positions_identified"],"full":r["recovered_full_or_near_full"],
+            "lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"],
+            "missing_identities":[x["identity"] for x in r["missing"]]
+          },indent=2)+"\n")
+          PY
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/pickering-castle page-audit/pickering-castle.json
+          if git diff --cached --quiet; then
+            echo 'No final Pickering changes'
+          else
+            git commit -m 'Complete final Pickering archive search'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
