@@ -34,6 +34,14 @@ x=get(q,10); rows=[]
 if x and x.status_code==200:
     try:rows=x.json()[1:]
     except Exception:pass
+# Sample the archive history rather than replaying every capture.
+if rows:
+    chosen=[]
+    chosen += rows[:4]
+    chosen += rows[-4:]
+    mid=len(rows)//2
+    chosen += rows[max(0,mid-2):mid+2]
+    seen=set(); rows=[x for x in chosen if tuple(x[:2]) not in seen and not seen.add(tuple(x[:2]))]
 for row in rows:
     if len(row)<2:continue
     ts,pu=row[0],row[1]; pr=get(f"https://web.archive.org/web/{ts}id_/{pu}",10)
