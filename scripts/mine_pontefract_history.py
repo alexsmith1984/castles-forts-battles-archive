@@ -12,6 +12,12 @@ PAGES=[
  "https://www.castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html",
  "http://castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html",
  "https://castlesfortsbattles.co.uk/yorkshire/pontefract_castle.html",
+ "http://www.castlesfortsbattles.co.uk/pontefract_castle.html",
+ "https://www.castlesfortsbattles.co.uk/pontefract_castle.html",
+ "http://castlesfortsbattles.co.uk/pontefract_castle.html",
+ "https://castlesfortsbattles.co.uk/pontefract_castle.html",
+ "http://www.castlesfortsbattles.co.uk/m/pontefract_castle.html",
+ "https://www.castlesfortsbattles.co.uk/m/pontefract_castle.html",
 ]
 S=requests.Session(); S.headers["User-Agent"]="Mozilla/5.0 PontefractHistoricalRecovery"
 
@@ -106,7 +112,11 @@ for source,ts,pageurl in captures:
           (urljoin(pageurl,"wpimages/"+hh+".jpg"),"full/near-full"),
           (urljoin(pageurl,"wpimages/"+hh+"t.jpg"),"thumbnail/lower-resolution"),
           ("http://www.castlesfortsbattles.co.uk/wpimages/"+hh+".jpg","full/near-full"),
-          ("http://www.castlesfortsbattles.co.uk/wpimages/"+hh+"t.jpg","thumbnail/lower-resolution")
+          ("http://www.castlesfortsbattles.co.uk/wpimages/"+hh+"t.jpg","thumbnail/lower-resolution"),
+          ("http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/"+hh+".jpg","full/near-full"),
+          ("http://www.castlesfortsbattles.co.uk/yorkshire/wpimages/"+hh+"t.jpg","thumbnail/lower-resolution"),
+          ("http://www.castlesfortsbattles.co.uk/m/wpimages/"+hh+".jpg","full/near-full"),
+          ("http://www.castlesfortsbattles.co.uk/m/wpimages/"+hh+"t.jpg","thumbnail/lower-resolution")
         ]
         for u,q in candidates:
             b=image_replay(source,ts,u)
@@ -134,6 +144,6 @@ r["missing"]=[old[i] for i in order if i not in found and i in old]
 r["recovered_full_or_near_full"]=sum(x["quality"]=="full/near-full" for x in r["images"])
 r["recovered_thumbnail_or_lower_resolution"]=sum(x["quality"]!="full/near-full" for x in r["images"])
 r["still_missing"]=len(order)-len(r["images"]);r["status"]="COMPLETE" if r["still_missing"]==0 else "PARTIAL"
-r["historical_timemap_mining_2026_09_15"]={"completed":True,"captures_found":len(captures),"captures_checked":checked,"recovered":[i for i in order if i in found]}
+r["historical_timemap_mining_2026_09_15"]={"completed":True,"captures_found":len(captures),"captures_checked":checked,"recovered":[i for i in order if i in found],"included_root_and_mobile_pages":True}
 REP.write_text(json.dumps(r,indent=2)+"\n")
 print(json.dumps({"captures_found":len(captures),"captures_checked":checked,"full":r["recovered_full_or_near_full"],"lower":r["recovered_thumbnail_or_lower_resolution"],"missing":r["still_missing"]},indent=2))
