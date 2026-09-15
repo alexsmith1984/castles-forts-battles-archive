@@ -11,7 +11,7 @@ permissions:
 jobs:
   recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,10 +21,6 @@ jobs:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4 pillow
       - run: python scripts/mine_kenilworth_history.py
-      - name: Final bounded history and rebuild pass
-        env:
-          ONLY_SLUG: kenilworth-castle
-        run: python scripts/bounded_deep_castle_recovery.py
       - name: Sync Kenilworth audit
         run: |
           python - <<'PY'
