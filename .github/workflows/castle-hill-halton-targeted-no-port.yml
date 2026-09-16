@@ -1,0 +1,26 @@
+name: Castle Hill Halton targeted no-port recovery
+on:
+  push:
+    paths:
+      - '.github/workflows/castle-hill-halton-targeted-no-port.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow beautifulsoup4
+      - run: python scripts/recover_castle_hill_halton_targeted_no_port.py
+      - name: Commit final Halton recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-hill-halton page-audit/castle-hill-halton.json
+          if git diff --cached --quiet; then echo 'No Halton changes'; else git commit -m 'Finalize Castle Hill Halton recovery'; git pull --rebase origin main; git push origin HEAD:main; fi
