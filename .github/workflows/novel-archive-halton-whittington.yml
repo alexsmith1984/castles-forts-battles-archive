@@ -1,0 +1,26 @@
+name: Novel archive recovery Halton and Whittington
+on:
+  push:
+    paths:
+      - '.github/workflows/novel-archive-halton-whittington.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow beautifulsoup4
+      - run: python scripts/novel_archive_halton_whittington.py
+      - name: Commit novel archive recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-hill-halton recovered/whittington-castle page-audit/castle-hill-halton.json page-audit/whittington-castle.json
+          if git diff --cached --quiet; then echo 'No new image recoveries'; else git commit -m 'Try novel archive recovery for Halton and Whittington'; git pull --rebase origin main; git push origin HEAD:main; fi
