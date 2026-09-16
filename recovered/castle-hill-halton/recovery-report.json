@@ -379,5 +379,24 @@
       "norman_castle_lune_valley_map": 0
     },
     "recovered_now": []
+  },
+  "final_deep_scan_2026_09_15": {
+    "targets": [
+      "halton_castle_motte",
+      "halton_castle_motte5",
+      "halton_castle_motte4",
+      "halton_castle_motte1",
+      "halton_castle_motte7_cote_burn",
+      "norman_castle_lune_valley_map2",
+      "norman_castle_lune_valley_map"
+    ],
+    "page_captures": 0,
+    "wayback_family_rows": 0,
+    "arquivo_exact_hits": 0,
+    "commoncrawl_rows": 0,
+    "commoncrawl_images": 0,
+    "recovered_now": [],
+    "upgraded_now": [],
+    "note": "Final requested deep scan using broad Wayback families, historical page mining, Wayback/Arquivo exact TimeMaps, and bounded Common Crawl WARC retrieval."
   }
 }
