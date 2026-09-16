@@ -1,0 +1,26 @@
+name: Final deep scan Castle Hill Almondbury and Halton
+on:
+  push:
+    paths:
+      - '.github/workflows/final-deep-castle-hill-almondbury-halton.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow beautifulsoup4
+      - run: python scripts/final_deep_castle_hill_almondbury_halton.py
+      - name: Commit final deep scan
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-hill-almondbury recovered/castle-hill-halton page-audit/castle-hill-almondbury.json page-audit/castle-hill-halton.json
+          if git diff --cached --quiet; then echo 'No Castle Hill changes'; else git commit -m 'Run final deep scan for Castle Hill sites'; git pull --rebase origin main; git push origin HEAD:main; fi
