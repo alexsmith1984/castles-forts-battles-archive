@@ -1,0 +1,125 @@
+{
+  "name": "Castle Hill, Halton (Halton Castle)",
+  "alternate_names": [
+    "Castle Hill, Halton",
+    "Halton Castle",
+    "Halton Castle Motte"
+  ],
+  "status": "PARTIAL / SEARCH EXHAUSTED",
+  "original_url": "http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+  "source_timestamp_used": "20200708105528",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk:80/north_west/halton_castle_motte.html",
+  "text_blocks_preserved": 29,
+  "original_image_positions_identified": 7,
+  "desktop_image_identities": [
+    "halton_castle_motte",
+    "halton_castle_motte5",
+    "halton_castle_motte4",
+    "halton_castle_motte1",
+    "halton_castle_motte7_cote_burn",
+    "norman_castle_lune_valley_map2",
+    "norman_castle_lune_valley_map"
+  ],
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 7,
+  "uncertain_identifications": [],
+  "images": [],
+  "missing": [
+    {
+      "identity": "halton_castle_motte",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/assets/halton_castle_motte.jpg",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte.jpg?crc=139748627",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte665x282.jpg?crc=398422312",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte5455x302.jpg?crc=426367820",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte4659x280.jpg?crc=274418022",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte1658x219.jpg?crc=430175541",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte5454x302.jpg?crc=426367820",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte4658x280.jpg?crc=274418022",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte1657x218.jpg?crc=529308179",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte501x213.jpg?crc=4223561749",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte5343x228.jpg?crc=4283276548",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte4496x211.jpg?crc=4234381969",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte1496x165.jpg?crc=3849974696",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte500x212.jpg?crc=371511025",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte5342x227.jpg?crc=4283276548",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte4495x211.jpg?crc=50074540",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte1495x164.jpg?crc=3849974696"
+      ]
+    },
+    {
+      "identity": "halton_castle_motte5",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/assets/halton_castle_motte5.jpg",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte5.jpg?crc=3919464241"
+      ]
+    },
+    {
+      "identity": "halton_castle_motte4",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/assets/halton_castle_motte4.jpg",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte4.jpg?crc=224134841"
+      ]
+    },
+    {
+      "identity": "halton_castle_motte1",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/assets/halton_castle_motte1.jpg",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte1.jpg?crc=4267851213"
+      ]
+    },
+    {
+      "identity": "halton_castle_motte7_cote_burn",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/assets/halton_castle_motte7_cote_burn.jpg",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte7_cote_burn.jpg?crc=81782170",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte7_cote_burn372x247.jpg?crc=4216391562",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte7_cote_burn371x247.jpg?crc=501559469",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte7_cote_burn280x186.jpg?crc=4163713102",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/halton_castle_motte7_cote_burn279x186.jpg?crc=4163713102"
+      ]
+    },
+    {
+      "identity": "norman_castle_lune_valley_map2",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/assets/norman_castle_lune_valley_map2.png",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/norman_castle_lune_valley_map2.jpg?crc=127121292"
+      ]
+    },
+    {
+      "identity": "norman_castle_lune_valley_map",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/norman_castle_lune_valley_map276x247.jpg?crc=167556825",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/norman_castle_lune_valley_map275x247.jpg?crc=167556825",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/norman_castle_lune_valley_map208x186.jpg?crc=3928342477",
+        "http://www.castlesfortsbattles.co.uk:80/north_west/images/norman_castle_lune_valley_map207x1862.jpg?crc=334239146"
+      ]
+    }
+  ],
+  "denominator_method": {
+    "source_capture_candidates": [
+      "20170208093615",
+      "20180112085831",
+      "20200708105528"
+    ],
+    "selected_capture": "20200708105528",
+    "selected_because": "latest capture tied for strongest genuine Halton content coverage",
+    "embedded_whittington_gallery_excluded": true,
+    "excluded_whittington_reason": "unrelated gallery identities embedded in Halton page",
+    "responsive_variants_collapsed": true,
+    "duplicate_content_collapsed": []
+  },
+  "bounded_recovery_2026_09_15": {
+    "completed": true,
+    "identity_cdx_capture_counts": {
+      "halton_castle_motte": 0,
+      "halton_castle_motte5": 0,
+      "halton_castle_motte4": 0,
+      "halton_castle_motte1": 0,
+      "halton_castle_motte7_cote_burn": 0,
+      "norman_castle_lune_valley_map2": 0,
+      "norman_castle_lune_valley_map": 0
+    }
+  }
+}

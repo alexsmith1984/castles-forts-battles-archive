@@ -1,0 +1,20 @@
+{
+  "name": "Castle Hill, Halton (Halton Castle)",
+  "slug": "castle-hill-halton",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
+  "source": "20200708105528",
+  "positions": 7,
+  "full": 0,
+  "lower": 0,
+  "missing": 7,
+  "missing_identities": [
+    "halton_castle_motte",
+    "halton_castle_motte5",
+    "halton_castle_motte4",
+    "halton_castle_motte1",
+    "halton_castle_motte7_cote_burn",
+    "norman_castle_lune_valley_map2",
+    "norman_castle_lune_valley_map"
+  ],
+  "excluded_unrelated_gallery": "whittington_castle_lancashire*"
+}
