@@ -1,6 +1,6 @@
 {
   "name": "Sandal Castle",
-  "status": "built",
+  "status": "PARTIAL",
   "original_url": "http://www.castlesfortsbattles.co.uk/yorkshire/sandal_castle_wakefield_1460.html",
   "supplied_capture": "20210918024941",
   "source_timestamp_used": "20210918024941",
@@ -36,8 +36,8 @@
     "sandal_castle23"
   ],
   "recovered_full_or_near_full": 3,
-  "recovered_thumbnail_or_lower_resolution": 0,
-  "still_missing": 23,
+  "recovered_thumbnail_or_lower_resolution": 16,
+  "still_missing": 7,
   "uncertain_identifications": [],
   "images": [
     {
@@ -84,9 +84,288 @@
       "sha256": "b89b1244d438cadffd8ffc78af41b6ccb4fc4f95888ba0d87ad6b289ce1bc57d",
       "quality": "full/near-full",
       "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle5",
+      "file": "images/sandal_castle5.jpg",
+      "archive_timestamp": "20220826212709",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5.jpg?crc=47504868",
+      "archive_replay": "https://web.archive.org/web/20220826212709id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5.jpg?crc=47504868",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 62454,
+      "sha256": "e85292423949a891cfe0fe6df43df7fb453fa637166d59077f26e4710216ddf4",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle13",
+      "file": "images/sandal_castle13.jpg",
+      "archive_timestamp": "20220826212716",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle13.jpg?crc=4040451173",
+      "archive_replay": "https://web.archive.org/web/20220826212716id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle13.jpg?crc=4040451173",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 99446,
+      "sha256": "20b86db33fd9b62495ccb1e52cac7cfc26b3b57ffc48bb28d23c28efa26ad904",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle1",
+      "file": "images/sandal_castle1.jpg",
+      "archive_timestamp": "20220826212711",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1.jpg?crc=3875397749",
+      "archive_replay": "https://web.archive.org/web/20220826212711id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1.jpg?crc=3875397749",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        580,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 48309,
+      "sha256": "1fd383866af831c0512cec49be45012c2d9a82079c8865726c9d4b57279adb6c",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle3",
+      "file": "images/sandal_castle3.jpg",
+      "archive_timestamp": "20220826212711",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle3.jpg?crc=3854356018",
+      "archive_replay": "https://web.archive.org/web/20220826212711id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle3.jpg?crc=3854356018",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 110147,
+      "sha256": "eabe04265f0bbee044444be3ec928fa1147d65d2e2bb5a4610e7f443e114b94e",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle4",
+      "file": "images/sandal_castle4.jpg",
+      "archive_timestamp": "20220826212717",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle4.jpg?crc=64166662",
+      "archive_replay": "https://web.archive.org/web/20220826212717id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle4.jpg?crc=64166662",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 106734,
+      "sha256": "6e17550022bb12beb91e1fb7ca7da8f298b8f092c1faa2bfab231fdaa48c9078",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle6",
+      "file": "images/sandal_castle6.jpg",
+      "archive_timestamp": "20220826212718",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle6.jpg?crc=4261320969",
+      "archive_replay": "https://web.archive.org/web/20220826212718id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle6.jpg?crc=4261320969",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 58661,
+      "sha256": "899b81973fbbf4f3de3ed289a749046b56152a6b3795ec1efd9bcaf0abff6017",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle8",
+      "file": "images/sandal_castle8.jpg",
+      "archive_timestamp": "20220826212712",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle8.jpg?crc=4190612373",
+      "archive_replay": "https://web.archive.org/web/20220826212712id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle8.jpg?crc=4190612373",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 97302,
+      "sha256": "8cad977fa744f0433e67512bf651ced93101058f8ebadcd9cf09a4ea32f8dc43",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle9",
+      "file": "images/sandal_castle9.jpg",
+      "archive_timestamp": "20220826212954",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle9.jpg?crc=4132629647",
+      "archive_replay": "https://web.archive.org/web/20220826212954id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle9.jpg?crc=4132629647",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 69490,
+      "sha256": "43bd96832158ba063a0b93b464e02de29d7f1883e4c9b2f551cc2d20a804d6af",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle10",
+      "file": "images/sandal_castle10.jpg",
+      "archive_timestamp": "20220826212941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle10.jpg?crc=277889169",
+      "archive_replay": "https://web.archive.org/web/20220826212941id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle10.jpg?crc=277889169",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        497,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 74842,
+      "sha256": "52950d5a1392d24c3f35475af9220621f02e8d974d2aff87e120db99eb20c736",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle11",
+      "file": "images/sandal_castle11.jpg",
+      "archive_timestamp": "20220826212718",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle11.jpg?crc=301245235",
+      "archive_replay": "https://web.archive.org/web/20220826212718id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle11.jpg?crc=301245235",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 66061,
+      "sha256": "db68812d180e54a04d1f2ecde9e7b9a2afd94f7491b944ab2046b53970cdce4a",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle14",
+      "file": "images/sandal_castle14.jpg",
+      "archive_timestamp": "20220826212709",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle14.jpg?crc=500467976",
+      "archive_replay": "https://web.archive.org/web/20220826212709id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle14.jpg?crc=500467976",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 99263,
+      "sha256": "7b308dc5c6baca88733681d51c2fd56b67449b4df6275b77ae8e251095c1e0a2",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle15",
+      "file": "images/sandal_castle15.jpg",
+      "archive_timestamp": "20220826212716",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle15.jpg?crc=4158217658",
+      "archive_replay": "https://web.archive.org/web/20220826212716im_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle15.jpg?crc=4158217658",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 110242,
+      "sha256": "651a22a55085e390994dbe4591fb1cbf7a44f2a2779da2c7944c7b1f2dd1582f",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle16",
+      "file": "images/sandal_castle16.jpg",
+      "archive_timestamp": "20220826212942",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle16.jpg?crc=3967700578",
+      "archive_replay": "https://web.archive.org/web/20220826212942id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle16.jpg?crc=3967700578",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        501,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 65730,
+      "sha256": "e3864199f9ef7b1e42f524078d3a351977b68acf8f8a1c0ac482b07b214c5de7",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle18",
+      "file": "images/sandal_castle18.jpg",
+      "archive_timestamp": "20220826212944",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle18.jpg?crc=156278981",
+      "archive_replay": "https://web.archive.org/web/20220826212944id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle18.jpg?crc=156278981",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        500,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 108756,
+      "sha256": "ba5b503036e2bd2fcb890ef69f08c722fde6d38b2a94f8cbe0769235c4b7013d",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle21",
+      "file": "images/sandal_castle21.jpg",
+      "archive_timestamp": "20220826212719",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle21.jpg?crc=305851797",
+      "archive_replay": "https://web.archive.org/web/20220826212719im_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle21.jpg?crc=305851797",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        445,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 76719,
+      "sha256": "bdf80815818eb661ffe4f98e393d5a0c6de4b097fa2daa3ce770b5516e610203",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "sandal_castle23",
+      "file": "images/sandal_castle23.jpg",
+      "archive_timestamp": "20220826212710",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle23.jpg?crc=4247246607",
+      "archive_replay": "https://web.archive.org/web/20220826212710id_/http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle23.jpg?crc=4247246607",
+      "method": "wayback-cdx-wildcard-filename-family",
+      "dimensions": [
+        445,
+        333
+      ],
+      "format": "JPEG",
+      "bytes": 67367,
+      "sha256": "3a838e2198181bbd73d6d210b23db8e0d94084614e35bf7eb16ccf0f219725f0",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
     }
   ],
   "missing": [
+    {
+      "identity": "sandal_castle",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/sandal_castle.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle.jpg?crc=4188319090"
+      ]
+    },
     {
       "identity": "sandal_castle17",
       "candidate_urls": [
@@ -94,13 +373,6 @@
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle17.jpg?crc=440624728",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle17318x212.jpg?crc=317269018",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle17318x211.jpg?crc=165542712"
-      ]
-    },
-    {
-      "identity": "sandal_castle",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/sandal_castle.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle.jpg?crc=4188319090"
       ]
     },
     {
@@ -123,62 +395,6 @@
       ]
     },
     {
-      "identity": "sandal_castle1",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/sandal_castle1.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1.jpg?crc=3875397749",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle160x35.jpg?crc=3819189769"
-      ]
-    },
-    {
-      "identity": "sandal_castle5",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/sandal_castle5.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5.jpg?crc=47504868",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle560x40.jpg?crc=3936351456",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5326x217.jpg?crc=3782857181",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5326x216.jpg?crc=3782857181",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle502x213.jpg?crc=210405602",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5246x163.jpg?crc=4245156684",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle501x213.jpg?crc=210405602",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle5245x163.jpg?crc=4245156684"
-      ]
-    },
-    {
-      "identity": "wakefield_1460_6",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/wakefield_1460_6.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_6.jpg?crc=55480693"
-      ]
-    },
-    {
-      "identity": "sandal_castle13",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/sandal_castle13.jpg",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle13.jpg?crc=4040451173",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1360x40.jpg?crc=4006711400",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle13326x216.jpg?crc=278835943",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1377x217.jpg?crc=4145997726",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle13325x216.jpg?crc=278835943",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1377x216.jpg?crc=4004945831",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle13245x163.jpg?crc=4210238519"
-      ]
-    },
-    {
-      "identity": "sandal_castle3",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle3.jpg?crc=3854356018",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle360x40.jpg?crc=4284794038"
-      ]
-    },
-    {
-      "identity": "sandal_castle4",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle4.jpg?crc=64166662",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle460x40.jpg?crc=3842538637"
-      ]
-    },
-    {
       "identity": "wakefield_castles_context2",
       "candidate_urls": [
         "http://www.castlesfortsbattles.co.uk/yorkshire/assets/wakefield_castles_context2.png",
@@ -189,54 +405,10 @@
       ]
     },
     {
-      "identity": "sandal_castle8",
+      "identity": "wakefield_1460_6",
       "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle8.jpg?crc=4190612373",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle860x40.jpg?crc=4006692561"
-      ]
-    },
-    {
-      "identity": "sandal_castle6",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle6.jpg?crc=4261320969",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle660x40.jpg?crc=203568718",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle666x283.jpg?crc=4145569675",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle665x282.jpg?crc=37223643"
-      ]
-    },
-    {
-      "identity": "sandal_castle9",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle9.jpg?crc=4132629647",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle960x40.jpg?crc=268764920"
-      ]
-    },
-    {
-      "identity": "sandal_castle10",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle10.jpg?crc=277889169",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1060x41.jpg?crc=3964784957"
-      ]
-    },
-    {
-      "identity": "sandal_castle11",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle11.jpg?crc=301245235",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1160x40.jpg?crc=4047591573"
-      ]
-    },
-    {
-      "identity": "sandal_castle15",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle15.jpg?crc=4158217658",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1560x40.jpg?crc=241779880"
-      ]
-    },
-    {
-      "identity": "sandal_castle14",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle14.jpg?crc=500467976",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1460x40.jpg?crc=3835837822"
+        "http://www.castlesfortsbattles.co.uk/yorkshire/assets/wakefield_1460_6.jpg",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/wakefield_1460_6.jpg?crc=55480693"
       ]
     },
     {
@@ -245,34 +417,6 @@
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle12.jpg?crc=4111043703",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1260x40.jpg?crc=317695617",
         "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1284x163.jpg?crc=394226541"
-      ]
-    },
-    {
-      "identity": "sandal_castle16",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle16.jpg?crc=3967700578",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1660x40.jpg?crc=232407645"
-      ]
-    },
-    {
-      "identity": "sandal_castle18",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle18.jpg?crc=156278981",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle1860x40.jpg?crc=4010552479"
-      ]
-    },
-    {
-      "identity": "sandal_castle21",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle21.jpg?crc=305851797",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle2160x45.jpg?crc=489047583"
-      ]
-    },
-    {
-      "identity": "sandal_castle23",
-      "candidate_urls": [
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle23.jpg?crc=4247246607",
-        "http://www.castlesfortsbattles.co.uk/yorkshire/images/sandal_castle2360x45.jpg?crc=136092393"
       ]
     }
   ],
@@ -310,5 +454,58 @@
         "sandal_castle23"
       ]
     }
-  ]
+  ],
+  "bounded_deep_recovery_2026_09_15": {
+    "completed": true,
+    "cdx_patterns": 48,
+    "cdx_rows_found": 20,
+    "mapped_capture_counts": {
+      "sandal_castle": 0,
+      "sandal_castle19": 1,
+      "sandal_castle7": 1,
+      "sandal_castle17": 0,
+      "wakefield_1460_2": 1,
+      "sandal_castle_plan": 0,
+      "sandal_castle20": 0,
+      "sandal_castle5": 1,
+      "sandal_castle13": 1,
+      "sandal_castle1": 1,
+      "wakefield_castles_context2": 0,
+      "wakefield_1460_6": 0,
+      "sandal_castle3": 1,
+      "sandal_castle4": 1,
+      "sandal_castle6": 1,
+      "sandal_castle8": 1,
+      "sandal_castle9": 1,
+      "sandal_castle10": 1,
+      "sandal_castle11": 1,
+      "sandal_castle12": 1,
+      "sandal_castle14": 1,
+      "sandal_castle15": 1,
+      "sandal_castle16": 1,
+      "sandal_castle18": 1,
+      "sandal_castle21": 1,
+      "sandal_castle23": 1
+    },
+    "historical_page_captures_found": 28,
+    "historical_page_captures_checked": 28,
+    "recovered_now": [
+      "sandal_castle5",
+      "sandal_castle13",
+      "sandal_castle1",
+      "sandal_castle3",
+      "sandal_castle4",
+      "sandal_castle6",
+      "sandal_castle8",
+      "sandal_castle9",
+      "sandal_castle10",
+      "sandal_castle11",
+      "sandal_castle14",
+      "sandal_castle15",
+      "sandal_castle16",
+      "sandal_castle18",
+      "sandal_castle21",
+      "sandal_castle23"
+    ]
+  }
 }
