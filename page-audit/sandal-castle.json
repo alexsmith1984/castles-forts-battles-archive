@@ -1,19 +1,18 @@
 {
   "name": "Sandal Castle",
   "slug": "sandal-castle",
-  "status": "PARTIAL",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
   "source": "20210918024941",
   "positions": 26,
-  "full": 3,
-  "lower": 16,
-  "missing": 7,
+  "full": 20,
+  "lower": 0,
+  "missing": 6,
   "missing_identities": [
     "sandal_castle",
     "sandal_castle17",
     "sandal_castle_plan",
     "sandal_castle20",
     "wakefield_castles_context2",
-    "wakefield_1460_6",
-    "sandal_castle12"
+    "wakefield_1460_6"
   ]
 }
