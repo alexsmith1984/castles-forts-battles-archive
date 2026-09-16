@@ -1,0 +1,26 @@
+name: Whittington Castle final deep recovery
+on:
+  push:
+    paths:
+      - '.github/workflows/whittington-castle-final-deep.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow beautifulsoup4
+      - run: python scripts/recover_whittington_castle_final_deep.py
+      - name: Commit final Whittington recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/whittington-castle page-audit/whittington-castle.json
+          if git diff --cached --quiet; then echo 'No Whittington changes'; else git commit -m 'Run final deep recovery for Whittington Castle'; git pull --rebase origin main; git push origin HEAD:main; fi
