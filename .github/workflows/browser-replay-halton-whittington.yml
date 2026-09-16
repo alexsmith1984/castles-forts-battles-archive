@@ -1,0 +1,27 @@
+name: Browser replay recovery Halton and Whittington
+on:
+  push:
+    paths:
+      - '.github/workflows/browser-replay-halton-whittington.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests pillow beautifulsoup4 playwright
+      - run: playwright install --with-deps chromium
+      - run: python scripts/browser_replay_halton_whittington.py
+      - name: Commit browser replay recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/castle-hill-halton recovered/whittington-castle page-audit/castle-hill-halton.json page-audit/whittington-castle.json
+          if git diff --cached --quiet; then echo 'No browser-replay recoveries'; else git commit -m 'Try browser replay recovery for Halton and Whittington'; git pull --rebase origin main; git push origin HEAD:main; fi
