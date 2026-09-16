@@ -724,6 +724,308 @@
       "richmond_castle",
       "richmond_castle_plan"
     ],
-    "conclusion": "Deep archive recovery completed. No authenticated surviving copy of the main hero image or castle plan was found after direct replay, wildcard CDX family recovery, targeted hero/plan searches, and final Common Crawl checks."
+    "conclusion": "No authenticated surviving copy of the main hero image or castle plan was found after all bounded direct, historical, wildcard, legacy/mobile, Arquivo and Common Crawl methods.",
+    "final_legacy_mobile_retry_completed": true
+  },
+  "final_legacy_mobile_retry_2026_09_15": {
+    "completed": true,
+    "page_variants_checked": 32,
+    "historical_captures_found": 3,
+    "historical_captures_checked": 3,
+    "candidate_counts": {
+      "richmond_castle": 249,
+      "richmond_castle_plan": 257
+    },
+    "historical_records": [
+      {
+        "source": "wayback",
+        "timestamp": "20211208101939",
+        "page": "http://www.castlesfortsbattles.co.uk/yorkshire/richmond_castle.html",
+        "found": [
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle.jpg?crc=503584600"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle.jpg?crc=503584600"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle_plan.png?crc=116708239"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle_plan.png?crc=116708239"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle734x45.jpg?crc=529868713"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle734x45.jpg?crc=529868713"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle860x45.jpg?crc=454953909"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle860x45.jpg?crc=454953909"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle960x45.jpg?crc=68696488"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle960x45.jpg?crc=68696488"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1030x45.jpg?crc=270270956"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1030x45.jpg?crc=270270956"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1130x45.jpg?crc=302982349"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1130x45.jpg?crc=302982349"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle160x40.jpg?crc=218523257"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle160x40.jpg?crc=218523257"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1230x45.jpg?crc=6424466"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1230x45.jpg?crc=6424466"
+          ]
+        ],
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle14b.jpg"
+        ]
+      },
+      {
+        "source": "wayback",
+        "timestamp": "20220120234531",
+        "page": "http://www.castlesfortsbattles.co.uk/yorkshire/richmond_castle.html",
+        "found": [
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle.jpg?crc=503584600"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle.jpg?crc=503584600"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle_plan.png?crc=116708239"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle_plan.png?crc=116708239"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle734x45.jpg?crc=529868713"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle734x45.jpg?crc=529868713"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle860x45.jpg?crc=454953909"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle860x45.jpg?crc=454953909"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle960x45.jpg?crc=68696488"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle960x45.jpg?crc=68696488"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1030x45.jpg?crc=270270956"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1030x45.jpg?crc=270270956"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1130x45.jpg?crc=302982349"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1130x45.jpg?crc=302982349"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle160x40.jpg?crc=218523257"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle160x40.jpg?crc=218523257"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1230x45.jpg?crc=6424466"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1230x45.jpg?crc=6424466"
+          ]
+        ],
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle14b.jpg"
+        ]
+      },
+      {
+        "source": "wayback",
+        "timestamp": "20220826212659",
+        "page": "http://www.castlesfortsbattles.co.uk/yorkshire/richmond_castle.html",
+        "found": [
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle.jpg?crc=503584600"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle.jpg?crc=503584600"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle_plan.png?crc=116708239"
+          ],
+          [
+            "plan",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle_plan.png?crc=116708239"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle734x45.jpg?crc=529868713"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle734x45.jpg?crc=529868713"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle860x45.jpg?crc=454953909"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle860x45.jpg?crc=454953909"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle960x45.jpg?crc=68696488"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle960x45.jpg?crc=68696488"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1030x45.jpg?crc=270270956"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1030x45.jpg?crc=270270956"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1130x45.jpg?crc=302982349"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1130x45.jpg?crc=302982349"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle160x40.jpg?crc=218523257"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle160x40.jpg?crc=218523257"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1230x45.jpg?crc=6424466"
+          ],
+          [
+            "hero",
+            "http://www.castlesfortsbattles.co.uk/yorkshire/images/richmond_castle1230x45.jpg?crc=6424466"
+          ]
+        ],
+        "assets": [
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle9.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle_plan.png",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle7.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle4c.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle6a.jpg",
+          "http://www.castlesfortsbattles.co.uk/yorkshire/assets/richmond_castle14b.jpg"
+        ]
+      }
+    ],
+    "recovered_now": []
   }
 }
