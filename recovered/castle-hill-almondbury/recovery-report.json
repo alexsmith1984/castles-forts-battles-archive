@@ -1,0 +1,224 @@
+{
+  "name": "Castle Hill, Almondbury",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
+  "original_url": "http://www.castlesfortsbattles.co.uk/yorkshire/castle_hill_almondbury.html",
+  "supplied_capture": "20161021184941",
+  "source_timestamp_used": "20161021184941",
+  "source_original_used": "http://www.castlesfortsbattles.co.uk/yorkshire/castle_hill_almondbury.html",
+  "text_blocks_preserved": 29,
+  "original_image_positions_identified": 12,
+  "desktop_image_identities": [
+    "castle_hill_almondbury9_ditch",
+    "castle_hill_almondbury1",
+    "castle_hill_almondbury4_medieval_remains",
+    "castle_hill_almondbury8_victoria_tower",
+    "castle_hill_almondbury2",
+    "castle_hill_almondbury5_victoria_tower",
+    "castle_hill_almondbury",
+    "castle_hill_almondbury3_medieval_ditch",
+    "castle_hill_almondbury6_victoria_tower",
+    "castle_hill_almondbury7_victoria_tower",
+    "castle_hill_almondbury11_rampart",
+    "castle_hill_almondbury12_view"
+  ],
+  "recovered_full_or_near_full": 7,
+  "recovered_thumbnail_or_lower_resolution": 0,
+  "still_missing": 5,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "castle_hill_almondbury9_ditch",
+      "file": "images/castle_hill_almondbury9_ditch.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury9_ditch.jpg",
+      "archive_replay": "https://web.archive.org/web/20170221230850id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury9_ditch.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        4912,
+        3264
+      ],
+      "format": "JPEG",
+      "bytes": 449980,
+      "sha256": "9c220612328702dd6015e31267dcf58abce55eb60d79372cc583ab1fdc4206f2",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_hill_almondbury1",
+      "file": "images/castle_hill_almondbury1.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury1.jpg",
+      "archive_replay": "https://web.archive.org/web/20170207215008id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury1.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        3883,
+        2173
+      ],
+      "format": "JPEG",
+      "bytes": 305107,
+      "sha256": "7582327cf1c92bb901a70431cc038e0f4d96291b2592110970f785e873a5f4e8",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_hill_almondbury4_medieval_remains",
+      "file": "images/castle_hill_almondbury4_medieval_remains.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury4_medieval_remains.jpg",
+      "archive_replay": "https://web.archive.org/web/20170207131121id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury4_medieval_remains.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        4000,
+        3000
+      ],
+      "format": "JPEG",
+      "bytes": 704052,
+      "sha256": "c9eb9821f215ec137f75eadf13749a790403bcf64cb82561417d00dbfd8ffe20",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_hill_almondbury8_victoria_tower",
+      "file": "images/castle_hill_almondbury8_victoria_tower.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury8_victoria_tower.jpg",
+      "archive_replay": "https://web.archive.org/web/20170207212323id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury8_victoria_tower.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        3264,
+        4912
+      ],
+      "format": "JPEG",
+      "bytes": 318550,
+      "sha256": "44a27684d91864b90fec5a6d9a02832d32dabccf8380a8fe7f0435bd8734efc8",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_hill_almondbury2",
+      "file": "images/castle_hill_almondbury2.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury2.jpg",
+      "archive_replay": "https://web.archive.org/web/20170207181750id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury2.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        3893,
+        2919
+      ],
+      "format": "JPEG",
+      "bytes": 526167,
+      "sha256": "87ccde7e158e7fc583a498310cd50fc990e8768fe7ce7f79f6da3d4276bd3e0e",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_hill_almondbury5_victoria_tower",
+      "file": "images/castle_hill_almondbury5_victoria_tower.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury5_victoria_tower.jpg",
+      "archive_replay": "https://web.archive.org/web/20170207185956id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury5_victoria_tower.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        4000,
+        3000
+      ],
+      "format": "JPEG",
+      "bytes": 256817,
+      "sha256": "8a1c37e3d52be0c1cc7b1778a17892bc43d26d8cc5ac155edb9b7e970db7eacf",
+      "quality": "full/near-full",
+      "identification": "certain"
+    },
+    {
+      "identity": "castle_hill_almondbury",
+      "file": "images/castle_hill_almondbury.jpg",
+      "archive_timestamp": "20161021184941",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury.jpg",
+      "archive_replay": "https://web.archive.org/web/20170207214953id_/http://www.castlesfortsbattles.co.uk/yorkshire/assets/castle_hill_almondbury.jpg",
+      "method": "same-capture",
+      "dimensions": [
+        3883,
+        1737
+      ],
+      "format": "JPEG",
+      "bytes": 566715,
+      "sha256": "985051e09d743b6a13ad73181ecb46c5d75f6e015dcd93ed5cd4c6aa71d95115",
+      "quality": "full/near-full",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "castle_hill_almondbury3_medieval_ditch",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury3_medieval_ditch.jpg?crc=534973024",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury3_medieval_ditch60x45.jpg?crc=3833938352"
+      ]
+    },
+    {
+      "identity": "castle_hill_almondbury6_victoria_tower",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury6_victoria_tower.jpg?crc=268289045",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury6_victoria_tower60x40.jpg?crc=3990787025"
+      ]
+    },
+    {
+      "identity": "castle_hill_almondbury7_victoria_tower",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury7_victoria_tower.jpg?crc=479323639",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury7_victoria_tower60x40.jpg?crc=4204084443"
+      ]
+    },
+    {
+      "identity": "castle_hill_almondbury11_rampart",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury11_rampart.jpg?crc=413762382",
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury11_rampart60x40.jpg?crc=109047891"
+      ]
+    },
+    {
+      "identity": "castle_hill_almondbury12_view",
+      "candidate_urls": [
+        "http://www.castlesfortsbattles.co.uk/yorkshire/images/castle_hill_almondbury12_view.jpg?crc=3887063341"
+      ]
+    }
+  ],
+  "denominator_method": {
+    "asset_link_identities": [
+      "castle_hill_almondbury9_ditch",
+      "castle_hill_almondbury1",
+      "castle_hill_almondbury4_medieval_remains",
+      "castle_hill_almondbury8_victoria_tower",
+      "castle_hill_almondbury2",
+      "castle_hill_almondbury5_victoria_tower",
+      "castle_hill_almondbury",
+      "castle_hill_almondbury3_medieval_ditch",
+      "castle_hill_almondbury6_victoria_tower",
+      "castle_hill_almondbury7_victoria_tower",
+      "castle_hill_almondbury11_rampart",
+      "castle_hill_almondbury12_view"
+    ],
+    "gallery_positions": 0,
+    "gallery_identities": [],
+    "responsive_variants_collapsed": true,
+    "unique_union": 12
+  },
+  "bounded_recovery_2026_09_15": {
+    "completed": true,
+    "identity_cdx_capture_counts": {
+      "castle_hill_almondbury9_ditch": 0,
+      "castle_hill_almondbury1": 0,
+      "castle_hill_almondbury4_medieval_remains": 0,
+      "castle_hill_almondbury8_victoria_tower": 0,
+      "castle_hill_almondbury2": 0,
+      "castle_hill_almondbury5_victoria_tower": 0,
+      "castle_hill_almondbury": 0,
+      "castle_hill_almondbury3_medieval_ditch": 0,
+      "castle_hill_almondbury6_victoria_tower": 0,
+      "castle_hill_almondbury7_victoria_tower": 0,
+      "castle_hill_almondbury11_rampart": 0,
+      "castle_hill_almondbury12_view": 0
+    },
+    "historical_page_captures_found": 0,
+    "historical_page_captures_checked": 0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Castle Hill, Almondbury",
+  "slug": "castle-hill-almondbury",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
+  "source": "20161021184941",
+  "positions": 12,
+  "full": 7,
+  "lower": 0,
+  "missing": 5,
+  "missing_identities": [
+    "castle_hill_almondbury3_medieval_ditch",
+    "castle_hill_almondbury6_victoria_tower",
+    "castle_hill_almondbury7_victoria_tower",
+    "castle_hill_almondbury11_rampart",
+    "castle_hill_almondbury12_view"
+  ]
+}
