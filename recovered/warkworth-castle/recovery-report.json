@@ -731,5 +731,54 @@
     "result": "No additional verified images were committed during the final targeted cross-timestamp/Arquivo pass before its 8-minute hard stop.",
     "final_recovered": 26,
     "final_missing": 12
+  },
+  "final_eight_minute_remaining_search_2026_09_15": {
+    "completed": true,
+    "internal_search_limit_seconds": 360,
+    "targets": [
+      "warkworth_castle",
+      "warkworth_castle17",
+      "warkworth_castle8",
+      "warkworth_castle12",
+      "warkworth_castle4",
+      "warkworth_castle13",
+      "warkworth_castle_town_plan",
+      "warkworth_castle1a",
+      "warkworth_castle25a",
+      "warkworth_bridge1a",
+      "warkworth_bridge8",
+      "warkworth_bridge4"
+    ],
+    "historical_page_captures_found": 18,
+    "historical_page_captures_checked": 18,
+    "identity_cdx_candidate_counts": {
+      "warkworth_castle": 18,
+      "warkworth_castle17": 18,
+      "warkworth_castle8": 18,
+      "warkworth_castle12": 18,
+      "warkworth_castle4": 18,
+      "warkworth_castle13": 18,
+      "warkworth_castle_town_plan": 18,
+      "warkworth_castle1a": 18,
+      "warkworth_castle25a": 18,
+      "warkworth_bridge1a": 18,
+      "warkworth_bridge8": 18,
+      "warkworth_bridge4": 18
+    },
+    "historical_position_candidate_counts": {
+      "warkworth_castle": 18,
+      "warkworth_castle17": 18,
+      "warkworth_castle8": 18,
+      "warkworth_castle12": 18,
+      "warkworth_castle4": 18,
+      "warkworth_castle13": 18,
+      "warkworth_castle_town_plan": 18,
+      "warkworth_castle1a": 18,
+      "warkworth_castle25a": 18,
+      "warkworth_bridge1a": 18,
+      "warkworth_bridge8": 18,
+      "warkworth_bridge4": 18
+    },
+    "recovered_now": []
   }
 }
