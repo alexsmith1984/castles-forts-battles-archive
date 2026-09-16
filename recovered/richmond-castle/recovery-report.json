@@ -1,6 +1,6 @@
 {
   "name": "Richmond Castle",
-  "status": "PARTIAL",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
   "original_url": "http://www.castlesfortsbattles.co.uk/yorkshire/richmond_castle.html",
   "supplied_capture": "20211208101939",
   "source_timestamp_used": "20211208101939",
@@ -713,5 +713,17 @@
       }
     },
     "recovered_or_upgraded": []
+  },
+  "search_exhausted_2026_09_15": {
+    "completed": true,
+    "final_recovered": 25,
+    "final_full_or_near_full": 23,
+    "final_authenticated_lower_resolution": 2,
+    "final_missing": 2,
+    "missing_identities": [
+      "richmond_castle",
+      "richmond_castle_plan"
+    ],
+    "conclusion": "Deep archive recovery completed. No authenticated surviving copy of the main hero image or castle plan was found after direct replay, wildcard CDX family recovery, targeted hero/plan searches, and final Common Crawl checks."
   }
 }
