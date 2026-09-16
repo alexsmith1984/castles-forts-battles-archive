@@ -163,5 +163,20 @@
     "recovered_now": [],
     "secondary_authenticated_source": "recovered/castle-hill-halton/source.html",
     "note": "Final deep recovery used Whittington and Halton source refs, Arquivo exact-TimeMaps, broad Wayback filename families, cross-page timestamp replay, and bounded Common Crawl."
+  },
+  "novel_archive_methods_2026_09_15": {
+    "arquivo_image_results": 0,
+    "arquivo_image_matches": 0,
+    "arquivo_prefix_rows": 0,
+    "wayback_prefix_rows": 0,
+    "textsearch_pages": 0,
+    "textsearch_image_refs": 0,
+    "recovered_now": [],
+    "methods": [
+      "Arquivo Image Search API",
+      "Arquivo CDX matchType=prefix",
+      "Wayback CDX matchType=prefix",
+      "Arquivo text-search cross-reference mining"
+    ]
   }
 }

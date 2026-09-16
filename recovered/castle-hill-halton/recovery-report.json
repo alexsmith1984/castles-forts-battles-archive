@@ -398,5 +398,20 @@
     "recovered_now": [],
     "upgraded_now": [],
     "note": "Final requested deep scan using broad Wayback families, historical page mining, Wayback/Arquivo exact TimeMaps, and bounded Common Crawl WARC retrieval."
+  },
+  "novel_archive_methods_2026_09_15": {
+    "arquivo_image_results": 16,
+    "arquivo_image_matches": 0,
+    "arquivo_prefix_rows": 0,
+    "wayback_prefix_rows": 0,
+    "textsearch_pages": 0,
+    "textsearch_image_refs": 0,
+    "recovered_now": [],
+    "methods": [
+      "Arquivo Image Search API",
+      "Arquivo CDX matchType=prefix",
+      "Wayback CDX matchType=prefix",
+      "Arquivo text-search cross-reference mining"
+    ]
   }
 }
