@@ -1,7 +1,7 @@
 {
   "name": "Whittington Castle",
   "slug": "whittington-castle",
-  "status": "built",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
   "source": "20210918013642",
   "positions": 12,
   "full": 0,
@@ -9,16 +9,16 @@
   "missing": 12,
   "missing_identities": [
     "whittington_castle_lancashire",
+    "whittington_castle_lancashire4",
     "whittington_castle_lancashire9",
     "whittington_castle_lancashire8",
-    "whittington_castle_lancashire4",
     "norman_castle_lune_valley_map",
     "whittington_castle_lancashire1",
     "whittington_castle_lancashire2",
     "whittington_castle_lancashire3",
-    "whittington_castle_lancashire7",
+    "whittington_castle_lancashire5",
     "whittington_castle_lancashire6",
-    "whittington_castle_lancashire10",
-    "whittington_castle_lancashire5"
+    "whittington_castle_lancashire7",
+    "whittington_castle_lancashire10"
   ]
 }
