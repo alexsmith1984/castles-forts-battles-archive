@@ -413,5 +413,53 @@
       "Wayback CDX matchType=prefix",
       "Arquivo text-search cross-reference mining"
     ]
+  },
+  "browser_replay_recovery_2026_09_15": {
+    "pages_attempted": 5,
+    "pages_loaded": 5,
+    "matching_network_responses": 0,
+    "decoded_network_images": 0,
+    "matching_dom_images": 0,
+    "canvas_extractions": 0,
+    "element_screenshots": 0,
+    "page_results": [
+      {
+        "url": "https://web.archive.org/web/20200708105528/http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+        "loaded": true,
+        "error": null,
+        "network_images": 0,
+        "dom_matches": 0
+      },
+      {
+        "url": "https://web.archive.org/web/20180112085831/http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+        "loaded": true,
+        "error": null,
+        "network_images": 0,
+        "dom_matches": 0
+      },
+      {
+        "url": "https://web.archive.org/web/20170208093615/http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+        "loaded": true,
+        "error": null,
+        "network_images": 0,
+        "dom_matches": 0
+      },
+      {
+        "url": "https://web.archive.org/web/20210918013642/http://www.castlesfortsbattles.co.uk/north_west/whittington_castle_lancashire.html",
+        "loaded": true,
+        "error": null,
+        "network_images": 0,
+        "dom_matches": 0
+      },
+      {
+        "url": "https://arquivo.pt/wayback/http://www.castlesfortsbattles.co.uk/north_west/halton_castle_motte.html",
+        "loaded": true,
+        "error": null,
+        "network_images": 0,
+        "dom_matches": 0
+      }
+    ],
+    "recovered_now": [],
+    "note": "Real Chromium replay of archived pages; captured authenticated archive network images or decoded DOM display derivatives only."
   }
 }
