@@ -1,6 +1,6 @@
 {
   "name": "Warkworth Castle",
-  "status": "PARTIAL",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
   "original_url": "http://www.castlesfortsbattles.co.uk/north_east/warkworth_castle_bridge.html",
   "supplied_capture": "20220826205457",
   "source_timestamp_used": "20220826205457",
@@ -725,5 +725,11 @@
       "warkworth_castle25b"
     ],
     "upgraded_now": []
+  },
+  "final_bounded_search_note_2026_09_15": {
+    "completed": true,
+    "result": "No additional verified images were committed during the final targeted cross-timestamp/Arquivo pass before its 8-minute hard stop.",
+    "final_recovered": 26,
+    "final_missing": 12
   }
 }
