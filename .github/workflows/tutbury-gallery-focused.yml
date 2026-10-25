@@ -1,0 +1,24 @@
+name: Tutbury gallery authentic URL focused check
+on:
+  push:
+    paths:
+      - '.github/workflows/tutbury-gallery-focused.yml'
+permissions:
+  contents: write
+jobs:
+  gallery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/tutbury_gallery_focused.py
+      - name: Commit verified authentic original gallery images
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/tutbury-castle/ page-audit/tutbury-gallery-focused.json
+          if git diff --cached --quiet; then echo No changes; else git commit -m 'Check Tutbury historical original gallery image sources' && git pull --rebase origin main && git push origin HEAD:main; fi
