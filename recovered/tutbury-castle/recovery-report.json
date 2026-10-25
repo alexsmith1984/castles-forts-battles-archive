@@ -1,0 +1,228 @@
+{
+  "name": "Tutbury Castle",
+  "status": "PARTIAL / SEARCH EXHAUSTED",
+  "source_timestamp": "20220826211201",
+  "source_original": "http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+  "older_comparison_timestamp": "20210918014135",
+  "desktop_image_identities": [
+    "tutbury_castle11a",
+    "tutbury_castle22",
+    "tutbury_castle12",
+    "tutbury_castle1",
+    "tutbury_castle10",
+    "tutbury_castle14",
+    "gallery_a913c8db479",
+    "gallery_9bf3cd82f73",
+    "gallery_d727b46f2904",
+    "gallery_e08d7794f6ec",
+    "gallery_9538b4e7f06",
+    "gallery_d6a7fdb0a511",
+    "gallery_2431294b1290",
+    "gallery_35c20f56bf61",
+    "gallery_7779217690ee",
+    "gallery_abf4eb0cb291",
+    "gallery_defbf214dc2",
+    "gallery_d241281d4e70",
+    "gallery_e298d16188e6",
+    "gallery_1fa02dc49d94",
+    "gallery_6dc18120fa65",
+    "gallery_adb2518032b7",
+    "gallery_bbe12bc390ed",
+    "gallery_8f836f09397"
+  ],
+  "original_image_positions_identified": 24,
+  "recovered_full_or_near_full": 0,
+  "recovered_thumbnail_or_lower_resolution": 4,
+  "still_missing": 20,
+  "uncertain_identifications": [],
+  "images": [
+    {
+      "identity": "tutbury_castle11a",
+      "file": "images/tutbury_castle11a.jpg",
+      "archive_timestamp": "20220826211201",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp9ee7376d_05_06.jpg",
+      "method": "wayback-authentic-display",
+      "dimensions": [
+        921,
+        390
+      ],
+      "format": "JPEG",
+      "bytes": 165566,
+      "sha256": "8f300937d20429cc984e724b06f570806989f4e92f28ca4b980f303779400d38",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "tutbury_castle12",
+      "file": "images/tutbury_castle12.jpg",
+      "archive_timestamp": "20220826211201",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpa8797bf2_05_06.jpg",
+      "method": "wayback-authentic-display",
+      "dimensions": [
+        415,
+        276
+      ],
+      "format": "JPEG",
+      "bytes": 56897,
+      "sha256": "7d010c6322e6b7b606da04248d70fb6f85956a400ce4a251a5d1658f8f7b9f7b",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "tutbury_castle10",
+      "file": "images/tutbury_castle10.jpg",
+      "archive_timestamp": "20220826211201",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpb0d18409_05_06.jpg",
+      "method": "wayback-authentic-display",
+      "dimensions": [
+        920,
+        243
+      ],
+      "format": "JPEG",
+      "bytes": 97076,
+      "sha256": "91bd4d3118f3108d6b9e850c161570c1bf4e8997ea1bf4c0476b10fa9e210d33",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    },
+    {
+      "identity": "tutbury_castle14",
+      "file": "images/tutbury_castle14.jpg",
+      "archive_timestamp": "20220826211201",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp702a10cf_05_06.jpg",
+      "method": "wayback-authentic-display",
+      "dimensions": [
+        920,
+        224
+      ],
+      "format": "JPEG",
+      "bytes": 104251,
+      "sha256": "260d43f8df030697da367ccca3e7d9e5df4fd0bc2b562b6a55ffe6dae82cbe01",
+      "quality": "thumbnail/lower-resolution",
+      "identification": "certain"
+    }
+  ],
+  "missing": [
+    {
+      "identity": "tutbury_castle22",
+      "full_url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle22.JPG",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/wpimages/wpb900ba74_05_06.jpg",
+      "kind": "standalone"
+    },
+    {
+      "identity": "tutbury_castle1",
+      "full_url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle1.JPG",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/wpimages/wp5258371f_05_06.jpg",
+      "kind": "standalone"
+    },
+    {
+      "identity": "gallery_a913c8db479",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_9bf3cd82f73",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_d727b46f2904",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/d727b46f2904.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/d727b46f2904t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_e08d7794f6ec",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/e08d7794f6ec.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/e08d7794f6ect.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_9538b4e7f06",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/9538b4e7f06.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/9538b4e7f06t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_d6a7fdb0a511",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/d6a7fdb0a511.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/d6a7fdb0a511t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_2431294b1290",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/2431294b1290.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/2431294b1290t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_35c20f56bf61",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/35c20f56bf61.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/35c20f56bf61t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_7779217690ee",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/7779217690ee.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/7779217690eet.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_abf4eb0cb291",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/abf4eb0cb291.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/abf4eb0cb291t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_defbf214dc2",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/defbf214dc2.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/defbf214dc2t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_d241281d4e70",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/d241281d4e70.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/d241281d4e70t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_e298d16188e6",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/e298d16188e6.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/e298d16188e6t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_1fa02dc49d94",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/1fa02dc49d94.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/1fa02dc49d94t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_6dc18120fa65",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/6dc18120fa65.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/6dc18120fa65t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_adb2518032b7",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/adb2518032b7.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/adb2518032b7t.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_bbe12bc390ed",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/bbe12bc390ed.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/bbe12bc390edt.jpg",
+      "kind": "gallery"
+    },
+    {
+      "identity": "gallery_8f836f09397",
+      "full_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/8f836f09397.jpg",
+      "fallback_url": "http://www.castlesfortsbattles.co.uk/midlands/wpimages/8f836f09397t.jpg",
+      "kind": "gallery"
+    }
+  ],
+  "counting_method": "Full-size linked standalone photos and 18 explicit WebPlus wp_imgArray_pg_26 gallery images; excludes navigation, decorative illustrations, shared chrome and redundant thumbnail exports.",
+  "verification_note": "Only image assets whose filenames are declared by the archived Tutbury source were used. No substitutions."
+}
