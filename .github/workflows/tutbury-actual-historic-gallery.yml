@@ -1,0 +1,24 @@
+name: Tutbury exact 2017 and 2018 gallery snapshot verification
+on:
+  push:
+    paths:
+      - '.github/workflows/tutbury-actual-historic-gallery.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/tutbury_gallery_exact_old_dates.py
+      - name: Preserve any authenticated 2017–2018 gallery originals
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/tutbury-castle/ page-audit/tutbury-gallery-actual-historical-dates.json
+          if git diff --cached --quiet; then echo No changes; else git commit -m 'Audit original Tutbury gallery against actual older captures' && git pull --rebase origin main && git push origin HEAD:main; fi
