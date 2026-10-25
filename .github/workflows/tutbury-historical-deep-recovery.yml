@@ -1,0 +1,24 @@
+name: Tutbury authentic historical image deep recovery
+on:
+  push:
+    paths:
+      - '.github/workflows/tutbury-historical-deep-recovery.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/tutbury_historical_deep_recovery.py
+      - name: Publish improved original-image recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/tutbury-castle/ page-audit/tutbury-castle-deep-pass.json
+          if git diff --cached --quiet; then echo 'No changes'; else git commit -m 'Improve Tutbury with historical and cross-archive originals' && git pull --rebase origin main && git push origin HEAD:main; fi
