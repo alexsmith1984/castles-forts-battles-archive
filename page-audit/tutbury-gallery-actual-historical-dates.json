@@ -1,0 +1,583 @@
+{
+  "tested": [
+    {
+      "date": "20171105011747",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/midlands/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/wpimages",
+      "stem": "a913c8db479",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/wpimages/a913c8db479t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20171105011747",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180709030457",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20180810002445",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": "wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/midlands/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/midlands/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": false,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73.jpg",
+      "dims": null
+    },
+    {
+      "date": "20220826203844",
+      "folder": ":80/wpimages",
+      "stem": "9bf3cd82f73",
+      "thumbnail": true,
+      "http_status": 404,
+      "archive_final": "https://web.archive.org/web/20220826203844id_/http://www.castlesfortsbattles.co.uk:80/wpimages/9bf3cd82f73t.jpg",
+      "dims": null
+    }
+  ],
+  "working_patterns": [],
+  "recovered": [],
+  "count_before": 6
+}
