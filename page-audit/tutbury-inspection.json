@@ -1,0 +1,325 @@
+{
+  "status": "source-obtained",
+  "selected_timestamp": "20220826211201",
+  "source_url": "http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+  "source_bytes": 39424,
+  "title": "Tutbury Castle |  Midlands | Castles, Forts and Battles",
+  "attempts": [
+    {
+      "date": "20220826211201",
+      "url": "https://web.archive.org/web/20220826211201id_/http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+      "status": 200,
+      "size": 39419,
+      "good": true,
+      "final_url": "https://web.archive.org/web/20220826211201id_/http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html"
+    }
+  ],
+  "image_refs": [
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpddd38efb_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp10fbd999_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9aa59e65_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp44b55e7c_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpca77dd45_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp1b666a96_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp038b170e_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpc00107b6_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9361f621_06.png"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle11A.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle11A.jpg"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp9ee7376d_05_06.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp9ee7376d_05_06.jpg"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle22.JPG",
+      "url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle22.JPG"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpb900ba74_05_06.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpb900ba74_05_06.jpg"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle12.JPG",
+      "url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle12.JPG"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpa8797bf2_05_06.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpa8797bf2_05_06.jpg"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp62e94555_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp7126f784_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp7126f784_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp90ba2d04_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp90ba2d04_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp840a2574_06.png"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle1.JPG",
+      "url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle1.JPG"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp5258371f_05_06.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp5258371f_05_06.jpg"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle10.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle10.jpg"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wpb0d18409_05_06.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wpb0d18409_05_06.jpg"
+    },
+    {
+      "tag": "a",
+      "attr": "href",
+      "raw": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle14.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/Tutbury_Castle14.jpg"
+    },
+    {
+      "tag": "img",
+      "attr": "src",
+      "raw": "http://www.castlesfortsbattles.co.uk/wpimages/wp702a10cf_05_06.jpg",
+      "url": "http://www.castlesfortsbattles.co.uk/wpimages/wp702a10cf_05_06.jpg"
+    }
+  ],
+  "image_ref_count": 31,
+  "scripts": [
+    {
+      "src": "wpscripts/jquery.wpgallery.js",
+      "excerpt": ""
+    },
+    {
+      "src": "",
+      "excerpt": "\n      wpRedirectMobile('http://www.castlesfortsbattles.co.uk/m/tutbury_castle.html',0);\n      $(document).ready(function() {\n      \n$('#wp_gallery_pg_26').wpgallery({\n      \timageArray: wp_imgArray_pg_26,\n      \tnTotalImages: nImgNum_pg_26,\n      \tnGalleryLeft: 7,\n      \tnGalleryTop: 2695,\n      \tnGalleryWidth: 494,\n      \tnGalleryHeight: 316,\n      \tnImageDivLeft: 0,\n      \tnImageDivTop: 0,\n      \tnImageDivWidth: 494,\n      \tnImageDivHeight: 316,\n      \tnControlBarStyle: 0,\n      \tnControlBarExternalTop: 266,\n      \tbNavBarOnTop: true,\n      \tbShowNavBar: false,\n      \tnNavBarAlignment: 0,\n      \tstrNavBarColour: 'none',\n      \tnNavBarOpacity: 1.0,\n      \tnNavBarIconWidth: 24,\n      \tnNavBarIconHeight: 24,\n      \tbShowCaption: false,\n      \tbCaptionCount: true,\n      \tstrCaptionColour: '#ffffff',\n      \tnCaptionOpacity: 1.0,\n      \tstrCaptionTextColour: '#000000',\n      \tnCaptionFontSize: 12,\n      \tstrCaptionFontType: 'Arial,Times New Roman,_sans',\n      \tstrCaptionAlign: 'center',\n      \tstrCaptionFontWeight: 'normal',\n      \tbShowThumbnails: true,\n      \tnThumbStyle: 1,\n      \tnThumbPosition: 0,\n      \tnThumbLeft: 30,\n      \tnThumbTop: 211,\n      \tnThumbOpacity: 0.5,\n      \tnTotalThumbs: 5,\n      \tnThumbSize: 40,\n      \tnThumbSpacing: 10,\n      \tbThumbBorder: true,\n      \tstrThumbBorderColour: '#000000',\n      \tstrThumbBorderHoverColour: '#ffffff',\n      \tstrThumbBorderActiveColour: '#ffffff',\n      \tbShowThumbnailArrows: true,\n      \tnThumbButtonSize: 24,\n      \tnThumbButtonIndent: 30,\n      \tnColBorderWidth: 2,\n      \tnTransitionStyle: 1,\n      \tnStaticTime: 2000,\n      \tnTransitTime: 500,\n      \tbAutoplay: false,\n      \tloadingButtonSize: 38,\n      \tbPageCentred: true,\n      \tnPageWidth: 960,\n      \tnZIndex: 100,\n      \tloadingButtonSrc: 'wpimages/wpgallery_loading_0.gif',\n      \tblankSrc: 'wpscripts/blank.gif',\n      \trewindButtonSrc: 'wpimages/wpgallery_rewind_6.png',\n      \tprevButtonSrc: 'wpimages/wpgallery_previous_6.png',\n      \tplayButtonSrc: 'wpimages/wpgallery_play_6.png',\n      \tpauseButtonSrc: 'wpimages/wpgallery_pause_6.png',\n      \tnextButtonSrc: 'wpimages/wpgallery_next_6.png',\n      \tforwardButtonSrc: 'wpimages/wpgallery_forward_6.png',\n      \tthumbRewindButtonSrc: 'wpimages/wpgallery_rewind_6.png',\n      \tthumbForwardButtonSrc: 'wpimages/wpgallery_forward_6.png',\n      \trewindoverButtonSrc: 'wpimages/wpgallery_rewind_over_6.png',\n      \tprevoverButtonSrc: 'wpimages/wpgallery_previous_over_6.png',\n      \tplayoverButtonSrc: 'wpimages/wpgallery_play_over_6.png',\n      \tpauseoverButtonSrc: 'wpimages/wpgallery_pause_over_6.png',\n      \tnextoverButtonSrc: 'wpimages/wpgallery_next_over_6.png',\n      \tforwardoverButtonSrc: 'wpimages/wpgallery_forward_over_6.png',\n      \tthumboverRewindButtonSrc: 'wpimages/wpgallery_rewind_over_6.png',\n      \tthumboverForwardButtonSrc: 'wpimages/wpgallery_forward_over_6.png',\n      \tstrRewindToolTip: 'Reverse',\n      \tstrPreviousToolTip: 'Previous',\n      \tstrPlayToolTip: 'Play',\n      \tstrPauseToo"
+    }
+  ],
+  "text_blocks": [
+    {
+      "tag": "p",
+      "text": "TUTBURY CASTLE, DE13 9JF"
+    },
+    {
+      "tag": "p",
+      "text": "GETTING THERE"
+    },
+    {
+      "tag": "p",
+      "text": "Postcode: DE13 9JF"
+    },
+    {
+      "tag": "p",
+      "text": "Lat/Long: 52.859641N 1.690662W"
+    },
+    {
+      "tag": "p",
+      "text": "Notes:  Located in the village of the same name, Tutbury Castle towers above the local area. The site has a dedicated car park for visitors."
+    },
+    {
+      "tag": "p",
+      "text": "WHAT IS THERE TO SEE?"
+    },
+    {
+      "tag": "p",
+      "text": "Extensive ruins of a major medieval fortress. The top of the motte can be accessed giving good views over the surrounding countryside. The lodgings of Mary, Queen of Scots no longer exist but the site is appropriately marked."
+    },
+    {
+      "tag": "p",
+      "text": "VISIT OFFICIAL SITE (Opens in new window)"
+    },
+    {
+      "tag": "p",
+      "text": "Castle is owned by the Duchy of Lancaster ."
+    },
+    {
+      "tag": "p",
+      "text": "ADDITIONAL NOTES"
+    },
+    {
+      "tag": "p",
+      "text": "1. In 1831 the 'Tutbury Hoard' - possibly as many as 300,000 coins - were discovered in the vicinity. These were seemingly buried in the fourteenth century following Thomas Earl of Lancaster's defeat at the Battle of Burton Bridge (1322). Unfortunately many of the coins have been subsequently lost."
+    },
+    {
+      "tag": "p",
+      "text": "2. Following the Royalist defeat at the Battle of Naseby (1645) , Prince Rupert stayed at Tutbury Castle."
+    },
+    {
+      "tag": "p",
+      "text": "Mary, Queen of Scots . The lodgings of Mary, Queen of Scots no longer exist but were positioned here, near the North-East tower."
+    },
+    {
+      "tag": "p",
+      "text": "Folly . The stone structure on the top of the motte are the remains of a folly built during the eighteenth century."
+    },
+    {
+      "tag": "p",
+      "text": "Overlooking the River Dove, Tutbury Castle was built following the Norman invasion and later became a major medieval fortress. Seeing action during the Anarchy, the 1173 rebellion against Henry II, the Second Barons War and the Civil War, it is nevertheless most famous as the prison of Mary, Queen of Scots."
+    },
+    {
+      "tag": "p",
+      "text": "HISTORY OF TUTBURY CASTLE"
+    },
+    {
+      "tag": "p",
+      "text": "Tutbury Castle was initially built around 1068 by Hugh d'Avranches who had been granted the lands by William I. He constructed an earth and timber motte-and-bailey castle on the site but in 1071, the first recorded reference to the fortification, it was granted to Henry de Ferrers. Dominating the local town, which at the time of the Domesday survey of 1086 was the largest in Staffordshire, the Ferrers made it their primary residence. Early in the twelfth century the wooden tower on top of the mo"
+    },
+    {
+      "tag": "p",
+      "text": "In the mid-thirteenth century the Ferrers family became embroiled in the Second Baron's War (1264-7). The castle was attacked by Lord Edward (later Edward I) on behalf of his father, Henry III. After the decisive defeat of the Barons leader, Simon de Montfort, at the Battle of Evesham (1265) a conciliatory approach was taken to the former rebels. However, following a further rebellion by Ferrers in 1266, the castle was confiscated and granted to Edmund Crouchback, second surviving son of Henry I"
+    },
+    {
+      "tag": "p",
+      "text": "Either Edmund or his son Thomas made extensive upgrades to the castle repairing the damage done by Lord Edward. A new gateway was built at this time and the curtain wall upgraded. Thomas had been instrumental in the downfall of Piers Gaveston; along with the Earl of Warwick he had engineered his arrest, trial and execution. After biding his time Edward II got his revenge - he defeated Thomas at the Battle of Burton Bridge on 10 March 1322 with the Earl arrested and executed at his very own Ponte"
+    },
+    {
+      "tag": "p",
+      "text": "In 1351 the Earldom of Lancaster was elevated to a Dukedom with Henry of Grosmont becoming first Duke of Lancaster. Through the marriage of his daughter, Blanche, it passed to John of Gaunt who was the third son of Edward III. He made some repairs and regularly visited Tutbury. Upon his death Richard II attempted to dispossess his son, Henry Bolingbroke, but in 1399 he overthrew the King with Tutbury castle, along with the rest of the Duchy of Lancaster, then becoming merged with the Crown."
+    },
+    {
+      "tag": "p",
+      "text": "The castle went into some decline during the fifteenth century although the South Tower was added around 1450 and in 1511 it was still in sufficiently sound state to host a visit by Henry VIII. By the 1520s though it was reportedly in a dilapidated state; the Kitchen roof had fallen down and the curtain wall had split from subsidence. Repairs were made between 1561-6."
+    },
+    {
+      "tag": "p",
+      "text": "In 1569 onwards the castle hosted its most famous prisoner - Mary, Queen of Scots. Throughout the proceeding years she had been in dispute with her leading magnates culminating in an encounter at Carberry Hill near Edinburgh on 15 June 1567 where she surrendered to her opponents and was briefly imprisoned at Lochleven Castle . Forced to abdicate in favour of her infant son, James, she escaped and rallied her forces but was defeated at the Battle of Langside on 13 May 1567. She fled to Carlisle C"
+    },
+    {
+      "tag": "p",
+      "text": "Mary would be imprisoned in the Midlands for 18 years. Whereas her time at Bolton had been in reasonable comfort with significant freedoms afforded, her new accommodation was clearly not to her liking. Although lodged in refurbished Royal quarters, she regularly complained about the cold. George Talbot, Earl of Shrewsbury was assigned as her new gaoler and in June 1569, due to concerns over a planned rescue attempt, he moved her to Wingfield Manor. Briefly returned to Tutbury later in the year, "
+    },
+    {
+      "tag": "p",
+      "text": "In May 1570 Mary was moved from Tutbury when her health deteriorated significantly. She spent the next fifteen years accommodated in various establishments around the Midlands before being returned to Tutbury Castle on 14 January 1585. Initially held in some comfort, the arrival of Sir Amyas Paulet as her new gaoler in April 1585 marked her most severe confinement yet. A die-hard Puritan with little time for the Catholic Queen he relocated her to Chartley Castle on Christmas Eve 1585. Her subseq"
+    },
+    {
+      "tag": "p",
+      "text": "After Mary's departure the fabric of the castle was allowed to decay and by the late sixteenth century it was reported as ruinous although James I stayed here several times between 1619-24. During the Civil War however, the castle was hastily re-fortified and held for the King. A Parliamentary attempt to dislodge the garrison in 1643 failed and it wasn't until April 1646, long after Royalist hopes for victory had long since ended, that the next significant effort was made to take the castle. The"
+    },
+    {
+      "tag": "p",
+      "text": "Â© Copyright 2016 | Terms and Conditions (inc Cookie Policy) | Contact Us"
+    }
+  ],
+  "text_block_count": 26,
+  "image_include_count": 0,
+  "figure_count": 0
+}
