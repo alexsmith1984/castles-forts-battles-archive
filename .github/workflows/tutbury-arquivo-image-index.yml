@@ -1,0 +1,24 @@
+name: Tutbury independent image archive index recovery
+on:
+  push:
+    paths:
+      - '.github/workflows/tutbury-arquivo-image-index.yml'
+permissions:
+  contents: write
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/tutbury_arquivo_image_index.py
+      - name: Preserve authenticated independent-archive recovery
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/tutbury-castle/ page-audit/tutbury-arquivo-index.json
+          if git diff --cached --quiet; then echo No changes; else git commit -m 'Check independent image index for authentic Tutbury gallery photos' && git pull --rebase origin main && git push origin HEAD:main; fi
