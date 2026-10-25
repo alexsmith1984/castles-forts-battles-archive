@@ -1,6 +1,6 @@
 {
   "name": "Tutbury Castle",
-  "status": "PARTIAL / HISTORICAL GALLERY CHECKED",
+  "status": "PARTIAL / BOUNDED RECOVERY CHECKED",
   "source_timestamp": "20220826211201",
   "source_original": "http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
   "older_comparison_timestamp": "20210918014135",
@@ -38,97 +38,97 @@
   "images": [
     {
       "identity": "tutbury_castle11a",
-      "file": "images/tutbury_castle11a.png",
-      "archive_timestamp": "20220826211201",
-      "archive_original": "https://web.archive.org/web/20210918014135im_/http://www.castlesfortsbattles.co.uk/wpimages/wp9ee7376d_05_06.jpg",
-      "method": "browser-canvas-authentic-original",
+      "file": "images/tutbury_castle11a.jpg",
+      "archive_timestamp": "20220826203850",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp9ee7376d_05_06.jpg",
+      "method": "wayback-verified-native-jpeg-display",
       "dimensions": [
         921,
         390
       ],
-      "format": "PNG",
-      "bytes": 733594,
-      "sha256": "4eb3ca32e0a3051b142b29cd2ecaf3fc7e524be16a7fce0ce5faa42ddc8c9613",
+      "format": "JPEG",
+      "bytes": 165566,
+      "sha256": "8f300937d20429cc984e724b06f570806989f4e92f28ca4b980f303779400d38",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
       "identity": "tutbury_castle22",
-      "file": "images/tutbury_castle22.png",
-      "archive_timestamp": "20220826211201",
-      "archive_original": "https://web.archive.org/web/20210918014135im_/http://www.castlesfortsbattles.co.uk/wpimages/wpb900ba74_05_06.jpg",
-      "method": "browser-canvas-authentic-original",
+      "file": "images/tutbury_castle22.jpg",
+      "archive_timestamp": "20220826203844",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpb900ba74_05_06.jpg",
+      "method": "wayback-verified-native-jpeg-display",
       "dimensions": [
         416,
         601
       ],
-      "format": "PNG",
-      "bytes": 426402,
-      "sha256": "4e4b2c3a05cd06ccf86a0b098818e93ef1c266860149dca60028f0e8b24b2f38",
+      "format": "JPEG",
+      "bytes": 97965,
+      "sha256": "922929a14a3505a9e90f7b4ff504a46d39af48e4993878a256772abf3d96d2f7",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
       "identity": "tutbury_castle12",
-      "file": "images/tutbury_castle12.png",
-      "archive_timestamp": "20220826211201",
-      "archive_original": "https://web.archive.org/web/20210918014135im_/http://www.castlesfortsbattles.co.uk/wpimages/wpa8797bf2_05_06.jpg",
-      "method": "browser-canvas-authentic-original",
+      "file": "images/tutbury_castle12.jpg",
+      "archive_timestamp": "20220826203845",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpa8797bf2_05_06.jpg",
+      "method": "wayback-verified-native-jpeg-display",
       "dimensions": [
         415,
         276
       ],
-      "format": "PNG",
-      "bytes": 226765,
-      "sha256": "6971ef737ced29f46ecc6ea5ff64e5dada38f3e28334ac8ce575e0953be5c9f1",
+      "format": "JPEG",
+      "bytes": 56897,
+      "sha256": "7d010c6322e6b7b606da04248d70fb6f85956a400ce4a251a5d1658f8f7b9f7b",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
       "identity": "tutbury_castle1",
-      "file": "images/tutbury_castle1.png",
-      "archive_timestamp": "20220826211201",
-      "archive_original": "https://web.archive.org/web/20210918014135im_/http://www.castlesfortsbattles.co.uk/wpimages/wp5258371f_05_06.jpg",
-      "method": "browser-canvas-authentic-original",
+      "file": "images/tutbury_castle1.jpg",
+      "archive_timestamp": "20220826203844",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp5258371f_05_06.jpg",
+      "method": "wayback-verified-native-jpeg-display",
       "dimensions": [
         476,
         316
       ],
-      "format": "PNG",
-      "bytes": 278879,
-      "sha256": "24fc9401dfacb825663d67eb42e3d46fb1de8c86db53d97854a77354f32f7044",
+      "format": "JPEG",
+      "bytes": 66508,
+      "sha256": "87e29e0dacd8739fb8a91fc872030e508ffc0f3e0a7c7b6435744862607ff3f0",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
       "identity": "tutbury_castle10",
-      "file": "images/tutbury_castle10.png",
-      "archive_timestamp": "20220826211201",
-      "archive_original": "https://web.archive.org/web/20210918014135im_/http://www.castlesfortsbattles.co.uk/wpimages/wpb0d18409_05_06.jpg",
-      "method": "browser-canvas-authentic-original",
+      "file": "images/tutbury_castle10.jpg",
+      "archive_timestamp": "20220826203845",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wpb0d18409_05_06.jpg",
+      "method": "wayback-verified-native-jpeg-display",
       "dimensions": [
         920,
         243
       ],
-      "format": "PNG",
-      "bytes": 428718,
-      "sha256": "f491e0e0fb8c158a0e0e818802f66d5149dc59efb2f5736688e39c88d359fecb",
+      "format": "JPEG",
+      "bytes": 97076,
+      "sha256": "91bd4d3118f3108d6b9e850c161570c1bf4e8997ea1bf4c0476b10fa9e210d33",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     },
     {
       "identity": "tutbury_castle14",
-      "file": "images/tutbury_castle14.png",
-      "archive_timestamp": "20220826211201",
-      "archive_original": "https://web.archive.org/web/20210918014135im_/http://www.castlesfortsbattles.co.uk/wpimages/wp702a10cf_05_06.jpg",
-      "method": "browser-canvas-authentic-original",
+      "file": "images/tutbury_castle14.jpg",
+      "archive_timestamp": "20220826203844",
+      "archive_original": "http://www.castlesfortsbattles.co.uk/wpimages/wp702a10cf_05_06.jpg",
+      "method": "wayback-verified-native-jpeg-display",
       "dimensions": [
         920,
         224
       ],
-      "format": "PNG",
-      "bytes": 458018,
-      "sha256": "544fe8fa90de7cc5cc40cc54f27cfc0c9afc6e0965ea86497629922776316375",
+      "format": "JPEG",
+      "bytes": 104251,
+      "sha256": "260d43f8df030697da367ccca3e7d9e5df4fd0bc2b562b6a55ffe6dae82cbe01",
       "quality": "thumbnail/lower-resolution",
       "identification": "certain"
     }
@@ -536,5 +536,37 @@
     "samples_checked": 54,
     "working_url_patterns": [],
     "full_attempts": 0
+  },
+  "commoncrawl_and_native_check_2026_10_25": {
+    "native_jpeg_preserved": 6,
+    "commoncrawl_index_queries": 36,
+    "commoncrawl_rows": 0,
+    "new_gallery_ids": [],
+    "older_page_gallery_counts": [
+      {
+        "requested": "20170208093615",
+        "status": 200,
+        "final": "https://web.archive.org/web/20171105011747id_/http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+        "gallery_count": 18
+      },
+      {
+        "requested": "20180720122036",
+        "status": 200,
+        "final": "https://web.archive.org/web/20180709030457id_/http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+        "gallery_count": 18
+      },
+      {
+        "requested": "20180823233219",
+        "status": 200,
+        "final": "https://web.archive.org/web/20180810002445id_/http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+        "gallery_count": 18
+      },
+      {
+        "requested": "20210918014135",
+        "status": 200,
+        "final": "https://web.archive.org/web/20210918014135id_/http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
+        "gallery_count": 18
+      }
+    ]
   }
 }
