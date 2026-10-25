@@ -1,0 +1,24 @@
+name: Recover and publish Tutbury Castle 2022
+on:
+  push:
+    paths:
+      - '.github/workflows/tutbury-recover-and-publish.yml'
+permissions:
+  contents: write
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install requests beautifulsoup4 pillow
+      - run: python scripts/recover_tutbury_castle_2022.py
+      - name: Commit page and link
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add recovered/tutbury-castle page-audit/tutbury-castle.json atoz-part5.html
+          if git diff --cached --quiet; then echo No changes; else git commit -m 'Publish authentic Tutbury Castle reconstruction'; git pull --rebase origin main; git push origin HEAD:main; fi
