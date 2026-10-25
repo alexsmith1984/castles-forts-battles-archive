@@ -1,6 +1,6 @@
 {
   "name": "Tutbury Castle",
-  "status": "PARTIAL / BROWSER CHECKED",
+  "status": "PARTIAL / HISTORICAL GALLERY CHECKED",
   "source_timestamp": "20220826211201",
   "source_original": "http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
   "older_comparison_timestamp": "20210918014135",
@@ -530,5 +530,11 @@
         "body_prefix": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <title>Wayback Machine</title>\n    <script>\n"
       }
     ]
+  },
+  "historical_gallery_focus_2026_10_25": {
+    "found_now": [],
+    "samples_checked": 54,
+    "working_url_patterns": [],
+    "full_attempts": 0
   }
 }
