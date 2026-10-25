@@ -1,6 +1,6 @@
 {
   "name": "Tutbury Castle",
-  "status": "PARTIAL / SEARCH EXHAUSTED",
+  "status": "PARTIAL / FURTHER DEEP RECOVERY ATTEMPTED",
   "source_timestamp": "20220826211201",
   "source_original": "http://www.castlesfortsbattles.co.uk/midlands/tutbury_castle.html",
   "older_comparison_timestamp": "20210918014135",
@@ -224,5 +224,37 @@
     }
   ],
   "counting_method": "Full-size linked standalone photos and 18 explicit WebPlus wp_imgArray_pg_26 gallery images; excludes navigation, decorative illustrations, shared chrome and redundant thumbnail exports.",
-  "verification_note": "Only image assets whose filenames are declared by the archived Tutbury source were used. No substitutions."
+  "verification_note": "Only image assets whose filenames are declared by the archived Tutbury source were used. No substitutions.",
+  "deep_recovery_history": [
+    {
+      "date": "2026-10-25",
+      "methods": [
+        "WebPlus :80 /midlands/wpimages/ and root replay",
+        "Wayback exact/wildcard CDX",
+        "historic gallery-position continuity",
+        "Wayback+Arquivo TimeMaps",
+        "historic source full and display references"
+      ],
+      "results": {
+        "image_positions": 24,
+        "initial_recovered": 4,
+        "direct_replay_attempts": 616,
+        "wayback_cdx_rows": 0,
+        "wayback_cdx_errors": 129,
+        "arquivo_timemap_rows": 0,
+        "arquivo_timemap_errors": 92,
+        "historical_page_rows": 0,
+        "historical_page_reads": 0,
+        "historic_gallery_position_matches": 0,
+        "commoncrawl_rows": 0,
+        "result": [],
+        "final_recovered": 4,
+        "final_full": 0,
+        "final_low": 4,
+        "final_missing": 20,
+        "new_identities": [],
+        "upgraded": []
+      }
+    }
+  ]
 }
