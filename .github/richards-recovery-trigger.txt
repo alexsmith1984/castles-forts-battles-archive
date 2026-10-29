@@ -1,1 +1,2 @@
 Trigger Richard's Castle archival recovery.
+Retrigger direct-final workflow after push-trigger repair.
